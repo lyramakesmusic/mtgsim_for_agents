@@ -107,3 +107,18 @@ def test_peek_private_look_and_order(make_game):
     assert "looks at the top 3" in joined
     for c in orig:                                   # names never public
         assert c not in joined or joined.count(c) == joined.replace(f"top 3", "").count(c) and c not in joined
+
+
+def test_openrouter_context_trim_pins_brief(monkeypatch):
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test-key")
+    from mtgsim.agents import OpenRouterAgent
+    a = OpenRouterAgent("P1(test)", model="test/model", context_budget=2000)
+    a.messages = [{"role": "user", "content": "BRIEF " + "x" * 500}]
+    for n in range(30):
+        a.messages.append({"role": "user", "content": f"turn {n} " + "y" * 200})
+        a.messages.append({"role": "assistant", "content": "ok " + "z" * 100})
+    a._trim()
+    assert a._size() <= 2000 + 300                 # budget plus marker slack
+    assert a.messages[0]["content"].startswith("BRIEF")   # opening brief pinned
+    assert "trimmed to fit context" in a.messages[1]["content"]
+    assert a.messages[-1]["role"] == "assistant"   # tail preserved in order

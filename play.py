@@ -24,6 +24,11 @@ if __name__ == "__main__":
     ap.add_argument("--max-turns", type=int, default=12)
     ap.add_argument("--claude-model", default="opus")
     ap.add_argument("--codex-model", default=None, help="default: codex config default")
+    ap.add_argument("--codex-tier", default=None, choices=["fast", "priority", "flex"],
+                    help="codex service_tier (what /fast sets); default: your ~/.codex config")
+    ap.add_argument("--codex-effort", default=None,
+                    choices=["minimal", "low", "medium", "high"],
+                    help="codex model_reasoning_effort; default: your ~/.codex config")
     ap.add_argument("--mock", action="store_true", help="scripted dummy agents (plumbing test)")
     ap.add_argument("--stateless", action="store_true", help="no session continuity")
     ap.add_argument("--log", default=None, help="default: games/<timestamp>.md")
@@ -46,26 +51,33 @@ if __name__ == "__main__":
         spec = spec.strip()
         kind, _, deck = spec.rpartition(":")
         kind = kind or "claude"
+        model_override = None
+        if "@" in kind:                          # agent@model:deck, e.g. openrouter@moonshotai/kimi-k2:snakes
+            kind, model_override = kind.split("@", 1)
         if kind not in AGENT_TYPES:
             raise SystemExit(f"unknown agent {kind!r} in seat {spec!r} (have: {', '.join(AGENT_TYPES)})")
-        seats.append((kind, deck))
-    db = load_db([deck for _, deck in seats])
+        seats.append((kind, deck, model_override))
+    db = load_db([deck for _, deck, _m in seats])
 
     decks, agents = [], []
-    for n, (kind, deck) in enumerate(seats):
+    for n, (kind, deck, model_override) in enumerate(seats):
         decks.append((deck, *load_deck(deck, db), deck_strategy(deck)))
         label = f"P{n+1}({deck})"
         if args.mock:
             agents.append(MockAgent(label, db))
         else:
-            model = args.codex_model if kind == "codex" else args.claude_model
+            model = model_override or {"codex": args.codex_model,
+                                       "claude": args.claude_model}.get(kind)
+            extra = {"service_tier": args.codex_tier, "effort": args.codex_effort} \
+                if kind == "codex" else {}
             agents.append(AGENT_TYPES[kind](
                 label, model=model, resume=not args.stateless,
-                transcript_dir=args.transcripts or None))
+                transcript_dir=args.transcripts or None, **extra))
 
     def judge_factory():
         from mtgsim.agents import CodexAgent
         return CodexAgent("judge", model=args.codex_model, resume=True,
+                          service_tier=args.codex_tier, effort=args.codex_effort,
                           transcript_dir=args.transcripts or None)
 
     game = Game(db, decks, agents, seed, args.log, args.max_turns, rng,

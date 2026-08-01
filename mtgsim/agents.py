@@ -16,10 +16,12 @@ prompt, so session memory is strategy, not ground truth — drift can't corrupt
 the game.
 """
 import json
+import os
 import re
 import subprocess
 import tempfile
 import time
+import urllib.request
 from pathlib import Path
 
 FALLBACK = '{"action":"pass"}'
@@ -105,7 +107,14 @@ class ClaudeAgent(_SubprocessAgent):
 class CodexAgent(_SubprocessAgent):
     """`codex exec` headless. Final message via -o file; session id + usage
     from the --json event stream. resume subcommand lacks --sandbox, so the
-    sandbox is pinned via -c sandbox_mode config override on both paths."""
+    sandbox is pinned via -c sandbox_mode config override on both paths.
+    service_tier / reasoning effort ride along as -c overrides (what the
+    interactive /fast toggle sets), so a run doesn't depend on ~/.codex."""
+
+    def __init__(self, label, model=None, service_tier=None, effort=None, **kw):
+        super().__init__(label, model=model, **kw)
+        self.service_tier = service_tier
+        self.effort = effort
 
     def _ask_once(self, prompt):
         with tempfile.NamedTemporaryFile(mode="r", suffix=".txt", delete=False) as tf:
@@ -114,6 +123,10 @@ class CodexAgent(_SubprocessAgent):
         # resume rejects flags exec accepts (e.g. --color, --sandbox)
         common = ["-c", 'sandbox_mode="read-only"', "--skip-git-repo-check",
                   "--json", "-o", outfile]
+        if self.service_tier:
+            common += ["-c", f'service_tier="{self.service_tier}"']
+        if self.effort:
+            common += ["-c", f'model_reasoning_effort="{self.effort}"']
         if self.model:
             common += ["-m", self.model]
         if self.resume and self.session_id:
@@ -140,6 +153,68 @@ class CodexAgent(_SubprocessAgent):
         return reply
 
 
+class OpenRouterAgent(_SubprocessAgent):
+    """OpenRouter chat-completions backend — seats OSS models (kimi, deepseek,
+    qwen...) at the table. No server-side sessions, so we keep the message
+    list ourselves. Context trims from the middle when it grows: safe by
+    design, because every engine update carries an authoritative state digest
+    and the opening brief (rules + protocol + gameplan) is pinned as message
+    zero. Needs OPENROUTER_API_KEY in the environment."""
+
+    URL = "https://openrouter.ai/api/v1/chat/completions"
+
+    def __init__(self, label, model=None, context_budget=240_000, **kw):
+        if not model:
+            raise SystemExit("openrouter seats need a model: openrouter@provider/slug:deck")
+        super().__init__(label, model=model, **kw)
+        self.api_key = os.environ.get("OPENROUTER_API_KEY")
+        if not self.api_key:
+            raise SystemExit("set OPENROUTER_API_KEY to seat openrouter agents")
+        self.messages = []
+        self.context_budget = context_budget      # chars, ~4 chars/token
+
+    def _size(self):
+        return sum(len(m.get("content") or "") for m in self.messages)
+
+    def _trim(self):
+        """Drop oldest turns after the pinned brief until under budget."""
+        if self._size() <= self.context_budget:
+            return
+        marker = {"role": "user", "content":
+                  "(earlier turns trimmed to fit context — your opening brief above still "
+                  "applies, and the latest state digest below is authoritative)"}
+        while self._size() > self.context_budget and len(self.messages) > 3:
+            del self.messages[1]
+        if marker["content"] not in (self.messages[1].get("content") or ""):
+            self.messages.insert(1, marker)
+
+    def _ask_once(self, prompt):
+        if self.session_id is None:               # fresh session (first call or post-drop)
+            self.messages = []
+        self.messages.append({"role": "user", "content": prompt})
+        self._trim()
+        body = json.dumps({"model": self.model, "messages": self.messages,
+                           "usage": {"include": True}}).encode()
+        req = urllib.request.Request(self.URL, data=body, method="POST", headers={
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://github.com/lyramakesmusic/mtgsim_for_agents",
+            "X-Title": "mtgsim for agents"})
+        with urllib.request.urlopen(req, timeout=self.timeout) as r:
+            resp = json.load(r)
+        if resp.get("error"):
+            raise RuntimeError(f"openrouter: {str(resp['error'])[:200]}")
+        msg = (resp.get("choices") or [{}])[0].get("message", {})
+        text = (msg.get("content") or "").strip() or (msg.get("reasoning") or "")
+        u = resp.get("usage") or {}
+        self.tokens["in"] += u.get("prompt_tokens", 0)
+        self.tokens["out"] += u.get("completion_tokens", 0)
+        self.cost_usd += u.get("cost") or 0.0
+        self.messages.append({"role": "assistant", "content": text})
+        self.session_id = "local"                 # engine may now send deltas
+        return text
+
+
 class MockAgent:
     """Dumb plumbing-test agent: plays a land, casts nothing, passes."""
 
@@ -162,4 +237,4 @@ class MockAgent:
         return FALLBACK
 
 
-AGENT_TYPES = {"claude": ClaudeAgent, "codex": CodexAgent}
+AGENT_TYPES = {"claude": ClaudeAgent, "codex": CodexAgent, "openrouter": OpenRouterAgent}
