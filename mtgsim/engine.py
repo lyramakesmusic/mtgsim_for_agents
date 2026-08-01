@@ -978,7 +978,8 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 "the engine won't remember them for you. "
                 "For attack you may split attackers among players; only untapped, non-sick (or haste-granted, "
                 "justify in narration) creatures; attacking taps them unless vigilance (use set to untap). "
-                "One attack step per turn.",
+                "One attack step per turn unless an effect grants extra combats (Aurelia, Aggravated "
+                "Assault...) — untap your attackers via set atoms and justify in narration.",
                 schema_hint='{"action":str, ...per protocol..., "narration":str, "table_talk":str?}')
             act = plan.get("action", "pass")
             if act == "pass":
