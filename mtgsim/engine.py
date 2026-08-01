@@ -138,7 +138,10 @@ EFFECT ATOMS (declare every consequence of your plays; the engine applies them v
 has no card logic of its own — *you* are the rules engine, so anything you don't declare
 simply doesn't happen). The engine already handles the cast/played card's own zone change
 (battlefield or graveyard) and your mana taps — effects are for the *additional* consequences
-(tokens, triggers, targets, costs like sacrifices):
+(tokens, triggers, targets, costs like sacrifices). Triggers are never automatic: ETBs,
+attack triggers, upkeep/end-step triggers and death triggers happen only when you declare
+them as atoms in the relevant action — the engine drops nothing you declare and creates
+nothing you don't:
  {"move":{"id":perm_id,"to":zone}}  zones: hand|battlefield|graveyard|exile|library_top|library_bottom|command
  {"move":{"id":perm_id,"to":"battlefield","control":"P2"}}  — control change (Mind Control,
    theft, donation). Dead/bounced permanents always route to their owner's zones.
@@ -1139,7 +1142,9 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 "For attack you may split attackers among players; only untapped, non-sick (or haste-granted, "
                 "justify in narration) creatures; attacking taps them unless vigilance (use set to untap). "
                 "One attack step per turn unless an effect grants extra combats (Aurelia, Aggravated "
-                "Assault...) — untap your attackers via set atoms and justify in narration.",
+                "Assault...) — untap your attackers via set atoms and justify in narration. Declare "
+                "attack triggers (tokens from attacking, Karazikar draws...) in the attack action" + chr(39) + "s "
+                "own effects — they apply at declare time.",
                 schema_hint='{"action":str, ...per protocol..., "narration":str, "table_talk":str?}')
             act = plan.get("action", "pass")
             if act == "pass":
@@ -1237,6 +1242,10 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 self.log(f"{me.name} attacks {dfd.name} with: {[x['id'] for x in atk]}")
         if not assault:
             return
+        # attack triggers (Squirrel Girl's token, Karazikar's goad-and-draw...)
+        # live in the attack action's own effects — apply them at declare time
+        if plan.get("effects"):
+            self.apply_effects(i, plan.get("effects"))
         # declare-attackers priority: anyone (defender or bystander) may act
         # before blocks — pre-block removal, fogs, political rescues
         self.response_windows(i, f"{me.name} has declared attackers (see above) — "
