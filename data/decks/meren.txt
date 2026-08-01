@@ -1,0 +1,76 @@
+// strategy: Graveyard value engine, now with teeth. The yard is your second hand: sac cheap bodies for value (Skullclamp, altars, Village Rites, Yawgmoth), grow Meren's experience, rebuy threats every end step. Edicts tax the table's best creatures. Entomb/Buried Alive put Mikaeus, the Unhallowed in the yard early — Meren or Reanimate brings him back, and Mikaeus + Triskelion is a game-ending two-card combo (infinite damage via undying loops; demonstrate it and claim the win). Toxic Deluge and Grave Titan close grindy games. Board wipes barely hurt you — everyone rebuilds, you reanimate.
+Commander
+1 Meren of Clan Nel Toth
+
+Deck
+17 Swamp
+13 Forest
+1 Command Tower
+1 Path of Ancestry
+1 Evolving Wilds
+1 Terramorphic Expanse
+1 Golgari Rot Farm
+1 Jungle Hollow
+1 Llanowar Wastes
+1 Woodland Cemetery
+1 Westvale Abbey
+1 Sol Ring
+1 Arcane Signet
+1 Golgari Signet
+1 Wayfarer's Bauble
+1 Cultivate
+1 Kodama's Reach
+1 Sakura-Tribe Elder
+1 Elves of Deep Shadow
+1 Viscera Seer
+1 Carrion Feeder
+1 Ashnod's Altar
+1 Phyrexian Altar
+1 Altar of Dementia
+1 Stitcher's Supplier
+1 Satyr Wayfinder
+1 Reassembling Skeleton
+1 Young Wolf
+1 Butcher Ghoul
+1 Spore Frog
+1 Caustic Caterpillar
+1 Plaguecrafter
+1 Fleshbag Marauder
+1 Merciless Executioner
+1 Ophiomancer
+1 Eternal Witness
+1 Blood Artist
+1 Zulaport Cutthroat
+1 Midnight Reaper
+1 Grim Haruspex
+1 Grave Pact
+1 Dictate of Erebos
+1 Butcher of Malakir
+1 Animate Dead
+1 Victimize
+1 Living Death
+1 Buried Alive
+1 Golgari Findbroker
+1 Grisly Salvage
+1 Putrefy
+1 Beast Within
+1 Casualties of War
+1 Phyrexian Arena
+1 Deathreap Ritual
+1 Village Rites
+1 Deadly Dispute
+1 Skullclamp
+1 Kokusho, the Evening Star
+1 Massacre Wurm
+1 Mycoloth
+1 Ayara, First of Locthwain
+1 Toxic Deluge
+1 Deadly Rollick
+1 Entomb
+1 Reanimate
+1 Grave Titan
+1 Mikaeus, the Unhallowed
+1 Triskelion
+1 Yawgmoth, Thran Physician
+1 Nature's Lore
+1 Birds of Paradise

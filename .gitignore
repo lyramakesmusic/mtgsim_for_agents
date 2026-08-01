@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+games/
+logs/
+game_log*.md
+pod*.md
+smoke_*.md
+.cache/
+data/art/

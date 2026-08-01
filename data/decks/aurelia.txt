@@ -1,0 +1,87 @@
+// strategy: Boros fliers midrange with a combo topper. Efficient angels, evasive pressure, Aurelia's second combat doubling your clock. Lifelink angels race; three wraths punish token boards; instant protection (Akroma's Will, Teferi's Protection, Flawless Maneuver) beats theirs. Smothering Tithe funds everything. The finisher: Helm of the Host on Aurelia = a new Aurelia every combat, each granting another combat — effectively unlimited attack steps; demonstrate the loop and claim. Embercleave and Windbrisk Heights reward the wide-and-fast plan. Punish setup turns from the air.
+// Aurelia untaps your team for a second combat every turn she swings, doubling your clock.
+// Evasion is the plan: almost everything flies, so ground armies (snakes, squirrels) can't
+// block you. Lifelink angels (Lyra, Thune, Valkyrie) race aggro; three wraths reset token
+// decks; instant-speed protection (Akroma's Will, Flawless Maneuver) beats their wraths.
+// You're the tempo check on greedy engines: punish setup turns with fast flying damage.
+Commander
+1 Aurelia, the Warleader
+
+Deck
+13 Plains
+11 Mountain
+1 Command Tower
+1 Battlefield Forge
+1 Clifftop Retreat
+1 Temple of Triumph
+1 Evolving Wilds
+1 Terramorphic Expanse
+1 Path of Ancestry
+1 Rogue's Passage
+1 Sunhome, Fortress of the Legion
+1 Slayers' Stronghold
+1 Sol Ring
+1 Arcane Signet
+1 Boros Signet
+1 Talisman of Conviction
+1 Mind Stone
+1 Fellwar Stone
+1 Wayfarer's Bauble
+1 Lyra Dawnbringer
+1 Gisela, Blade of Goldnight
+1 Giada, Font of Hope
+1 Baneslayer Angel
+1 Archangel of Thune
+1 Righteous Valkyrie
+1 Sephara, Sky's Blade
+1 Resplendent Angel
+1 Inspiring Overseer
+1 Angel of Finality
+1 Sun Titan
+1 Emeria Shepherd
+1 Odric, Lunarch Marshal
+1 Mentor of the Meek
+1 Knight of the White Orchid
+1 Frontline Medic
+1 Aggravated Assault
+1 Combat Celebrant
+1 Blade Historian
+1 True Conviction
+1 Swords to Plowshares
+1 Path to Exile
+1 Boros Charm
+1 Lightning Helix
+1 Justice Strike
+1 Chaos Warp
+1 Return to Dust
+1 Disenchant
+1 Aurelia's Fury
+1 Wrath of God
+1 Blasphemous Act
+1 Cleansing Nova
+1 Mask of Memory
+1 Herald's Horn
+1 Skullclamp
+1 Faithless Looting
+1 Thrill of Possibility
+1 Demand Answers
+1 Akroma's Will
+1 Flawless Maneuver
+1 Unbreakable Formation
+1 Deflecting Palm
+1 Master Warcraft
+1 Cathars' Crusade
+1 Impact Tremors
+1 Luminarch Ascension
+1 Sunforger
+1 Fireshrieker
+1 Sacred Foundry
+1 Inspiring Vantage
+1 Windbrisk Heights
+1 Smothering Tithe
+1 Helm of the Host
+1 Embercleave
+1 Iroas, God of Victory
+1 Teferi's Protection
+1 Sunfall
+1 Karlach, Fury of Avernus

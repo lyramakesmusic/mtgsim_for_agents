@@ -1,0 +1,147 @@
+"""Effect atoms: bookkeeping applied verbatim, hidden-info services verified."""
+
+
+def test_search_verified_and_shuffles(make_game):
+    g = make_game()
+    me = g.p[1]
+    g.apply_effects(1, [{"search": {"player": "self", "card": "Swamp", "to": "battlefield", "tapped": True}}])
+    assert any(x["name"] == "Swamp" and x["tapped"] for x in me.battlefield)
+    # lying tutor: named card not in library
+    g.apply_effects(1, [{"search": {"player": "self", "card": "Lightning Bolt", "to": "hand"}}])
+    assert "Lightning Bolt" not in me.hand
+
+
+def test_move_verified(make_game):
+    g = make_game()
+    me = g.p[1]
+    card = me.hand[0]
+    g.apply_effects(1, [{"move": {"player": "self", "from": "hand", "card": card, "to": "graveyard"}}])
+    assert card in me.graveyard
+    # phantom reanimate: not actually in graveyard
+    g.apply_effects(1, [{"move": {"player": "self", "from": "graveyard", "card": "Island", "to": "hand"}}])
+    assert "Island" not in me.hand
+    # real reanimate
+    g.apply_effects(1, [{"move": {"player": "self", "from": "graveyard", "card": card, "to": "battlefield"}}])
+    assert any(x["name"] == card for x in me.battlefield)
+
+
+def test_mill_and_library_moves(make_game):
+    g = make_game()
+    before = len(g.p[2].library)
+    g.apply_effects(1, [{"move": {"player": "P3", "from": "library_top", "n": 5, "to": "graveyard"}}])
+    assert len(g.p[2].library) == before - 5
+    assert len(g.p[2].graveyard) == 5
+
+
+def test_commander_zone_roundtrip(make_game):
+    g = make_game()
+    me = g.p[1]
+    g.apply_effects(1, [{"move": {"player": "self", "from": "command",
+                                  "card": me.commander, "to": "battlefield"}}])
+    assert not me.command_zone
+    cid = next(x["id"] for x in me.battlefield if x["name"] == me.commander)
+    g.apply_effects(1, [{"move": {"id": cid, "to": "command"}}])
+    assert me.command_zone
+
+
+def test_tokens_cease_and_set_atom(make_game):
+    g = make_game()
+    me = g.p[1]
+    g.apply_effects(1, [{"create": {"player": "self", "name": "Zombie", "n": 2, "pt": [2, 2], "tapped": True}}])
+    zid = next(x["id"] for x in me.battlefield if x["name"] == "Zombie")
+    g.apply_effects(1, [{"set": {"id": zid, "tapped": False, "counters": 3}}])
+    z = next(x for x in me.battlefield if x["id"] == zid)
+    assert not z["tapped"] and z["counters"] == 3
+    g.apply_effects(1, [{"move": {"id": zid, "to": "graveyard"}}])
+    assert "Zombie" not in me.graveyard          # tokens cease, never hit zones
+
+
+def test_life_and_random_deterministic(make_game):
+    g1, g2 = make_game(seed=9), make_game(seed=9)
+    for g in (g1, g2):
+        g.apply_effects(0, [{"life": {"player": "P2", "delta": -7}},
+                            {"life": {"player": "self", "delta": 5}},
+                            {"random": {"die": 20}}])
+        assert g.p[1].life == 33 and g.p[0].life == 45
+    assert g1.table[-1] == g2.table[-1]           # same seed, same roll
+
+
+def test_eliminate_dispute_blocks_and_accept_kills(make_game, db):
+    class Acceptor:
+        calls, cost_usd, tokens = 0, 0.0, {"in": 0, "out": 0}
+        def ask(self, prompt):
+            return '{"accept": true, "reason": "it is correct"}'
+    g = make_game()
+    g.apply_effects(0, [{"eliminate": {"player": "P4", "reason": "fake oracle"}}])
+    assert g.p[3].alive                            # mock disputes -> survives
+    g.agents[2] = Acceptor()
+    g.apply_effects(0, [{"eliminate": {"player": "P3", "reason": "real oracle"}}])
+    assert not g.p[2].alive                        # acceptance -> eliminated
+
+
+def test_bare_number_references_resolve(make_game):
+    """Agents shorthand 'Squirrel#22' as 22 (or '22'); find() must resolve it."""
+    g = make_game()
+    me = g.p[1]
+    g.apply_effects(1, [{"create": {"player": "self", "name": "Squirrel", "n": 1, "pt": [1, 1]}}])
+    num = next(x["id"] for x in me.battlefield if x["name"] == "Squirrel").split("#")[1]
+    g.apply_effects(1, [{"set": {"id": int(num), "counters": 2}}])       # int reference
+    sq = next(x for x in me.battlefield if x["name"] == "Squirrel")
+    assert sq["counters"] == 2
+    g.apply_effects(1, [{"move": {"id": num, "to": "graveyard"}}])       # str reference
+    assert not any(x["name"] == "Squirrel" for x in me.battlefield)
+
+
+def test_duplicate_names_prefer_actor(make_game):
+    """Two Skullclamps, two owners: bare-name refs resolve to the actor's copy."""
+    g = make_game()
+    a = g.perm(g.p[0], "Skullclamp")
+    b = g.perm(g.p[2], "Skullclamp")
+    g.apply_effects(2, [{"set": {"id": "Skullclamp", "tapped": True}}])
+    assert b["tapped"] and not a["tapped"]          # P3's own clamp tapped
+    assert any("ambiguous reference" in l for l in g.table)
+
+
+def test_control_change_and_owner_routing(make_game):
+    g = make_game()
+    thief, victim = g.p[2], g.p[0]
+    x = g.perm(victim, "Kokusho, the Evening Star")
+    g.apply_effects(2, [{"move": {"id": x["id"], "to": "battlefield", "control": "P3"}}])
+    assert x in thief.battlefield and x not in victim.battlefield
+    assert x["sick"]                                   # stolen creatures don't swing yet
+    g.apply_effects(2, [{"move": {"id": x["id"], "to": "graveyard"}}])
+    assert "Kokusho, the Evening Star" in victim.graveyard   # dies to OWNER's yard
+    assert "Kokusho, the Evening Star" not in thief.graveyard
+
+
+def test_draw_from_bottom(make_game):
+    g = make_game()
+    pl = g.p[0]
+    bottom = pl.library[-1]
+    g.apply_effects(0, [{"draw": {"player": "self", "n": 1, "from": "bottom"}}])
+    assert pl.hand[-1] == bottom
+
+
+def test_stolen_permanents_revert_when_thief_eliminated(make_game):
+    """CR 800.4a: control effects end when their controller leaves the game."""
+    g = make_game()
+    owner, thief = g.p[1], g.p[2]
+    x = g.perm(owner, "The Unbeatable Squirrel Girl")
+    g.apply_effects(2, [{"move": {"id": x["id"], "to": "battlefield", "control": "P3"}}])
+    assert x in thief.battlefield
+    g.apply_effects(0, [{"life": {"player": "P3", "delta": -45}}])
+    assert not thief.alive
+    assert x in owner.battlefield          # she walked home
+    assert x["sick"]                        # and can't attack this cycle
+
+
+def test_owned_permanents_leave_when_owner_eliminated(make_game):
+    """CR 800.4a other direction: your property leaves even from a thief's board."""
+    g = make_game()
+    owner, thief = g.p[0], g.p[2]
+    x = g.perm(owner, "Purphoros, God of the Forge")
+    g.apply_effects(2, [{"move": {"id": x["id"], "to": "battlefield", "control": "P3"}}])
+    assert x in thief.battlefield
+    g.apply_effects(1, [{"life": {"player": "P1", "delta": -45}}])
+    assert not owner.alive
+    assert x not in thief.battlefield       # left the game with its owner
