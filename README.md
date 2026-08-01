@@ -10,7 +10,7 @@ the models already know the rules. they have quite extensive knowledge of cards,
 
 triggers, combat math, payments, ruling decisions, the stack, etc is on the agents. the agents will occasionally get something wrong, get called out, and take action to fix board state. 
 
-for example: P3 mind controlled P1's creature. P1 then lost the game. the sim removed P1's board state but was unable to handle removing the P3-controlled creature and left it on the board. the table realized, and on P3's next turn it took an action to hand over control back to nonexistent P1 explicitly, noting it as a correction of board state rather than a play.
+for example: P3 mind controlled P1's creature. P1 then lost the game. the sim removed P1's board state but was unable to handle removing the P3-controlled creature and left it on the board. the table realized, and took an action to hand the creature back to nonexistent P1 (removing it from the game) explicitly, noting it as a correction of board state rather than a play.
 
 theres also a judge channel: type into the terminal mid-game and it posts to the table as a ⚖ ruling from `judge:`. they treat these as binding and will cite them turns later.
 
