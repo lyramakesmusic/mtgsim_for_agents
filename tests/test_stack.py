@@ -105,3 +105,18 @@ def test_tapped_out_free_tricks_get_windows(make_game):
     pl.battlefield = [{"id": "Sol Ring#902", "name": "Sol Ring", "tapped": False,
                        "sick": False, "counters": 0, "token": False, "pt": None}]
     assert not g._can_respond(pl)
+
+
+def test_graveyard_targets_do_not_false_fizzle(make_game):
+    """Reanimate-style: name-only targets aren't the engine's to fizzle."""
+    g = make_game()
+    me = g.p[0]
+    me.graveyard.append("Mikaeus, the Unhallowed")
+    me.hand.append("Reanimate")
+    g.do_action(0, {"action": "cast", "card": "Reanimate",
+                    "targets": ["Mikaeus, the Unhallowed"],
+                    "effects": [{"move": {"player": "self", "from": "graveyard",
+                                          "card": "Mikaeus, the Unhallowed", "to": "battlefield"}},
+                                {"life": {"player": "self", "delta": -6}}]})
+    assert any(x["name"] == "Mikaeus, the Unhallowed" for x in me.battlefield)
+    assert not any("FIZZLES" in line for line in g.table)

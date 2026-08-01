@@ -121,9 +121,10 @@ and any granted actions. Other players learn only that you looked.
 Activated abilities that do more than make mana are announced and use the stack — other
 players get response windows before they resolve, same as spells (pure mana abilities skip
 this, as in the real rules). If the source dies in response, the ability still resolves.
-List "targets" whenever your spell targets. The engine checks them at resolution: if every
-target has left the game state by then (someone responded), the spell fizzles — it goes to
-the graveyard with the mana still spent, and none of its effects apply. If responses resolve
+List "targets" whenever your spell targets. Targets naming specific permanent ids ("X#12")
+are checked at resolution: if every id-target has left the battlefield (someone responded),
+the spell fizzles — graveyard, mana spent, no effects. Name-only targets (graveyard cards,
+players, spells on the stack) are yours to adjudicate honestly. If responses resolve
 while your announced spell waits, you'll be asked to confirm or adjust it against the changed
 board before it resolves — the world you announced into may not be the world it resolves into.
 EFFECT ATOMS (declare every consequence of your plays; the engine applies them verbatim and
@@ -667,8 +668,11 @@ class Game:
                 # abacus owns — a spell can't resolve against a memory
                 targets = [str(t) for t in (a.get("targets") or [])]
                 if targets:
+                    # only permanent ids (engine-issued, '#') are verifiable;
+                    # graveyard cards, players, spells on the stack are not the
+                    # abacus's to adjudicate — those resolve as declared
                     gone = [t for t in targets
-                            if not self.find(t, prefer=i)[1] and not self.resolve_player(i, t)]
+                            if "#" in t and not self.find(t, prefer=i)[1]]
                     if gone and len(gone) == len(targets):
                         if from_cz:
                             me.command_zone = True
