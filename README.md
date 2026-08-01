@@ -12,7 +12,7 @@ triggers, combat math, payments, ruling decisions, the stack, etc is on the agen
 
 for example: P3 mind controlled P1's creature. P1 then lost the game. the sim removed P1's board state but was unable to handle removing the P3-controlled creature and left it on the board. the table realized, and took an action to hand the creature back to nonexistent P1 (removing it from the game) explicitly, noting it as a correction of board state rather than a play.
 
-theres also a judge channel: type into the terminal mid-game and it posts to the table as a ⚖ ruling from `judge:`. they treat these as binding and will cite them turns later.
+theres also a judge channel: type into the terminal mid-game and it posts to the table as a ruling from `judge:`. they treat these as binding and will cite them turns later.
 
 agents talk on two channels: `table_talk` is public for politics and trash talking, `thinking` is private commentary only you see. often you will see an agent privately reasoning about keeping four blue mana open as a bluff knowing it has nothing, but then openly representing a counterspell.
 
