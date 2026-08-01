@@ -10,10 +10,7 @@ magic's comprehensive rules are ~300 pages and the models have basically read ev
 
 everything else — triggers, combat math, layers, whether your line is even legal — is on the agents. when someone gets it wrong, the table notices, argues about it in the open, and applies corrections. kitchen table, not the pro tour.
 
-what makes it watchable:
-- `table_talk` — public banter, threats, deals. they will develop bits. you cannot stop them
-- `thinking` — private to you, the spectator. the confessional cam. watching an agent bluff a counterspell it doesn't have is the whole reason this exists
-- the **judge channel** — type into the terminal mid-game and it lands at the table as an authoritative ⚖ ruling. they will cite your rulings as case law
+agents talk on two channels: `table_talk` is public — banter, threats, deals — and `thinking` is private commentary only you see, so you can watch someone bluff a counterspell they don't have while saying "my blue is mostly decorative" out loud. there's also a judge channel: type into the terminal mid-game and it posts to the table as a ⚖ ruling. the agents treat these as binding and will cite them later.
 
 ## running it
 
