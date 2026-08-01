@@ -120,3 +120,84 @@ def test_graveyard_targets_do_not_false_fizzle(make_game):
                                 {"life": {"player": "self", "delta": -6}}]})
     assert any(x["name"] == "Mikaeus, the Unhallowed" for x in me.battlefield)
     assert not any("FIZZLES" in line for line in g.table)
+
+
+def test_counter_war_two_deep(make_game):
+    """A casts, B counters, A counter-counters: LIFO unwinds, original resolves."""
+    class P1Agent(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.cast_main = False
+            self.countered_back = False
+        def ask(self, prompt):
+            if "MAIN PHASE" in prompt and not self.cast_main:
+                self.cast_main = True
+                return ('{"action":"cast","card":"Harmonize",'
+                        '"effects":[{"draw":{"player":"self","n":3}}]}')
+            if "RESPONSE WINDOW" in prompt and "stack#2" in prompt and not self.countered_back:
+                self.countered_back = True
+                return ('{"action":"cast","card":"Counterspell",'
+                        '"effects":[{"counter":{"target":"stack#2"}}]}')
+            if "final resolution" in prompt:
+                return '{"action":"cast"}'
+            return '{"action":"pass"}'
+
+    class P2Agent(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.fired = False
+        def ask(self, prompt):
+            if "RESPONSE WINDOW" in prompt and "casting Harmonize" in prompt and not self.fired:
+                self.fired = True
+                return ('{"action":"cast","card":"Counterspell",'
+                        '"effects":[{"counter":{"target":"stack#1"}}]}')
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.agents[0], g.agents[1] = P1Agent(), P2Agent()
+    g.p[0].hand = ["Harmonize", "Counterspell"]
+    g.p[1].hand = ["Counterspell"]
+    hand_before = 0  # after casting both, P1 draws 3 from Harmonize
+    g.turn = 2
+    g.half_turn(0)
+    joined = "\n".join(g.table)
+    assert "stack#2 Counterspell is countered by Counterspell" in joined
+    assert "Harmonize is COUNTERED" not in joined
+    assert "Harmonize" in g.p[0].graveyard          # resolved, went to yard
+    assert "Counterspell" in g.p[0].graveyard       # the counter-counter
+    assert "Counterspell" in g.p[1].graveyard       # the countered counter
+    assert len(g.p[0].hand) >= 3                    # Harmonize's draws happened
+
+
+def test_split_second_skips_windows(make_game):
+    windows = []
+    class Watcher(StubAgent):
+        def ask(self, prompt):
+            if "RESPONSE WINDOW" in prompt:
+                windows.append(prompt)
+            return '{"action":"pass"}'
+
+    class Caster(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.done = False
+        def ask(self, prompt):
+            if "MAIN PHASE" in prompt and not self.done:
+                self.done = True
+                return '{"action":"cast","card":"Krosan Grip","split_second":true,"effects":[]}'
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.agents[0] = Caster()
+    g.agents[1] = Watcher()
+    g.p[0].hand = ["Krosan Grip"]
+    g.p[1].hand = ["Counterspell"]
+    g.p[0].graveyard.append("Krosan Grip") if False else None
+    # ensure Krosan Grip is in the db via any sidecar (sigarda has it locally);
+    # if absent it still resolves as a nonpermanent to graveyard
+    g.turn = 2
+    g.half_turn(0)
+    joined = "\n".join(g.table)
+    assert "split second" in joined
+    assert not windows                               # nobody was ever asked
+    assert "Krosan Grip" in g.p[0].graveyard

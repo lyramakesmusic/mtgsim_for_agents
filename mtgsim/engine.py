@@ -121,6 +121,13 @@ and any granted actions. Other players learn only that you looked.
 Activated abilities that do more than make mana are announced and use the stack — other
 players get response windows before they resolve, same as spells (pure mana abilities skip
 this, as in the real rules). If the source dies in response, the ability still resolves.
+THE STACK: announced spells and non-mana abilities become stack objects (stack#N) and are
+open to responses — each response goes on top and resolves first, response windows reopen
+whenever the stack changes, and you get the last window on your own spells (that is holding
+priority: cast, then respond to yourself). Counter things by stack id:
+{"counter":{"target":"stack#N"}} in your effects. If your card genuinely has split second,
+declare "split_second": true on the cast — no response windows open, and the table will
+check the claim. Mana abilities never use the stack.
 List "targets" whenever your spell targets. Targets naming specific permanent ids ("X#12")
 are checked at resolution: if every id-target has left the battlefield (someone responded),
 the spell fizzles — graveyard, mana spent, no effects. Name-only targets (graveyard cards,
@@ -199,6 +206,8 @@ class Game:
         self.force_full = [True] * len(decks)     # full re-sync pending per seat
         self.board_full = [False] * len(decks)    # full board state due (own turn start)
         self.pending_talk = []                    # table_talk queued to land AFTER the play
+        self.stack = []                           # live stack objects (announce -> resolve)
+        self.stack_seq = 0
         self.judge_inbox = Path(f"{log_path}.judge")
         self.judge_factory = judge_factory
         self.judge_agent = None
@@ -629,6 +638,223 @@ class Game:
                 self.log(f"  !! unknown effect atom {list(e.keys())}; skipped")
 
     # ---------------- actions ----------------
+
+    # ---------------- the stack ----------------
+    def _stack_line(self):
+        return " -> ".join(f"{o['id']} {o['name']} ({self.p[o['caster']].handle})"
+                           for o in reversed(self.stack)) or "(empty)"
+
+    def _pay_spell(self, i, a):
+        """Costs are paid at announcement. Returns from_cz, or None if illegal."""
+        me = self.p[i]
+        c = a.get("card")
+        from_cz = (c == me.commander and me.command_zone and c not in me.hand)
+        if not (c in me.hand or from_cz):
+            return None
+        for ident in a.get("tap", []):
+            _, perm = self.find(ident, prefer=i)
+            if perm:
+                if perm["tapped"]:
+                    self.log(f"  !! {ident} already tapped (payment dubious; logged)")
+                perm["tapped"] = True
+            else:
+                self.log(f"  !! tap: no permanent {ident!r}; payment not recorded")
+        if from_cz:
+            me.command_zone = False
+            me.commander_tax += 2   # next cast from CZ costs 2 more
+        else:
+            me.hand.remove(c)
+        return from_cz
+
+    def _resolve_spell(self, i, a, from_cz):
+        """Resolution: fizzle check on id-targets, then placement + effects."""
+        me = self.p[i]
+        c = a.get("card")
+        targets = [str(t) for t in (a.get("targets") or [])]
+        if targets:
+            gone = [t for t in targets if "#" in t and not self.find(t, prefer=i)[1]]
+            if gone and len(gone) == len(targets):
+                if from_cz:
+                    me.command_zone = True
+                    self.log(f"{me.name} casts {c} — FIZZLES on resolution: no remaining "
+                             f"legal targets ({', '.join(gone)}). Commander returns to the "
+                             f"command zone; mana stays spent.")
+                else:
+                    me.graveyard.append(c)
+                    self.log(f"{me.name} casts {c} — FIZZLES on resolution: no remaining "
+                             f"legal targets ({', '.join(gone)}); to graveyard, mana stays spent.")
+                return None
+            if gone:
+                self.log(f"  !! {len(gone)} of {c}'s targets gone at resolution "
+                         f"({', '.join(gone)}) — caster resolves honestly against what remains")
+        typ = self.db.get(c, {}).get("type", "")
+        if any(k in typ for k in ("Creature", "Artifact", "Enchantment", "Land")) \
+                and "Sorcery" not in typ and "Instant" not in typ:
+            self.perm(me, c)
+        else:
+            me.graveyard.append(c)
+        self.log(f"{me.name} casts {c}" + (" (from command zone)" if from_cz else "") +
+                 (f", tapping {a.get('tap')}" if a.get("tap") else "") +
+                 (f" — {a.get('narration','')}" if a.get("narration") else ""))
+        d_ = self.db.get(c)
+        if d_:                        # spectator card-text caption
+            pt_ = f" {d_['pt'][0]}/{d_['pt'][1]}" if d_.get("pt") else ""
+            self.log_private(f"  [{c} — {d_['cost'] or 'Land'} — {d_['type']}{pt_} — {d_['text']}]")
+        self.apply_effects(i, a.get("effects"))
+        return c
+
+    def _pay_ability(self, i, a):
+        me = self.p[i]
+        src = a.get("source")
+        _, perm = self.find(src, prefer=i)
+        if perm and a.get("tap_source"):
+            if perm["sick"]:
+                self.log(f"  !! activating {src} while summoning-sick — agent claims legality "
+                         f"({a.get('narration','no justification')}); allowed, logged")
+            perm["tapped"] = True
+        for ident in a.get("tap", []):
+            _, pm = self.find(ident, prefer=i)
+            if pm:
+                pm["tapped"] = True
+            else:
+                self.log(f"  !! tap: no permanent {ident!r}; payment not recorded")
+        return perm
+
+    def _resolve_ability(self, i, a, perm=None):
+        me = self.p[i]
+        src = a.get("source")
+        self.log(f"{me.name} activates {src}" + (f" — {a.get('narration','')}" if a.get('narration') else ""))
+        if perm is None:
+            _, perm = self.find(src, prefer=i)
+        if perm and (d_ := self.db.get(perm["name"])):
+            self.log_private(f"  [{perm['name']}: {d_['text']}]")
+        self.apply_effects(i, a.get("effects"))
+
+    def resolve_on_stack(self, i, plan, kind="spell", depth=0):
+        """Announce onto the stack, pay costs, run priority (responses recurse
+        and resolve first — the call stack IS the stack), then resolve, get
+        countered, or fizzle. Returns True if it resolved."""
+        me = self.p[i]
+        name = plan.get("card") if kind == "spell" else plan.get("source", "?")
+        if kind == "spell":
+            paid = self._pay_spell(i, plan)
+            if paid is None:
+                self.log(f"  !! cast of {name} by {me.name} ignored (not in hand/CZ)")
+                return False
+        else:
+            src_perm = self._pay_ability(i, plan)
+        self.stack_seq += 1
+        obj = {"id": f"stack#{self.stack_seq}", "caster": i, "kind": kind,
+               "name": name, "countered": False}
+        self.stack.append(obj)
+        verb = "" if kind == "spell" else "activation of "
+        self.log(f"{me.name} announces {verb}{name} ({obj['id']})...")
+        self._flush_talk()
+        responded = False
+        try:
+            if plan.get("split_second"):
+                self.log(f"  ↳ {name} has split second (agent-declared; the table will check): "
+                         f"no responses possible.")
+            elif depth >= 5:
+                self.log(f"  !! stack depth cap reached — {obj['id']} gets no response windows")
+            else:
+                responded = self._priority_rounds(obj, depth)
+            if obj["countered"]:
+                if kind == "spell":
+                    if paid:
+                        me.command_zone = True
+                        self.log(f"  ↳ {name} is COUNTERED — commander returns to the command "
+                                 f"zone (tax now +{me.commander_tax}); mana stays spent.")
+                    else:
+                        me.graveyard.append(name)
+                        self.log(f"  ↳ {name} is COUNTERED (mana stays spent).")
+                else:
+                    self.log(f"  ↳ activation of {name} is COUNTERED (costs still paid).")
+                return False
+            if responded:
+                confirm = self.ask(i,
+                    f"Responses resolved while {name} ({obj['id']}) was on the stack — the board "
+                    f"may have changed (see log). Give the final resolution: the same action with "
+                    f"targets/effects adjusted to the board as it is *now*"
+                    + (" (if the source left the battlefield, the ability still resolves)" if kind == "ability" else "")
+                    + f", or {{\"action\":\"fizzle\"}} if it no longer has a legal target "
+                    f"(costs stay paid).",
+                    schema_hint='{"action":"cast"|"activate"|"fizzle", "targets":[ids], "effects":[...], "narration":str}')
+                if confirm.get("action") == "fizzle":
+                    if kind == "spell":
+                        if paid:
+                            me.command_zone = True
+                            self.log(f"  ↳ commander stays in command zone (tax now +{me.commander_tax})")
+                        else:
+                            me.graveyard.append(name)
+                    self.log(f"  ↳ {name} FIZZLES on resolution (caster's call); costs paid.")
+                    return False
+                if confirm.get("action") in ("cast", "activate"):
+                    keep = {"targets", "effects", "narration"}
+                    plan = {**plan, **{k: v for k, v in confirm.items() if k in keep}}
+            if kind == "spell":
+                return self._resolve_spell(i, plan, paid) is not None
+            self._resolve_ability(i, plan, src_perm)
+            return True
+        finally:
+            self.stack.remove(obj)
+
+    def _priority_rounds(self, obj, depth):
+        """Rotate priority until everyone passes on the current stack state.
+        Any response recurses; after it fully resolves, the rotation restarts
+        (the stack changed, so passes reset). Caster gets the last window in
+        each rotation — that is what holding priority means."""
+        responded = False
+        rounds = 0
+        while rounds < 4 and not obj["countered"]:
+            rounds += 1
+            acted = False
+            order = [self.p.index(pl) for pl in self.others(obj["caster"])] + [obj["caster"]]
+            for j in order:
+                pl = self.p[j]
+                if not pl.alive or not self._can_respond(pl):
+                    continue
+                caster_name = self.p[obj["caster"]].name
+                verb = "casting" if obj["kind"] == "spell" else "activating"
+                r = self.ask(j,
+                    f"RESPONSE WINDOW: {caster_name} is {verb} {obj['name']}. "
+                    f"STACK (top resolves first): {self._stack_line()}. "
+                    f"You may cast an instant/flash or activate an instant-speed ability in "
+                    f"response — it goes on top and resolves first — or pass. To counter "
+                    f"something, include {{\"counter\":{{\"target\":\"{obj['id']}\"}}}} "
+                    f"(any stack id) in your effects.",
+                    schema_hint='{"action":"cast"|"activate"|"pass", "card":str, "source":str, '
+                                '"tap":[ids], "targets":[ids], "effects":[...], "narration":str}')
+                if r.get("action") not in ("cast", "activate"):
+                    continue
+                effects = r.get("effects") or []
+                counters = [str(e["counter"].get("target")) for e in effects
+                            if isinstance(e, dict) and isinstance(e.get("counter"), dict)]
+                if any(isinstance(e, dict) and e.get("counter_spell") for e in effects):
+                    counters.append(obj["id"])
+                sub = {**r, "effects": [e for e in effects if not (isinstance(e, dict)
+                       and ("counter" in e or "counter_spell" in e))]}
+                ok = self.resolve_on_stack(j, sub,
+                                           kind="spell" if r.get("action") == "cast" else "ability",
+                                           depth=depth + 1)
+                if ok:
+                    for tid in counters:
+                        tgt = next((o for o in self.stack if o["id"] == tid), None)
+                        if tgt:
+                            tgt["countered"] = True
+                            self.log(f"  ↳ {tgt['id']} {tgt['name']} is countered by "
+                                     f"{sub.get('card') or sub.get('source', '?')}.")
+                        else:
+                            self.log(f"  !! counter target {tid!r} is not on the stack; no effect")
+                responded = True
+                acted = True
+                break                       # stack changed — restart the rotation
+            if not acted:
+                break
+        if rounds >= 4:
+            self.log(f"  !! priority rounds cap on {obj['id']} — resolving")
+        return responded
+
     def do_action(self, i, a):
         try:
             return self._do_action(i, a)
@@ -649,79 +875,14 @@ class Game:
                 self.log(f"  !! illegal/ignored land play by {me.name}: {c}")
         elif act == "cast":
             c = a.get("card")
-            from_cz = (c == me.commander and me.command_zone and c not in me.hand)
-            if c in me.hand or from_cz:
-                for ident in a.get("tap", []):
-                    _, perm = self.find(ident, prefer=i)
-                    if perm:
-                        if perm["tapped"]:
-                            self.log(f"  !! {ident} already tapped (payment dubious; logged)")
-                        perm["tapped"] = True
-                    else:
-                        self.log(f"  !! tap: no permanent {ident!r}; payment not recorded")
-                if from_cz:
-                    me.command_zone = False
-                    me.commander_tax += 2   # next cast from CZ costs 2 more
-                else:
-                    me.hand.remove(c)
-                # fizzle check: targets are zone bookkeeping, the one rule the
-                # abacus owns — a spell can't resolve against a memory
-                targets = [str(t) for t in (a.get("targets") or [])]
-                if targets:
-                    # only permanent ids (engine-issued, '#') are verifiable;
-                    # graveyard cards, players, spells on the stack are not the
-                    # abacus's to adjudicate — those resolve as declared
-                    gone = [t for t in targets
-                            if "#" in t and not self.find(t, prefer=i)[1]]
-                    if gone and len(gone) == len(targets):
-                        if from_cz:
-                            me.command_zone = True
-                            self.log(f"{me.name} casts {c} — FIZZLES on resolution: no remaining "
-                                     f"legal targets ({', '.join(gone)}). Commander returns to the "
-                                     f"command zone; mana stays spent.")
-                        else:
-                            me.graveyard.append(c)
-                            self.log(f"{me.name} casts {c} — FIZZLES on resolution: no remaining "
-                                     f"legal targets ({', '.join(gone)}); to graveyard, mana stays spent.")
-                        return None
-                    if gone:
-                        self.log(f"  !! {len(gone)} of {c}'s targets gone at resolution "
-                                 f"({', '.join(gone)}) — caster resolves honestly against what remains")
-                typ = self.db.get(c, {}).get("type", "")
-                if any(k in typ for k in ("Creature", "Artifact", "Enchantment", "Land")) \
-                        and "Sorcery" not in typ and "Instant" not in typ:
-                    self.perm(me, c)
-                else:
-                    me.graveyard.append(c)
-                self.log(f"{me.name} casts {c}" + (" (from command zone)" if from_cz else "") +
-                         (f", tapping {a.get('tap')}" if a.get("tap") else "") +
-                         (f" — {a.get('narration','')}" if a.get("narration") else ""))
-                d_ = self.db.get(c)
-                if d_:                        # spectator card-text caption
-                    pt_ = f" {d_['pt'][0]}/{d_['pt'][1]}" if d_.get("pt") else ""
-                    self.log_private(f"  [{c} — {d_['cost'] or 'Land'} — {d_['type']}{pt_} — {d_['text']}]")
-                self.apply_effects(i, a.get("effects"))
-                return c
-            else:
+            from_cz = self._pay_spell(i, a)
+            if from_cz is None:
                 self.log(f"  !! cast of {c} by {me.name} ignored (not in hand/CZ)")
+            else:
+                return self._resolve_spell(i, a, from_cz)
         elif act == "activate":
-            src = a.get("source")
-            _, perm = self.find(src, prefer=i)
-            if perm and a.get("tap_source"):
-                if perm["sick"]:
-                    self.log(f"  !! activating {src} while summoning-sick — agent claims legality "
-                             f"({a.get('narration','no justification')}); allowed, logged")
-                perm["tapped"] = True
-            for ident in a.get("tap", []):
-                _, pm = self.find(ident, prefer=i)
-                if pm:
-                    pm["tapped"] = True
-                else:
-                    self.log(f"  !! tap: no permanent {ident!r}; payment not recorded")
-            self.log(f"{me.name} activates {src}" + (f" — {a.get('narration','')}" if a.get('narration') else ""))
-            if perm and (d_ := self.db.get(perm["name"])):
-                self.log_private(f"  [{perm['name']}: {d_['text']}]")
-            self.apply_effects(i, a.get("effects"))
+            perm = self._pay_ability(i, a)
+            self._resolve_ability(i, a, perm)
         elif act == "pass":
             pass
         elif act == "claim_win":
@@ -786,10 +947,11 @@ class Game:
             gys = "\n".join(f"{pl.handle}: {', '.join(pl.graveyard) or '(empty)'}"
                              for pl in self.p if pl.alive)
             extra = f"\nCOMMANDERS:\n{cz}\nGRAVEYARDS:\n{gys}"
+        stackline = f"\nSTACK (top first): {self._stack_line()}" if self.stack else ""
         return (f"TURN {self.turn}. Seats: {seats}\n"
                 f"YOUR HAND ({len(me.hand)}): {', '.join(me.hand)}\n"
                 f"BATTLEFIELDS:\n{boards}\n"
-                f"Lands you've played this turn: {me.lands_played}.{extra}{texts}")
+                f"Lands you've played this turn: {me.lands_played}.{stackline}{extra}{texts}")
 
     # -------- agent plumbing --------
     def ask(self, i, instruction, schema_hint=""):
@@ -913,26 +1075,20 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
 {tail}"""
 
     def response_windows(self, caster_i, context):
-        """Offer each other alive seat (turn order from the caster) one response.
-        Returns (countered, responded) — responded means anything was cast in
-        response, i.e. the board the announcement saw may no longer exist."""
-        responded = False
+        """One rotation of instant-speed windows (combat and other non-stack
+        contexts). Anything cast here goes onto the stack and resolves fully
+        — counter wars included — before play continues."""
         for pl in list(self.others(caster_i)):
             j = self.p.index(pl)
             if not self._can_respond(pl):
                 continue
             r = self.ask(j,
-                f"RESPONSE WINDOW: {context}. You may cast one instant/flash response or pass. "
-                f"If countering the spell, include effects [{{\"counter_spell\": true}}]. "
-                f"Reply {{\"action\":\"pass\"}} or a cast action per protocol.",
-                schema_hint='{"action":"cast"|"pass", "card":str, "tap":[ids], "effects":[...], "narration":str}')
-            if r.get("action") == "cast":
-                responded = True
-                countered = any(e.get("counter_spell") for e in r.get("effects", []) if isinstance(e, dict))
-                self.do_action(j, {**r, "effects": [e for e in r.get("effects", []) if "counter_spell" not in e]})
-                if countered:
-                    return True, True
-        return False, responded
+                f"RESPONSE WINDOW: {context}. You may cast an instant/flash or activate an "
+                f"instant-speed ability (it goes on the stack and can be responded to), or pass.",
+                schema_hint='{"action":"cast"|"activate"|"pass", "card":str, "source":str, '
+                            '"tap":[ids], "targets":[ids], "effects":[...], "narration":str}')
+            if r.get("action") in ("cast", "activate"):
+                self.resolve_on_stack(j, r, kind="spell" if r.get("action") == "cast" else "ability")
 
     def _can_respond(self, pl):
         """Could this seat conceivably act at instant speed? Errs open — the
@@ -1023,76 +1179,13 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                                   for k in ("create", "draw", "life", "move", "search",
                                             "mill", "set", "eliminate"))
                 if substantive:
-                    src = plan.get("source", "?")
-                    self.log(f"{me.name} announces activation of {src}...")
-                    self._flush_talk()
-                    countered, responded = self.response_windows(
-                        i, f"{me.name} is activating {src} — the ability is on the stack")
-                    if countered:
-                        if plan.get("tap_source"):
-                            _, pm = self.find(plan.get("source"), prefer=i)
-                            if pm:
-                                pm["tapped"] = True
-                        for ident in plan.get("tap", []):
-                            _, pm = self.find(ident, prefer=i)
-                            if pm:
-                                pm["tapped"] = True
-                        self.log(f"  ↳ activation of {src} is COUNTERED (costs still paid).")
-                        continue
-                    if responded:
-                        confirm = self.ask(i,
-                            f"Responses resolved while your {src} activation was on the stack — the "
-                            f"board changed (see log). Give the final resolution: an activate action "
-                            f"with effects adjusted to the board as it is *now* (note: if the source "
-                            f"left the battlefield, the ability still resolves), or "
-                            f"{{\"action\":\"fizzle\"}} if every target is gone.",
-                            schema_hint='{"action":"activate"|"fizzle", "source":str, "tap":[ids], "effects":[...]}')
-                        if confirm.get("action") == "fizzle":
-                            self.log(f"  ↳ activation of {src} fizzles on resolution; costs paid.")
-                            continue
-                        if confirm.get("action") == "activate":
-                            plan = confirm
+                    self.resolve_on_stack(i, plan, kind="ability")
+                else:
+                    self.do_action(i, plan)     # mana abilities skip the stack
+                continue
             if act == "cast":
-                cardname = plan.get("card", "?")
-                self.log(f"{me.name} announces {cardname}...")
-                self._flush_talk()
-                countered, responded = self.response_windows(i, f"{me.name} is casting {cardname}")
-                if countered:
-                    for ident in plan.get("tap", []):
-                        _, pm = self.find(ident, prefer=i)
-                        if pm:
-                            pm["tapped"] = True
-                    if cardname in me.hand:
-                        me.hand.remove(cardname)
-                        me.graveyard.append(cardname)
-                    elif cardname == me.commander and me.command_zone:
-                        me.commander_tax += 2
-                        self.log(f"  ↳ commander stays in command zone (tax now +{me.commander_tax})")
-                    self.log(f"  ↳ {cardname} is COUNTERED (mana still spent).")
-                    continue
-                if responded:
-                    confirm = self.ask(i,
-                        f"Responses resolved while {cardname} was on the stack — the board has changed "
-                        f"(see log); the world you announced into may not be the one it resolves into. "
-                        f"Give the final resolution for {cardname}: a cast action with tap/targets/"
-                        f"effects adjusted to the board as it is *now*, or {{\"action\":\"fizzle\"}} if "
-                        f"it no longer has a legal target (it goes to your graveyard; mana stays spent).",
-                        schema_hint='{"action":"cast"|"fizzle", "card":str, "tap":[ids], "targets":[ids], "effects":[...]}')
-                    if confirm.get("action") == "fizzle":
-                        for ident in plan.get("tap", []):
-                            _, pm = self.find(ident, prefer=i)
-                            if pm:
-                                pm["tapped"] = True
-                        if cardname in me.hand:
-                            me.hand.remove(cardname)
-                            me.graveyard.append(cardname)
-                        elif cardname == me.commander and me.command_zone:
-                            me.commander_tax += 2
-                            self.log(f"  ↳ commander stays in command zone (tax now +{me.commander_tax})")
-                        self.log(f"  ↳ {cardname} FIZZLES on resolution (caster's call); mana spent.")
-                        continue
-                    if confirm.get("action") == "cast" and confirm.get("card", cardname) == cardname:
-                        plan = confirm
+                self.resolve_on_stack(i, plan, kind="spell")
+                continue
             self.do_action(i, plan)
         else:
             self.log(f"  !! {me.name} hit the action cap ({24}/turn) — declare any unresolved "
