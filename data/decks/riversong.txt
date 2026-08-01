@@ -1,0 +1,75 @@
+// strategy: chaos. every rule in this deck is a suggestion. good luck.
+Commander
+1 River Song (WHO) 152
+
+Deck
+1 Arcane Signet (MSC) 192
+1 Blasphemous Act (MSC) 163
+1 Boompile (CMM) 371
+1 Brainstorm (TLE) 155
+1 Burning Inquiry (PLST) M10-128
+1 Chance Encounter (MH2) 277
+1 Chaos Warp (MSC) 164
+1 Command Tower (MSC) 234
+1 Commander's Sphere (VOC) 163
+1 Consecrated Sphinx (PF26) 4 *F*
+1 Consider (TLE) 157
+1 Counterspell (CMM) 630
+1 Creepy Doll (ISD) 220
+1 Curse of the Swine (KHC) 37
+1 Evolving Wilds (ROE) 228
+1 Eye of the Storm (RAV) 48
+1 Faerie Mastermind (MOM) 58
+1 Fatespinner (PLST) MRD-36 *F*
+1 Fiery Gambit (PLST) MRD-90 *F*
+1 Fin Fang Foom (MSH) 129
+1 Grip of Chaos (SCG) 98
+1 Guff Rewrites History (CMM) 737
+1 Hive Mind (M10) 54
+1 Invert Polarity (MH3) 190
+16 Island (SUM) 297
+1 Izzet Signet (C20) 243
+1 Knowledge Pool (MBS) 111
+1 Laboratory Maniac (INR) 71
+1 Mana Clash (4ED) 210
+1 Mind Stone (C15) 259
+1 Mindmoil (PLST) RAV-135
+1 Mirror March (RNA) 108
+15 Mountain (PLST) WOE-273
+1 Narset, Parter of Veils (WAR) 61
+1 Negate (M11) 68
+1 Niv-Mizzet, Parun (RVR) 376z *F*
+1 Niv-Mizzet, Visionary (FDN) 123
+1 Okaun, Eye of Chaos (BBD) 6
+1 Omen Machine (NPH) 148
+1 Planar Chaos (JUD) 97
+1 Ponder (C18) 96
+1 Pongify (TDC) 160
+1 Possibility Storm (DGM) 34
+1 Preordain (TDC) 161
+1 Propaganda (MSC) 151
+1 Puca's Mischief (SHM) 47
+1 Puppet's Verdict (MMQ) 208
+1 Rapid Hybridization (PLST) C21-126
+1 Rhystic Study (PCY) 45
+1 River Song's Diary (WHO) 182
+1 Role Reversal (WAR) 214
+1 Scrambleverse (M12) 153
+1 Shared Fate (PLST) MRD-49
+1 Sol Ring (MSC) 214
+1 Stitch in Time (RVR) 384
+1 Storm-Kiln Artist (PLST) OTC-181
+1 Sunbird's Invocation (SCD) 159
+1 Swiftwater Cliffs (FRF) 172
+1 Tavern Scoundrel (MH2) 144
+1 Teferi's Puzzle Box (9ED) 312★ *F*
+1 Telepathy (10E) 113
+1 The Gold Saucer (FIN) 279
+1 Thousand-Year Storm (FDN) 248
+1 Timesifter (MRD) 262
+1 Veyran, Voice of Duality (TDC) 310
+1 Vivi Ornitier (FIN) 248
+1 Warp World (10E) 248
+1 Whirlpool Warrior (PCA) 29
+1 Wild Magic Surge (CLB) 206
+1 Zndrsplt, Eye of Wisdom (BBD) 5

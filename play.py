@@ -38,7 +38,6 @@ if __name__ == "__main__":
     if args.transcripts is None:
         args.transcripts = f"logs/{stamp}"          # per-run dir: runs never clobber each other
 
-    db = load_db()
     seed = args.seed if args.seed is not None else random.randrange(10**6)
     rng = random.Random(seed)
 
@@ -50,6 +49,7 @@ if __name__ == "__main__":
         if kind not in AGENT_TYPES:
             raise SystemExit(f"unknown agent {kind!r} in seat {spec!r} (have: {', '.join(AGENT_TYPES)})")
         seats.append((kind, deck))
+    db = load_db([deck for _, deck in seats])
 
     decks, agents = [], []
     for n, (kind, deck) in enumerate(seats):

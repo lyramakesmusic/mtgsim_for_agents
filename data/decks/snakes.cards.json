@@ -1,0 +1,527 @@
+{
+ "Aether Tunnel": {
+  "cost": "1U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchanted creature +1/+0, can't be blocked.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell; its controller creates two Treasures.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Ash Barrens": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. Basic landcycling {1}.",
+  "pt": null
+ },
+ "Become Immense": {
+  "cost": "5G",
+  "type": "Instant",
+  "text": "Delve. Target creature +6/+6 until end of turn.",
+  "pt": null
+ },
+ "Biomass Mutation": {
+  "cost": "XGU",
+  "type": "Instant",
+  "text": "Creatures you control become X/X until end of turn.",
+  "pt": null
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "Costs {1} less per creature. 13 damage to each creature.",
+  "pt": null
+ },
+ "Blossoming Defense": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature +2/+2, hexproof this turn.",
+  "pt": null
+ },
+ "Brute Force": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature +3/+3 until end of turn.",
+  "pt": null
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Owner shuffles target permanent into library, reveals top; if permanent, put onto battlefield.",
+  "pt": null
+ },
+ "Cold-Eyed Selkie": {
+  "cost": "1GU",
+  "type": "Creature \u2014 Merfolk Rogue",
+  "text": "Islandwalk. Combat damage to a player: you may draw that many.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Collision // Colossus": {
+  "cost": "1GR",
+  "type": "Instant",
+  "text": "Collision: 6 damage to target creature with flying. // Colossus: creature +4/+2, trample.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Cultivate": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "Search two basics: one battlefield tapped, one to hand.",
+  "pt": null
+ },
+ "Curiosity": {
+  "cost": "U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchanted creature deals damage to an opponent: you may draw a card.",
+  "pt": null
+ },
+ "Dictate of Kruphix": {
+  "cost": "1UU",
+  "type": "Enchantment",
+  "text": "Flash. Each player's draw step: draw an extra card.",
+  "pt": null
+ },
+ "Electrostatic Field": {
+  "cost": "1R",
+  "type": "Creature \u2014 Wall",
+  "text": "Defender. You cast an instant/sorcery: ~ deals 1 damage to each opponent.",
+  "pt": [
+   0,
+   4
+  ]
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Exotic Orchard": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add a color an opponent's land could produce.",
+  "pt": null
+ },
+ "Farseek": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search a Plains/Island/Swamp/Mountain; battlefield tapped.",
+  "pt": null
+ },
+ "Fevered Visions": {
+  "cost": "1UR",
+  "type": "Enchantment",
+  "text": "Each player's end step: that player draws; if opponent with 4+ cards in hand, 2 damage to them.",
+  "pt": null
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {G}.",
+  "pt": null
+ },
+ "Frontier Bivouac": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. {T}: Add {G},{U}, or {R}.",
+  "pt": null
+ },
+ "Geier Reach Sanitarium": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {2},{T}: Each player draws then discards a card.",
+  "pt": null
+ },
+ "Giant Growth": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature +3/+3 until end of turn.",
+  "pt": null
+ },
+ "Goblin Bombardment": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "Sac a creature: 1 damage to any target.",
+  "pt": null
+ },
+ "Growth Spiral": {
+  "cost": "GU",
+  "type": "Instant",
+  "text": "Draw a card; may put a land from hand onto battlefield.",
+  "pt": null
+ },
+ "Heroic Intervention": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Permanents you control gain hexproof and indestructible this turn.",
+  "pt": null
+ },
+ "Impact Tremors": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "A creature enters under your control: 1 damage to each opponent.",
+  "pt": null
+ },
+ "Invigorate": {
+  "cost": "2GG",
+  "type": "Instant",
+  "text": "May pay: gain opponent 3 life instead of mana cost. Creature +4/+4.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {U}.",
+  "pt": null
+ },
+ "Jolrael, Mwonvuli Recluse": {
+  "cost": "1G",
+  "type": "Legendary Creature \u2014 Human Druid",
+  "text": "Your second draw each turn: create a 2/2 Cat. {4}{G}{G}: creatures you control become X/X, X=cards in hand.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Kami of the Crescent Moon": {
+  "cost": "UU",
+  "type": "Legendary Creature \u2014 Spirit",
+  "text": "Each player's draw step: that player draws an extra card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Karplusan Forest": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}; or add {R}/{G} and ~ deals 1 damage to you.",
+  "pt": null
+ },
+ "Kessig Wolf Run": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {X}{R}{G},{T}: target creature +X/+0 and trample.",
+  "pt": null
+ },
+ "Kodama's Reach": {
+  "cost": "2G",
+  "type": "Sorcery \u2014 Arcane",
+  "text": "Search two basics: one battlefield tapped, one to hand.",
+  "pt": null
+ },
+ "Lightning Bolt": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "3 damage to any target.",
+  "pt": null
+ },
+ "Might of the Masses": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature +1/+1 per creature you control.",
+  "pt": null
+ },
+ "Molten Psyche": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Each player shuffles hand into library, draws that many. Metalcraft: damage per card to each opponent.",
+  "pt": null
+ },
+ "Monstrous Rage": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature +2/+0 and a Monster Role.",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {R}.",
+  "pt": null
+ },
+ "Mutagenic Growth": {
+  "cost": "G/P",
+  "type": "Instant",
+  "text": "May pay 2 life instead. Creature +2/+2.",
+  "pt": null
+ },
+ "Nature's Claim": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Destroy target artifact/enchantment; its controller gains 4 life.",
+  "pt": null
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Ohran Frostfang": {
+  "cost": "2GG",
+  "type": "Snow Creature \u2014 Snake",
+  "text": "Attacking creatures you control have deathtouch. Combat damage to a player: draw.",
+  "pt": [
+   2,
+   6
+  ]
+ },
+ "Path of Ancestry": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. {T}: add commander-identity color; scry 1 if spent on a Snake.",
+  "pt": null
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature; controller creates a 3/3 Ape.",
+  "pt": null
+ },
+ "Propaganda": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you unless their controller pays {2} per attacker.",
+  "pt": null
+ },
+ "Prosperity": {
+  "cost": "XUU",
+  "type": "Sorcery",
+  "text": "Each player draws X.",
+  "pt": null
+ },
+ "Purphoros, God of the Forge": {
+  "cost": "3R",
+  "type": "Legendary Enchantment Creature \u2014 God",
+  "text": "Indestructible. Not a creature unless devotion to red \u22655. A creature enters under your control: 2 damage to each opponent.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Reliquary Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "No maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Rites of Flourishing": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "Each player's draw step: draw an extra card. Each player may play an additional land each turn.",
+  "pt": null
+ },
+ "Rogue's Passage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {4},{T}: target creature unblockable this turn.",
+  "pt": null
+ },
+ "Season of Growth": {
+  "cost": "GG",
+  "type": "Enchantment",
+  "text": "A creature enters under your control: scry 1. You cast a spell targeting your creature: draw.",
+  "pt": null
+ },
+ "Shared Animosity": {
+  "cost": "2R",
+  "type": "Enchantment",
+  "text": "A creature you control attacks: +1/+0 per other attacking creature sharing a type.",
+  "pt": null
+ },
+ "Shivan Reef": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: {C}; or {U}/{R} + 1 damage to you.",
+  "pt": null
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature +1/-1. When equipped creature dies, draw two. Equip {1}.",
+  "pt": null
+ },
+ "Snakeskin Veil": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Creature +1/+1 counter, hexproof this turn.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spell Pierce": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell unless {2}.",
+  "pt": null
+ },
+ "Sudden Impact": {
+  "cost": "3R",
+  "type": "Instant",
+  "text": "Damage to target player equal to cards in their hand.",
+  "pt": null
+ },
+ "Tamiyo's Safekeeping": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target permanent you control: hexproof, indestructible; gain 2 life.",
+  "pt": null
+ },
+ "Temple Bell": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Each player draws a card.",
+  "pt": null
+ },
+ "Temple of Abandon": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped; scry 1. {T}: {R} or {G}.",
+  "pt": null
+ },
+ "Temple of Epiphany": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped; scry 1. {T}: {U} or {R}.",
+  "pt": null
+ },
+ "Temple of Mystery": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped; scry 1. {T}: {G} or {U}.",
+  "pt": null
+ },
+ "Temur Battle Rage": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Creature gains first strike + double strike (if power \u22654) this turn.",
+  "pt": null
+ },
+ "Terramorphic Expanse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Tetsuko Umezawa, Fugitive": {
+  "cost": "1U",
+  "type": "Legendary Creature \u2014 Human Rogue",
+  "text": "Creatures you control with power/toughness 1 or less can't be blocked.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Third Path Iconoclast": {
+  "cost": "1(U/R)",
+  "type": "Creature \u2014 Human Artificer",
+  "text": "You cast a noncreature spell: create a 1/1 Soldier artifact token.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Thought Vessel": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "No max hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Titan's Strength": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Creature +3/+1; scry 1.",
+  "pt": null
+ },
+ "Tyvar's Stand": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Creature +1/+1, hexproof, indestructible this turn.",
+  "pt": null
+ },
+ "Vines of Vastwood": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Kicker {G}. Target creature can't be targeted by opponents; kicked: +4/+4.",
+  "pt": null
+ },
+ "Vision Skeins": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Each player draws two cards.",
+  "pt": null
+ },
+ "Whirlpool Warrior": {
+  "cost": "1UU",
+  "type": "Creature \u2014 Merfolk Warrior",
+  "text": "On enter: shuffle your hand into library, draw that many. {R},Sac: each player does the same.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Windfall": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Each player discards hand, draws cards equal to largest number discarded.",
+  "pt": null
+ },
+ "Winds of Change": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Each player shuffles hand into library, draws that many.",
+  "pt": null
+ },
+ "Xyris, the Writhing Storm": {
+  "cost": "2GUR",
+  "type": "Legendary Creature \u2014 Snake Leviathan",
+  "text": "Flying. Whenever an opponent draws a card except the first in their draw step, create a 1/1 green Snake. Whenever ~ deals combat damage to a player, you and that player each draw that many cards.",
+  "pt": [
+   3,
+   5
+  ]
+ },
+ "Yavimaya Coast": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: {C}; or {G}/{U} + 1 damage to you.",
+  "pt": null
+ },
+ "Young Pyromancer": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "You cast an instant/sorcery: create a 1/1 Elemental.",
+  "pt": [
+   2,
+   1
+  ]
+ }
+}

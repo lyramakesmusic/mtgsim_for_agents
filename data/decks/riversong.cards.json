@@ -1,0 +1,476 @@
+{
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "Costs {1} less per creature. 13 damage to each creature.",
+  "pt": null
+ },
+ "Boompile": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "{T}: Flip a coin. If you win the flip, destroy all nonland permanents.",
+  "pt": null
+ },
+ "Brainstorm": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw three cards, then put two from your hand on top of your library.",
+  "pt": null
+ },
+ "Burning Inquiry": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Each player draws three cards, then discards three cards at random.",
+  "pt": null
+ },
+ "Chance Encounter": {
+  "cost": "2RR",
+  "type": "Enchantment",
+  "text": "Whenever you win a coin flip, put a luck counter on this enchantment. At the beginning of your upkeep, if this enchantment has ten or more luck counters on it, you win the game.",
+  "pt": null
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Owner shuffles target permanent into library, reveals top; if permanent, put onto battlefield.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Commander's Sphere": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity. Sacrifice this artifact: Draw a card.",
+  "pt": null
+ },
+ "Consecrated Sphinx": {
+  "cost": "4UU",
+  "type": "Creature \u2014 Sphinx",
+  "text": "Flying Whenever an opponent draws a card, you may draw two cards.",
+  "pt": [
+   4,
+   6
+  ]
+ },
+ "Consider": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Look at top card; may mill it. Draw a card.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Creepy Doll": {
+  "cost": "5",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "Indestructible Whenever this creature deals combat damage to a creature, flip a coin. If you win the flip, destroy that creature.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Curse of the Swine": {
+  "cost": "XUU",
+  "type": "Sorcery",
+  "text": "Exile X target creatures; each controller creates a 2/2 green Boar per creature exiled this way.",
+  "pt": null
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Eye of the Storm": {
+  "cost": "5UU",
+  "type": "Enchantment",
+  "text": "Whenever a player casts an instant or sorcery card, exile it. Then that player copies each instant or sorcery card exiled with this enchantment. For each copy, the player may cast the copy without paying its mana cost.",
+  "pt": null
+ },
+ "Faerie Mastermind": {
+  "cost": "1U",
+  "type": "Creature \u2014 Faerie Rogue",
+  "text": "Flash Flying Whenever an opponent draws their second card each turn, you draw a card. {3}{U}: Each player draws a card.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Fatespinner": {
+  "cost": "1UU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "At the beginning of each opponent's upkeep, that player chooses draw step, main phase, or combat phase. The player skips each instance of the chosen step or phase this turn.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Fiery Gambit": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Flip a coin until you lose a flip or choose to stop flipping. If you lose a flip, Fiery Gambit has no effect. If you win one or more flips, Fiery Gambit deals 3 damage to target creature. If you win two or more flips, Fiery Gambit deals 6 damage to each opponent. If you win three or more flips, draw nine cards and untap all lands you control.",
+  "pt": null
+ },
+ "Fin Fang Foom": {
+  "cost": "2RR",
+  "type": "Legendary Creature \u2014 Alien Dragon Villain",
+  "text": "Flying Whenever you cast an instant or sorcery spell that targets an artifact or land, copy that spell. You may choose new targets for the copy. Put two +1/+1 counters on Fin Fang Foom.",
+  "pt": [
+   3,
+   5
+  ]
+ },
+ "Grip of Chaos": {
+  "cost": "4RR",
+  "type": "Enchantment",
+  "text": "Whenever a spell or ability is put onto the stack, if it has a single target, reselect its target at random. (Select from among all legal targets.)",
+  "pt": null
+ },
+ "Guff Rewrites History": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "For each player, choose target nonenchantment, nonland permanent that player controls. Those permanents' owners shuffle them into their libraries. Each player who controlled one of those permanents exiles cards from the top of their library until they exile a nonland card, then puts the rest on the bottom of their library in a random order. Each player may cast the nonland card they exiled without paying its mana cost.",
+  "pt": null
+ },
+ "Hive Mind": {
+  "cost": "5U",
+  "type": "Enchantment",
+  "text": "Whenever a player casts an instant or sorcery spell, each other player copies that spell. Each of those players may choose new targets for their copy.",
+  "pt": null
+ },
+ "Invert Polarity": {
+  "cost": "UUR",
+  "type": "Instant",
+  "text": "Choose target spell, then flip a coin. If you win the flip, gain control of that spell and you may choose new targets for it. If you lose the flip, counter that spell.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {U}.",
+  "pt": null
+ },
+ "Izzet Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {U}{R}.",
+  "pt": null
+ },
+ "Knowledge Pool": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "Imprint \u2014 When this artifact enters, each player exiles the top three cards of their library. Whenever a player casts a spell from their hand, that player exiles it. If the player does, they may cast a spell from among other cards exiled with this artifact without paying its mana cost.",
+  "pt": null
+ },
+ "Laboratory Maniac": {
+  "cost": "2U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "If you would draw a card while your library is empty, you win the game instead (claim it).",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Mana Clash": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "You and target opponent each flip a coin. Mana Clash deals 1 damage to each player whose coin comes up tails. Repeat this process until both players' coins come up heads on the same flip.",
+  "pt": null
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Mindmoil": {
+  "cost": "4R",
+  "type": "Enchantment",
+  "text": "Whenever you cast a spell, put the cards in your hand on the bottom of your library in any order, then draw that many cards.",
+  "pt": null
+ },
+ "Mirror March": {
+  "cost": "5R",
+  "type": "Enchantment",
+  "text": "Whenever a nontoken creature you control enters, flip a coin until you lose a flip. For each flip you won, create a token that's a copy of that creature. Those tokens gain haste. Exile them at the beginning of the next end step.",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {R}.",
+  "pt": null
+ },
+ "Narset, Parter of Veils": {
+  "cost": "1UU",
+  "type": "Legendary Planeswalker \u2014 Narset",
+  "text": "Each opponent can't draw more than one card each turn. \u22122: Look at the top four cards of your library. You may reveal a noncreature, nonland card from among them and put it into your hand. Put the rest on the bottom of your library in a random order. [Loyalty 5 \u2014 track via counters+notes]",
+  "pt": null
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Niv-Mizzet, Parun": {
+  "cost": "UUURRR",
+  "type": "Legendary Creature \u2014 Dragon Wizard",
+  "text": "This spell can't be countered. Flying Whenever you draw a card, Niv-Mizzet deals 1 damage to any target. Whenever a player casts an instant or sorcery spell, you draw a card.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Niv-Mizzet, Visionary": {
+  "cost": "4UR",
+  "type": "Legendary Creature \u2014 Dragon Wizard",
+  "text": "Flying You have no maximum hand size. Whenever a source you control deals noncombat damage to an opponent, you draw that many cards.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Okaun, Eye of Chaos": {
+  "cost": "4R",
+  "type": "Legendary Creature \u2014 Cyclops Berserker",
+  "text": "Partner with Zndrsplt, Eye of Wisdom (When this creature enters, target player may put Zndrsplt into their hand from their library, then shuffle.) At the beginning of combat on your turn, flip a coin until you lose a flip. Whenever a player wins a coin flip, double Okaun's power and toughness until end of turn.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Omen Machine": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "Players can't draw cards. At the beginning of each player's draw step, that player exiles the top card of their library. If it's a land card, the player puts it onto the battlefield. Otherwise, the player casts it without paying its mana cost if able.",
+  "pt": null
+ },
+ "Planar Chaos": {
+  "cost": "2R",
+  "type": "Enchantment",
+  "text": "At the beginning of your upkeep, flip a coin. If you lose the flip, sacrifice this enchantment. Whenever a player casts a spell, that player flips a coin. If they lose the flip, counter that spell.",
+  "pt": null
+ },
+ "Ponder": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Look at top three, rearrange (or shuffle); draw a card.",
+  "pt": null
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature; controller creates a 3/3 Ape.",
+  "pt": null
+ },
+ "Possibility Storm": {
+  "cost": "3RR",
+  "type": "Enchantment",
+  "text": "Whenever a player casts a spell from their hand, that player exiles it, then exiles cards from the top of their library until they exile a card that shares a card type with it. That player may cast that card without paying its mana cost. Then they put all cards exiled with this enchantment on the bottom of their library in a random order.",
+  "pt": null
+ },
+ "Preordain": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Scry 2, draw a card.",
+  "pt": null
+ },
+ "Propaganda": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you unless their controller pays {2} per attacker.",
+  "pt": null
+ },
+ "Puca's Mischief": {
+  "cost": "3U",
+  "type": "Enchantment",
+  "text": "At the beginning of your upkeep, you may exchange control of target nonland permanent you control and target nonland permanent an opponent controls with equal or lesser mana value.",
+  "pt": null
+ },
+ "Puppet's Verdict": {
+  "cost": "1RR",
+  "type": "Instant",
+  "text": "Flip a coin. If you win the flip, destroy all creatures with power 2 or less. If you lose the flip, destroy all creatures with power 3 or greater.",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature (can't be regenerated); its controller creates a 3/3 green Frog Lizard.",
+  "pt": null
+ },
+ "Rhystic Study": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Whenever an opponent casts a spell, you may draw a card unless that player pays {1}.",
+  "pt": null
+ },
+ "River Song": {
+  "cost": "1UR",
+  "type": "Legendary Creature \u2014 Human Time Lord Rogue",
+  "text": "Meet in Reverse \u2014 You draw cards from the bottom of your library rather than the top. Spoilers \u2014 Whenever an opponent scries, surveils, or searches their library, put a +1/+1 counter on River Song. Then River Song deals damage to that player equal to its power.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "River Song's Diary": {
+  "cost": "3",
+  "type": "Artifact \u2014 Book",
+  "text": "Imprint \u2014 Whenever a player casts an instant or sorcery spell from their hand, exile it instead of putting it into a graveyard as it resolves. At the beginning of your upkeep, if there are four or more cards exiled with this artifact, choose one of them at random. You may cast it without paying its mana cost.",
+  "pt": null
+ },
+ "Role Reversal": {
+  "cost": "UUR",
+  "type": "Sorcery",
+  "text": "Exchange control of two target permanents that share a permanent type.",
+  "pt": null
+ },
+ "Scrambleverse": {
+  "cost": "6RR",
+  "type": "Sorcery",
+  "text": "For each nonland permanent, choose a player at random. Then each player gains control of each permanent for which they were chosen. Untap those permanents.",
+  "pt": null
+ },
+ "Shared Fate": {
+  "cost": "4U",
+  "type": "Enchantment",
+  "text": "If a player would draw a card, that player exiles the top card of one of their opponents' libraries face down instead. Each player may look at cards they exiled with this enchantment, and they may play lands and cast spells from among those cards.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Stitch in Time": {
+  "cost": "1UR",
+  "type": "Sorcery",
+  "text": "Flip a coin. If you win the flip, take an extra turn after this one.",
+  "pt": null
+ },
+ "Storm-Kiln Artist": {
+  "cost": "3R",
+  "type": "Creature \u2014 Dwarf Shaman",
+  "text": "This creature gets +1/+0 for each artifact you control. Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Sunbird's Invocation": {
+  "cost": "5R",
+  "type": "Enchantment",
+  "text": "Whenever you cast a spell from your hand, reveal the top X cards of your library, where X is that spell's mana value. You may cast a spell with mana value X or less from among cards revealed this way without paying its mana cost. Put the rest on the bottom of your library in a random order.",
+  "pt": null
+ },
+ "Swiftwater Cliffs": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Tavern Scoundrel": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "Whenever you win a coin flip, create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\") {1}, {T}, Sacrifice another permanent: Flip a coin.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Teferi's Puzzle Box": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "At the beginning of each player's draw step, that player puts the cards in their hand on the bottom of their library in any order, then draws that many cards.",
+  "pt": null
+ },
+ "Telepathy": {
+  "cost": "U",
+  "type": "Enchantment",
+  "text": "Your opponents play with their hands revealed.",
+  "pt": null
+ },
+ "The Gold Saucer": {
+  "cost": "",
+  "type": "Land \u2014 Town",
+  "text": "{T}: Add {C}. {2}, {T}: Flip a coin. If you win the flip, create a Treasure token. {3}, {T}, Sacrifice two artifacts: Draw a card.",
+  "pt": null
+ },
+ "Thousand-Year Storm": {
+  "cost": "4UR",
+  "type": "Enchantment",
+  "text": "Whenever you cast an instant or sorcery spell, copy it for each other instant and sorcery spell you've cast before it this turn. You may choose new targets for the copies.",
+  "pt": null
+ },
+ "Timesifter": {
+  "cost": "5",
+  "type": "Artifact",
+  "text": "At the beginning of each upkeep, each player exiles the top card of their library. The player who exiled the card with the greatest mana value takes an extra turn after this one. If two or more players' cards are tied for greatest, the tied players repeat this process until the tie is broken.",
+  "pt": null
+ },
+ "Veyran, Voice of Duality": {
+  "cost": "1UR",
+  "type": "Legendary Creature \u2014 Efreet Wizard",
+  "text": "Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, Veyran gets +1/+1 until end of turn. If you casting or copying an instant or sorcery spell causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Vivi Ornitier": {
+  "cost": "1UR",
+  "type": "Legendary Creature \u2014 Wizard",
+  "text": "{0}: Add X mana in any combination of {U} and/or {R}, where X is Vivi Ornitier's power. Activate only during your turn and only once each turn. Whenever you cast a noncreature spell, put a +1/+1 counter on Vivi Ornitier and it deals 1 damage to each opponent.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Warp World": {
+  "cost": "5RRR",
+  "type": "Sorcery",
+  "text": "Each player shuffles all permanents they own into their library, then reveals that many cards from the top of their library. Each player puts all artifact, creature, and land cards revealed this way onto the battlefield, then does the same for enchantment cards, then puts all cards revealed this way that weren't put onto the battlefield on the bottom of their library.",
+  "pt": null
+ },
+ "Whirlpool Warrior": {
+  "cost": "1UU",
+  "type": "Creature \u2014 Merfolk Warrior",
+  "text": "On enter: shuffle your hand into library, draw that many. {R},Sac: each player does the same.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Wild Magic Surge": {
+  "cost": "RR",
+  "type": "Instant",
+  "text": "Destroy target permanent an opponent controls. Its controller reveals cards from the top of their library until they reveal a permanent card that shares a card type with that permanent. They put that card onto the battlefield and the rest on the bottom of their library in a random order.",
+  "pt": null
+ },
+ "Zndrsplt, Eye of Wisdom": {
+  "cost": "4U",
+  "type": "Legendary Creature \u2014 Homunculus",
+  "text": "Partner with Okaun, Eye of Chaos (When this creature enters, target player may put Okaun into their hand from their library, then shuffle.) At the beginning of combat on your turn, flip a coin until you lose a flip. Whenever a player wins a coin flip, draw a card.",
+  "pt": [
+   1,
+   4
+  ]
+ }
+}

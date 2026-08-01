@@ -1,0 +1,533 @@
+{
+ "Aggravated Assault": {
+  "cost": "2R",
+  "type": "Enchantment",
+  "text": "{3}{R}{R}: Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery.",
+  "pt": null
+ },
+ "Akroma's Will": {
+  "cost": "3W",
+  "type": "Instant",
+  "text": "Choose one. If you control a commander as you cast this spell, you may choose both instead. \u2022 Creatures you control gain flying, vigilance, and double strike until end of turn. \u2022 Creatures you control gain lifelink, indestructible, and protection from each color until end of turn.",
+  "pt": null
+ },
+ "Angel of Finality": {
+  "cost": "3W",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying When this creature enters, exile target player's graveyard.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Archangel of Thune": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying Lifelink (Damage dealt by this creature also causes you to gain that much life.) Whenever you gain life, put a +1/+1 counter on each creature you control.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Aurelia's Fury": {
+  "cost": "XRW",
+  "type": "Instant",
+  "text": "Aurelia's Fury deals X damage divided as you choose among any number of targets. Tap each creature dealt damage this way. Players dealt damage this way can't cast noncreature spells this turn.",
+  "pt": null
+ },
+ "Aurelia, the Warleader": {
+  "cost": "2RRWW",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "Flying, vigilance, haste Whenever Aurelia attacks for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Baneslayer Angel": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying, first strike, lifelink, protection from Demons and from Dragons",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Battlefield Forge": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {R} or {W}. This land deals 1 damage to you.",
+  "pt": null
+ },
+ "Blade Historian": {
+  "cost": "(R/W)(R/W)(R/W)(R/W)",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "Attacking creatures you control have double strike.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "Costs {1} less per creature. 13 damage to each creature.",
+  "pt": null
+ },
+ "Boros Charm": {
+  "cost": "RW",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Boros Charm deals 4 damage to target player or planeswalker. \u2022 Permanents you control gain indestructible until end of turn. \u2022 Target creature gains double strike until end of turn.",
+  "pt": null
+ },
+ "Boros Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {R}{W}.",
+  "pt": null
+ },
+ "Cathars' Crusade": {
+  "cost": "3WW",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control enters, put a +1/+1 counter on each creature you control.",
+  "pt": null
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Owner shuffles target permanent into library, reveals top; if permanent, put onto battlefield.",
+  "pt": null
+ },
+ "Cleansing Nova": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Destroy all creatures. \u2022 Destroy all artifacts and enchantments.",
+  "pt": null
+ },
+ "Clifftop Retreat": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control a Mountain or a Plains. {T}: Add {R} or {W}.",
+  "pt": null
+ },
+ "Combat Celebrant": {
+  "cost": "2R",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "If this creature hasn't been exerted this turn, you may exert it as it attacks. When you do, untap all other creatures you control and after this phase, there is an additional combat phase. (An exerted creature won't untap during your next untap step.)",
+  "pt": [
+   4,
+   1
+  ]
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Deflecting Palm": {
+  "cost": "RW",
+  "type": "Instant",
+  "text": "The next time a source of your choice would deal damage to you this turn, prevent that damage. If damage is prevented this way, Deflecting Palm deals that much damage to that source's controller.",
+  "pt": null
+ },
+ "Demand Answers": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact or discard a card. Draw two cards.",
+  "pt": null
+ },
+ "Disenchant": {
+  "cost": "1W",
+  "type": "Instant",
+  "text": "Destroy target artifact or enchantment.",
+  "pt": null
+ },
+ "Embercleave": {
+  "cost": "4RR",
+  "type": "Legendary Artifact \u2014 Equipment",
+  "text": "Flash This spell costs {1} less to cast for each attacking creature you control. When Embercleave enters, attach it to target creature you control. Equipped creature gets +1/+1 and has double strike and trample. Equip {3}",
+  "pt": null
+ },
+ "Emeria Shepherd": {
+  "cost": "5WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying Landfall \u2014 Whenever a land you control enters, you may return target nonland permanent card from your graveyard to your hand. If that land is a Plains, you may return that nonland permanent card to the battlefield instead.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Faithless Looting": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Draw two cards, then discard two cards. Flashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Fellwar Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "pt": null
+ },
+ "Fireshrieker": {
+  "cost": "3",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has double strike. (It deals both first-strike and regular combat damage.) Equip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Flawless Maneuver": {
+  "cost": "2W",
+  "type": "Instant",
+  "text": "If you control a commander, you may cast this spell without paying its mana cost. Creatures you control gain indestructible until end of turn.",
+  "pt": null
+ },
+ "Frontline Medic": {
+  "cost": "2W",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "Battalion \u2014 Whenever this creature and at least two other creatures attack, creatures you control gain indestructible until end of turn. Sacrifice this creature: Counter target spell with {X} in its mana cost unless its controller pays {3}.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Giada, Font of Hope": {
+  "cost": "1W",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "Flying, vigilance Each other Angel you control enters with an additional +1/+1 counter on it for each Angel you already control. {T}: Add {W}. Spend this mana only to cast an Angel spell.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Gisela, Blade of Goldnight": {
+  "cost": "4RWW",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "Flying, first strike If a source would deal damage to an opponent or a permanent an opponent controls, that source deals double that damage to that player or permanent instead. If a source would deal damage to you or a permanent you control, prevent half that damage, rounded up.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Helm of the Host": {
+  "cost": "4",
+  "type": "Legendary Artifact \u2014 Equipment",
+  "text": "At the beginning of combat on your turn, create a token that's a copy of equipped creature, except the token isn't legendary. That token gains haste. Equip {5}",
+  "pt": null
+ },
+ "Herald's Horn": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "As this artifact enters, choose a creature type. Creature spells you cast of the chosen type cost {1} less to cast. At the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand.",
+  "pt": null
+ },
+ "Impact Tremors": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "A creature enters under your control: 1 damage to each opponent.",
+  "pt": null
+ },
+ "Inspiring Overseer": {
+  "cost": "2W",
+  "type": "Creature \u2014 Angel Cleric",
+  "text": "Flying When this creature enters, you gain 1 life and draw a card.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Inspiring Vantage": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or fewer other lands. {T}: Add {R} or {W}.",
+  "pt": null
+ },
+ "Iroas, God of Victory": {
+  "cost": "2RW",
+  "type": "Legendary Enchantment Creature \u2014 God",
+  "text": "Indestructible As long as your devotion to red and white is less than seven, Iroas isn't a creature. Creatures you control have menace. Prevent all damage that would be dealt to attacking creatures you control.",
+  "pt": [
+   7,
+   4
+  ]
+ },
+ "Justice Strike": {
+  "cost": "RW",
+  "type": "Instant",
+  "text": "Target creature deals damage to itself equal to its power.",
+  "pt": null
+ },
+ "Karlach, Fury of Avernus": {
+  "cost": "4R",
+  "type": "Legendary Creature \u2014 Tiefling Barbarian",
+  "text": "Whenever you attack, if it's the first combat phase of the turn, untap all attacking creatures. They gain first strike until end of turn. After this phase, there is an additional combat phase. Choose a Background (You can have a Background as a second commander.)",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Knight of the White Orchid": {
+  "cost": "WW",
+  "type": "Creature \u2014 Human Knight",
+  "text": "First strike When this creature enters, if an opponent controls more lands than you, you may search your library for a Plains card, put it onto the battlefield, then shuffle.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Lightning Helix": {
+  "cost": "RW",
+  "type": "Instant",
+  "text": "Lightning Helix deals 3 damage to any target and you gain 3 life.",
+  "pt": null
+ },
+ "Luminarch Ascension": {
+  "cost": "1W",
+  "type": "Enchantment",
+  "text": "At the beginning of each opponent's end step, if you didn't lose life this turn, you may put a quest counter on this enchantment. (Damage causes loss of life.) {1}{W}: Create a 4/4 white Angel creature token with flying. Activate only if this enchantment has four or more quest counters on it.",
+  "pt": null
+ },
+ "Lyra Dawnbringer": {
+  "cost": "3WW",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "Flying First strike (This creature deals combat damage before creatures without first strike.) Lifelink (Damage dealt by this creature also causes you to gain that much life.) Other Angels you control get +1/+1 and have lifelink.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Mask of Memory": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Whenever equipped creature deals combat damage to a player, you may draw two cards. If you do, discard a card. Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Master Warcraft": {
+  "cost": "2(R/W)(R/W)",
+  "type": "Instant",
+  "text": "Cast this spell only before attackers are declared. You choose which creatures attack this turn. You choose which creatures block this turn and how those creatures block.",
+  "pt": null
+ },
+ "Mentor of the Meek": {
+  "cost": "2W",
+  "type": "Creature \u2014 Human Soldier",
+  "text": "Whenever another creature you control with power 2 or less enters, you may pay {1}. If you do, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {R}.",
+  "pt": null
+ },
+ "Odric, Lunarch Marshal": {
+  "cost": "3W",
+  "type": "Legendary Creature \u2014 Human Soldier",
+  "text": "At the beginning of each combat, creatures you control gain first strike until end of turn if a creature you control has first strike. The same is true for flying, deathtouch, double strike, haste, hexproof, indestructible, lifelink, menace, reach, skulk, trample, and vigilance.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Path of Ancestry": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. {T}: add commander-identity color; scry 1 if spent on a Snake.",
+  "pt": null
+ },
+ "Path to Exile": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Resplendent Angel": {
+  "cost": "1WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying At the beginning of each end step, if you gained 5 or more life this turn, create a 4/4 white Angel creature token with flying and vigilance. {3}{W}{W}{W}: Until end of turn, this creature gets +2/+2 and gains lifelink.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Return to Dust": {
+  "cost": "2WW",
+  "type": "Instant",
+  "text": "Exile target artifact or enchantment. If you cast this spell during your main phase, you may exile up to one other target artifact or enchantment.",
+  "pt": null
+ },
+ "Righteous Valkyrie": {
+  "cost": "2W",
+  "type": "Creature \u2014 Angel Cleric",
+  "text": "Flying Whenever another Angel or Cleric you control enters, you gain life equal to that creature's toughness. As long as you have at least 7 life more than your starting life total, creatures you control get +2/+2.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Rogue's Passage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {4},{T}: target creature unblockable this turn.",
+  "pt": null
+ },
+ "Sacred Foundry": {
+  "cost": "",
+  "type": "Land \u2014 Mountain Plains",
+  "text": "({T}: Add {R} or {W}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Sephara, Sky's Blade": {
+  "cost": "4WWW",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "You may pay {W} and tap four untapped creatures you control with flying rather than pay this spell's mana cost. Flying, lifelink Other creatures you control with flying have indestructible. (Damage and effects that say \"destroy\" don't destroy them.)",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature +1/-1. When equipped creature dies, draw two. Equip {1}.",
+  "pt": null
+ },
+ "Slayers' Stronghold": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {R}{W}, {T}: Target creature gets +2/+0 and gains vigilance and haste until end of turn.",
+  "pt": null
+ },
+ "Smothering Tithe": {
+  "cost": "3W",
+  "type": "Enchantment",
+  "text": "Whenever an opponent draws a card, that player may pay {2}. If the player doesn't, you create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Sun Titan": {
+  "cost": "4WW",
+  "type": "Creature \u2014 Giant",
+  "text": "Vigilance Whenever this creature enters or attacks, you may return target permanent card with mana value 3 or less from your graveyard to the battlefield.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Sunfall": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Exile all creatures. Incubate X, where X is the number of creatures exiled this way. (Create an Incubator token with X +1/+1 counters on it and \"{2}: Transform this token.\" It transforms into a 0/0 Phyrexian artifact creature.)",
+  "pt": null
+ },
+ "Sunforger": {
+  "cost": "3",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +4/+0. {R}{W}, Unattach this Equipment: Search your library for a red or white instant card with mana value 4 or less and cast that card without paying its mana cost. Then shuffle. Equip {3}",
+  "pt": null
+ },
+ "Sunhome, Fortress of the Legion": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {2}{R}{W}, {T}: Target creature gains double strike until end of turn.",
+  "pt": null
+ },
+ "Swords to Plowshares": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller gains life equal to its power.",
+  "pt": null
+ },
+ "Talisman of Conviction": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {T}: Add {R} or {W}. This artifact deals 1 damage to you.",
+  "pt": null
+ },
+ "Teferi's Protection": {
+  "cost": "2W",
+  "type": "Instant",
+  "text": "Until your next turn, your life total can't change and you gain protection from everything. All permanents you control phase out. (While they're phased out, they're treated as though they don't exist. They phase in before you untap during your untap step.) Exile Teferi's Protection.",
+  "pt": null
+ },
+ "Temple of Triumph": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {R} or {W}.",
+  "pt": null
+ },
+ "Terramorphic Expanse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Thrill of Possibility": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, discard a card. Draw two cards.",
+  "pt": null
+ },
+ "True Conviction": {
+  "cost": "3WWW",
+  "type": "Enchantment",
+  "text": "Creatures you control have double strike and lifelink.",
+  "pt": null
+ },
+ "Unbreakable Formation": {
+  "cost": "2W",
+  "type": "Instant",
+  "text": "Creatures you control gain indestructible until end of turn. Addendum \u2014 If you cast this spell during your main phase, put a +1/+1 counter on each of those creatures and they gain vigilance until end of turn.",
+  "pt": null
+ },
+ "Wayfarer's Bauble": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{2},{T},Sacrifice: search a basic land, battlefield tapped.",
+  "pt": null
+ },
+ "Windbrisk Heights": {
+  "cost": "",
+  "type": "Land",
+  "text": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.) This land enters tapped. {T}: Add {W}. {W}, {T}: You may play the exiled card without paying its mana cost if you attacked with three or more creatures this turn.",
+  "pt": null
+ },
+ "Wrath of God": {
+  "cost": "2WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. They can't be regenerated.",
+  "pt": null
+ }
+}

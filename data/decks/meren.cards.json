@@ -1,0 +1,530 @@
+{
+ "Altar of Dementia": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: target player mills cards equal to its power.",
+  "pt": null
+ },
+ "Animate Dead": {
+  "cost": "1B",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature card in a graveyard: return it to the battlefield under your control; it gets -1/-0. If ~ leaves, sacrifice it.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Ashnod's Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add {C}{C}.",
+  "pt": null
+ },
+ "Ayara, First of Locthwain": {
+  "cost": "BBB",
+  "type": "Legendary Creature \u2014 Elf Noble",
+  "text": "Whenever ~ or another black creature enters under your control: each opponent loses 1 life, you gain 1. {T},Sacrifice another black creature: draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Beast Within": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Destroy target permanent; its controller creates a 3/3 Beast.",
+  "pt": null
+ },
+ "Birds of Paradise": {
+  "cost": "G",
+  "type": "Creature \u2014 Bird",
+  "text": "Flying {T}: Add one mana of any color.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Blood Artist": {
+  "cost": "1B",
+  "type": "Creature \u2014 Vampire",
+  "text": "Whenever ~ or another creature dies: target player loses 1 life, you gain 1.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Buried Alive": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Search up to three creature cards, put them in your graveyard, shuffle.",
+  "pt": null
+ },
+ "Butcher Ghoul": {
+  "cost": "1B",
+  "type": "Creature \u2014 Zombie",
+  "text": "Undying.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Butcher of Malakir": {
+  "cost": "5BB",
+  "type": "Creature \u2014 Vampire Warrior",
+  "text": "Flying. Whenever ~ or another creature you control dies: each opponent sacrifices a creature.",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Carrion Feeder": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "Can't block. Sacrifice a creature: put a +1/+1 counter on ~.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Casualties of War": {
+  "cost": "2BBGG",
+  "type": "Sorcery",
+  "text": "Choose up to one each: artifact, creature, enchantment, land, planeswalker. Destroy them.",
+  "pt": null
+ },
+ "Caustic Caterpillar": {
+  "cost": "G",
+  "type": "Creature \u2014 Insect",
+  "text": "{1}{G},Sacrifice ~: destroy target artifact or enchantment.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Cultivate": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "Search two basics: one battlefield tapped, one to hand.",
+  "pt": null
+ },
+ "Deadly Dispute": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Sacrifice a creature or artifact: draw two, create a Treasure.",
+  "pt": null
+ },
+ "Deadly Rollick": {
+  "cost": "3B",
+  "type": "Instant",
+  "text": "If you control a commander, you may cast this spell without paying its mana cost. Exile target creature.",
+  "pt": null
+ },
+ "Deathreap Ritual": {
+  "cost": "2BG",
+  "type": "Enchantment",
+  "text": "Each end step: if a creature died this turn, you may draw a card.",
+  "pt": null
+ },
+ "Dictate of Erebos": {
+  "cost": "3BB",
+  "type": "Enchantment",
+  "text": "Flash. Whenever a creature you control dies: each opponent sacrifices a creature.",
+  "pt": null
+ },
+ "Elves of Deep Shadow": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {B}. ~ deals 1 damage to you.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Entomb": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Search your library for a card, put that card into your graveyard, then shuffle.",
+  "pt": null
+ },
+ "Eternal Witness": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "On enter, return target card from your graveyard to hand.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Fleshbag Marauder": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Warrior",
+  "text": "On enter: each player sacrifices a creature.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {G}.",
+  "pt": null
+ },
+ "Golgari Findbroker": {
+  "cost": "BBGG",
+  "type": "Creature \u2014 Elf Shaman",
+  "text": "On enter: return target permanent card from your graveyard to hand.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Golgari Rot Farm": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. On enter, return a land you control to its owner's hand. {T}: Add {B}{G}.",
+  "pt": null
+ },
+ "Golgari Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1},{T}: Add {B}{G}.",
+  "pt": null
+ },
+ "Grave Pact": {
+  "cost": "1BBB",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control dies: each other player sacrifices a creature.",
+  "pt": null
+ },
+ "Grave Titan": {
+  "cost": "4BB",
+  "type": "Creature \u2014 Giant",
+  "text": "Deathtouch Whenever this creature enters or attacks, create two 2/2 black Zombie creature tokens.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Grim Haruspex": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Whenever another nontoken creature you control dies: draw a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Grisly Salvage": {
+  "cost": "BG",
+  "type": "Instant",
+  "text": "Mill five; put a creature or land card from among them to hand.",
+  "pt": null
+ },
+ "Jungle Hollow": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. On enter, gain 1 life. {T}: Add {B} or {G}.",
+  "pt": null
+ },
+ "Kodama's Reach": {
+  "cost": "2G",
+  "type": "Sorcery \u2014 Arcane",
+  "text": "Search two basics: one battlefield tapped, one to hand.",
+  "pt": null
+ },
+ "Kokusho, the Evening Star": {
+  "cost": "4BB",
+  "type": "Legendary Creature \u2014 Dragon Spirit",
+  "text": "Flying. On death: each opponent loses 5 life, you gain life equal to total lost.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Living Death": {
+  "cost": "3BB",
+  "type": "Sorcery",
+  "text": "Each player exiles creatures from their graveyard, then sacrifices all creatures, then puts the exiled cards onto the battlefield.",
+  "pt": null
+ },
+ "Llanowar Wastes": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}; or add {B}/{G} and ~ deals 1 damage to you.",
+  "pt": null
+ },
+ "Massacre Wurm": {
+  "cost": "3BBB",
+  "type": "Creature \u2014 Phyrexian Wurm",
+  "text": "On enter: creatures your opponents control get -2/-2 until end of turn. Whenever an opponent's creature dies: that player loses 2 life.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Merciless Executioner": {
+  "cost": "2B",
+  "type": "Creature \u2014 Orc Warrior",
+  "text": "On enter: each player sacrifices a creature.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Meren of Clan Nel Toth": {
+  "cost": "2BG",
+  "type": "Legendary Creature \u2014 Human Shaman",
+  "text": "Whenever another creature you control dies, you get an experience counter (track in notes). Your end step: choose a creature card in your graveyard; if its mana value <= your experience counters, return it to the battlefield, else to your hand.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Midnight Reaper": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Knight",
+  "text": "Whenever a nontoken creature you control dies: ~ deals 1 damage to you, draw a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Mikaeus, the Unhallowed": {
+  "cost": "3BBB",
+  "type": "Legendary Creature \u2014 Zombie Cleric",
+  "text": "Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.) Whenever a Human deals damage to you, destroy it. Other non-Human creatures you control get +1/+1 and have undying. (When a creature with undying dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Mycoloth": {
+  "cost": "3GG",
+  "type": "Creature \u2014 Fungus",
+  "text": "Devour 2 (sac creatures on enter; two +1/+1 counters each). Your upkeep: create a 1/1 Saproling for each +1/+1 counter on ~.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Nature's Lore": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Ophiomancer": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "Your upkeep: if you control no Snakes, create a 1/1 black Snake with deathtouch.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Path of Ancestry": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. {T}: add commander-identity color; scry 1 if spent on a Snake.",
+  "pt": null
+ },
+ "Phyrexian Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add one mana of any color.",
+  "pt": null
+ },
+ "Phyrexian Arena": {
+  "cost": "1BB",
+  "type": "Enchantment",
+  "text": "Your upkeep: draw a card, lose 1 life.",
+  "pt": null
+ },
+ "Plaguecrafter": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "On enter: each player sacrifices a creature or planeswalker; players who can't discard a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Putrefy": {
+  "cost": "1BG",
+  "type": "Instant",
+  "text": "Destroy target artifact or creature. It can't be regenerated.",
+  "pt": null
+ },
+ "Reanimate": {
+  "cost": "B",
+  "type": "Sorcery",
+  "text": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+  "pt": null
+ },
+ "Reassembling Skeleton": {
+  "cost": "B",
+  "type": "Creature \u2014 Skeleton Warrior",
+  "text": "{1}{B}: Return ~ from your graveyard to the battlefield tapped.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Sakura-Tribe Elder": {
+  "cost": "1G",
+  "type": "Creature \u2014 Snake Shaman",
+  "text": "Sacrifice ~: search a basic land, battlefield tapped.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Satyr Wayfinder": {
+  "cost": "1G",
+  "type": "Creature \u2014 Satyr",
+  "text": "On enter: reveal top four; put a land from among them to hand, rest to graveyard.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature +1/-1. When equipped creature dies, draw two. Equip {1}.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spore Frog": {
+  "cost": "G",
+  "type": "Creature \u2014 Frog",
+  "text": "Sacrifice ~: prevent all combat damage this turn.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Stitcher's Supplier": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "On enter or death: mill 3.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {B}.",
+  "pt": null
+ },
+ "Terramorphic Expanse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Toxic Deluge": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, pay X life. All creatures get -X/-X until end of turn.",
+  "pt": null
+ },
+ "Triskelion": {
+  "cost": "6",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "This creature enters with three +1/+1 counters on it. Remove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Victimize": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Sacrifice a creature: return two creature cards from your graveyard to the battlefield tapped.",
+  "pt": null
+ },
+ "Village Rites": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Sacrifice a creature: draw two cards.",
+  "pt": null
+ },
+ "Viscera Seer": {
+  "cost": "B",
+  "type": "Creature \u2014 Vampire Wizard",
+  "text": "Sacrifice a creature: scry 1.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Wayfarer's Bauble": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{2},{T},Sacrifice: search a basic land, battlefield tapped.",
+  "pt": null
+ },
+ "Westvale Abbey": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {5},{T}, sacrifice five creatures: transform ~ into Ormendahl, Profane Prince \u2014 legendary 9/7 Demon with flying, lifelink, indestructible, haste (represent via create + note).",
+  "pt": null
+ },
+ "Woodland Cemetery": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped unless you control a Swamp or a Forest. {T}: Add {B} or {G}.",
+  "pt": null
+ },
+ "Yawgmoth, Thran Physician": {
+  "cost": "2BB",
+  "type": "Legendary Creature \u2014 Human Cleric",
+  "text": "Protection from Humans Pay 1 life, Sacrifice another creature: Put a -1/-1 counter on up to one target creature and draw a card. {B}{B}, Discard a card: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Young Wolf": {
+  "cost": "G",
+  "type": "Creature \u2014 Wolf",
+  "text": "Undying (dies without +1/+1 counter: return it with one).",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Zulaport Cutthroat": {
+  "cost": "1B",
+  "type": "Creature \u2014 Human Rogue Ally",
+  "text": "Whenever ~ or another creature you control dies: each opponent loses 1 life, you gain 1.",
+  "pt": [
+   1,
+   1
+  ]
+ }
+}

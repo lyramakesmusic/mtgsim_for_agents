@@ -6,9 +6,9 @@ that cards.json doesn't have. Usage:
   uv run scripts/fetch_oracle.py --all          # every deck in data/decks/
 
 Uses the /cards/collection endpoint (batch 75, by exact name; set codes in
-decklists are ignored — latest oracle text wins). Merges into data/cards.json
-in the DB's terse format: {cost, type, text, pt}. Existing entries are NOT
-overwritten unless --refresh."""
+decklists are ignored — latest oracle text wins). Each deck gets its own
+sidecar: data/decks/<name>.cards.json — deck and card data travel together.
+Existing entries are NOT overwritten unless --refresh."""
 import argparse
 import json
 import sys
@@ -78,31 +78,29 @@ if __name__ == "__main__":
     args = ap.parse_args()
 
     paths = sorted(DECK_DIR.glob("*.txt")) if args.all else [Path(p) for p in args.decks]
-    cards_path = ROOT / "data" / "cards.json"
-    db = json.loads(cards_path.read_text())
 
-    wanted = {}
     for p in paths:
+        side = p.with_suffix("").with_suffix("")  # strip .txt
+        side = p.parent / (p.stem + ".cards.json")
+        db = json.loads(side.read_text()) if side.exists() else {}
         main, commander = parse_decklist(p.read_text())
-        for n in set(main + ([commander] if commander else [])):
-            if args.refresh or n not in db:
-                wanted[n] = True
-    if not wanted:
-        print("nothing to fetch — DB already covers these decks")
-        sys.exit(0)
-
-    print(f"fetching {len(wanted)} cards from scryfall...")
-    got, missing = fetch(wanted)
-    for req_name in wanted:
-        # store under the deck's requested name so decklists validate;
-        # scryfall may canonicalize (accents, punctuation)
-        card = got.get(req_name) or next(
-            (c for n, c in got.items() if n.lower() == req_name.lower()), None)
-        if card:
-            db[req_name] = to_entry(card)
-        else:
-            print(f"  !! scryfall couldn't find: {req_name!r}")
-    cards_path.write_text(json.dumps(db, indent=1))
-    found = len(wanted) - len(missing)
-    print(f"merged {found} entries → cards.json now {len(db)} cards"
-          + (f"; NOT FOUND: {missing}" if missing else ""))
+        needed = sorted(set(main + ([commander] if commander else [])))
+        wanted = [n for n in needed if args.refresh or n not in db]
+        # prune entries for cards no longer in the deck
+        db = {k: v for k, v in db.items() if k in needed}
+        if not wanted:
+            side.write_text(json.dumps(db, indent=1))
+            print(f"{p.stem}: sidecar up to date ({len(db)} cards)")
+            continue
+        print(f"{p.stem}: fetching {len(wanted)} cards from scryfall...")
+        got, missing = fetch(wanted)
+        for req_name in wanted:
+            card = got.get(req_name) or next(
+                (c for n, c in got.items() if n.lower() == req_name.lower()), None)
+            if card:
+                db[req_name] = to_entry(card)
+            else:
+                print(f"  !! scryfall couldn't find: {req_name!r}")
+        side.write_text(json.dumps(db, indent=1))
+        print(f"{p.stem}: sidecar now {len(db)} cards"
+              + (f"; NOT FOUND: {missing}" if missing else ""))

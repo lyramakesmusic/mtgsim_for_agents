@@ -1,0 +1,491 @@
+{
+ "Aeon Engine": {
+  "cost": "5",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}, Exile this artifact: Reverse the game's turn order. (For example, if play had proceeded clockwise around the table, it now goes counterclockwise.)",
+  "pt": null
+ },
+ "Agent of Treachery": {
+  "cost": "5UU",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "When this creature enters, gain control of target permanent. At the beginning of your end step, if you control three or more permanents you don't own, draw three cards.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Akroma's Memorial": {
+  "cost": "7",
+  "type": "Legendary Artifact",
+  "text": "Creatures you control have flying, first strike, vigilance, trample, haste, and protection from black and from red.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Archetype of Imagination": {
+  "cost": "4UU",
+  "type": "Enchantment Creature \u2014 Human Wizard",
+  "text": "Creatures you control have flying. Creatures your opponents control lose flying and can't have or gain flying.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Artisan of Kozilek": {
+  "cost": "9",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, you may return target creature card from your graveyard to the battlefield. Annihilator 2 (Whenever this creature attacks, defending player sacrifices two permanents of their choice.)",
+  "pt": [
+   10,
+   9
+  ]
+ },
+ "Basalt Monolith": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "This artifact doesn't untap during your untap step. {T}: Add {C}{C}{C}. {3}: Untap this artifact.",
+  "pt": null
+ },
+ "Blightsteel Colossus": {
+  "cost": "(12)",
+  "type": "Artifact Creature \u2014 Phyrexian Golem",
+  "text": "Trample, infect, indestructible If Blightsteel Colossus would be put into a graveyard from anywhere, reveal Blightsteel Colossus and shuffle it into its owner's library instead.",
+  "pt": [
+   11,
+   11
+  ]
+ },
+ "Braids, Conjurer Adept": {
+  "cost": "2UU",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "At the beginning of each player's upkeep, that player may put an artifact, creature, or land card from their hand onto the battlefield.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Breaching Leviathan": {
+  "cost": "7UU",
+  "type": "Creature \u2014 Leviathan",
+  "text": "When this creature enters, if you cast it from your hand, tap all nonblue creatures. Those creatures don't untap during their controllers' next untap steps.",
+  "pt": [
+   9,
+   9
+  ]
+ },
+ "Breaker of Armies": {
+  "cost": "8",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "All creatures able to block this creature do so.",
+  "pt": [
+   10,
+   8
+  ]
+ },
+ "Clever Impersonator": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of any nonland permanent on the battlefield.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Coldsteel Heart": {
+  "cost": "2",
+  "type": "Snow Artifact",
+  "text": "This artifact enters tapped. As this artifact enters, choose a color. {T}: Add one mana of the chosen color.",
+  "pt": null
+ },
+ "Colossal Whale": {
+  "cost": "5UU",
+  "type": "Creature \u2014 Whale",
+  "text": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.) Whenever this creature attacks, you may exile target creature defending player controls until this creature leaves the battlefield. (That creature returns under its owner's control.)",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Confiscate": {
+  "cost": "4UU",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant permanent You control enchanted permanent.",
+  "pt": null
+ },
+ "Darksteel Colossus": {
+  "cost": "(11)",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.) Indestructible (Damage and effects that say \"destroy\" don't destroy this creature.) If Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.",
+  "pt": [
+   11,
+   11
+  ]
+ },
+ "Dictate of Kruphix": {
+  "cost": "1UU",
+  "type": "Enchantment",
+  "text": "Flash. Each player's draw step: draw an extra card.",
+  "pt": null
+ },
+ "Everflowing Chalice": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "Multikicker {2} (You may pay an additional {2} any number of times as you cast this spell.) This artifact enters with a charge counter on it for each time it was kicked. {T}: Add {C} for each charge counter on this artifact.",
+  "pt": null
+ },
+ "Fellwar Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "pt": null
+ },
+ "Folio of Fancies": {
+  "cost": "1U",
+  "type": "Artifact \u2014 Book",
+  "text": "Players have no maximum hand size. {X}{X}, {T}: Each player draws X cards. {2}{U}, {T}: Each opponent mills cards equal to the number of cards in their hand.",
+  "pt": null
+ },
+ "Followed Footsteps": {
+  "cost": "3UU",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature At the beginning of your upkeep, create a token that's a copy of enchanted creature.",
+  "pt": null
+ },
+ "Font of Mythos": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "At the beginning of each player's draw step, that player draws two additional cards.",
+  "pt": null
+ },
+ "Gate to the Aether": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "At the beginning of each player's upkeep, that player reveals the top card of their library. If it's an artifact, creature, enchantment, or land card, the player may put it onto the battlefield.",
+  "pt": null
+ },
+ "Grim Monolith": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact doesn't untap during your untap step. {T}: Add {C}{C}{C}. {4}: Untap this artifact.",
+  "pt": null
+ },
+ "Guardian Idol": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {C}. {2}: This artifact becomes a 2/2 Golem artifact creature until end of turn.",
+  "pt": null
+ },
+ "Howling Mine": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "At the beginning of each player's draw step, if this artifact is untapped, that player draws an additional card.",
+  "pt": null
+ },
+ "Imprisoned in the Moon": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature, land, or planeswalker Enchanted permanent is a colorless land with \"{T}: Add {C}\" and loses all other card types and abilities.",
+  "pt": null
+ },
+ "Inkwell Leviathan": {
+  "cost": "7UU",
+  "type": "Artifact Creature \u2014 Leviathan",
+  "text": "Trample Islandwalk (This creature can't be blocked as long as defending player controls an Island.) Shroud (This creature can't be the target of spells or abilities.)",
+  "pt": [
+   7,
+   11
+  ]
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {U}.",
+  "pt": null
+ },
+ "It That Betrays": {
+  "cost": "(12)",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "Annihilator 2 (Whenever this creature attacks, defending player sacrifices two permanents of their choice.) Whenever an opponent sacrifices a nontoken permanent, put that card onto the battlefield under your control.",
+  "pt": [
+   11,
+   11
+  ]
+ },
+ "Kami of the Crescent Moon": {
+  "cost": "UU",
+  "type": "Legendary Creature \u2014 Spirit",
+  "text": "Each player's draw step: that player draws an extra card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Kira, Great Glass-Spinner": {
+  "cost": "1UU",
+  "type": "Legendary Creature \u2014 Spirit",
+  "text": "Flying Creatures you control have \"Whenever this creature becomes the target of a spell or ability for the first time each turn, counter that spell or ability.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Kozilek, Butcher of Truth": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, draw four cards. Annihilator 4 (Whenever this creature attacks, defending player sacrifices four permanents of their choice.) When Kozilek is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Lorthos, the Tidemaker": {
+  "cost": "5UUU",
+  "type": "Legendary Creature \u2014 Octopus",
+  "text": "Whenever Lorthos attacks, you may pay {8}. If you do, tap up to eight target permanents. Those permanents don't untap during their controllers' next untap steps.",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Mana Vault": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "This artifact doesn't untap during your untap step. At the beginning of your upkeep, you may pay {4}. If you do, untap this artifact. At the beginning of your draw step, if this artifact is tapped, it deals 1 damage to you. {T}: Add {C}{C}{C}.",
+  "pt": null
+ },
+ "Mikokoro, Center of the Sea": {
+  "cost": "",
+  "type": "Legendary Land",
+  "text": "{T}: Add {C}. {2}, {T}: Each player draws a card.",
+  "pt": null
+ },
+ "Mind Control": {
+  "cost": "3UU",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature You control enchanted creature.",
+  "pt": null
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Minds Aglow": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Join forces \u2014 Starting with you, each player may pay any amount of mana. Each player draws X cards, where X is the total amount of mana paid this way.",
+  "pt": null
+ },
+ "Omen Machine": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "Players can't draw cards. At the beginning of each player's draw step, that player exiles the top card of their library. If it's a land card, the player puts it onto the battlefield. Otherwise, the player casts it without paying its mana cost if able.",
+  "pt": null
+ },
+ "Paradox Haze": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant player At the beginning of enchanted player's first upkeep each turn, that player gets an additional upkeep step after this step.",
+  "pt": null
+ },
+ "Pathrazer of Ulamog": {
+  "cost": "(11)",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "Annihilator 3 (Whenever this creature attacks, defending player sacrifices three permanents of their choice.) This creature can't be blocked except by three or more creatures.",
+  "pt": [
+   9,
+   9
+  ]
+ },
+ "Platinum Angel": {
+  "cost": "7",
+  "type": "Artifact Creature \u2014 Angel",
+  "text": "Flying You can't lose the game and your opponents can't win the game.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Platinum Emperion": {
+  "cost": "8",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "Your life total can't change. (You can't gain or lose life. You can't pay any amount of life except 0.)",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature; controller creates a 3/3 Ape.",
+  "pt": null
+ },
+ "Prismatic Lens": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1}, {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Propaganda": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you unless their controller pays {2} per attacker.",
+  "pt": null
+ },
+ "Prosperity": {
+  "cost": "XUU",
+  "type": "Sorcery",
+  "text": "Each player draws X.",
+  "pt": null
+ },
+ "Quicksilver Gargantuan": {
+  "cost": "5UU",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield, except it's 7/7.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature (can't be regenerated); its controller creates a 3/3 green Frog Lizard.",
+  "pt": null
+ },
+ "Reliquary Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "No maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Roil Elemental": {
+  "cost": "3UUU",
+  "type": "Creature \u2014 Elemental",
+  "text": "Flying Landfall \u2014 Whenever a land you control enters, you may gain control of target creature for as long as you control this creature.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Sapphire Medallion": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Blue spells you cast cost {1} less.",
+  "pt": null
+ },
+ "Scourge of Fleets": {
+  "cost": "5UU",
+  "type": "Creature \u2014 Kraken",
+  "text": "When this creature enters, return each creature your opponents control with toughness X or less to its owner's hand, where X is the number of Islands you control.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Sky Diamond": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {U}.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Sphinx of the Second Sun": {
+  "cost": "6UU",
+  "type": "Creature \u2014 Sphinx",
+  "text": "Flying At the beginning of each of your postcombat main phases, there is an additional beginning phase after this phase. (The beginning phase includes the untap, upkeep, and draw steps.)",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Star Compass": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add one mana of any color that a basic land you control could produce.",
+  "pt": null
+ },
+ "Stormtide Leviathan": {
+  "cost": "5UUU",
+  "type": "Creature \u2014 Leviathan",
+  "text": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.) All lands are Islands in addition to their other types. Creatures without flying or islandwalk can't attack.",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Strionic Resonator": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{2}, {T}: Copy target triggered ability you control. You may choose new targets for the copy. (A triggered ability uses the words \"when,\" \"whenever,\" or \"at.\")",
+  "pt": null
+ },
+ "Temple Bell": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Each player draws a card.",
+  "pt": null
+ },
+ "The Magic Mirror": {
+  "cost": "6UUU",
+  "type": "Legendary Artifact",
+  "text": "This spell costs {1} less to cast for each instant and sorcery card in your graveyard. You have no maximum hand size. At the beginning of your upkeep, put a knowledge counter on The Magic Mirror, then draw a card for each knowledge counter on The Magic Mirror.",
+  "pt": null
+ },
+ "Thought Vessel": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "No max hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Tromokratis": {
+  "cost": "5UU",
+  "type": "Legendary Creature \u2014 Kraken",
+  "text": "Tromokratis has hexproof unless it's attacking or blocking. Tromokratis can't be blocked unless all creatures defending player controls block it. (If any creature that player controls doesn't block this creature, it can't be blocked.)",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Ugin, the Spirit Dragon": {
+  "cost": "8",
+  "type": "Legendary Planeswalker \u2014 Ugin",
+  "text": "+2: Ugin deals 3 damage to any target. \u2212X: Exile each permanent with mana value X or less that's one or more colors. \u221210: You gain 7 life, draw seven cards, then put up to seven permanent cards from your hand onto the battlefield. [Loyalty 7 \u2014 track via counters+notes]",
+  "pt": null
+ },
+ "Ulamog, the Ceaseless Hunger": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, exile two target permanents. Indestructible Whenever Ulamog attacks, defending player exiles the top twenty cards of their library.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Ulamog, the Infinite Gyre": {
+  "cost": "(11)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, destroy target permanent. Indestructible Annihilator 4 (Whenever this creature attacks, defending player sacrifices four permanents of their choice.) When Ulamog is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "War Tax": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "{X}{U}: This turn, creatures can't attack unless their controller pays {X} for each attacking creature they control.",
+  "pt": null
+ }
+}

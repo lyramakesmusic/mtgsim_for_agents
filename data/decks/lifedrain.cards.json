@@ -1,0 +1,584 @@
+{
+ "Aerial Responder": {
+  "cost": "1WW",
+  "type": "Creature \u2014 Dwarf Soldier",
+  "text": "Flying, vigilance, lifelink",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Agent of Masks": {
+  "cost": "3WB",
+  "type": "Creature \u2014 Human Advisor",
+  "text": "At the beginning of your upkeep, each opponent loses 1 life. You gain life equal to the life lost this way.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Angel of Invention": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying, vigilance, lifelink Fabricate 2 (When this creature enters, put two +1/+1 counters on it or create two 1/1 colorless Servo artifact creature tokens.) Other creatures you control get +1/+1.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Archangel of Thune": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying Lifelink (Damage dealt by this creature also causes you to gain that much life.) Whenever you gain life, put a +1/+1 counter on each creature you control.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Ayli, Eternal Pilgrim": {
+  "cost": "WB",
+  "type": "Legendary Creature \u2014 Kor Cleric",
+  "text": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.) {1}, Sacrifice another creature: You gain life equal to the sacrificed creature's toughness. {1}{W}{B}, Sacrifice another creature: Exile target nonland permanent. Activate only if you have at least 10 life more than your starting life total.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Baneslayer Angel": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying, first strike, lifelink, protection from Demons and from Dragons",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Basalt Monolith": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "This artifact doesn't untap during your untap step. {T}: Add {C}{C}{C}. {3}: Untap this artifact.",
+  "pt": null
+ },
+ "Basilica Guards": {
+  "cost": "2W",
+  "type": "Creature \u2014 Human Soldier",
+  "text": "Defender Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Basilica Screecher": {
+  "cost": "1B",
+  "type": "Creature \u2014 Bat",
+  "text": "Flying Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Batterskull": {
+  "cost": "5",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.) Equipped creature gets +4/+4 and has vigilance and lifelink. {3}: Return this Equipment to its owner's hand. Equip {5}",
+  "pt": null
+ },
+ "Blind Obedience": {
+  "cost": "1W",
+  "type": "Enchantment",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Artifacts and creatures your opponents control enter tapped.",
+  "pt": null
+ },
+ "Blood Artist": {
+  "cost": "1B",
+  "type": "Creature \u2014 Vampire",
+  "text": "Whenever ~ or another creature dies: target player loses 1 life, you gain 1.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Blood Baron of Vizkopa": {
+  "cost": "3WB",
+  "type": "Creature \u2014 Vampire",
+  "text": "Lifelink, protection from white and from black As long as you have 30 or more life and an opponent has 10 or less life, this creature gets +6/+6 and has flying.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Bloodchief Ascension": {
+  "cost": "B",
+  "type": "Enchantment",
+  "text": "At the beginning of each end step, if an opponent lost 2 or more life this turn, you may put a quest counter on this enchantment. (Damage causes loss of life.) Whenever a card is put into an opponent's graveyard from anywhere, if this enchantment has three or more quest counters on it, you may have that player lose 2 life. If you do, you gain 2 life.",
+  "pt": null
+ },
+ "Caves of Koilos": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {W} or {B}. This land deals 1 damage to you.",
+  "pt": null
+ },
+ "City of Brass": {
+  "cost": "",
+  "type": "Land",
+  "text": "Whenever this land becomes tapped, it deals 1 damage to you. {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Coalition Relic": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color. {T}: Put a charge counter on this artifact. At the beginning of your first main phase, remove all charge counters from this artifact. Add one mana of any color for each charge counter removed this way.",
+  "pt": null
+ },
+ "Concealed Courtyard": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or fewer other lands. {T}: Add {W} or {B}.",
+  "pt": null
+ },
+ "Crypt Ghast": {
+  "cost": "3B",
+  "type": "Creature \u2014 Spirit",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Whenever you tap a Swamp for mana, add an additional {B}.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Damnation": {
+  "cost": "2BB",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. They can't be regenerated.",
+  "pt": null
+ },
+ "Death Denied": {
+  "cost": "XBB",
+  "type": "Instant \u2014 Arcane",
+  "text": "Return X target creature cards from your graveyard to your hand.",
+  "pt": null
+ },
+ "Debt to the Deathless": {
+  "cost": "XWWBB",
+  "type": "Sorcery",
+  "text": "Each opponent loses two times X life. You gain life equal to the life lost this way.",
+  "pt": null
+ },
+ "Divinity of Pride": {
+  "cost": "(W/B)(W/B)(W/B)(W/B)(W/B)",
+  "type": "Creature \u2014 Spirit Avatar",
+  "text": "Flying, lifelink This creature gets +4/+4 as long as you have 25 or more life.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Drain Life": {
+  "cost": "X1B",
+  "type": "Sorcery",
+  "text": "Spend only black mana on X. Drain Life deals X damage to any target. You gain life equal to the damage dealt, but not more life than the player's life total before the damage was dealt, the planeswalker's loyalty before the damage was dealt, or the creature's toughness.",
+  "pt": null
+ },
+ "Elenda, the Dusk Rose": {
+  "cost": "2WB",
+  "type": "Legendary Creature \u2014 Vampire Knight",
+  "text": "Lifelink Whenever another creature dies, put a +1/+1 counter on Elenda. When Elenda dies, create X 1/1 white Vampire creature tokens with lifelink, where X is Elenda's power.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Everflowing Chalice": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "Multikicker {2} (You may pay an additional {2} any number of times as you cast this spell.) This artifact enters with a charge counter on it for each time it was kicked. {T}: Add {C} for each charge counter on this artifact.",
+  "pt": null
+ },
+ "Exalted Angel": {
+  "cost": "4WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying Whenever this creature deals damage, you gain that much life. Morph {2}{W}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+  "pt": [
+   4,
+   5
+  ]
+ },
+ "Exquisite Blood": {
+  "cost": "4B",
+  "type": "Enchantment",
+  "text": "Whenever an opponent loses life, you gain that much life.",
+  "pt": null
+ },
+ "Exsanguinate": {
+  "cost": "XBB",
+  "type": "Sorcery",
+  "text": "Each opponent loses X life. You gain life equal to the life lost this way.",
+  "pt": null
+ },
+ "Fellwar Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "pt": null
+ },
+ "Fetid Heath": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {W/B}, {T}: Add {W}{W}, {W}{B}, or {B}{B}.",
+  "pt": null
+ },
+ "Godless Shrine": {
+  "cost": "",
+  "type": "Land \u2014 Plains Swamp",
+  "text": "({T}: Add {W} or {B}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Hero's Downfall": {
+  "cost": "1BB",
+  "type": "Instant",
+  "text": "Destroy target creature or planeswalker.",
+  "pt": null
+ },
+ "Isolated Chapel": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control a Plains or a Swamp. {T}: Add {W} or {B}.",
+  "pt": null
+ },
+ "Kambal, Consul of Allocation": {
+  "cost": "1WB",
+  "type": "Legendary Creature \u2014 Human Advisor",
+  "text": "Whenever an opponent casts a noncreature spell, that player loses 2 life and you gain 2 life.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Karlov of the Ghost Council": {
+  "cost": "WB",
+  "type": "Legendary Creature \u2014 Spirit Advisor",
+  "text": "Whenever you gain life, put two +1/+1 counters on Karlov. {W}{B}, Remove six +1/+1 counters from Karlov: Exile target creature.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Kingpin's Pet": {
+  "cost": "1WB",
+  "type": "Creature \u2014 Thrull",
+  "text": "Flying Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Kokusho, the Evening Star": {
+  "cost": "4BB",
+  "type": "Legendary Creature \u2014 Dragon Spirit",
+  "text": "Flying. On death: each opponent loses 5 life, you gain life equal to total lost.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Liesa, Shroud of Dusk": {
+  "cost": "2WWB",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "Rather than pay {2} for each previous time you've cast this spell from the command zone this game, pay 2 life that many times. Flying, lifelink Whenever a player casts a spell, they lose 2 life.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Mana Confluence": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}, Pay 1 life: Add one mana of any color.",
+  "pt": null
+ },
+ "Mana Vault": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "This artifact doesn't untap during your untap step. At the beginning of your upkeep, you may pay {4}. If you do, untap this artifact. At the beginning of your draw step, if this artifact is tapped, it deals 1 damage to you. {T}: Add {C}{C}{C}.",
+  "pt": null
+ },
+ "Marsh Flats": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Plains or Swamp card, put it onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Merciless Eviction": {
+  "cost": "4WB",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Exile all artifacts. \u2022 Exile all creatures. \u2022 Exile all enchantments. \u2022 Exile all planeswalkers.",
+  "pt": null
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Obzedat, Ghost Council": {
+  "cost": "1WWBB",
+  "type": "Legendary Creature \u2014 Spirit Advisor",
+  "text": "When Obzedat enters, target opponent loses 2 life and you gain 2 life. At the beginning of your end step, you may exile Obzedat. If you do, return it to the battlefield under its owner's control at the beginning of your next upkeep. It gains haste.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Orzhov Basilica": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {W}{B}.",
+  "pt": null
+ },
+ "Orzhov Cluestone": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add {W} or {B}. {W}{B}, {T}, Sacrifice this artifact: Draw a card.",
+  "pt": null
+ },
+ "Orzhov Guildgate": {
+  "cost": "",
+  "type": "Land \u2014 Gate",
+  "text": "This land enters tapped. {T}: Add {W} or {B}.",
+  "pt": null
+ },
+ "Orzhov Locket": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add {W} or {B}. {W/B}{W/B}{W/B}{W/B}, {T}, Sacrifice this artifact: Draw two cards.",
+  "pt": null
+ },
+ "Orzhov Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {W}{B}.",
+  "pt": null
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Pontiff of Blight": {
+  "cost": "4BB",
+  "type": "Creature \u2014 Zombie Cleric",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Other creatures you control have extort. (If a creature has multiple instances of extort, each triggers separately.)",
+  "pt": [
+   2,
+   7
+  ]
+ },
+ "Prismatic Lens": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1}, {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Scoured Barrens": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {W} or {B}.",
+  "pt": null
+ },
+ "Scrubland": {
+  "cost": "",
+  "type": "Land \u2014 Plains Swamp",
+  "text": "({T}: Add {W} or {B}.)",
+  "pt": null
+ },
+ "Serra Ascendant": {
+  "cost": "W",
+  "type": "Creature \u2014 Human Monk",
+  "text": "Lifelink (Damage dealt by this creature also causes you to gain that much life.) As long as you have 30 or more life, this creature gets +5/+5 and has flying.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Shambling Vent": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {W} or {B}. {1}{W}{B}: Until end of turn, this land becomes a 2/3 white and black Elemental creature with lifelink. It's still a land.",
+  "pt": null
+ },
+ "Silent Clearing": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}, Pay 1 life: Add {W} or {B}. {1}, {T}, Sacrifice this land: Draw a card.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Souls of the Faultless": {
+  "cost": "WBB",
+  "type": "Creature \u2014 Spirit",
+  "text": "Defender (This creature can't attack.) Whenever this creature is dealt combat damage, you gain that much life and attacking player loses that much life.",
+  "pt": [
+   0,
+   4
+  ]
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {B}.",
+  "pt": null
+ },
+ "Sword of Light and Shadow": {
+  "cost": "3",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +2/+2 and has protection from white and from black. Whenever equipped creature deals combat damage to a player, you gain 3 life and you may return up to one target creature card from your graveyard to your hand. Equip {2}",
+  "pt": null
+ },
+ "Syndic of Tithes": {
+  "cost": "1W",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Syndicate Enforcer": {
+  "cost": "3B",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Tainted Field": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {W} or {B}. Activate only if you control a Swamp.",
+  "pt": null
+ },
+ "Talisman of Hierarchy": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {T}: Add {W} or {B}. This artifact deals 1 damage to you.",
+  "pt": null
+ },
+ "Temple of Silence": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {W} or {B}.",
+  "pt": null
+ },
+ "The Haunt of Hightower": {
+  "cost": "4BB",
+  "type": "Legendary Creature \u2014 Vampire",
+  "text": "Flying, lifelink Whenever The Haunt of Hightower attacks, defending player discards a card. Whenever a card is put into an opponent's graveyard from anywhere, put a +1/+1 counter on The Haunt of Hightower.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Thrull Parasite": {
+  "cost": "B",
+  "type": "Creature \u2014 Thrull",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) {T}, Pay 2 life: Remove a counter from target nonland permanent.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Tithe Drinker": {
+  "cost": "WB",
+  "type": "Creature \u2014 Vampire",
+  "text": "Lifelink (Damage dealt by this creature also causes you to gain that much life.) Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Treasury Thrull": {
+  "cost": "4WB",
+  "type": "Creature \u2014 Thrull",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Whenever this creature attacks, you may return target artifact, creature, or enchantment card from your graveyard to your hand.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Twilight Prophet": {
+  "cost": "2BB",
+  "type": "Creature \u2014 Vampire Cleric",
+  "text": "Flying Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.) At the beginning of your upkeep, if you have the city's blessing, reveal the top card of your library and put it into your hand. Each opponent loses X life and you gain X life, where X is that card's mana value.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Urborg, Tomb of Yawgmoth": {
+  "cost": "",
+  "type": "Legendary Land",
+  "text": "Each land is a Swamp in addition to its other land types.",
+  "pt": null
+ },
+ "Utter End": {
+  "cost": "2WB",
+  "type": "Instant",
+  "text": "Exile target nonland permanent.",
+  "pt": null
+ },
+ "Vampire Nighthawk": {
+  "cost": "1BB",
+  "type": "Creature \u2014 Vampire Shaman",
+  "text": "Flying Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.) Lifelink (Damage dealt by this creature also causes you to gain that much life.)",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Vault of the Archangel": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {2}{W}{B}, {T}: Creatures you control gain deathtouch and lifelink until end of turn.",
+  "pt": null
+ },
+ "Vindicate": {
+  "cost": "1WB",
+  "type": "Sorcery",
+  "text": "Destroy target permanent.",
+  "pt": null
+ },
+ "Worn Powerstone": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Wrath of God": {
+  "cost": "2WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. They can't be regenerated.",
+  "pt": null
+ },
+ "Wurmcoil Engine": {
+  "cost": "6",
+  "type": "Artifact Creature \u2014 Phyrexian Wurm",
+  "text": "Deathtouch, lifelink When this creature dies, create a 3/3 colorless Phyrexian Wurm artifact creature token with deathtouch and a 3/3 colorless Phyrexian Wurm artifact creature token with lifelink.",
+  "pt": [
+   6,
+   6
+  ]
+ }
+}

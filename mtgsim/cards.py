@@ -29,17 +29,29 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 DECK_DIR = DATA / "decks"
 
 _LINE = re.compile(r"^(\d+)x?\s+(.+?)\s*$")
-_SETCODE = re.compile(r"\s*\(\w{2,6}\)(\s+[\dA-Za-z★-]+)?\s*$")   # "(m12)" / "(eld) 123"
+_SETCODE = re.compile(r"\s*\(\w{2,6}\)(\s+[\dA-Za-z★-]+)?(\s*\*\w+\*)?\s*$")   # "(m12)" / "(eld) 123" / "... *F*"
 _SECTIONS = {"commander": "commander", "deck": "main", "mainboard": "main",
              "main": "main", "sideboard": "side", "maybeboard": "side", "considering": "side"}
 
 
-def load_db():
-    db = json.loads((DATA / "cards.json").read_text())
+def _normalize(db):
     for d in db.values():             # json turns pt tuples into lists; normalize
         if d.get("pt"):
             d["pt"] = tuple(d["pt"])
     return db
+
+
+def load_db(names=None):
+    """Merged oracle DB from per-deck sidecars (data/decks/<name>.cards.json).
+    names=None merges every sidecar present."""
+    if names is None:
+        names = deck_names()
+    db = {}
+    for n in names:
+        side = DECK_DIR / f"{n}.cards.json"
+        if side.exists():
+            db.update(json.loads(side.read_text()))
+    return _normalize(db)
 
 
 def deck_names():
