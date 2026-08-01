@@ -42,7 +42,6 @@ optionally put a `// strategy: ...` comment at the top, the agents will read it 
 
 - a wrong ruling stands if all four agents miss it. they self-correct a lot, but its not guaranteed. use the judge channel.
 - extreme janky game-bending cards that can't be easily handled by the sim aren't able to be corrected for by the agents. if you absolutely need them, patch the sim.
-  - we included river song's chaos emporium (`data/decks/riversong.txt`) as an example: this deck will probably not be playable in any sane manner, the sim does not have a way to handle many of its mechanics.
   - no extra turns or weird turn order, the turn loop is a fixed rotation.
   - no shared zones (knowledge pool type stuff): cards live in exactly one player's zones.
 - the stack is weakly handled, so long counterspell wars etc aren't always possible - spells give opponents a chance to react, but there's currently no infra for reacting-in-response-to-a-reaction.
@@ -50,3 +49,5 @@ optionally put a `// strategy: ...` comment at the top, the agents will read it 
 - pumps, clones, attachments, first strike, commander damage, poison, floating mana, and "doesn't untap" are all manually tracked by agents, not in the sim. so there's potential for issues if the agents aren't on top of things.
 
 in general - typical magic plays fine, but izzet solitaire or certain types of combo decks will be jank or unplayable. patch the sim if you're playing those.
+
+we included "river song's chaos emporium" (`data/decks/riversong.txt`) as an example: this deck will probably not be playable in any sane manner, the sim does not have a way to handle many of its mechanics.
