@@ -133,3 +133,27 @@ def test_cleanup_discard_to_seven(make_game):
     g.turn = 2
     g.half_turn(0)
     assert len(g.p[0].hand) == 7
+
+
+def test_attack_action_effects_apply_at_declare(make_game):
+    """Attack triggers declared in the attack action must not vanish."""
+    class Attacker(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.done = False
+        def ask(self, prompt):
+            if "MAIN PHASE" in prompt and not self.done:
+                self.done = True
+                return ('{"action":"attack","attacks":{"P2":["Sq#900"]},'
+                        '"effects":[{"create":{"player":"self","name":"Squirrel","n":1,"pt":[1,1]}}]}')
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.agents[0] = Attacker()
+    g.p[0].battlefield.append({"id": "Sq#900", "name": "Squirrel", "tapped": False,
+                               "sick": False, "counters": 0, "token": True, "pt": [2, 2],
+                               "owner": "P1"})
+    g.turn = 3
+    g.half_turn(0)
+    assert any(x["name"] == "Squirrel" and x["id"] != "Sq#900"
+               for x in g.p[0].battlefield), "attack-trigger token was dropped"
