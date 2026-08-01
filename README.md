@@ -25,7 +25,7 @@ uv run play.py --pod squirrels,snakes --mock     # plumbing test, no llms
 
 ## decks
 
-six included: squirrels (mana -> squirrels -> pain), snakes ("here have cards" until they die), meren (graveyard grind), aurelia (boros fliers), karazikar (goad politics), isperia (wraths and paperwork).
+six included: squirrels (mana -> squirrels -> pain), snakes ("here have cards" until they die), meren (graveyard grind), aurelia (boros fliers), braids (everyone gets free stuff every upkeep, mine just happen to be eldrazi), lifedrain (the accountant - every spell you cast is a 2 life filing fee).
 
 adding yours: paste any decklist export (moxfield/arena/deckstats formats all parse) into `data/decks/whatever.txt`, then
 
