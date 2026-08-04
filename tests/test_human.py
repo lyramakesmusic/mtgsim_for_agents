@@ -195,6 +195,21 @@ def test_console_privacy_with_human_seated(make_game, capsys):
     assert "still scheming" in capsys.readouterr().out
 
 
+def test_correct_action_no_stack_no_announce(make_game):
+    """correct applies atoms directly and logs as a correction — it never
+    becomes a stack object, so nobody gets a response window to argue with."""
+    g = make_game()
+    g.perm(g.p[0], "Forest", tapped=True)
+    fid = g.p[0].battlefield[-1]["id"]
+    g.do_action(0, {"action": "correct",
+                    "effects": [{"set": {"id": fid, "tapped": False}}],
+                    "narration": "equip cost used the floating colorless, forest untaps"})
+    assert not g.p[0].battlefield[-1]["tapped"]
+    assert any("corrects the board" in l for l in g.table)
+    assert not any("announces" in l for l in g.table)
+    assert not g.stack
+
+
 def test_engine_integration_full_turn(make_game, monkeypatch):
     """A real Game with a human at seat 1: land drop via scribe, quoted banter,
     turn end, end step — and the engine flips to delta prompts after call one."""

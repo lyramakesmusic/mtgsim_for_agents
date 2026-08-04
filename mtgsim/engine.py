@@ -114,7 +114,13 @@ ACTIONS: {"action":"play_land","card":...} | {"action":"cast","card":...,"tap":[
 "targets":[permanent ids or seat handles],"effects":[...]} |
 {"action":"activate","source":id,"tap_source":bool,"tap":[ids],"effects":[...]} |
 {"action":"attack","attacks":{"P2":[attacker ids],...}} | {"action":"claim_win","how":"..."} |
-{"action":"peek","n":N} | {"action":"pass"}
+{"action":"peek","n":N} | {"action":"correct","effects":[...],"narration":"what was wrong"} |
+{"action":"pass"}
+correct = bookkeeping repair, not a game action: fixing your own earlier error, applying a
+judge ruling, honoring a correction the table agreed on. It applies its atoms directly — no
+stack, no announcement, no response windows — and logs as a correction so nobody reads it as
+a play. Use it instead of dressing a fix up as a cast or activation, which reads as a new
+(often illegal-looking) play and confuses the table. Available in any window, costs nothing.
 peek = private top-of-library looks (scry, surveil, Realmwalker, Sylvan Library, Sensei's
 Top-style effects): the engine shows you the cards privately, then you declare the ordering
 and any granted actions. Other players learn only that you looked.
@@ -836,6 +842,9 @@ class Game:
                     f"(any stack id) in your effects.",
                     schema_hint='{"action":"cast"|"activate"|"pass", "card":str, "source":str, '
                                 '"tap":[ids], "targets":[ids], "effects":[...], "narration":str}')
+                if r.get("action") == "correct":
+                    self.do_action(j, r)     # bookkeeping — doesn't touch the stack
+                    continue
                 if r.get("action") not in ("cast", "activate"):
                     continue
                 effects = r.get("effects") or []
@@ -894,6 +903,10 @@ class Game:
         elif act == "activate":
             perm = self._pay_ability(i, a)
             self._resolve_ability(i, a, perm)
+        elif act == "correct":
+            # bookkeeping repair: atoms apply directly, no stack, no windows
+            self.log(f"{me.name} corrects the board — {a.get('narration') or '(no explanation given)'}")
+            self.apply_effects(i, a.get("effects"))
         elif act == "pass":
             pass
         elif act == "claim_win":
@@ -1101,6 +1114,8 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                             '"tap":[ids], "targets":[ids], "effects":[...], "narration":str}')
             if r.get("action") in ("cast", "activate"):
                 self.resolve_on_stack(j, r, kind="spell" if r.get("action") == "cast" else "ability")
+            elif r.get("action") == "correct":
+                self.do_action(j, r)
 
     def _can_respond(self, pl):
         """Could this seat conceivably act at instant speed? Errs open — the
