@@ -46,7 +46,7 @@ Deck
 1 Prosperous Innkeeper
 1 Realmwalker
 1 Return to Nature
-1 Rites of Flourishing
+1 Crashing Drawbridge
 1 Rootcast Apprenticeship
 1 Scrapshooter
 1 Scurry Oak

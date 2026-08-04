@@ -302,12 +302,6 @@
   "text": "Choose one \u2014 \u2022 Destroy target artifact. \u2022 Destroy target enchantment. \u2022 Exile target card from a graveyard.",
   "pt": null
  },
- "Rites of Flourishing": {
-  "cost": "2G",
-  "type": "Enchantment",
-  "text": "At the beginning of each player's draw step, that player draws an additional card. Each player may play an additional land on each of their turns.",
-  "pt": null
- },
  "Rootcast Apprenticeship": {
   "cost": "3G",
   "type": "Sorcery",
@@ -498,6 +492,15 @@
   "pt": [
    2,
    2
+  ]
+ },
+ "Crashing Drawbridge": {
+  "cost": "2",
+  "type": "Artifact Creature \u2014 Wall",
+  "text": "Defender {T}: Creatures you control gain haste until end of turn.",
+  "pt": [
+   0,
+   4
   ]
  }
 }
