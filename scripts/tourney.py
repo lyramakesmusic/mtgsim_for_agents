@@ -21,7 +21,8 @@ ROOT = Path(__file__).resolve().parent.parent
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pod", required=True)
+    ap.add_argument("--pod", required=True, action="append",
+                    help="repeatable; games cycle through the given pods (vary the opposition)")
     ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--max-turns", type=int, default=12)
     ap.add_argument("--seed", type=int, default=None, help="base seed; game k uses seed+k")
@@ -31,7 +32,7 @@ if __name__ == "__main__":
     ap.add_argument("--codex-model", default=None)
     args = ap.parse_args()
 
-    if "human" in args.pod:
+    if any("human" in p for p in args.pod):
         sys.exit("tourney pods can't seat a human — nobody can type at 8 terminals at once")
 
     stamp = f"{datetime.now():%Y%m%d_%H%M%S}"
@@ -41,8 +42,9 @@ if __name__ == "__main__":
 
     procs = []
     for k in range(args.n):
+        pod = args.pod[k % len(args.pod)]
         log = gdir / f"g{k+1:02d}.md"
-        cmd = [sys.executable, str(ROOT / "play.py"), "--pod", args.pod,
+        cmd = [sys.executable, str(ROOT / "play.py"), "--pod", pod,
                "--seed", str(base + k), "--max-turns", str(args.max_turns),
                "--log", str(log), "--transcripts", str(ROOT / "logs" / f"tourney_{stamp}" / f"g{k+1:02d}")]
         for flag in ("codex_tier", "codex_effort", "claude_model", "codex_model"):
@@ -52,7 +54,7 @@ if __name__ == "__main__":
         procs.append((k + 1, log, subprocess.Popen(
             cmd, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
             stderr=subprocess.STDOUT, cwd=ROOT)))
-        print(f"g{k+1:02d}: launched (seed {base + k}) -> {log.relative_to(ROOT)}")
+        print(f"g{k+1:02d}: launched (seed {base + k}) [{pod}] -> {log.relative_to(ROOT)}")
 
     print(f"\n{args.n} games running; tail any log to spectate. Waiting...")
     done = set()
