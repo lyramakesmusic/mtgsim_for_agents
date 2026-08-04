@@ -952,7 +952,7 @@ class Game:
             extra = f"\nCOMMANDERS:\n{cz}\nGRAVEYARDS:\n{gys}"
         stackline = f"\nSTACK (top first): {self._stack_line()}" if self.stack else ""
         return (f"TURN {self.turn}. Seats: {seats}\n"
-                f"YOUR HAND ({len(me.hand)}): {', '.join(me.hand)}\n"
+                f"YOUR HAND ({len(me.hand)}): {'; '.join(me.hand)}\n"
                 f"BATTLEFIELDS:\n{boards}\n"
                 f"Lands you've played this turn: {me.lands_played}.{stackline}{extra}{texts}")
 
@@ -1067,7 +1067,7 @@ class Game:
         tail = "\n".join(self.table[-self.log_tail:])
         return f"""TURN {self.turn}. You are {me.name} (seat {me.handle}). SEATS in turn order:
 {chr(10).join(seats)}
-YOUR HAND ({len(me.hand)}): {', '.join(me.hand)}
+YOUR HAND ({len(me.hand)}): {'; '.join(me.hand)}
 {boards}
 Your library: {len(me.library)} cards. Graveyards:
 {graves}

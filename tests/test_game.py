@@ -45,7 +45,7 @@ def test_view_hides_hidden_information(make_game):
 def test_own_hand_visible_and_sizes_public(make_game):
     g = make_game()
     view = g.view(2)
-    assert ", ".join(g.p[2].hand[:3]) in view
+    assert "; ".join(g.p[2].hand[:3]) in view
     assert f"hand {len(g.p[0].hand)}" in view
 
 def test_first_draw_rule(db, make_game, tmp_path):
@@ -97,7 +97,7 @@ def test_mulligan_free_then_london(make_game):
                 return '{"action":"mulligan"}' if self.n <= 2 else '{"action":"keep"}'
             if "London mulligan" in prompt:
                 import re as _re
-                hand = _re.search(r"YOUR HAND \(\d+\): (.*)", prompt).group(1).split(", ")
+                hand = _re.search(r"YOUR HAND \(\d+\): (.*)", prompt).group(1).split("; ")
                 import json as _json
                 return _json.dumps({"bottom": [hand[0]]})
             return '{"action":"pass"}'
@@ -119,7 +119,7 @@ def test_cleanup_discard_to_seven(make_game):
         def ask(self, prompt):
             if "CLEANUP" in prompt:
                 import re as _re, json as _json
-                hand = _re.search(r"YOUR HAND \(\d+\): (.*)", prompt).group(1).split(", ")
+                hand = _re.search(r"YOUR HAND \(\d+\): (.*)", prompt).group(1).split("; ")
                 n = len(hand) - 7
                 return _json.dumps({"action": "cleanup", "effects": [
                     {"move": {"player": "self", "from": "hand", "card": c, "to": "graveyard"}}

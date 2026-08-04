@@ -19,7 +19,10 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--pod", default="claude:snakes,claude:squirrels",
                     help="2-4 comma-separated seats, each 'agent:deck' or just 'deck' "
-                         f"(agents: {', '.join(AGENT_TYPES)}; decks: {', '.join(deck_names())})")
+                         f"(agents: {', '.join(AGENT_TYPES)}, human; decks: {', '.join(deck_names())})")
+    ap.add_argument("--human-agent", default="codex", choices=["claude", "codex"],
+                    help="which brain scribes for a human seat (translates your words "
+                         "into protocol actions; default codex)")
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--max-turns", type=int, default=12)
     ap.add_argument("--claude-model", default="opus")
@@ -54,8 +57,8 @@ if __name__ == "__main__":
         model_override = None
         if "@" in kind:                          # agent@model:deck, e.g. openrouter@moonshotai/kimi-k2:snakes
             kind, model_override = kind.split("@", 1)
-        if kind not in AGENT_TYPES:
-            raise SystemExit(f"unknown agent {kind!r} in seat {spec!r} (have: {', '.join(AGENT_TYPES)})")
+        if kind not in AGENT_TYPES and kind != "human":
+            raise SystemExit(f"unknown agent {kind!r} in seat {spec!r} (have: {', '.join(AGENT_TYPES)}, human)")
         seats.append((kind, deck, model_override))
     db = load_db([deck for _, deck, _m in seats])
 
@@ -65,6 +68,16 @@ if __name__ == "__main__":
         label = f"P{n+1}({deck})"
         if args.mock:
             agents.append(MockAgent(label, db))
+        elif kind == "human":
+            from mtgsim.agents import HumanAgent
+            sk = args.human_agent
+            smodel = model_override or {"codex": args.codex_model,
+                                        "claude": args.claude_model}.get(sk)
+            sextra = {"service_tier": args.codex_tier, "effort": args.codex_effort} \
+                if sk == "codex" else {}
+            scribe = AGENT_TYPES[sk](f"{label}-scribe", model=smodel, resume=True,
+                                     transcript_dir=args.transcripts or None, **sextra)
+            agents.append(HumanAgent(label, scribe))
         else:
             model = model_override or {"codex": args.codex_model,
                                        "claude": args.claude_model}.get(kind)
@@ -90,6 +103,11 @@ if __name__ == "__main__":
     print(f"⚖ judge channel: type into this terminal (or: echo 'msg' >> {args.log}.judge). "
           f"Plain text posts to the table as the judge; the keyword JUDGE [question] summons "
           f"a codex ruling in your stead.")
+    if any(k == "human" for k, _, _ in seats):
+        print(f"you're seated ({args.human_agent} scribing). When the banner fires, type at "
+              f"you> — plain words, the scribe handles the JSON. enter/'nah' passes a window, "
+              f"'done' ends your turn, 'hand'/'board' reprint state. Lines typed *between* "
+              f"prompts go to the judge channel, not your seat.")
     game.run()
     for a in agents:
         extra = f", ~${a.cost_usd:.2f} api-equiv (covered by subscription)" if a.cost_usd else ""
