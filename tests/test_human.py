@@ -149,6 +149,27 @@ def test_local_state_commands(monkeypatch, capsys):
     assert scribe.calls == 0
 
 
+def test_console_privacy_with_human_seated(make_game, capsys):
+    """console_private as a handle set: other seats' private lines vanish from
+    the console but still reach the log file; the human's own draws and
+    public-knowledge card text (seat=None) still print."""
+    g = make_game()
+    g.console_private = {"P2"}                   # human at seat 2
+    g.log_private('P1(snakes) thinks: "kill P2 first"', seat="P1")
+    g.log_private("  (P2 drew: Sol Ring, Forest)", seat="P2")
+    g.log_private("  [Skullclamp: equipped gets +1/-1...]")  # seat=None: public info
+    out = capsys.readouterr().out
+    assert "kill P2 first" not in out            # hidden from the seated human
+    assert "P2 drew: Sol Ring" in out            # own draws still visible
+    assert "Skullclamp" in out                   # card text is public knowledge
+    logtext = open(g.logf.name).read()
+    assert "kill P2 first" in logtext            # file keeps everything for export
+    # spectator mode unchanged
+    g.console_private = "all"
+    g.log_private('P1(snakes) thinks: "still scheming"', seat="P1")
+    assert "still scheming" in capsys.readouterr().out
+
+
 def test_engine_integration_full_turn(make_game, monkeypatch):
     """A real Game with a human at seat 1: land drop via scribe, quoted banter,
     turn end, end step — and the engine flips to delta prompts after call one."""

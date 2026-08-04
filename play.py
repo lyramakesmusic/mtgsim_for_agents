@@ -23,6 +23,9 @@ if __name__ == "__main__":
     ap.add_argument("--human-agent", default="codex", choices=["claude", "codex"],
                     help="which brain scribes for a human seat (translates your words "
                          "into protocol actions; default codex)")
+    ap.add_argument("--show-hidden", action="store_true",
+                    help="print other seats' private thinking and draw contents even with a "
+                         "human playing (default: hidden when a human is seated — no wallhacks)")
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--max-turns", type=int, default=12)
     ap.add_argument("--claude-model", default="opus")
@@ -93,8 +96,11 @@ if __name__ == "__main__":
                           service_tier=args.codex_tier, effort=args.codex_effort,
                           transcript_dir=args.transcripts or None)
 
+    human_handles = {f"P{n+1}" for n, (k, _, _) in enumerate(seats) if k == "human"}
+    console_private = "all" if (args.show_hidden or not human_handles) else human_handles
     game = Game(db, decks, agents, seed, args.log, args.max_turns, rng,
-                judge_factory=None if args.mock else judge_factory)
+                judge_factory=None if args.mock else judge_factory,
+                console_private=console_private)
     import atexit
     import subprocess as _sp
     atexit.register(lambda: _sp.run(
@@ -103,11 +109,14 @@ if __name__ == "__main__":
     print(f"⚖ judge channel: type into this terminal (or: echo 'msg' >> {args.log}.judge). "
           f"Plain text posts to the table as the judge; the keyword JUDGE [question] summons "
           f"a codex ruling in your stead.")
-    if any(k == "human" for k, _, _ in seats):
+    if human_handles:
+        vis = ("(--show-hidden is on: you can see everyone's private thinking — wallhacks)"
+               if args.show_hidden else
+               "Other seats' private thinking is hidden from this console (--show-hidden to peek).")
         print(f"you're seated ({args.human_agent} scribing). When the banner fires, type at "
               f"you> — plain words, the scribe handles the JSON. enter/'nah' passes a window, "
-              f"'done' ends your turn, 'hand'/'board' reprint state. Lines typed *between* "
-              f"prompts go to the judge channel, not your seat.")
+              f"'done' ends your turn, 'hand'/'board' reprint state, \"quotes\" go to the table. "
+              f"Lines typed *between* prompts go to the judge channel, not your seat. {vis}")
     game.run()
     for a in agents:
         extra = f", ~${a.cost_usd:.2f} api-equiv (covered by subscription)" if a.cost_usd else ""

@@ -188,7 +188,7 @@ class Player:
 
 class Game:
     def __init__(self, db, decks, agents, seed, log_path, max_turns, rng, log_tail=60,
-                 judge_factory=None):
+                 judge_factory=None, console_private="all"):
         """db: card-name -> {cost,type,text,pt}.
         decks: [(deckname, decklist, commander)] for 2..4 seats.
         agents: objects with .ask(prompt)->str, index-aligned with decks."""
@@ -213,6 +213,10 @@ class Game:
         self.stack_seq = 0
         self.judge_inbox = Path(f"{log_path}.judge")
         self.judge_factory = judge_factory
+        # console privacy: "all" = spectator mode, everything prints. A set of
+        # handles = a human is at this terminal; seat-owned private lines print
+        # only for those seats (their own draws), everyone else's stay hidden.
+        self.console_private = console_private
         self.judge_agent = None
         self.logf = open(log_path, "w")
         self.eventsf = open(f"{log_path}.events.jsonl", "w")
@@ -245,10 +249,14 @@ class Game:
         self.logf.flush()
         self._emit(s)
 
-    def log_private(self, s):
+    def log_private(self, s, seat=None):
         """Spectator + file only. NEVER appended to self.table, so no agent
-        prompt ever contains it — other seats cannot see it."""
-        print(_colorize(s))
+        prompt ever contains it — other seats cannot see it. seat marks whose
+        private line this is: with a human at the console (console_private is
+        a set of handles), only that human's own lines print; seat=None means
+        public-knowledge convenience (card text) and always prints."""
+        if self.console_private == "all" or seat is None or seat in self.console_private:
+            print(_colorize(s))
         self.logf.write(f"[private] {s}\n")
         self.logf.flush()
         self._emit(s, private=True)
@@ -572,7 +580,7 @@ class Game:
                 self.log(f"  ↳ {tgt.name} draws {len(got)}"
                          + (" from the BOTTOM" if d.get("from") == "bottom" else ""))
                 if got:
-                    self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})")
+                    self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})", seat=tgt.handle)
             elif "search" in e:
                 s = e["search"]
                 tgt = self.resolve_player(i, s.get("player", "self"))
@@ -980,7 +988,8 @@ class Game:
         prompt = (f"You are playing Magic: The Gathering (Commander pod, {n_alive} players alive, 40 life "
                   f"start, free-for-all, last seat standing wins). You are an expert player and a table "
                   f"politician: threat-assess privately, make deals, needle people — but talk like a player "
-                  f"at a kitchen table, not a commentator narrating the game. Follow the comprehensive rules "
+                  f"at a kitchen table, not a commentator narrating the game. You don't know who's piloting "
+                  f"the other seats — refer to players as they/them. Follow the comprehensive rules "
                   f"yourself — the engine only does bookkeeping and trusts your legality, because it has no "
                   f"rules knowledge of its own. It logs doubts publicly and illegal plays get argued at the "
                   f"table, so rules-precision (summoning sickness, mana payment, timing) is what keeps your "
@@ -1009,7 +1018,7 @@ class Game:
             return {"action": "pass"}
         thinking = obj.pop("thinking", None)
         if thinking:                       # spectator-visible, table-invisible
-            self.log_private(f'{me.name} thinks: "{thinking}"')
+            self.log_private(f'{me.name} thinks: "{thinking}"', seat=me.handle)
         talk = obj.pop("table_talk", None)
         if talk:
             # speech lands AFTER the play it accompanies, like a real table
