@@ -157,3 +157,16 @@ def test_attack_action_effects_apply_at_declare(make_game):
     g.half_turn(0)
     assert any(x["name"] == "Squirrel" and x["id"] != "Sq#900"
                for x in g.p[0].battlefield), "attack-trigger token was dropped"
+
+
+def test_empty_combat_result_flags_loudly(make_game):
+    """Seen live: attacker's combat-result reply came back empty, damage
+    silently vanished, and three seats invented fake activations to repair
+    it. An effect-less combat result now gets a red flag in the log."""
+    g = make_game()
+    atk = g.perm(g.p[0], "Squirrel", token=True, pt=(1, 1))
+    atk["sick"] = False
+    g.agents[0] = StubAgent('{"action":"activate","effects":[],"narration":""}')
+    g.agents[2] = StubAgent('{"action":"block","blocks":{}}')
+    g.combat(0, {"action": "attack", "attacks": {"P3": [atk["id"]]}})
+    assert any("no combat consequences" in l for l in g.table)

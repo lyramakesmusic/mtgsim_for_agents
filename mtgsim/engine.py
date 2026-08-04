@@ -1454,6 +1454,9 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             schema_hint='{"action":"activate","effects":[...],"narration":str}')
         self.log(f"combat result — {result.get('narration','')}")
         self.apply_effects(i, result.get("effects"))
+        if not result.get("effects"):
+            self.log(f"  !! {me.name} declared no combat consequences at all — if damage "
+                     f"happened, repair via a correct action; the table should check this")
 
     def mulligans(self):
         """Opening hands. Commander house rules: first mulligan free, then
