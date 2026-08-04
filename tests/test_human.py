@@ -118,6 +118,31 @@ def test_bottom_reply_counts_as_action(monkeypatch):
     assert json.loads(h.ask(prompt)) == {"bottom": ["a"]}
 
 
+def test_scribe_may_pass_on_humans_behalf(monkeypatch):
+    """'pass turn :)' isn't a local pass word — it goes to the scribe, and the
+    scribe is allowed to return the pass action when the human directed it."""
+    scribe = StubScribe(['{"action":"pass","chat":"turn passed :)"}'])
+    h = HumanAgent("P4(squirrels)", scribe)
+    feed(monkeypatch, ["pass turn :)"])
+    assert json.loads(h.ask(MAIN_PROMPT)) == {"action": "pass"}
+    assert scribe.calls == 1
+
+
+def test_scribe_crash_not_mistaken_for_pass(monkeypatch):
+    """A harness give-up returns the FALLBACK string — which a legitimate
+    scribe pass can also equal. The explicit gave_up flag disambiguates."""
+    class DeadScribe(StubScribe):
+        def ask(self, prompt):
+            super().ask(prompt)
+            self.gave_up = True
+            return FALLBACK
+    scribe = DeadScribe()
+    h = HumanAgent("P4(squirrels)", scribe)
+    feed(monkeypatch, ["cast the altar", "pass"])   # error → human retries → local pass
+    assert json.loads(h.ask(MAIN_PROMPT)) == {"action": "pass"}
+    assert scribe.calls == 1                        # the dead call didn't count as an action
+
+
 def test_quoted_line_is_table_talk_on_pass(monkeypatch):
     scribe = StubScribe()
     h = HumanAgent("P2(snakes)", scribe)

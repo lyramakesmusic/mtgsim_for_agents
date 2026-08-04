@@ -57,7 +57,8 @@ class _SubprocessAgent:
 
     def ask(self, prompt):
         self.calls += 1
-        for attempt in range(self.retries + 1):
+        self.gave_up = False        # explicit failure flag — content can't signal it,
+        for attempt in range(self.retries + 1):     # a real reply may equal FALLBACK
             try:
                 reply = self._ask_once(prompt)
                 if reply and reply.strip():
@@ -72,6 +73,7 @@ class _SubprocessAgent:
                 self.session_id = None
             time.sleep(2)
         self._transcribe(prompt, "(harness gave up -> forced pass)")
+        self.gave_up = True
         return FALLBACK
 
     def _ask_once(self, prompt):
@@ -235,7 +237,7 @@ class LocalAgent(OpenRouterAgent):
 
 _HBOLD, _HDIM, _HGREY, _HITAL, _HBANNER, _HRESET = \
     "\033[1m", "\033[2m", "\033[90m", "\033[3m", "\033[1;7m", "\033[0m"
-_PASS_WORDS = {"", "pass", "done", "nah", "no", "n"}
+_PASS_WORDS = {"", "pass", "done", "nah", "no", "n", "nothing", "nope", "skip"}
 
 
 class HumanAgent:
@@ -270,7 +272,7 @@ Your jobs:
 Reply with exactly one JSON object every time:
   {"chat": "..."} — private words to the human; these never reach the table
   or a protocol action object — only once the human has clearly committed. You may include "chat" alongside an action as a short note, and "table_talk" when the human wants to say something to the table.
-Don't use a "thinking" field, and never reply {"action":"pass"} on your own — the terminal handles the human's passes locally, so a pass from you would throw away their turn."""
+Don't use a "thinking" field. When the human tells you to pass, decline, or end their turn in their own words ("pass turn", "nothing else", "that's it for me"), reply {"action":"pass","chat":"short ack"} — passing on their behalf is part of the job. What you must never do is pass on your *own* initiative when they haven't declined: an unprompted pass throws away their turn."""
 
     def __init__(self, label, scribe):
         self.label = label
@@ -354,7 +356,7 @@ Don't use a "thinking" field, and never reply {"action":"pass"} on your own — 
         self.pending = []
         parts.append(f"=== HUMAN ===\n{text}")
         raw = self.scribe.ask("\n\n".join(parts))
-        if raw == FALLBACK:
+        if getattr(self.scribe, "gave_up", False):
             print("  !! scribe error — try again")
             return None
         m = re.search(r"\{.*\}", raw, re.S)
