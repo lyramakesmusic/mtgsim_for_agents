@@ -170,3 +170,29 @@ def test_empty_combat_result_flags_loudly(make_game):
     g.agents[2] = StubAgent('{"action":"block","blocks":{}}')
     g.combat(0, {"action": "attack", "attacks": {"P3": [atk["id"]]}})
     assert any("no combat consequences" in l for l in g.table)
+
+
+def test_combat_trick_window_lets_stack_grow(make_game):
+    """Holding priority through your own pump: the combat trick window routes
+    through resolve_on_stack, so the caster can respond to their own spell and
+    chain a second instant. Both resolve; the stack empties."""
+    g = make_game()
+    atk = g.perm(g.p[0], "Snake", token=True, pt=(1, 1))
+    atk["sick"] = False
+    g.p[0].hand += ["Fog", "Fog"]
+    state = {"first": False, "second": False}
+
+    def attacker(prompt):
+        if "your combat trick window" in prompt and not state["first"]:
+            state["first"] = True
+            return '{"action":"cast","card":"Fog","narration":"first pump"}'
+        if "is casting Fog" in prompt and not state["second"]:
+            state["second"] = True     # respond to my own spell — holding priority
+            return '{"action":"cast","card":"Fog","narration":"second, holding priority"}'
+        return '{"action":"pass"}'
+
+    g.agents[0] = StubAgent(attacker)
+    g.combat(0, {"action": "attack", "attacks": {"P3": [atk["id"]]}})
+    assert state["first"] and state["second"]
+    assert g.p[0].graveyard.count("Fog") == 2      # both resolved
+    assert not g.stack

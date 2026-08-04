@@ -1418,14 +1418,9 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         # before blocks — pre-block removal, fogs, political rescues
         self.response_windows(i, f"{me.name} has declared attackers (see above) — "
                                  f"window before blocks are declared")
-        if self._can_respond(me):
-            r = self.ask(i, "RESPONSE WINDOW: your attackers are declared, responses (if any) have "
-                            "resolved, and blocks are about to be chosen. You may cast one "
-                            "instant/flash now — pre-block pumps and protection change what dares "
-                            "to block — or pass.",
-                         schema_hint='{"action":"cast"|"pass", "card":str, "tap":[ids], "targets":[ids], "effects":[...]}')
-            if r.get("action") == "cast":
-                self.do_action(i, r)
+        self._trick_window(i, "your attackers are declared, responses (if any) have resolved, "
+                              "and blocks are about to be chosen. Pre-block pumps and protection "
+                              "change what dares to block.")
         for dfd, atk in assault:
             j = self.p.index(dfd)
             blocks = self.ask(j,
@@ -1433,20 +1428,13 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 f"(only your untapped creatures; respect any 'can't block' effects) or none.",
                 schema_hint='{"action":"block","blocks":{attacker_id:[blocker_ids]},"narration":str}')
             self.log(f"{dfd.name} blocks: {blocks.get('blocks', {})} — {blocks.get('narration','')}")
-        # one trick window each: defenders first (turn order), attacker last
+        # one trick window each: defenders first (turn order), attacker last.
+        # each opens the real stack — chain pumps by responding to your own spell
         defenders = [dfd for dfd, _ in assault]
         for pl in self.others(i):
-            if pl in defenders and self._can_respond(pl):
-                r = self.ask(self.p.index(pl),
-                    "RESPONSE WINDOW: blocks are declared; combat tricks/removal window. "
-                    "Cast one instant/flash or pass.",
-                    schema_hint='{"action":"cast"|"pass", "card":str, "tap":[ids], "effects":[...]}')
-                if r.get("action") == "cast":
-                    self.do_action(self.p.index(pl), r)
-        trick = self.ask(i, "Blocks are declared. You may cast one combat trick/instant now or pass.",
-                         schema_hint='{"action":"cast"|"pass", "card":str, "tap":[ids], "effects":[...]}')
-        if trick.get("action") == "cast":
-            self.do_action(i, trick)
+            if pl in defenders:
+                self._trick_window(self.p.index(pl), "blocks are declared; combat tricks/removal window.")
+        self._trick_window(i, "blocks are declared — your combat trick window.")
         # attacker adjudicates damage; defenders may dispute in table talk (logged only)
         result = self.ask(i,
             "Blocks and tricks are final (see table log). Compute the combat damage honestly and completely "
@@ -1460,6 +1448,24 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         if not result.get("effects"):
             self.log(f"  !! {me.name} declared no combat consequences at all — if damage "
                      f"happened, repair via a correct action; the table should check this")
+
+    def _trick_window(self, i, context):
+        """An instant-speed offer that opens the real stack. Anything cast here
+        goes through resolve_on_stack, so the caster can respond to their own
+        spell when priority comes back around (that's holding priority) and
+        chain pumps — the stack grows, counter wars included."""
+        if not self._can_respond(self.p[i]):
+            return
+        r = self.ask(i,
+            f"RESPONSE WINDOW: {context} You may cast an instant/flash — it goes on the "
+            f"stack, and to chain more spells (multiple pumps...), respond to your *own* "
+            f"spell when the response window comes back around: that is holding priority "
+            f"— or pass.",
+            schema_hint='{"action":"cast"|"pass", "card":str, "tap":[ids], "targets":[ids], "effects":[...]}')
+        if r.get("action") == "cast":
+            self.resolve_on_stack(i, r, kind="spell")
+        elif r.get("action") == "correct":
+            self.do_action(i, r)
 
     def mulligans(self):
         """Opening hands. Commander house rules: first mulligan free, then
