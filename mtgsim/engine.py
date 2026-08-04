@@ -485,7 +485,21 @@ class Game:
         if "id" in mv:
             pl, perm = self.find(mv["id"], prefer=i)
             if not perm:
-                self.log(f"  !! move: no permanent {mv['id']!r}; skipped")
+                # agents refer to permanents by id even after they've died —
+                # if the name sits in exactly one public zone, honor the intent
+                name = str(mv["id"]).rsplit("#", 1)[0]
+                hits = [(q, z) for q in self.p if q.alive for z in ("graveyard", "exile")
+                        if name in getattr(q, z)]
+                if len(hits) == 1:
+                    q, z = hits[0]
+                    self.log(f"  (move: {mv['id']} isn't on the battlefield — "
+                             f"using {name} from {q.name}'s {z})")
+                    mv = {k: v for k, v in mv.items() if k != "id"}
+                    mv.update(player=q.handle, **{"from": z}, card=name)
+                    return self._atom_move(i, mv)
+                self.log(f"  !! move: no permanent {mv['id']!r}"
+                         + (f" and {name!r} is in {len(hits)} public zones — ambiguous"
+                            if hits else "") + "; skipped")
                 return
             if to == "battlefield" and mv.get("control"):
                 new_pl = self.resolve_player(i, mv["control"])

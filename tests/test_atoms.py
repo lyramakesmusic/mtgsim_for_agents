@@ -221,3 +221,28 @@ def test_standing_arbitrary_condition_is_memory_not_hook(make_game):
     assert len(g.p[2].hand) == before
     assert "STANDING EFFECTS" in g.digest(0)
     assert "Mangara draw check" in g.digest(0)
+
+
+def test_dead_permanent_id_move_falls_back_to_public_zones(make_game):
+    """Seen live: Aurelia Pongified to graveyard, then moved to command zone
+    by her old battlefield id — the id search failed and the zone move hung.
+    Unique public-zone match by name now honors the intent."""
+    g = make_game()
+    p3 = g.p[2]
+    x = g.perm(p3, p3.commander)
+    p3.command_zone = False
+    g.apply_effects(1, [{"move": {"id": x["id"], "to": "graveyard"}}])   # pongify-ish
+    assert p3.commander in p3.graveyard
+    g.apply_effects(2, [{"move": {"id": x["id"], "to": "command"}}])     # by the DEAD id
+    assert p3.command_zone
+    assert p3.commander not in p3.graveyard
+    assert not any("skipped" in l for l in g.table)
+
+
+def test_dead_id_move_ambiguous_name_still_skips(make_game):
+    g = make_game()
+    g.p[0].graveyard.append("Forest")
+    g.p[1].graveyard.append("Forest")
+    g.apply_effects(0, [{"move": {"id": "Forest#99", "to": "exile"}}])
+    assert any("ambiguous" in l for l in g.table)
+    assert g.p[0].graveyard == ["Forest"] and g.p[1].graveyard == ["Forest"]
