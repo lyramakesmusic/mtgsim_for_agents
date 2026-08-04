@@ -335,6 +335,11 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
             return
         if instr.startswith("COMBAT"):
             self._banner("BLOCK?")
+        elif instr.startswith("DECISION"):
+            self._banner("DECIDE")
+            print(f"{_HDIM}{instr.split(' — this is a yes/no')[0]}{_HRESET}")
+            print(f"{_HDIM}('yes' or 'no'/enter — or ask the scribe first){_HRESET}")
+            return
         else:
             self._banner("YOUR CALL")
         print(f"{_HDIM}{instr}{_HRESET}")
@@ -411,6 +416,8 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
                 self.queued_talk.append(line[1:-1].strip())
                 print(f"{_HDIM}  (queued for the table — lands with your next play or pass){_HRESET}")
                 continue
+            if instr.startswith("DECISION") and low in ("yes", "y"):
+                return self._with_talk({"choice": "yes"})
             if opening and low == "keep":
                 return self._with_talk({"action": "keep"})
             if opening and low in ("mull", "mulligan"):

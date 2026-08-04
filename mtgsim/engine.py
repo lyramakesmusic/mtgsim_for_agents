@@ -161,6 +161,12 @@ nothing you don't:
  {"search":{"player":P,"card":name,"to":zone,"tapped":bool,"shuffle":bool}}  (engine verifies)
  {"reveal":{"player":P,"zone":"hand"|"library_top","n":N}}
  {"random":{"coin":true}|{"die":N}}   (engine rolls — never claim your own randomness)
+ {"ask":{"player":P,"question":"...","if_yes":[atoms],"if_no":[atoms]}} — a decision that
+   belongs to another seat, made at resolution time: Tithe/Rhystic payments ("pay {2}? if
+   not I get a Treasure"), punisher modes, "may" abilities, votes. The engine puts the
+   question to them, logs their answer publicly, and applies the matching branch as yours.
+   Use this instead of assuming what an opponent would choose — assumed answers get
+   disputed; asked answers are binding.
  {"eliminate":{"player":P,"reason":...}}   {"note":"ongoing constraints — the log is the table's memory"}
 Player refs: seat handles ("P1".."P4") or "self". Declare upkeep/beginning-of-turn triggers
 in your first main-phase action's effects. States the engine can't hold (emblems, roles,
@@ -538,6 +544,37 @@ class Game:
         self._zone_put(pl, card, to, tapped=bool(mv.get("tapped")))
         self.log(f"  ↳ {pl.name}: {card} {frm} → {to}")
 
+    def _atom_ask(self, i, q):
+        """A decision that belongs to another seat, made at resolution time
+        (Tithe/Rhystic payments, punisher modes, 'may' abilities). The engine
+        relays the question, logs the answer publicly, and applies the chosen
+        branch as the asker — assumed answers get disputed, asked ones bind."""
+        asker = self.p[i]
+        pl = self.resolve_player(i, q.get("player"))
+        if not pl or not pl.alive:
+            self.log(f"  !! ask: can't resolve player {q.get('player')!r}; skipped")
+            return
+        question = str(q.get("question") or "?")[:400]
+        if pl is asker:                    # your own choice needs no relay
+            self.log(f"  !! ask: {asker.name} asked themselves {question!r}; treating as yes")
+            self.apply_effects(i, q.get("if_yes") or [])
+            return
+        j = self.p.index(pl)
+        r = self.ask(j,
+            f"DECISION: {asker.name} asks you: {question} — this is a yes/no choice "
+            f"made now, mid-resolution (paying a cost, choosing a punisher mode). "
+            f'Reply {{"choice":"yes"}} or {{"choice":"no"}}; "table_talk" welcome. '
+            f"Include effect atoms only if your choice itself has a cost to record "
+            f"(e.g. tapping lands you name in a note).",
+            schema_hint='{"choice":"yes"|"no","effects":[...],"table_talk":str}')
+        yes = str(r.get("choice", "no")).strip().lower() in ("yes", "y", "pay", "true")
+        self.log(f"  ↳ {pl.name} answers {'YES' if yes else 'NO'} — {question}")
+        if r.get("effects"):
+            self.apply_effects(j, r.get("effects"))
+        branch = q.get("if_yes") if yes else q.get("if_no")
+        if branch:
+            self.apply_effects(i, branch)
+
     def apply_effects(self, i, effects):
         me = self.p[i]
         for e in effects or []:
@@ -590,6 +627,8 @@ class Game:
                          + (" from the BOTTOM" if d.get("from") == "bottom" else ""))
                 if got:
                     self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})", seat=tgt.handle)
+            elif "ask" in e:
+                self._atom_ask(i, e["ask"])
             elif "search" in e:
                 s = e["search"]
                 tgt = self.resolve_player(i, s.get("player", "self"))

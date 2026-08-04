@@ -145,3 +145,30 @@ def test_owned_permanents_leave_when_owner_eliminated(make_game):
     g.apply_effects(1, [{"life": {"player": "P1", "delta": -45}}])
     assert not owner.alive
     assert x not in thief.battlefield       # left the game with its owner
+
+
+def test_ask_atom_yes_branch(make_game):
+    """Smothering Tithe shape: the drawing player is asked, pays, no Treasure.
+    The answer is logged publicly — binding, not assumed."""
+    from conftest import StubAgent
+    g = make_game()
+    g.agents[1] = StubAgent('{"choice":"yes"}')
+    g.apply_effects(2, [{"ask": {"player": "P2",
+                                 "question": "Smothering Tithe: pay {2}?",
+                                 "if_no": [{"create": {"player": "self", "name": "Treasure", "n": 1}}]}}])
+    assert not any(x["name"] == "Treasure" for x in g.p[2].battlefield)
+    assert any("answers YES" in l for l in g.table)
+
+
+def test_ask_atom_no_branch_applies_as_asker(make_game):
+    """Decline (or a pass/non-answer) takes if_no, applied as the asker —
+    the Treasure lands on the Tithe player's board, not the decliner's."""
+    from conftest import StubAgent
+    g = make_game()
+    g.agents[1] = StubAgent('{"action":"pass"}')      # never engaged = no
+    g.apply_effects(2, [{"ask": {"player": "P2",
+                                 "question": "Smothering Tithe: pay {2}?",
+                                 "if_no": [{"create": {"player": "self", "name": "Treasure", "n": 1}}]}}])
+    assert any(x["name"] == "Treasure" for x in g.p[2].battlefield)
+    assert not any(x["name"] == "Treasure" for x in g.p[1].battlefield)
+    assert any("answers NO" in l for l in g.table)
