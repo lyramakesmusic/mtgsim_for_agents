@@ -193,9 +193,11 @@ class OpenRouterAgent(_SubprocessAgent):
             self.messages = []
         self.messages.append({"role": "user", "content": prompt})
         self._trim()
-        body = json.dumps({"model": self.model, "messages": self.messages,
-                           "usage": {"include": True}}).encode()
-        req = urllib.request.Request(self.URL, data=body, method="POST", headers={
+        payload = {"messages": self.messages, "usage": {"include": True}}
+        if self.model:                            # omit rather than send "model": null
+            payload["model"] = self.model
+        req = urllib.request.Request(self.URL, data=json.dumps(payload).encode(),
+                                     method="POST", headers={
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
             "HTTP-Referer": "https://github.com/lyramakesmusic/mtgsim_for_agents",
@@ -203,7 +205,7 @@ class OpenRouterAgent(_SubprocessAgent):
         with urllib.request.urlopen(req, timeout=self.timeout) as r:
             resp = json.load(r)
         if resp.get("error"):
-            raise RuntimeError(f"openrouter: {str(resp['error'])[:200]}")
+            raise RuntimeError(f"{type(self).__name__}: {str(resp['error'])[:200]}")
         msg = (resp.get("choices") or [{}])[0].get("message", {})
         text = (msg.get("content") or "").strip() or (msg.get("reasoning") or "")
         u = resp.get("usage") or {}
@@ -215,59 +217,21 @@ class OpenRouterAgent(_SubprocessAgent):
         return text
 
 
+class LocalAgent(OpenRouterAgent):
+    """openai-compat server on localhost (LM Studio, llama.cpp, ollama...).
+    Same message-list + pinned-brief trimming as OpenRouterAgent — one
+    implementation, so the twins can't drift apart. No key needed; model
+    optional (`local@name:deck` targets a specific loaded model, bare
+    `local:deck` takes whatever the server default is). context_budget is
+    chars, ~4 chars/token — 32k chars ≈ 8k tokens; size it to the server's
+    loaded context, the opening brief alone runs >10k chars."""
 
-class LocalAgent(_SubprocessAgent):
-    """Connects to local openai-compat server. model selection maybe works idk
-       requires no api or anything, pass host if you're using non-defaults, ditto
-       context_budget. default 8192 is *decent* i guess"""
-
-    def __init__(self, label, model=None, port=1234, context_budget=8192, **kw):
-        super().__init__(label, model=model, **kw)
+    def __init__(self, label, model=None, port=1234, context_budget=32_000, **kw):
+        _SubprocessAgent.__init__(self, label, model=model, **kw)
         self.URL = f"http://localhost:{port}/v1/chat/completions"
         self.api_key = "local"                    # servers ignore it; header needs a value
         self.messages = []
-        self.context_budget=context_budget
-
-    def _size(self):
-        return sum(len(m.get("content") or "") for m in self.messages)
-
-    def _trim(self):
-        """Drop oldest turns after the pinned brief until under budget."""
-        if self._size() <= self.context_budget:
-            return
-        marker = {"role": "user", "content":
-                  "(earlier turns trimmed to fit context — your opening brief above still "
-                  "applies, and the latest state digest below is authoritative)"}
-        while self._size() > self.context_budget and len(self.messages) > 3:
-            del self.messages[1]
-        if marker["content"] not in (self.messages[1].get("content") or ""):
-            self.messages.insert(1, marker)
-
-    def _ask_once(self, prompt):
-        if self.session_id is None:               # fresh session (first call or post-drop)
-            self.messages = []
-        self.messages.append({"role": "user", "content": prompt})
-        self._trim()
-        body = json.dumps({"model": self.model, "messages": self.messages,
-                           "usage": {"include": True}}).encode()
-        req = urllib.request.Request(self.URL, data=body, method="POST", headers={
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/lyramakesmusic/mtgsim_for_agents",
-            "X-Title": "mtgsim for agents"})
-        with urllib.request.urlopen(req, timeout=self.timeout) as r:
-            resp = json.load(r)
-        if resp.get("error"):
-            raise RuntimeError(f"local api: {str(resp['error'])[:200]}")
-        msg = (resp.get("choices") or [{}])[0].get("message", {})
-        text = (msg.get("content") or "").strip() or (msg.get("reasoning") or "")
-        u = resp.get("usage") or {}
-        self.tokens["in"] += u.get("prompt_tokens", 0)
-        self.tokens["out"] += u.get("completion_tokens", 0)
-        self.cost_usd += u.get("cost") or 0.0
-        self.messages.append({"role": "assistant", "content": text})
-        self.session_id = "local"                 # engine may now send deltas
-        return text
+        self.context_budget = context_budget
 
 _HBOLD, _HDIM, _HGREY, _HITAL, _HBANNER, _HRESET = \
     "\033[1m", "\033[2m", "\033[90m", "\033[3m", "\033[1;7m", "\033[0m"
