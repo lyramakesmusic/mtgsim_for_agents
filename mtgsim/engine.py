@@ -152,7 +152,8 @@ nothing you don't:
  {"move":{"id":perm_id,"to":"battlefield","control":"P2"}}  — control change (Mind Control,
    theft, donation). Dead/bounced permanents always route to their owner's zones.
  {"move":{"player":P,"from":zone,"card":name|"n":N|"all":true,"to":zone,"tapped":bool}}
-   (verified against real zone contents; "all" empties the zone — wheels, mass discard)
+   (verified against real zone contents; "all" empties the zone — wheels, mass discard;
+   mill is from "library_top" with "n": {"move":{"player":"P2","from":"library_top","n":2,"to":"graveyard"}})
  {"life":{"player":P,"delta":±N}}
  {"create":{"player":P,"name":...,"n":N,"pt":[p,t],"tapped":bool}}
  {"set":{"id":perm_id,"tapped":bool,"sick":bool,"counters":±delta,"pt":[p,t]}}
@@ -494,6 +495,8 @@ class Game:
             self.log(f"  !! move: can't resolve player {mv.get('player')!r}; skipped")
             return
         frm = mv.get("from")
+        if frm in ("library", "deck", "top"):     # what everyone means by "mill"
+            frm = "library_top"
         if frm == "library_top":
             n = int(mv.get("n", 1))
             names = [pl.library.pop(0) for _ in range(min(n, len(pl.library)))]

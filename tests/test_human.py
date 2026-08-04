@@ -195,6 +195,17 @@ def test_console_privacy_with_human_seated(make_game, capsys):
     assert "still scheming" in capsys.readouterr().out
 
 
+def test_mill_accepts_library_alias(make_game):
+    """'from': 'library' (what everyone writes for mill) aliases to
+    library_top instead of bouncing with 'bad source'."""
+    g = make_game()
+    before = len(g.p[1].library)
+    g.apply_effects(0, [{"move": {"player": "P2", "from": "library", "n": 2, "to": "graveyard"}}])
+    assert len(g.p[1].library) == before - 2
+    assert len(g.p[1].graveyard) == 2
+    assert not any("bad source" in l for l in g.table)
+
+
 def test_correct_action_no_stack_no_announce(make_game):
     """correct applies atoms directly and logs as a correction — it never
     becomes a stack object, so nobody gets a response window to argue with."""
