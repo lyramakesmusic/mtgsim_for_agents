@@ -1,0 +1,437 @@
+{
+ "AEtherize": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Return all attacking creatures to their owner's hand.",
+  "pt": null
+ },
+ "Aether Tunnel": {
+  "cost": "1U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchanted creature +1/+0, can't be blocked.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell; its controller creates two Treasures.",
+  "pt": null
+ },
+ "Arcane Denial": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target spell; its controller draws two next upkeep, you draw one.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Archaeomancer": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "On enter: return target instant/sorcery card from your graveyard to hand.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Blink of an Eye": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Kicker {1}{U}. Return target nonland permanent to hand; kicked: draw a card.",
+  "pt": null
+ },
+ "Blue Sun's Zenith": {
+  "cost": "XUUU",
+  "type": "Instant",
+  "text": "Target player draws X. Shuffle ~ into its owner's library.",
+  "pt": null
+ },
+ "Brainstorm": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw three cards, then put two from your hand on top of your library.",
+  "pt": null
+ },
+ "Capsize": {
+  "cost": "1UU",
+  "type": "Instant",
+  "text": "Buyback {3} (pay extra: return ~ to hand as it resolves). Return target permanent to owner's hand.",
+  "pt": null
+ },
+ "Chart a Course": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "Draw two; discard one unless you attacked this turn.",
+  "pt": null
+ },
+ "Consider": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Look at top card; may mill it. Draw a card.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Curiosity": {
+  "cost": "U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchanted creature deals damage to an opponent: you may draw a card.",
+  "pt": null
+ },
+ "Curse of the Swine": {
+  "cost": "XUU",
+  "type": "Sorcery",
+  "text": "Exile X target creatures; each controller creates a 2/2 green Boar per creature exiled this way.",
+  "pt": null
+ },
+ "Dispel": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target instant.",
+  "pt": null
+ },
+ "Distant Melody": {
+  "cost": "3U",
+  "type": "Sorcery",
+  "text": "Choose a creature type: draw a card per creature you control of that type.",
+  "pt": null
+ },
+ "Dive Down": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature you control gets +0/+3 and hexproof until end of turn.",
+  "pt": null
+ },
+ "Docent of Perfection": {
+  "cost": "4U",
+  "type": "Creature \u2014 Insect Horror",
+  "text": "Flying. Whenever you cast an instant/sorcery: create a 1/1 Human Wizard; then if you control 3+ Wizards, transform ~ (Final Iteration 5/5: Wizards +2/+1 and flying \u2014 track via set/note).",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Engulf the Shore": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Return to hand each creature with toughness <= number of Islands you control.",
+  "pt": null
+ },
+ "Essence Scatter": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target creature spell.",
+  "pt": null
+ },
+ "Evacuation": {
+  "cost": "3UU",
+  "type": "Instant",
+  "text": "Return all creatures to their owners' hands.",
+  "pt": null
+ },
+ "Exclude": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Counter target creature spell; draw a card.",
+  "pt": null
+ },
+ "Fact or Fiction": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Reveal top five; an opponent splits them into two piles; one pile to hand, other to graveyard.",
+  "pt": null
+ },
+ "Favorable Winds": {
+  "cost": "1U",
+  "type": "Enchantment",
+  "text": "Creatures you control with flying get +1/+1.",
+  "pt": null
+ },
+ "Frantic Search": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Draw two, discard two, untap up to three lands.",
+  "pt": null
+ },
+ "Gravitational Shift": {
+  "cost": "2UU",
+  "type": "Enchantment",
+  "text": "Flying creatures get +2/+0; creatures without flying get -2/-0.",
+  "pt": null
+ },
+ "Halimar Depths": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. On enter: look at top three of your library, rearrange. {T}: Add {U}.",
+  "pt": null
+ },
+ "Impulse": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Look at top four; one to hand, rest on bottom.",
+  "pt": null
+ },
+ "Into the Roil": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Kicker {1}{U}. Return target nonland permanent to hand; kicked: draw a card.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {U}.",
+  "pt": null
+ },
+ "Laboratory Maniac": {
+  "cost": "2U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "If you would draw a card while your library is empty, you win the game instead (claim it).",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Lazotep Plating": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Amass 1 (create/grow an Army token). You and permanents you control gain hexproof until end of turn.",
+  "pt": null
+ },
+ "Mana Leak": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target spell unless its controller pays {3}.",
+  "pt": null
+ },
+ "Memory Lapse": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target spell; put it on top of its owner's library.",
+  "pt": null
+ },
+ "Metallurgic Summonings": {
+  "cost": "3UU",
+  "type": "Enchantment",
+  "text": "Whenever you cast an instant/sorcery: create an X/X Construct, X = its mana value. {3}{U}{U},Exile ~: return all instants/sorceries from your graveyard to hand.",
+  "pt": null
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Murmuring Mystic": {
+  "cost": "3U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Whenever you cast an instant/sorcery: create a 1/1 blue Bird Illusion with flying.",
+  "pt": [
+   1,
+   5
+  ]
+ },
+ "Mystic Retrieval": {
+  "cost": "3U",
+  "type": "Sorcery",
+  "text": "Return target instant/sorcery from your graveyard to hand. Flashback {2}{R}... (treat as {2}{U} here).",
+  "pt": null
+ },
+ "Mystic Sanctuary": {
+  "cost": "",
+  "type": "Land",
+  "text": "Island. Enters tapped unless you control 3+ other Islands. On enter untapped: may put an instant/sorcery card from your graveyard on top of your library. {T}: Add {U}.",
+  "pt": null
+ },
+ "Nadir Kraken": {
+  "cost": "1UU",
+  "type": "Creature \u2014 Kraken",
+  "text": "Whenever you draw a card, you may pay {1}: +1/+1 counter on ~ and create a 1/1 Tentacle.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Opt": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Scry 1, draw a card.",
+  "pt": null
+ },
+ "Peel from Reality": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Return a creature you control and a creature you don't control to owners' hands.",
+  "pt": null
+ },
+ "Ponder": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Look at top three, rearrange (or shuffle); draw a card.",
+  "pt": null
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature; controller creates a 3/3 Ape.",
+  "pt": null
+ },
+ "Preordain": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Scry 2, draw a card.",
+  "pt": null
+ },
+ "Pull from Tomorrow": {
+  "cost": "XUU",
+  "type": "Instant",
+  "text": "Draw X, then discard a card.",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature (can't be regenerated); its controller creates a 3/3 green Frog Lizard.",
+  "pt": null
+ },
+ "Reliquary Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "No maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Rewind": {
+  "cost": "2UU",
+  "type": "Instant",
+  "text": "Counter target spell; untap up to four lands.",
+  "pt": null
+ },
+ "River's Rebuke": {
+  "cost": "4UU",
+  "type": "Sorcery",
+  "text": "Return all nonland permanents target player controls to their owner's hand.",
+  "pt": null
+ },
+ "Rogue's Passage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {4},{T}: target creature unblockable this turn.",
+  "pt": null
+ },
+ "Sapphire Medallion": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Blue spells you cast cost {1} less.",
+  "pt": null
+ },
+ "Serum Visions": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Draw a card, scry 2.",
+  "pt": null
+ },
+ "Shark Typhoon": {
+  "cost": "5U",
+  "type": "Enchantment",
+  "text": "Whenever you cast a noncreature spell: create a flying X/X Shark, X = its mana value. Cycling {X}{1}{U}: draw + create an X/X Shark.",
+  "pt": null
+ },
+ "Snap": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Return target creature to hand; untap up to two lands.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spell Pierce": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell unless {2}.",
+  "pt": null
+ },
+ "Stroke of Genius": {
+  "cost": "X2U",
+  "type": "Instant",
+  "text": "Target player draws X cards.",
+  "pt": null
+ },
+ "Swan Song": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target enchantment/instant/sorcery; its controller creates a 2/2 blue Bird with flying.",
+  "pt": null
+ },
+ "Talrand's Invocation": {
+  "cost": "2UU",
+  "type": "Sorcery",
+  "text": "Create two 2/2 blue Drake tokens with flying.",
+  "pt": null
+ },
+ "Talrand, Sky Summoner": {
+  "cost": "2UU",
+  "type": "Legendary Creature \u2014 Merfolk Wizard",
+  "text": "Flying. Whenever you cast an instant or sorcery spell: create a 2/2 blue Drake token with flying.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Thassa's Oracle": {
+  "cost": "UU",
+  "type": "Creature \u2014 Merfolk Wizard",
+  "text": "On enter: X = your devotion to blue. Look at top X, put up to one on top, rest on bottom. If X >= cards in your library, YOU WIN THE GAME (claim it).",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Thought Vessel": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "No max hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Treasure Cruise": {
+  "cost": "7U",
+  "type": "Sorcery",
+  "text": "Delve (exile graveyard cards to pay generic costs). Draw three.",
+  "pt": null
+ },
+ "Unsummon": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Return target creature to its owner's hand.",
+  "pt": null
+ },
+ "Vapor Snag": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Return target creature to owner's hand; its controller loses 1 life.",
+  "pt": null
+ },
+ "Windfall": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Each player discards hand, draws cards equal to largest number discarded.",
+  "pt": null
+ }
+}

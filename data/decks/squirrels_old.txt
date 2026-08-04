@@ -1,0 +1,74 @@
+// strategy: 1) Make a lot of mana. 2) Turn that mana into squirrels. 3) Turn those squirrels into pain for your opponents. Combo lines: Squirrel Girl + Concordant Crossroads + (Cryptolith Rite or Citanul Hierophants) = infinite squirrels, mana, and ETBs. Squirrel Girl + Supportive Parents also goes infinite — tapping two creatures is a cost, so it works through summoning sickness, no haste needed. Anthems and Champion of Lambholt make the swarm unblockable; Overrun and Second Harvest close. Play quiet until the crank starts.
+Commander
+1 The Unbeatable Squirrel Girl
+
+Deck
+31 Forest
+1 Oakhollow Village
+1 Oran-Rief, the Vastwood
+1 Jaheira, Friend of the Forest
+1 Supportive Parents
+1 Shang-Chi, Master of Kung Fu
+1 Concordant Crossroads
+1 Crashing Drawbridge
+1 Thousand-Year Elixir
+1 Cryptolith Rite
+1 Citanul Hierophants
+1 Ivy Lane Denizen
+1 Scurry Oak
+1 Chatter of the Squirrel
+1 Chatterstorm
+1 Acorn Harvest
+1 Verdant Command
+1 Deep Forest Hermit
+1 Squirrel Sanctuary
+1 Squirrel Nest
+1 Druid's Call
+1 Bushy Bodyguard
+1 Treetop Sentries
+1 Scurry of Squirrels
+1 Second Harvest
+1 Prosperous Innkeeper
+1 Champion of Lambholt
+1 Woodland Champion
+1 Honored Dreyleader
+1 Toski, Bearer of Secrets
+1 Squirrel Mob
+1 Sylvan Anthem
+1 Spider-Ham, Peter Porker
+1 Chitterspitter
+1 Forgotten Ancient
+1 Altar of the Brood
+1 Throne of the God-Pharaoh
+1 Skullclamp
+1 Idol of Oblivion
+1 The Ten Rings
+1 Lifecrafter's Bestiary
+1 Beast Whisperer
+1 Inspiring Call
+1 Lead the Stampede
+1 Harmonize
+1 Shamanic Revelation
+1 Return of the Wildspeaker
+1 Garruk's Uprising
+1 Realmwalker
+1 Eternal Witness
+1 Llanowar Elves
+1 Fyndhorn Elves
+1 Elvish Mystic
+1 Elvish Spirit Guide
+1 Tender Wildguide
+1 Thornvault Forager
+1 Shared Roots
+1 Harvest Season
+1 Planar Engineering
+1 Sol Ring
+1 Beast Within
+1 Return to Nature
+1 Collective Resistance
+1 Overprotect
+1 Fog
+1 Overrun
+1 End-Raze Forerunners
+1 Rootcast Apprenticeship
+1 Scrapshooter

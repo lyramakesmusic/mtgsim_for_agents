@@ -1,0 +1,521 @@
+{
+ "Akroma's Will": {
+  "cost": "3W",
+  "type": "Instant",
+  "text": "Choose one. If you control a commander as you cast this spell, you may choose both instead. \u2022 Creatures you control gain flying, vigilance, and double strike until end of turn. \u2022 Creatures you control gain lifelink, indestructible, and protection from each color until end of turn.",
+  "pt": null
+ },
+ "All That Glitters": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 for each artifact and/or enchantment you control.",
+  "pt": null
+ },
+ "Ancestral Mask": {
+  "cost": "2G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 for each other enchantment on the battlefield.",
+  "pt": null
+ },
+ "Arbor Elf": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Untap target Forest.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Armadillo Cloak": {
+  "cost": "1GW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 and has trample. Whenever enchanted creature deals damage, you gain that much life.",
+  "pt": null
+ },
+ "Aura Shards": {
+  "cost": "1GW",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control enters, you may destroy target artifact or enchantment.",
+  "pt": null
+ },
+ "Avacyn's Pilgrim": {
+  "cost": "G",
+  "type": "Creature \u2014 Human Monk",
+  "text": "{T}: Add {W}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Bastion Protector": {
+  "cost": "2W",
+  "type": "Creature \u2014 Human Soldier",
+  "text": "Commander creatures you control get +2/+2 and have indestructible.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Battle Mastery": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has double strike. (It deals both first-strike and regular combat damage.)",
+  "pt": null
+ },
+ "Bear Umbra": {
+  "cost": "2GG",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 and has \"Whenever this creature attacks, untap all lands you control.\" Umbra armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",
+  "pt": null
+ },
+ "Beast Within": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Destroy target permanent; its controller creates a 3/3 Beast.",
+  "pt": null
+ },
+ "Birds of Paradise": {
+  "cost": "G",
+  "type": "Creature \u2014 Bird",
+  "text": "Flying {T}: Add one mana of any color.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Blackblade Reforged": {
+  "cost": "2",
+  "type": "Legendary Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/+1 for each land you control. Equip legendary creature {3} Equip {7}",
+  "pt": null
+ },
+ "Blossoming Sands": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {G} or {W}.",
+  "pt": null
+ },
+ "Cathedral of War": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.) {T}: Add {C}.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Daybreak Coronet": {
+  "cost": "WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature with another Aura attached to it Enchanted creature gets +3/+3 and has first strike, vigilance, and lifelink. (Damage dealt by the creature also causes its controller to gain that much life.)",
+  "pt": null
+ },
+ "Duelist's Heritage": {
+  "cost": "2W",
+  "type": "Enchantment",
+  "text": "Whenever one or more creatures attack, you may have target attacking creature gain double strike until end of turn.",
+  "pt": null
+ },
+ "Eidolon of Blossoms": {
+  "cost": "2GG",
+  "type": "Enchantment Creature \u2014 Spirit",
+  "text": "Constellation \u2014 Whenever this creature or another enchantment you control enters, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Enchantress's Presence": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "Whenever you cast an enchantment spell, draw a card.",
+  "pt": null
+ },
+ "Eternal Witness": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "On enter, return target card from your graveyard to hand.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Ethereal Armor": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 for each enchantment you control and has first strike.",
+  "pt": null
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Flawless Maneuver": {
+  "cost": "2W",
+  "type": "Instant",
+  "text": "If you control a commander, you may cast this spell without paying its mana cost. Creatures you control gain indestructible until end of turn.",
+  "pt": null
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {G}.",
+  "pt": null
+ },
+ "Fortified Village": {
+  "cost": "",
+  "type": "Land",
+  "text": "As this land enters, you may reveal a Forest or Plains card from your hand. If you don't, this land enters tapped. {T}: Add {G} or {W}.",
+  "pt": null
+ },
+ "Fyndhorn Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Generous Gift": {
+  "cost": "2W",
+  "type": "Instant",
+  "text": "Destroy target permanent. Its controller creates a 3/3 green Elephant creature token.",
+  "pt": null
+ },
+ "Gift of Immortality": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature When enchanted creature dies, return that card to the battlefield under its owner's control. Return this card to the battlefield attached to that creature at the beginning of the next end step.",
+  "pt": null
+ },
+ "Grand Abolisher": {
+  "cost": "WW",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "During your turn, your opponents can't cast spells or activate abilities of artifacts, creatures, or enchantments.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Hall of Heliod's Generosity": {
+  "cost": "",
+  "type": "Legendary Land",
+  "text": "{T}: Add {C}. {1}{W}, {T}: Put target enchantment card from your graveyard on top of your library.",
+  "pt": null
+ },
+ "Heliod's Pilgrim": {
+  "cost": "2W",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "When this creature enters, you may search your library for an Aura card, reveal it, put it into your hand, then shuffle.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Heroic Intervention": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Permanents you control gain hexproof and indestructible this turn.",
+  "pt": null
+ },
+ "Hyena Umbra": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 and has first strike. Umbra armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",
+  "pt": null
+ },
+ "Kor Spiritdancer": {
+  "cost": "1W",
+  "type": "Creature \u2014 Kor Wizard",
+  "text": "This creature gets +2/+2 for each Aura attached to it. Whenever you cast an Aura spell, you may draw a card.",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Krosan Grip": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.) Destroy target artifact or enchantment.",
+  "pt": null
+ },
+ "Krosan Verge": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {C}. {2}, {T}, Sacrifice this land: Search your library for a Forest card and a Plains card, put them onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Llanowar Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Loxodon Warhammer": {
+  "cost": "3",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +3/+0 and has trample and lifelink. Equip {3}",
+  "pt": null
+ },
+ "Mesa Enchantress": {
+  "cost": "1WW",
+  "type": "Creature \u2014 Human Druid",
+  "text": "Whenever you cast an enchantment spell, you may draw a card.",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Nature's Lore": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Open the Armory": {
+  "cost": "1W",
+  "type": "Sorcery",
+  "text": "Search your library for an Aura or Equipment card, reveal it, put it into your hand, then shuffle.",
+  "pt": null
+ },
+ "Path to Exile": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Rampant Growth": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Rancor": {
+  "cost": "G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+0 and has trample. When this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+  "pt": null
+ },
+ "Retether": {
+  "cost": "3W",
+  "type": "Sorcery",
+  "text": "Return each Aura card from your graveyard to the battlefield. Only creatures can be enchanted this way. (Aura cards that can't enchant a creature on the battlefield remain in your graveyard.)",
+  "pt": null
+ },
+ "Return to Dust": {
+  "cost": "2WW",
+  "type": "Instant",
+  "text": "Exile target artifact or enchantment. If you cast this spell during your main phase, you may exile up to one other target artifact or enchantment.",
+  "pt": null
+ },
+ "Rogue's Passage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {4},{T}: target creature unblockable this turn.",
+  "pt": null
+ },
+ "Sakura-Tribe Elder": {
+  "cost": "1G",
+  "type": "Creature \u2014 Snake Shaman",
+  "text": "Sacrifice ~: search a basic land, battlefield tapped.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Satyr Enchanter": {
+  "cost": "1GW",
+  "type": "Creature \u2014 Satyr Druid",
+  "text": "Whenever you cast an enchantment spell, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Season of Growth": {
+  "cost": "GG",
+  "type": "Enchantment",
+  "text": "A creature enters under your control: scry 1. You cast a spell targeting your creature: draw.",
+  "pt": null
+ },
+ "Selesnya Sanctuary": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {G}{W}.",
+  "pt": null
+ },
+ "Selesnya Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {G}{W}.",
+  "pt": null
+ },
+ "Setessan Champion": {
+  "cost": "2G",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "Constellation \u2014 Whenever an enchantment you control enters, put a +1/+1 counter on this creature and draw a card.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Shalai, Voice of Plenty": {
+  "cost": "3W",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "Flying You, planeswalkers you control, and other creatures you control have hexproof. {4}{G}{G}: Put a +1/+1 counter on each creature you control.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Shield of the Oversoul": {
+  "cost": "2(G/W)",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature As long as enchanted creature is green, it gets +1/+1 and has indestructible. (Damage and effects that say \"destroy\" don't destroy it. If its toughness is 0 or less, it still dies.) As long as enchanted creature is white, it gets +1/+1 and has flying.",
+  "pt": null
+ },
+ "Shielded by Faith": {
+  "cost": "1WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has indestructible. Whenever a creature enters, you may attach this Aura to that creature.",
+  "pt": null
+ },
+ "Sigarda, Host of Herons": {
+  "cost": "2GWW",
+  "type": "Legendary Creature \u2014 Angel",
+  "text": "Flying, hexproof Spells and abilities your opponents control can't cause you to sacrifice permanents.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Snake Umbra": {
+  "cost": "2G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 and has \"Whenever this creature deals damage to an opponent, you may draw a card.\" Umbra armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spirit Mantle": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 and has protection from creatures.",
+  "pt": null
+ },
+ "Sram, Senior Edificer": {
+  "cost": "1W",
+  "type": "Legendary Creature \u2014 Dwarf Advisor",
+  "text": "Whenever you cast an Aura, Equipment, or Vehicle spell, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Stroke of Midnight": {
+  "cost": "2W",
+  "type": "Instant",
+  "text": "Destroy target nonland permanent. Its controller creates a 1/1 white Human creature token.",
+  "pt": null
+ },
+ "Sun Titan": {
+  "cost": "4WW",
+  "type": "Creature \u2014 Giant",
+  "text": "Vigilance Whenever this creature enters or attacks, you may return target permanent card with mana value 3 or less from your graveyard to the battlefield.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Sunpetal Grove": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control a Forest or a Plains. {T}: Add {G} or {W}.",
+  "pt": null
+ },
+ "Swiftfoot Boots": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.) Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Swords to Plowshares": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller gains life equal to its power.",
+  "pt": null
+ },
+ "Sylvan Library": {
+  "cost": "1G",
+  "type": "Enchantment",
+  "text": "At the beginning of your draw step, you may draw two additional cards. If you do, choose two cards in your hand drawn this turn. For each of those cards, pay 4 life or put the card on top of your library.",
+  "pt": null
+ },
+ "Tamiyo's Safekeeping": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target permanent you control: hexproof, indestructible; gain 2 life.",
+  "pt": null
+ },
+ "Temple of Plenty": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {G} or {W}.",
+  "pt": null
+ },
+ "Terramorphic Expanse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Timely Ward": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "You may cast this spell as though it had flash if it targets a commander. Enchant creature Enchanted creature has indestructible.",
+  "pt": null
+ },
+ "Unflinching Courage": {
+  "cost": "1GW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 and has trample and lifelink. (Damage dealt by the creature also causes its controller to gain that much life.)",
+  "pt": null
+ },
+ "Winds of Rath": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures that aren't enchanted. They can't be regenerated.",
+  "pt": null
+ },
+ "Wrath of God": {
+  "cost": "2WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. They can't be regenerated.",
+  "pt": null
+ }
+}

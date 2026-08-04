@@ -1,0 +1,515 @@
+{
+ "Acorn Harvest": {
+  "cost": "3G",
+  "type": "Sorcery",
+  "text": "Create two 1/1 green Squirrel tokens. Flashback\u2014{1}{G}, pay 3 life.",
+  "pt": null
+ },
+ "Altar of the Brood": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "Whenever another permanent enters under your control, each opponent mills 1.",
+  "pt": null
+ },
+ "Beast Whisperer": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "Whenever you cast a creature spell, draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Beast Within": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Destroy target permanent; its controller creates a 3/3 Beast.",
+  "pt": null
+ },
+ "Bushy Bodyguard": {
+  "cost": "1G",
+  "type": "Creature \u2014 Squirrel Warrior",
+  "text": "Offspring {2}. On enter, you may forage: two +1/+1 counters on it.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Champion of Lambholt": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "Creatures with power less than ~'s can't block creatures you control. Another creature enters under your control: +1/+1 counter on ~.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Chatter of the Squirrel": {
+  "cost": "G",
+  "type": "Sorcery",
+  "text": "Create a 1/1 green Squirrel token. Flashback {1}{G}.",
+  "pt": null
+ },
+ "Chatterstorm": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Create a 1/1 green Squirrel token. Storm.",
+  "pt": null
+ },
+ "Chitterspitter": {
+  "cost": "2G",
+  "type": "Artifact",
+  "text": "Upkeep: may sac a token \u2192 acorn counter. Squirrels +1/+1 per acorn counter. {G},{T}: create a 1/1 Squirrel.",
+  "pt": null
+ },
+ "Citanul Hierophants": {
+  "cost": "3G",
+  "type": "Creature \u2014 Human Druid",
+  "text": "Creatures you control have '{T}: Add {G}.'",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Collective Resistance": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Escalate {G}. Modes: destroy artifact; destroy enchantment; creature gains hexproof+indestructible.",
+  "pt": null
+ },
+ "Concordant Crossroads": {
+  "cost": "G",
+  "type": "World Enchantment",
+  "text": "All creatures have haste.",
+  "pt": null
+ },
+ "Crashing Drawbridge": {
+  "cost": "2",
+  "type": "Artifact Creature \u2014 Wall",
+  "text": "Defender. {T}: Creatures you control gain haste until end of turn.",
+  "pt": [
+   0,
+   4
+  ]
+ },
+ "Cryptolith Rite": {
+  "cost": "1G",
+  "type": "Enchantment",
+  "text": "Creatures you control have '{T}: Add one mana of any color.'",
+  "pt": null
+ },
+ "Deep Forest Hermit": {
+  "cost": "3G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "Vanishing 3. When ~ enters, create four 1/1 green Squirrel tokens. Squirrels get +1/+1.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Druid's Call": {
+  "cost": "1G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature. Whenever enchanted creature is dealt damage, its controller creates that many 1/1 Squirrels.",
+  "pt": null
+ },
+ "Elvish Mystic": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Elvish Spirit Guide": {
+  "cost": "2G",
+  "type": "Creature \u2014 Elf Spirit",
+  "text": "Exile from hand: Add {G}.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "End-Raze Forerunners": {
+  "cost": "5GGG",
+  "type": "Creature \u2014 Boar",
+  "text": "Vigilance, trample, haste. On enter: others +2/+2, vigilance, trample this turn.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Eternal Witness": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "On enter, return target card from your graveyard to hand.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Fog": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Prevent all combat damage this turn.",
+  "pt": null
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {G}.",
+  "pt": null
+ },
+ "Forgotten Ancient": {
+  "cost": "3G",
+  "type": "Creature \u2014 Elemental",
+  "text": "Any player casts a spell: +1/+1 counter on ~. Your upkeep: may move its counters.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Fyndhorn Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Garruk's Uprising": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "On enter, draw if you control a power-4+ creature. Creatures you control have trample. A power-4+ creature enters: draw.",
+  "pt": null
+ },
+ "Harmonize": {
+  "cost": "2GG",
+  "type": "Sorcery",
+  "text": "Draw three cards.",
+  "pt": null
+ },
+ "Harvest Season": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "Search a tapped basic land for each tapped creature you control; battlefield tapped.",
+  "pt": null
+ },
+ "Honored Dreyleader": {
+  "cost": "2G",
+  "type": "Creature \u2014 Squirrel Warrior",
+  "text": "Trample. Enters with a +1/+1 counter for each other Squirrel/Food. Another Squirrel or Food enters: +1/+1 counter on ~.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Idol of Oblivion": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Draw a card. Activate only if you created a token this turn. {8},{T},Sac: create a 10/10 Eldrazi.",
+  "pt": null
+ },
+ "Inspiring Call": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Draw a card for each creature you control with a +1/+1 counter; those creatures gain indestructible until end of turn.",
+  "pt": null
+ },
+ "Ivy Lane Denizen": {
+  "cost": "3G",
+  "type": "Creature \u2014 Elf Warrior",
+  "text": "Whenever another green creature enters under your control, put a +1/+1 counter on target creature.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Jaheira, Friend of the Forest": {
+  "cost": "2G",
+  "type": "Legendary Creature \u2014 Human Elf Druid",
+  "text": "Tokens you control have '{T}: Add {G}.'",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Lead the Stampede": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "Look at top five; put any number of creature cards into hand; rest on bottom.",
+  "pt": null
+ },
+ "Lifecrafter's Bestiary": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Your upkeep: scry 1. You may pay {G} whenever you cast a creature spell; if you do, draw a card.",
+  "pt": null
+ },
+ "Llanowar Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Oakhollow Village": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {G}, spend only on creature spells. {G},{T}: +1/+1 counter on each Frog/Rabbit/Raccoon/Squirrel you control that entered this turn.",
+  "pt": null
+ },
+ "Oran-Rief, the Vastwood": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. {T}: Add {G}. {T}: +1/+1 counter on each creature that entered this turn.",
+  "pt": null
+ },
+ "Overprotect": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature +3/+3, trample, hexproof, indestructible until end of turn.",
+  "pt": null
+ },
+ "Overrun": {
+  "cost": "2GGG",
+  "type": "Sorcery",
+  "text": "Creatures you control +3/+3 and trample until end of turn.",
+  "pt": null
+ },
+ "Planar Engineering": {
+  "cost": "3G",
+  "type": "Sorcery",
+  "text": "Sacrifice two lands: search four basics, battlefield tapped.",
+  "pt": null
+ },
+ "Prosperous Innkeeper": {
+  "cost": "1G",
+  "type": "Creature \u2014 Halfling Citizen",
+  "text": "On enter, create a Treasure. Whenever another creature enters under your control, gain 1 life.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Realmwalker": {
+  "cost": "2G",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "Changeling (choose Squirrel). You may look at top card; may cast Squirrel spells from top of library.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Return of the Wildspeaker": {
+  "cost": "4G",
+  "type": "Instant",
+  "text": "Choose: draw cards equal to greatest power among creatures you control; or non-Humans get +3/+3.",
+  "pt": null
+ },
+ "Return to Nature": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Choose: destroy artifact; destroy enchantment; exile a graveyard card.",
+  "pt": null
+ },
+ "Rootcast Apprenticeship": {
+  "cost": "3G",
+  "type": "Sorcery",
+  "text": "Choose three (repeats ok): 2 counters on a creature; copy a token you control; a player makes a 1/1 Squirrel; an opponent sacs a nontoken artifact.",
+  "pt": null
+ },
+ "Scrapshooter": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Raccoon Archer",
+  "text": "Gift a card. Reach. On enter, if gift promised: destroy target artifact/enchantment an opponent controls.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Scurry Oak": {
+  "cost": "2G",
+  "type": "Creature \u2014 Treefolk",
+  "text": "Evolve. Whenever one or more +1/+1 counters are put on ~, you may create a 1/1 green Squirrel token.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Scurry of Squirrels": {
+  "cost": "2G",
+  "type": "Creature \u2014 Squirrel Scout",
+  "text": "Myriad, myriad. On combat damage to a player: +1/+1 counter on target creature you control.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Second Harvest": {
+  "cost": "2GG",
+  "type": "Instant",
+  "text": "For each token you control, create a copy of it.",
+  "pt": null
+ },
+ "Shamanic Revelation": {
+  "cost": "3GG",
+  "type": "Sorcery",
+  "text": "Draw a card per creature you control; gain 4 life per creature with power \u22654.",
+  "pt": null
+ },
+ "Shang-Chi, Master of Kung Fu": {
+  "cost": "1G",
+  "type": "Legendary Creature \u2014 Human Warrior Hero",
+  "text": "You may activate abilities of creatures you control as though they had haste. {T}: Add two mana of any one color; spend only to activate abilities of creature sources.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Shared Roots": {
+  "cost": "1G",
+  "type": "Sorcery \u2014 Lesson",
+  "text": "Search a basic land, put onto battlefield tapped.",
+  "pt": null
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature +1/-1. When equipped creature dies, draw two. Equip {1}.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spider-Ham, Peter Porker": {
+  "cost": "1G",
+  "type": "Legendary Creature \u2014 Spider Boar Hero",
+  "text": "On enter, create a Food. Other Spiders/Boars/\u2026/Squirrels you control get +1/+1.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Squirrel Mob": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Squirrel",
+  "text": "+1/+1 for each other Squirrel on the battlefield.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Squirrel Nest": {
+  "cost": "2G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant land. Enchanted land has '{T}: Create a 1/1 green Squirrel token.'",
+  "pt": null
+ },
+ "Squirrel Sanctuary": {
+  "cost": "G",
+  "type": "Enchantment",
+  "text": "When ~ enters, create a 1/1 Squirrel. Whenever a nontoken creature you control dies, you may pay {1} to return ~ to hand.",
+  "pt": null
+ },
+ "Supportive Parents": {
+  "cost": "2G",
+  "type": "Creature \u2014 Human Citizen",
+  "text": "Tap two untapped creatures you control: Add one mana of any color. (Works with summoning-sick creatures; tapping as a cost, not a {T} ability.)",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Sylvan Anthem": {
+  "cost": "GG",
+  "type": "Enchantment",
+  "text": "Green creatures you control get +1/+1. A green creature enters under your control: scry 1.",
+  "pt": null
+ },
+ "Tender Wildguide": {
+  "cost": "1G",
+  "type": "Creature \u2014 Possum Druid",
+  "text": "Offspring {2}. {T}: Add any color. {T}: +1/+1 counter on ~.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "The Ten Rings": {
+  "cost": "8",
+  "type": "Legendary Artifact",
+  "text": "Max hand size ten. Your end step: if fewer than ten cards in hand, draw the difference.",
+  "pt": null
+ },
+ "The Unbeatable Squirrel Girl": {
+  "cost": "1GGG",
+  "type": "Legendary Creature \u2014 Squirrel Human Hero",
+  "text": "Whenever ~ enters or attacks, create a 1/1 green Squirrel token. 1GGG: Create X 1/1 Squirrel tokens, X = number of Squirrels you control.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Thornvault Forager": {
+  "cost": "1G",
+  "type": "Creature \u2014 Squirrel Ranger",
+  "text": "{T}: Add {G}. {T},Forage: add two mana any colors. {3}{G},{T}: tutor a Squirrel card to hand.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Thousand-Year Elixir": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "You may activate abilities of creatures as though they had haste. {1},{T}: Untap target creature.",
+  "pt": null
+ },
+ "Throne of the God-Pharaoh": {
+  "cost": "2",
+  "type": "Legendary Artifact",
+  "text": "Your end step: each opponent loses life equal to tapped creatures you control.",
+  "pt": null
+ },
+ "Toski, Bearer of Secrets": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Squirrel",
+  "text": "Can't be countered. Indestructible. Attacks each combat if able. A creature you control deals combat damage to a player: draw a card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Treetop Sentries": {
+  "cost": "3G",
+  "type": "Creature \u2014 Squirrel Archer",
+  "text": "Reach. On enter, you may forage: draw a card.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Verdant Command": {
+  "cost": "GG",
+  "type": "Instant",
+  "text": "Choose two: target player creates two tapped 1/1 Squirrels; counter target loyalty ability; exile target card from a graveyard; target player gains 3 life.",
+  "pt": null
+ },
+ "Woodland Champion": {
+  "cost": "1G",
+  "type": "Creature \u2014 Elf Scout",
+  "text": "Whenever one or more tokens enter under your control, that many +1/+1 counters on ~.",
+  "pt": [
+   2,
+   2
+  ]
+ }
+}

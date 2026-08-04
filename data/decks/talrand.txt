@@ -1,0 +1,73 @@
+// strategy: Draw-go control. Every instant and sorcery makes a 2/2 flying Drake, so countermagic and cantrips double as an army. Keep mana open, counter what matters (engines and commanders, not rocks), and let the drakes clock. Protect Talrand. Thassa's Oracle and Laboratory Maniac are surprise outs if the game goes very long and your library runs dry — on purpose or otherwise.
+Commander
+1 Talrand, Sky Summoner
+
+Deck
+32 Island
+1 Reliquary Tower
+1 Rogue's Passage
+1 Mystic Sanctuary
+1 Halimar Depths
+1 Sol Ring
+1 Arcane Signet
+1 Thought Vessel
+1 Sapphire Medallion
+1 Mind Stone
+1 Opt
+1 Brainstorm
+1 Ponder
+1 Preordain
+1 Consider
+1 Serum Visions
+1 Chart a Course
+1 Frantic Search
+1 Counterspell
+1 Negate
+1 Spell Pierce
+1 An Offer You Can't Refuse
+1 Arcane Denial
+1 Mana Leak
+1 Swan Song
+1 Dispel
+1 Rewind
+1 Memory Lapse
+1 Essence Scatter
+1 Exclude
+1 Pongify
+1 Rapid Hybridization
+1 Unsummon
+1 Vapor Snag
+1 Into the Roil
+1 Blink of an Eye
+1 Peel from Reality
+1 Snap
+1 Capsize
+1 AEtherize
+1 Evacuation
+1 Engulf the Shore
+1 River's Rebuke
+1 Curse of the Swine
+1 Blue Sun's Zenith
+1 Stroke of Genius
+1 Treasure Cruise
+1 Distant Melody
+1 Pull from Tomorrow
+1 Impulse
+1 Fact or Fiction
+1 Windfall
+1 Archaeomancer
+1 Mystic Retrieval
+1 Murmuring Mystic
+1 Docent of Perfection
+1 Gravitational Shift
+1 Favorable Winds
+1 Shark Typhoon
+1 Talrand's Invocation
+1 Metallurgic Summonings
+1 Nadir Kraken
+1 Dive Down
+1 Lazotep Plating
+1 Curiosity
+1 Aether Tunnel
+1 Thassa's Oracle
+1 Laboratory Maniac

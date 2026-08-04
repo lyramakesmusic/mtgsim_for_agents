@@ -1,0 +1,497 @@
+{
+ "Absorb": {
+  "cost": "WUU",
+  "type": "Instant",
+  "text": "Counter target spell. You gain 3 life.",
+  "pt": null
+ },
+ "Aetherize": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Return all attacking creatures to their owner's hand.",
+  "pt": null
+ },
+ "Aetherspouts": {
+  "cost": "3UU",
+  "type": "Instant",
+  "text": "For each attacking creature, its owner puts it on their choice of the top or bottom of their library.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell; its controller creates two Treasures.",
+  "pt": null
+ },
+ "Approach of the Second Sun": {
+  "cost": "6W",
+  "type": "Sorcery",
+  "text": "If this spell was cast from your hand and you've cast another spell named Approach of the Second Sun this game, you win the game. Otherwise, put Approach of the Second Sun into its owner's library seventh from the top and you gain 7 life.",
+  "pt": null
+ },
+ "Arcane Denial": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target spell; its controller draws two next upkeep, you draw one.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Austere Command": {
+  "cost": "4WW",
+  "type": "Sorcery",
+  "text": "Choose two \u2014 \u2022 Destroy all artifacts. \u2022 Destroy all enchantments. \u2022 Destroy all creatures with mana value 3 or less. \u2022 Destroy all creatures with mana value 4 or greater.",
+  "pt": null
+ },
+ "Authority of the Consuls": {
+  "cost": "W",
+  "type": "Enchantment",
+  "text": "Creatures your opponents control enter tapped. Whenever a creature an opponent controls enters, you gain 1 life.",
+  "pt": null
+ },
+ "Azor's Elocutors": {
+  "cost": "3(W/U)(W/U)",
+  "type": "Creature \u2014 Human Advisor",
+  "text": "At the beginning of your upkeep, put a filibuster counter on this creature. Then if this creature has five or more filibuster counters on it, you win the game. Whenever a source deals damage to you, remove a filibuster counter from this creature.",
+  "pt": [
+   3,
+   5
+  ]
+ },
+ "Azorius Chancery": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {W}{U}.",
+  "pt": null
+ },
+ "Azorius Charm": {
+  "cost": "WU",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Creatures you control gain lifelink until end of turn. \u2022 Draw a card. \u2022 Put target attacking or blocking creature on top of its owner's library.",
+  "pt": null
+ },
+ "Azorius Guildgate": {
+  "cost": "",
+  "type": "Land \u2014 Gate",
+  "text": "This land enters tapped. {T}: Add {W} or {U}.",
+  "pt": null
+ },
+ "Azorius Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {W}{U}.",
+  "pt": null
+ },
+ "Banishing Light": {
+  "cost": "2W",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.",
+  "pt": null
+ },
+ "Brainstorm": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw three cards, then put two from your hand on top of your library.",
+  "pt": null
+ },
+ "Celestial Colonnade": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {W} or {U}. {3}{W}{U}: Until end of turn, this land becomes a 4/4 white and blue Elemental creature with flying and vigilance. It's still a land.",
+  "pt": null
+ },
+ "Cloudblazer": {
+  "cost": "3WU",
+  "type": "Creature \u2014 Human Scout",
+  "text": "Flying When this creature enters, you gain 2 life and draw two cards.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Condemn": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Put target attacking creature on the bottom of its owner's library. Its controller gains life equal to its toughness.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Court of Grace": {
+  "cost": "2WW",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, you become the monarch. At the beginning of your upkeep, create a 1/1 white Spirit creature token with flying. If you're the monarch, create a 4/4 white Angel creature token with flying instead.",
+  "pt": null
+ },
+ "Cursed Totem": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Activated abilities of creatures can't be activated.",
+  "pt": null
+ },
+ "Darksteel Mutation": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature is an Insect artifact creature with base power and toughness 0/1 and has indestructible, and it loses all other abilities, card types, and creature types.",
+  "pt": null
+ },
+ "Detention Sphere": {
+  "cost": "1WU",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, you may exile target nonland permanent not named Detention Sphere and all other permanents with the same name as that permanent. When this enchantment leaves the battlefield, return the exiled cards to the battlefield under their owner's control.",
+  "pt": null
+ },
+ "Dovin's Veto": {
+  "cost": "WU",
+  "type": "Instant",
+  "text": "This spell can't be countered. Counter target noncreature spell.",
+  "pt": null
+ },
+ "Dream Trawler": {
+  "cost": "2WWUU",
+  "type": "Creature \u2014 Sphinx",
+  "text": "Flying, lifelink Whenever you draw a card, this creature gets +1/+0 until end of turn. Whenever this creature attacks, draw a card. Discard a card: This creature gains hexproof until end of turn. Tap it.",
+  "pt": [
+   3,
+   5
+  ]
+ },
+ "Evacuation": {
+  "cost": "3UU",
+  "type": "Instant",
+  "text": "Return all creatures to their owners' hands.",
+  "pt": null
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Fact or Fiction": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Reveal top five; an opponent splits them into two piles; one pile to hand, other to graveyard.",
+  "pt": null
+ },
+ "Farewell": {
+  "cost": "4WW",
+  "type": "Sorcery",
+  "text": "Choose one or more \u2014 \u2022 Exile all artifacts. \u2022 Exile all creatures. \u2022 Exile all enchantments. \u2022 Exile all graveyards.",
+  "pt": null
+ },
+ "Fog Bank": {
+  "cost": "1U",
+  "type": "Creature \u2014 Wall",
+  "text": "Defender (This creature can't attack.) Flying Prevent all combat damage that would be dealt to and dealt by this creature.",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Ghostly Prison": {
+  "cost": "2W",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
+  "pt": null
+ },
+ "Glacial Fortress": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control a Plains or an Island. {T}: Add {W} or {U}.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {U}.",
+  "pt": null
+ },
+ "Isperia, Supreme Judge": {
+  "cost": "2WWUU",
+  "type": "Legendary Creature \u2014 Sphinx",
+  "text": "Flying Whenever a creature attacks you or a planeswalker you control, you may draw a card.",
+  "pt": [
+   6,
+   4
+  ]
+ },
+ "Judge's Familiar": {
+  "cost": "(W/U)",
+  "type": "Creature \u2014 Bird",
+  "text": "Flying Sacrifice this creature: Counter target instant or sorcery spell unless its controller pays {1}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Land Tax": {
+  "cost": "W",
+  "type": "Enchantment",
+  "text": "At the beginning of your upkeep, if an opponent controls more lands than you, you may search your library for up to three basic land cards, reveal them, put them into your hand, then shuffle.",
+  "pt": null
+ },
+ "Medomai the Ageless": {
+  "cost": "4WU",
+  "type": "Legendary Creature \u2014 Sphinx",
+  "text": "Flying Whenever Medomai deals combat damage to a player, take an extra turn after this one. Medomai can't attack during extra turns.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Mulldrifter": {
+  "cost": "4U",
+  "type": "Creature \u2014 Elemental",
+  "text": "Flying When this creature enters, draw two cards. Evoke {2}{U} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Mystic Remora": {
+  "cost": "U",
+  "type": "Enchantment",
+  "text": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.) Whenever an opponent casts a noncreature spell, you may draw a card unless that player pays {4}.",
+  "pt": null
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Norn's Annex": {
+  "cost": "3(W/P)(W/P)",
+  "type": "Artifact",
+  "text": "({W/P} can be paid with either {W} or 2 life.) Creatures can't attack you or planeswalkers you control unless their controller pays {W/P} for each of those creatures.",
+  "pt": null
+ },
+ "Path of Ancestry": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. {T}: add commander-identity color; scry 1 if spent on a Snake.",
+  "pt": null
+ },
+ "Path to Exile": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Ponder": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Look at top three, rearrange (or shuffle); draw a card.",
+  "pt": null
+ },
+ "Prairie Stream": {
+  "cost": "",
+  "type": "Land \u2014 Plains Island",
+  "text": "({T}: Add {W} or {U}.) This land enters tapped unless you control two or more basic lands.",
+  "pt": null
+ },
+ "Preordain": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Scry 2, draw a card.",
+  "pt": null
+ },
+ "Propaganda": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you unless their controller pays {2} per attacker.",
+  "pt": null
+ },
+ "Reconnaissance Mission": {
+  "cost": "2UU",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control deals combat damage to a player, you may draw a card. Cycling {2} ({2}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Render Silent": {
+  "cost": "WUU",
+  "type": "Instant",
+  "text": "Counter target spell. Its controller can't cast spells this turn.",
+  "pt": null
+ },
+ "Selfless Spirit": {
+  "cost": "1W",
+  "type": "Creature \u2014 Spirit Cleric",
+  "text": "Flying Sacrifice this creature: Creatures you control gain indestructible until end of turn.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Settle the Wreckage": {
+  "cost": "2WW",
+  "type": "Instant",
+  "text": "Exile all attacking creatures target player controls. That player may search their library for that many basic land cards, put those cards onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Sky Diamond": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {U}.",
+  "pt": null
+ },
+ "Smothering Tithe": {
+  "cost": "3W",
+  "type": "Enchantment",
+  "text": "Whenever an opponent draws a card, that player may pay {2}. If the player doesn't, you create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Solemn Simulacrum": {
+  "cost": "4",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle. When this creature dies, you may draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Sphere of Safety": {
+  "cost": "4W",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you or planeswalkers you control unless their controller pays {X} for each of those creatures, where X is the number of enchantments you control.",
+  "pt": null
+ },
+ "Sphinx of Magosi": {
+  "cost": "3UUU",
+  "type": "Creature \u2014 Sphinx",
+  "text": "Flying {2}{U}: Draw a card, then put a +1/+1 counter on this creature.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Sphinx's Revelation": {
+  "cost": "XWUU",
+  "type": "Instant",
+  "text": "You gain X life and draw X cards.",
+  "pt": null
+ },
+ "Staggering Insight": {
+  "cost": "WU",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 and has lifelink and \"Whenever this creature deals combat damage to a player, draw a card.\"",
+  "pt": null
+ },
+ "Storm Herd": {
+  "cost": "8WW",
+  "type": "Sorcery",
+  "text": "Create X 1/1 white Pegasus creature tokens with flying, where X is your life total.",
+  "pt": null
+ },
+ "Supreme Verdict": {
+  "cost": "1WWU",
+  "type": "Sorcery",
+  "text": "This spell can't be countered. Destroy all creatures.",
+  "pt": null
+ },
+ "Swan Song": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target enchantment/instant/sorcery; its controller creates a 2/2 blue Bird with flying.",
+  "pt": null
+ },
+ "Swords to Plowshares": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller gains life equal to its power.",
+  "pt": null
+ },
+ "Talisman of Progress": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {T}: Add {W} or {U}. This artifact deals 1 damage to you.",
+  "pt": null
+ },
+ "Temple of Enlightenment": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {W} or {U}.",
+  "pt": null
+ },
+ "Terramorphic Expanse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Time Wipe": {
+  "cost": "2WWU",
+  "type": "Sorcery",
+  "text": "Return a creature you control to its owner's hand, then destroy all creatures.",
+  "pt": null
+ },
+ "Tranquil Cove": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {W} or {U}.",
+  "pt": null
+ },
+ "Windborn Muse": {
+  "cost": "3W",
+  "type": "Creature \u2014 Spirit",
+  "text": "Flying Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Windreader Sphinx": {
+  "cost": "5UU",
+  "type": "Creature \u2014 Sphinx",
+  "text": "Flying Whenever a creature with flying attacks, you may draw a card.",
+  "pt": [
+   3,
+   7
+  ]
+ },
+ "Winged Words": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "This spell costs {1} less to cast if you control a creature with flying. Draw two cards.",
+  "pt": null
+ },
+ "Wrath of God": {
+  "cost": "2WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. They can't be regenerated.",
+  "pt": null
+ }
+}

@@ -1,0 +1,77 @@
+// strategy: The clock. Torbran adds +2 to every red damage source, so your chip damage
+// is a landslide: pingers (Guttersnipe, Thermo-Alchemist, Electrostatic Field) hit for 3
+// per trigger, Earthquake-style sweepers become one-sided nukes with your bigger bodies,
+// and every burn spell overperforms. Sulfuric Vortex and Roiling Vortex switch lifegain
+// OFF — the accountant's ledger stops working. Rampaging Ferocidon punishes token swarms.
+// You are the table's doomsday timer: make every turn cost everyone something, and race.
+// The game ends before value matters — that's the whole argument.
+Commander
+1 Torbran, Thane of Red Fell
+
+Deck
+34 Mountain
+1 Rogue's Passage
+1 Geier Reach Sanitarium
+1 Evolving Wilds
+1 Sol Ring
+1 Arcane Signet
+1 Mind Stone
+1 Fire Diamond
+1 Thought Vessel
+1 Guttersnipe
+1 Thermo-Alchemist
+1 Firebrand Archer
+1 Electrostatic Field
+1 Kessig Flamebreather
+1 Purphoros, God of the Forge
+1 Impact Tremors
+1 Goblin Bombardment
+1 Lightning Bolt
+1 Fireball
+1 Banefire
+1 Earthquake
+1 Comet Storm
+1 Chain Reaction
+1 Starstorm
+1 Flame Rift
+1 Pyrohemia
+1 Slagstorm
+1 Anger of the Gods
+1 Blasphemous Act
+1 Sulfuric Vortex
+1 Roiling Vortex
+1 Rampaging Ferocidon
+1 Zo-Zu the Punisher
+1 Light Up the Stage
+1 Risk Factor
+1 Outpost Siege
+1 Reforge the Soul
+1 Tormenting Voice
+1 Magmatic Insight
+1 Faithless Looting
+1 Harsh Mentor
+1 Fanatic of Mogis
+1 Flametongue Kavu
+1 Inferno Titan
+1 Siege-Gang Commander
+1 Chandra, Torch of Defiance
+1 Repercussion
+1 Dictate of the Twin Gods
+1 Mana Geyser
+1 Seething Song
+1 Ruby Medallion
+1 Vandalblast
+1 Chaos Warp
+1 Abrade
+1 Skullclamp
+1 Searing Blood
+1 Volcanic Fallout
+1 Mizzium Mortars
+1 Hazoret the Fervent
+1 Neheb, the Eternal
+1 Spear Spewer
+1 Runaway Steam-Kin
+1 Solphim, Mayhem Dominus
+1 Embermaw Hellion
+1 Goblin Sharpshooter
+1 Fiery Emancipation

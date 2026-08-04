@@ -1,0 +1,85 @@
+// strategy: Steal, sacrifice, keep. Temporary-theft spells (Act of Treason and friends)
+// become permanent removal through sac outlets — their best creature blocks for you,
+// then dies for value. Dethrone (Marchesa, Vengeful units) rewards attacking whoever
+// has the most life, so point everything at the table leader. +1/+1 counters make your
+// board immortal under Marchesa: wraths barely touch you. Notion Thief turns everyone's
+// group-draw and wheels into your card advantage. Be the vulture, not the storm.
+Commander
+1 Marchesa, the Black Rose
+
+Deck
+10 Island
+9 Swamp
+8 Mountain
+1 Command Tower
+1 Exotic Orchard
+1 Evolving Wilds
+1 Terramorphic Expanse
+1 Crumbling Necropolis
+1 Path of Ancestry
+1 Temple of Epiphany
+1 Bloodfell Caves
+1 Dismal Backwater
+1 Swiftwater Cliffs
+1 Sol Ring
+1 Arcane Signet
+1 Dimir Signet
+1 Izzet Signet
+1 Rakdos Signet
+1 Fellwar Stone
+1 Sower of Temptation
+1 Zealous Conscripts
+1 Slave of Bolas
+1 Act of Treason
+1 Claim the Firstborn
+1 Mark of Mutiny
+1 Kari Zev's Expertise
+1 Captivating Crew
+1 Mob Rule
+1 Viscera Seer
+1 Carrion Feeder
+1 Ashnod's Altar
+1 Yahenni, Undying Partisan
+1 Spawning Pit
+1 Phyrexian Altar
+1 Unspeakable Symbol
+1 Sage of Fables
+1 Metallic Mimic
+1 Flayer of the Hatebound
+1 Puppeteer Clique
+1 River Kelpie
+1 Marchesa's Smuggler
+1 Grim Haruspex
+1 Baleful Strix
+1 Glen Elendra Archmage
+1 Fleshbag Marauder
+1 Corpse Augur
+1 Midnight Reaper
+1 Windfall
+1 Fact or Fiction
+1 Frantic Search
+1 Chart a Course
+1 Painful Truths
+1 Night's Whisper
+1 Terminate
+1 Counterspell
+1 Negate
+1 Chaos Warp
+1 Rapid Hybridization
+1 Pongify
+1 Languish
+1 Blasphemous Act
+1 Swan Song
+1 Grave Betrayal
+1 Notion Thief
+1 Herald of Secret Streams
+1 Dack's Duplicate
+1 Disciple of Bolas
+1 Vandalblast
+1 Feed the Swarm
+1 Drana, Liberator of Malakir
+1 Braids, Arisen Nightmare
+1 Hostage Taker
+1 Pitiless Plunderer
+1 Mulldrifter
+1 Feign Death

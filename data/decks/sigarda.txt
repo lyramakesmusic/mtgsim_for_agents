@@ -1,0 +1,87 @@
+// strategy: Voltron. Put auras on Sigarda — a hexproof, flying 5/5 the table cannot
+// target — until she kills someone in two or three hits. Twenty-one combat damage from
+// the same commander eliminates that player: TRACK COMMANDER DAMAGE PER OPPONENT IN
+// NOTES, it is your entire win condition. Enchantresses (Presence, Mesa, Setessan)
+// turn every aura into a card. Hexproof means the table's only outs are edicts, wraths
+// and goad — hold protection (Akroma's Will, Timely Ward) for exactly those. Winds of
+// Rath wraths everyone but your enchanted angel. One threat, all-in, knight-errant.
+Commander
+1 Sigarda, Host of Herons
+
+Deck
+13 Forest
+12 Plains
+1 Command Tower
+1 Sunpetal Grove
+1 Blossoming Sands
+1 Selesnya Sanctuary
+1 Temple of Plenty
+1 Fortified Village
+1 Evolving Wilds
+1 Terramorphic Expanse
+1 Rogue's Passage
+1 Krosan Verge
+1 Hall of Heliod's Generosity
+1 Cathedral of War
+1 Avacyn's Pilgrim
+1 Birds of Paradise
+1 Llanowar Elves
+1 Fyndhorn Elves
+1 Arbor Elf
+1 Sakura-Tribe Elder
+1 Nature's Lore
+1 Rampant Growth
+1 Sol Ring
+1 Arcane Signet
+1 Selesnya Signet
+1 Enchantress's Presence
+1 Mesa Enchantress
+1 Setessan Champion
+1 Satyr Enchanter
+1 Eidolon of Blossoms
+1 Sram, Senior Edificer
+1 Kor Spiritdancer
+1 Sylvan Library
+1 Ethereal Armor
+1 All That Glitters
+1 Ancestral Mask
+1 Armadillo Cloak
+1 Unflinching Courage
+1 Spirit Mantle
+1 Shield of the Oversoul
+1 Rancor
+1 Daybreak Coronet
+1 Bear Umbra
+1 Snake Umbra
+1 Hyena Umbra
+1 Battle Mastery
+1 Shielded by Faith
+1 Gift of Immortality
+1 Swiftfoot Boots
+1 Loxodon Warhammer
+1 Blackblade Reforged
+1 Flawless Maneuver
+1 Akroma's Will
+1 Timely Ward
+1 Grand Abolisher
+1 Shalai, Voice of Plenty
+1 Bastion Protector
+1 Heroic Intervention
+1 Tamiyo's Safekeeping
+1 Swords to Plowshares
+1 Path to Exile
+1 Generous Gift
+1 Beast Within
+1 Return to Dust
+1 Krosan Grip
+1 Aura Shards
+1 Stroke of Midnight
+1 Winds of Rath
+1 Wrath of God
+1 Eternal Witness
+1 Sun Titan
+1 Retether
+1 Open the Armory
+1 Heliod's Pilgrim
+1 Season of Growth
+1 Duelist's Heritage

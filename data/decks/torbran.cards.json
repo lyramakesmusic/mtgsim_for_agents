@@ -1,0 +1,467 @@
+{
+ "Abrade": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Abrade deals 3 damage to target creature. \u2022 Destroy target artifact.",
+  "pt": null
+ },
+ "Anger of the Gods": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Anger of the Gods deals 3 damage to each creature. If a creature dealt damage this way would die this turn, exile it instead.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Banefire": {
+  "cost": "XR",
+  "type": "Sorcery",
+  "text": "Banefire deals X damage to any target. If X is 5 or more, this spell can't be countered and the damage can't be prevented.",
+  "pt": null
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "Costs {1} less per creature. 13 damage to each creature.",
+  "pt": null
+ },
+ "Chain Reaction": {
+  "cost": "2RR",
+  "type": "Sorcery",
+  "text": "Chain Reaction deals X damage to each creature, where X is the number of creatures on the battlefield.",
+  "pt": null
+ },
+ "Chandra, Torch of Defiance": {
+  "cost": "2RR",
+  "type": "Legendary Planeswalker \u2014 Chandra",
+  "text": "+1: Exile the top card of your library. You may cast that card. If you don't, Chandra deals 2 damage to each opponent. +1: Add {R}{R}. \u22123: Chandra deals 4 damage to target creature. \u22127: You get an emblem with \"Whenever you cast a spell, this emblem deals 5 damage to any target.\" [Loyalty 4 \u2014 track via counters+notes]",
+  "pt": null
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Owner shuffles target permanent into library, reveals top; if permanent, put onto battlefield.",
+  "pt": null
+ },
+ "Comet Storm": {
+  "cost": "XRR",
+  "type": "Instant",
+  "text": "Multikicker {1} (You may pay an additional {1} any number of times as you cast this spell.) Choose any target, then choose another target for each time this spell was kicked. Comet Storm deals X damage to each of them.",
+  "pt": null
+ },
+ "Dictate of the Twin Gods": {
+  "cost": "3RR",
+  "type": "Enchantment",
+  "text": "Flash If a source would deal damage to a permanent or player, it deals double that damage to that permanent or player instead.",
+  "pt": null
+ },
+ "Earthquake": {
+  "cost": "XR",
+  "type": "Sorcery",
+  "text": "Earthquake deals X damage to each creature without flying and each player.",
+  "pt": null
+ },
+ "Electrostatic Field": {
+  "cost": "1R",
+  "type": "Creature \u2014 Wall",
+  "text": "Defender. You cast an instant/sorcery: ~ deals 1 damage to each opponent.",
+  "pt": [
+   0,
+   4
+  ]
+ },
+ "Embermaw Hellion": {
+  "cost": "3RR",
+  "type": "Creature \u2014 Hellion",
+  "text": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.) If another red source you control would deal damage to a permanent or player, it deals that much damage plus 1 to that permanent or player instead.",
+  "pt": [
+   4,
+   5
+  ]
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Faithless Looting": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Draw two cards, then discard two cards. Flashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Fanatic of Mogis": {
+  "cost": "3R",
+  "type": "Creature \u2014 Minotaur Shaman",
+  "text": "When this creature enters, it deals damage to each opponent equal to your devotion to red. (Each {R} in the mana costs of permanents you control counts toward your devotion to red.)",
+  "pt": [
+   4,
+   2
+  ]
+ },
+ "Fiery Emancipation": {
+  "cost": "3RRR",
+  "type": "Enchantment",
+  "text": "If a source you control would deal damage to a permanent or player, it deals triple that damage to that permanent or player instead.",
+  "pt": null
+ },
+ "Fire Diamond": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {R}.",
+  "pt": null
+ },
+ "Fireball": {
+  "cost": "XR",
+  "type": "Sorcery",
+  "text": "This spell costs {1} more to cast for each target beyond the first. Fireball deals X damage divided evenly, rounded down, among any number of targets.",
+  "pt": null
+ },
+ "Firebrand Archer": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Archer",
+  "text": "Whenever you cast a noncreature spell, this creature deals 1 damage to each opponent.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Flame Rift": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "Flame Rift deals 4 damage to each player.",
+  "pt": null
+ },
+ "Flametongue Kavu": {
+  "cost": "3R",
+  "type": "Creature \u2014 Kavu",
+  "text": "When this creature enters, it deals 4 damage to target creature.",
+  "pt": [
+   4,
+   2
+  ]
+ },
+ "Geier Reach Sanitarium": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {2},{T}: Each player draws then discards a card.",
+  "pt": null
+ },
+ "Goblin Bombardment": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "Sac a creature: 1 damage to any target.",
+  "pt": null
+ },
+ "Goblin Sharpshooter": {
+  "cost": "2R",
+  "type": "Creature \u2014 Goblin",
+  "text": "This creature doesn't untap during your untap step. Whenever a creature dies, untap this creature. {T}: This creature deals 1 damage to any target.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Guttersnipe": {
+  "cost": "2R",
+  "type": "Creature \u2014 Goblin Shaman",
+  "text": "Whenever you cast an instant or sorcery spell, this creature deals 2 damage to each opponent.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Harsh Mentor": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "Whenever an opponent activates an ability of an artifact, creature, or land on the battlefield, if it isn't a mana ability, this creature deals 2 damage to that player.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Hazoret the Fervent": {
+  "cost": "3R",
+  "type": "Legendary Creature \u2014 God",
+  "text": "Indestructible, haste Hazoret can't attack or block unless you have one or fewer cards in hand. {2}{R}, Discard a card: Hazoret deals 2 damage to each opponent.",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Impact Tremors": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "A creature enters under your control: 1 damage to each opponent.",
+  "pt": null
+ },
+ "Inferno Titan": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Giant",
+  "text": "{R}: This creature gets +1/+0 until end of turn. Whenever this creature enters or attacks, it deals 3 damage divided as you choose among one, two, or three targets.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Kessig Flamebreather": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "Whenever you cast a noncreature spell, this creature deals 1 damage to each opponent.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Light Up the Stage": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Spectacle {R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.) Exile the top two cards of your library. Until the end of your next turn, you may play those cards.",
+  "pt": null
+ },
+ "Lightning Bolt": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "3 damage to any target.",
+  "pt": null
+ },
+ "Magmatic Insight": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, discard a land card. Draw two cards.",
+  "pt": null
+ },
+ "Mana Geyser": {
+  "cost": "3RR",
+  "type": "Sorcery",
+  "text": "Add {R} for each tapped land your opponents control.",
+  "pt": null
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Mizzium Mortars": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "Mizzium Mortars deals 4 damage to target creature you don't control. Overload {3}{R}{R}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {R}.",
+  "pt": null
+ },
+ "Neheb, the Eternal": {
+  "cost": "3RR",
+  "type": "Legendary Creature \u2014 Zombie Minotaur Warrior",
+  "text": "Afflict 3 (Whenever this creature becomes blocked, defending player loses 3 life.) At the beginning of each of your postcombat main phases, add {R} for each 1 life your opponents have lost this turn.",
+  "pt": [
+   4,
+   6
+  ]
+ },
+ "Outpost Siege": {
+  "cost": "3R",
+  "type": "Enchantment",
+  "text": "As this enchantment enters, choose Khans or Dragons. \u2022 Khans \u2014 At the beginning of your upkeep, exile the top card of your library. Until end of turn, you may play that card. \u2022 Dragons \u2014 Whenever a creature you control leaves the battlefield, this enchantment deals 1 damage to any target.",
+  "pt": null
+ },
+ "Purphoros, God of the Forge": {
+  "cost": "3R",
+  "type": "Legendary Enchantment Creature \u2014 God",
+  "text": "Indestructible. Not a creature unless devotion to red \u22655. A creature enters under your control: 2 damage to each opponent.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Pyrohemia": {
+  "cost": "2RR",
+  "type": "Enchantment",
+  "text": "At the beginning of the end step, if no creatures are on the battlefield, sacrifice this enchantment. {R}: This enchantment deals 1 damage to each creature and each player.",
+  "pt": null
+ },
+ "Rampaging Ferocidon": {
+  "cost": "2R",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Menace Players can't gain life. Whenever another creature enters, this creature deals 1 damage to that creature's controller.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Reforge the Soul": {
+  "cost": "3RR",
+  "type": "Sorcery",
+  "text": "Each player discards their hand, then draws seven cards. Miracle {1}{R} (You may cast this card for its miracle cost when you draw it if it's the first card you drew this turn.)",
+  "pt": null
+ },
+ "Repercussion": {
+  "cost": "1RR",
+  "type": "Enchantment",
+  "text": "Whenever a creature is dealt damage, this enchantment deals that much damage to that creature's controller.",
+  "pt": null
+ },
+ "Risk Factor": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Target opponent may have Risk Factor deal 4 damage to them. If that player doesn't, you draw three cards. Jump-start (You may cast this card from your graveyard by discarding a card in addition to paying its other costs. Then exile this card.)",
+  "pt": null
+ },
+ "Rogue's Passage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {4},{T}: target creature unblockable this turn.",
+  "pt": null
+ },
+ "Roiling Vortex": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "At the beginning of each player's upkeep, this enchantment deals 1 damage to them. Whenever a player casts a spell, if no mana was spent to cast that spell, this enchantment deals 5 damage to that player. {R}: Your opponents can't gain life this turn.",
+  "pt": null
+ },
+ "Ruby Medallion": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Red spells you cast cost {1} less to cast.",
+  "pt": null
+ },
+ "Runaway Steam-Kin": {
+  "cost": "1R",
+  "type": "Creature \u2014 Elemental",
+  "text": "Whenever you cast a red spell, if this creature has fewer than three +1/+1 counters on it, put a +1/+1 counter on this creature. Remove three +1/+1 counters from this creature: Add {R}{R}{R}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Searing Blood": {
+  "cost": "RR",
+  "type": "Instant",
+  "text": "Searing Blood deals 2 damage to target creature. When that creature dies this turn, Searing Blood deals 3 damage to the creature's controller.",
+  "pt": null
+ },
+ "Seething Song": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Add {R}{R}{R}{R}{R}.",
+  "pt": null
+ },
+ "Siege-Gang Commander": {
+  "cost": "3RR",
+  "type": "Creature \u2014 Goblin",
+  "text": "When this creature enters, create three 1/1 red Goblin creature tokens. {1}{R}, Sacrifice a Goblin: This creature deals 2 damage to any target.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature +1/-1. When equipped creature dies, draw two. Equip {1}.",
+  "pt": null
+ },
+ "Slagstorm": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Slagstorm deals 3 damage to each creature. \u2022 Slagstorm deals 3 damage to each player.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Solphim, Mayhem Dominus": {
+  "cost": "2RR",
+  "type": "Legendary Creature \u2014 Phyrexian Horror",
+  "text": "If a source you control would deal noncombat damage to an opponent or a permanent an opponent controls, it deals double that damage to that player or permanent instead. {1}{R/P}{R/P}, Discard two cards: Put an indestructible counter on Solphim. ({R/P} can be paid with either {R} or 2 life.)",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Spear Spewer": {
+  "cost": "R",
+  "type": "Creature \u2014 Goblin Warrior",
+  "text": "Defender {T}: This creature deals 1 damage to each player.",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Starstorm": {
+  "cost": "XRR",
+  "type": "Instant",
+  "text": "Starstorm deals X damage to each creature. Cycling {3} ({3}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Sulfuric Vortex": {
+  "cost": "1RR",
+  "type": "Enchantment",
+  "text": "At the beginning of each player's upkeep, this enchantment deals 2 damage to that player. If a player would gain life, that player gains no life instead.",
+  "pt": null
+ },
+ "Thermo-Alchemist": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "Defender {T}: This creature deals 1 damage to each opponent. Whenever you cast an instant or sorcery spell, untap this creature.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Thought Vessel": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "No max hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Torbran, Thane of Red Fell": {
+  "cost": "1RRR",
+  "type": "Legendary Creature \u2014 Dwarf Noble",
+  "text": "If a red source you control would deal damage to an opponent or a permanent an opponent controls, it deals that much damage plus 2 instead.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Tormenting Voice": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, discard a card. Draw two cards.",
+  "pt": null
+ },
+ "Vandalblast": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Destroy target artifact you don't control. Overload {4}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Volcanic Fallout": {
+  "cost": "1RR",
+  "type": "Instant",
+  "text": "This spell can't be countered. Volcanic Fallout deals 2 damage to each creature and each player.",
+  "pt": null
+ },
+ "Zo-Zu the Punisher": {
+  "cost": "1RR",
+  "type": "Legendary Creature \u2014 Goblin Warrior",
+  "text": "Whenever a land enters, Zo-Zu deals 2 damage to that land's controller.",
+  "pt": [
+   2,
+   2
+  ]
+ }
+}

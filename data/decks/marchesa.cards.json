@@ -1,0 +1,542 @@
+{
+ "Act of Treason": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. (It can attack and {T} this turn.)",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Ashnod's Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add {C}{C}.",
+  "pt": null
+ },
+ "Baleful Strix": {
+  "cost": "UB",
+  "type": "Artifact Creature \u2014 Bird",
+  "text": "Flying, deathtouch When this creature enters, draw a card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "Costs {1} less per creature. 13 damage to each creature.",
+  "pt": null
+ },
+ "Bloodfell Caves": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {B} or {R}.",
+  "pt": null
+ },
+ "Braids, Arisen Nightmare": {
+  "cost": "1BB",
+  "type": "Legendary Creature \u2014 Nightmare",
+  "text": "At the beginning of your end step, you may sacrifice an artifact, creature, enchantment, land, or planeswalker. If you do, each opponent may sacrifice a permanent of their choice that shares a card type with it. For each opponent who doesn't, that player loses 2 life and you draw a card.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Captivating Crew": {
+  "cost": "3R",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "{3}{R}: Gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn. Activate only as a sorcery.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Carrion Feeder": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "Can't block. Sacrifice a creature: put a +1/+1 counter on ~.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Owner shuffles target permanent into library, reveals top; if permanent, put onto battlefield.",
+  "pt": null
+ },
+ "Chart a Course": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "Draw two; discard one unless you attacked this turn.",
+  "pt": null
+ },
+ "Claim the Firstborn": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Gain control of target creature with mana value 3 or less until end of turn. Untap that creature. It gains haste until end of turn.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Corpse Augur": {
+  "cost": "3B",
+  "type": "Creature \u2014 Zombie Wizard",
+  "text": "When this creature dies, you draw X cards and you lose X life, where X is the number of creature cards in target player's graveyard.",
+  "pt": [
+   4,
+   2
+  ]
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Crumbling Necropolis": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {U}, {B}, or {R}.",
+  "pt": null
+ },
+ "Dack's Duplicate": {
+  "cost": "2UR",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield, except it has haste and dethrone. (Whenever it attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Dimir Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {U}{B}.",
+  "pt": null
+ },
+ "Disciple of Bolas": {
+  "cost": "3B",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "When this creature enters, sacrifice another creature. You gain X life and draw X cards, where X is that creature's power.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Dismal Backwater": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}.",
+  "pt": null
+ },
+ "Drana, Liberator of Malakir": {
+  "cost": "1BB",
+  "type": "Legendary Creature \u2014 Vampire Ally",
+  "text": "Flying, first strike Whenever Drana deals combat damage to a player, put a +1/+1 counter on each attacking creature you control.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Exotic Orchard": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add a color an opponent's land could produce.",
+  "pt": null
+ },
+ "Fact or Fiction": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Reveal top five; an opponent splits them into two piles; one pile to hand, other to graveyard.",
+  "pt": null
+ },
+ "Feed the Swarm": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+  "pt": null
+ },
+ "Feign Death": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Until end of turn, target creature gains \"When this creature dies, return it to the battlefield tapped under its owner's control with a +1/+1 counter on it.\"",
+  "pt": null
+ },
+ "Fellwar Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "pt": null
+ },
+ "Flayer of the Hatebound": {
+  "cost": "5R",
+  "type": "Creature \u2014 Devil",
+  "text": "Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.) Whenever this creature or another creature enters from your graveyard, that creature deals damage equal to its power to any target.",
+  "pt": [
+   4,
+   2
+  ]
+ },
+ "Fleshbag Marauder": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Warrior",
+  "text": "On enter: each player sacrifices a creature.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Frantic Search": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Draw two, discard two, untap up to three lands.",
+  "pt": null
+ },
+ "Glen Elendra Archmage": {
+  "cost": "3U",
+  "type": "Creature \u2014 Faerie Wizard",
+  "text": "Flying {U}, Sacrifice this creature: Counter target noncreature spell. Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Grave Betrayal": {
+  "cost": "5BB",
+  "type": "Enchantment",
+  "text": "Whenever a creature you don't control dies, return it to the battlefield under your control with an additional +1/+1 counter on it at the beginning of the next end step. That creature is a black Zombie in addition to its other colors and types.",
+  "pt": null
+ },
+ "Grim Haruspex": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Whenever another nontoken creature you control dies: draw a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Herald of Secret Streams": {
+  "cost": "3U",
+  "type": "Creature \u2014 Merfolk Warrior",
+  "text": "Creatures you control with +1/+1 counters on them can't be blocked.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Hostage Taker": {
+  "cost": "2UB",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "When this creature enters, exile another target creature or artifact until this creature leaves the battlefield. You may cast that card for as long as it remains exiled, and mana of any type can be spent to cast that spell.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {U}.",
+  "pt": null
+ },
+ "Izzet Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {U}{R}.",
+  "pt": null
+ },
+ "Kari Zev's Expertise": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Gain control of target creature or Vehicle until end of turn. Untap it. It gains haste until end of turn. You may cast a spell with mana value 2 or less from your hand without paying its mana cost.",
+  "pt": null
+ },
+ "Languish": {
+  "cost": "2BB",
+  "type": "Sorcery",
+  "text": "All creatures get -4/-4 until end of turn.",
+  "pt": null
+ },
+ "Marchesa's Smuggler": {
+  "cost": "UR",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.) {1}{U}{R}: Target creature you control gains haste until end of turn and can't be blocked this turn.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Marchesa, the Black Rose": {
+  "cost": "1UBR",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.) Other creatures you control have dethrone. Whenever a creature you control with a +1/+1 counter on it dies, return that card to the battlefield under your control at the beginning of the next end step.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Mark of Mutiny": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Gain control of target creature until end of turn. Put a +1/+1 counter on it and untap it. That creature gains haste until end of turn. (It can attack and {T} this turn.)",
+  "pt": null
+ },
+ "Metallic Mimic": {
+  "cost": "2",
+  "type": "Artifact Creature \u2014 Shapeshifter",
+  "text": "As this creature enters, choose a creature type. This creature is the chosen type in addition to its other types. Each other creature you control of the chosen type enters with an additional +1/+1 counter on it.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Midnight Reaper": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Knight",
+  "text": "Whenever a nontoken creature you control dies: ~ deals 1 damage to you, draw a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Mob Rule": {
+  "cost": "4RR",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Gain control of all creatures with power 4 or greater until end of turn. Untap those creatures. They gain haste until end of turn. \u2022 Gain control of all creatures with power 3 or less until end of turn. Untap those creatures. They gain haste until end of turn.",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {R}.",
+  "pt": null
+ },
+ "Mulldrifter": {
+  "cost": "4U",
+  "type": "Creature \u2014 Elemental",
+  "text": "Flying When this creature enters, draw two cards. Evoke {2}{U} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Night's Whisper": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "You draw two cards and lose 2 life.",
+  "pt": null
+ },
+ "Notion Thief": {
+  "cost": "2UB",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "Flash If an opponent would draw a card except the first one they draw in each of their draw steps, instead that player skips that draw and you draw a card.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Painful Truths": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Converge \u2014 You draw X cards and lose X life, where X is the number of colors of mana spent to cast this spell.",
+  "pt": null
+ },
+ "Path of Ancestry": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped. {T}: add commander-identity color; scry 1 if spent on a Snake.",
+  "pt": null
+ },
+ "Phyrexian Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add one mana of any color.",
+  "pt": null
+ },
+ "Pitiless Plunderer": {
+  "cost": "3B",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "Whenever another creature you control dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature; controller creates a 3/3 Ape.",
+  "pt": null
+ },
+ "Puppeteer Clique": {
+  "cost": "3BB",
+  "type": "Creature \u2014 Faerie Wizard",
+  "text": "Flying When this creature enters, put target creature card from an opponent's graveyard onto the battlefield under your control. It gains haste. At the beginning of your next end step, exile it. Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Rakdos Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {B}{R}.",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature (can't be regenerated); its controller creates a 3/3 green Frog Lizard.",
+  "pt": null
+ },
+ "River Kelpie": {
+  "cost": "3UU",
+  "type": "Creature \u2014 Beast",
+  "text": "Whenever this creature or another permanent enters from a graveyard, draw a card. Whenever a player casts a spell from a graveyard, draw a card. Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Sage of Fables": {
+  "cost": "2U",
+  "type": "Creature \u2014 Merfolk Wizard",
+  "text": "Each other Wizard creature you control enters with an additional +1/+1 counter on it. {2}, Remove a +1/+1 counter from a creature you control: Draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Slave of Bolas": {
+  "cost": "3(U/R)B",
+  "type": "Sorcery",
+  "text": "Gain control of target creature. Untap that creature. It gains haste until end of turn. Sacrifice it at the beginning of the next end step.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Sower of Temptation": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Faerie Wizard",
+  "text": "Flying When this creature enters, gain control of target creature for as long as this creature remains on the battlefield.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Spawning Pit": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Put a charge counter on this artifact. {1}, Remove two charge counters from this artifact: Create a 2/2 colorless Spawn artifact creature token.",
+  "pt": null
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {B}.",
+  "pt": null
+ },
+ "Swan Song": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target enchantment/instant/sorcery; its controller creates a 2/2 blue Bird with flying.",
+  "pt": null
+ },
+ "Swiftwater Cliffs": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Temple of Epiphany": {
+  "cost": "",
+  "type": "Land",
+  "text": "Enters tapped; scry 1. {T}: {U} or {R}.",
+  "pt": null
+ },
+ "Terminate": {
+  "cost": "BR",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated.",
+  "pt": null
+ },
+ "Terramorphic Expanse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Unspeakable Symbol": {
+  "cost": "1BB",
+  "type": "Enchantment",
+  "text": "Pay 3 life: Put a +1/+1 counter on target creature.",
+  "pt": null
+ },
+ "Vandalblast": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Destroy target artifact you don't control. Overload {4}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Viscera Seer": {
+  "cost": "B",
+  "type": "Creature \u2014 Vampire Wizard",
+  "text": "Sacrifice a creature: scry 1.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Windfall": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Each player discards hand, draws cards equal to largest number discarded.",
+  "pt": null
+ },
+ "Yahenni, Undying Partisan": {
+  "cost": "2B",
+  "type": "Legendary Creature \u2014 Aetherborn Vampire",
+  "text": "Haste Whenever a creature an opponent controls dies, put a +1/+1 counter on Yahenni. Sacrifice another creature: Yahenni gains indestructible until end of turn.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Zealous Conscripts": {
+  "cost": "4R",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "Haste When this creature enters, gain control of target permanent until end of turn. Untap that permanent. It gains haste until end of turn.",
+  "pt": [
+   3,
+   3
+  ]
+ }
+}

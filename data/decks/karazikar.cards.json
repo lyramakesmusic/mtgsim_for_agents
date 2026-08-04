@@ -1,0 +1,494 @@
+{
+ "Agitator Ant": {
+  "cost": "2R",
+  "type": "Creature \u2014 Insect",
+  "text": "At the beginning of your end step, each player may put two +1/+1 counters on a creature they control. Goad each creature that had counters put on it this way. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Akoum Refuge": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {B} or {R}.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add a commander-identity color.",
+  "pt": null
+ },
+ "Bedevil": {
+  "cost": "BBR",
+  "type": "Instant",
+  "text": "Destroy target artifact, creature, or planeswalker.",
+  "pt": null
+ },
+ "Big Score": {
+  "cost": "3R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, discard a card. Draw two cards and create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "Costs {1} less per creature. 13 damage to each creature.",
+  "pt": null
+ },
+ "Blood Artist": {
+  "cost": "1B",
+  "type": "Creature \u2014 Vampire",
+  "text": "Whenever ~ or another creature dies: target player loses 1 life, you gain 1.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Bloodfell Caves": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {B} or {R}.",
+  "pt": null
+ },
+ "Bloodthirsty Blade": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +2/+0 and is goaded. (It attacks each combat if able and attacks a player other than you if able.) {1}: Attach this Equipment to target creature an opponent controls. Activate only as a sorcery.",
+  "pt": null
+ },
+ "Brash Taunter": {
+  "cost": "4R",
+  "type": "Creature \u2014 Goblin",
+  "text": "Indestructible Whenever this creature is dealt damage, it deals that much damage to target opponent. {2}{R}, {T}: This creature fights another target creature.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Captive Audience": {
+  "cost": "5BR",
+  "type": "Enchantment",
+  "text": "This enchantment enters under the control of an opponent of your choice. At the beginning of your upkeep, choose one that hasn't been chosen \u2014 \u2022 Your life total becomes 4. \u2022 Discard your hand. \u2022 Each opponent creates five 2/2 black Zombie creature tokens.",
+  "pt": null
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Owner shuffles target permanent into library, reveals top; if permanent, put onto battlefield.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add any color in your commander's identity.",
+  "pt": null
+ },
+ "Coveted Jewel": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "When this artifact enters, draw three cards. {T}: Add three mana of any one color. Whenever one or more creatures an opponent controls attack you and aren't blocked, that player draws three cards and gains control of this artifact. Untap it.",
+  "pt": null
+ },
+ "Crawlspace": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "No more than two creatures can attack you each combat.",
+  "pt": null
+ },
+ "Curse of Disturbance": {
+  "cost": "2B",
+  "type": "Enchantment \u2014 Aura Curse",
+  "text": "Enchant player Whenever enchanted player is attacked, create a 2/2 black Zombie creature token. Each opponent attacking that player does the same.",
+  "pt": null
+ },
+ "Curse of Opulence": {
+  "cost": "R",
+  "type": "Enchantment \u2014 Aura Curse",
+  "text": "Enchant player Whenever enchanted player is attacked, create a Gold token. Each opponent attacking that player does the same. (A Gold token is an artifact with \"Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Cursed Mirror": {
+  "cost": "2R",
+  "type": "Artifact",
+  "text": "{T}: Add {R}. As this artifact enters, you may have it become a copy of any creature on the battlefield until end of turn, except it has haste.",
+  "pt": null
+ },
+ "Deadly Dispute": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Sacrifice a creature or artifact: draw two, create a Treasure.",
+  "pt": null
+ },
+ "Deadly Tempest": {
+  "cost": "4BB",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. Each player loses life equal to the number of creatures they controlled that were destroyed this way.",
+  "pt": null
+ },
+ "Death Kiss": {
+  "cost": "5R",
+  "type": "Creature \u2014 Beholder",
+  "text": "Whenever a creature an opponent controls attacks one of your opponents, double its power until end of turn. {X}{X}{R}: Monstrosity X. (If this creature isn't monstrous, put X +1/+1 counters on it and it becomes monstrous.) When this creature becomes monstrous, goad up to X target creatures your opponents control.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Death Tyrant": {
+  "cost": "4B",
+  "type": "Creature \u2014 Beholder Skeleton",
+  "text": "Menace Negative Energy Cone \u2014 Whenever an attacking creature you control or a blocking creature an opponent controls dies, create a 2/2 black Zombie creature token. {5}{B}: Return this card from your graveyard to the battlefield tapped.",
+  "pt": [
+   4,
+   6
+  ]
+ },
+ "Disrupt Decorum": {
+  "cost": "2RR",
+  "type": "Sorcery",
+  "text": "Goad all creatures you don't control. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+  "pt": null
+ },
+ "Dreadbore": {
+  "cost": "BR",
+  "type": "Sorcery",
+  "text": "Destroy target creature or planeswalker.",
+  "pt": null
+ },
+ "Evolving Wilds": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Faithless Looting": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Draw two cards, then discard two cards. Flashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Feed the Swarm": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+  "pt": null
+ },
+ "Fellwar Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "pt": null
+ },
+ "Fling": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Fling deals damage equal to the sacrificed creature's power to any target.",
+  "pt": null
+ },
+ "Frontier Warmonger": {
+  "cost": "3R",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "Whenever one or more creatures attack one of your opponents or a planeswalker they control, those creatures gain menace until end of turn.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Geode Rager": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Elemental",
+  "text": "First strike Landfall \u2014 Whenever a land you control enters, goad each creature target player controls. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Goblin Diplomats": {
+  "cost": "1R",
+  "type": "Creature \u2014 Goblin",
+  "text": "{T}: Each creature attacks this turn if able.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Goblin Spymaster": {
+  "cost": "2R",
+  "type": "Creature \u2014 Goblin Rogue",
+  "text": "First strike At the beginning of each opponent's end step, that player creates a 1/1 red Goblin creature token with \"Creatures you control attack each combat if able.\"",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Grenzo, Havoc Raiser": {
+  "cost": "RR",
+  "type": "Legendary Creature \u2014 Goblin Rogue",
+  "text": "Whenever a creature you control deals combat damage to a player, choose one \u2014 \u2022 Goad target creature that player controls. \u2022 Exile the top card of that player's library. Until end of turn, you may cast that card and you may spend mana as though it were mana of any color to cast that spell.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Grim Hireling": {
+  "cost": "3B",
+  "type": "Creature \u2014 Tiefling Rogue",
+  "text": "Whenever one or more creatures you control deal combat damage to a player, create two Treasure tokens. {B}, Sacrifice X Treasures: Target creature gets -X/-X until end of turn. Activate only as a sorcery.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Insurrection": {
+  "cost": "5RRR",
+  "type": "Sorcery",
+  "text": "Untap all creatures and gain control of them until end of turn. They gain haste until end of turn.",
+  "pt": null
+ },
+ "Karazikar, the Eye Tyrant": {
+  "cost": "3BR",
+  "type": "Legendary Creature \u2014 Beholder",
+  "text": "Whenever you attack a player, tap target creature that player controls and goad it. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.) Whenever an opponent attacks another one of your opponents, you and the attacking player each draw a card and lose 1 life.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Kardur, Doomscourge": {
+  "cost": "2BR",
+  "type": "Legendary Creature \u2014 Demon Berserker",
+  "text": "When Kardur enters, until your next turn, creatures your opponents control attack each combat if able and attack a player other than you if able. Whenever an attacking creature dies, each opponent loses 1 life and you gain 1 life.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Kazuul, Tyrant of the Cliffs": {
+  "cost": "3RR",
+  "type": "Legendary Creature \u2014 Ogre Warrior",
+  "text": "Whenever a creature an opponent controls attacks, if you're the defending player, create a 3/3 red Ogre creature token unless that creature's controller pays {3}.",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Light Up the Stage": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Spectacle {R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.) Exile the top two cards of your library. Until the end of your next turn, you may play those cards.",
+  "pt": null
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1},{T},Sacrifice: draw a card.",
+  "pt": null
+ },
+ "Morbid Opportunist": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "Whenever one or more other creatures die, draw a card. This ability triggers only once each turn.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {R}.",
+  "pt": null
+ },
+ "Night's Whisper": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "You draw two cards and lose 2 life.",
+  "pt": null
+ },
+ "No Mercy": {
+  "cost": "2BB",
+  "type": "Enchantment",
+  "text": "Whenever a creature deals damage to you, destroy it.",
+  "pt": null
+ },
+ "Painful Truths": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Converge \u2014 You draw X cards and lose X life, where X is the number of colors of mana spent to cast this spell.",
+  "pt": null
+ },
+ "Parasitic Impetus": {
+  "cost": "2B",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 and is goaded. (It attacks each combat if able and attacks a player other than you if able.) Whenever enchanted creature attacks, its controller loses 2 life and you gain 2 life.",
+  "pt": null
+ },
+ "Phyrexian Arena": {
+  "cost": "1BB",
+  "type": "Enchantment",
+  "text": "Your upkeep: draw a card, lose 1 life.",
+  "pt": null
+ },
+ "Rakdos Carnarium": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {B}{R}.",
+  "pt": null
+ },
+ "Rakdos Charm": {
+  "cost": "BR",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Exile target player's graveyard. \u2022 Destroy target artifact. \u2022 Each creature deals 1 damage to its controller.",
+  "pt": null
+ },
+ "Rakdos Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {B}{R}.",
+  "pt": null
+ },
+ "Read the Bones": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Scry 2, then draw two cards. You lose 2 life. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+  "pt": null
+ },
+ "Revel in Riches": {
+  "cost": "4B",
+  "type": "Enchantment",
+  "text": "Whenever a creature an opponent controls dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\") At the beginning of your upkeep, if you control ten or more Treasures, you win the game.",
+  "pt": null
+ },
+ "Rite of the Raging Storm": {
+  "cost": "3RR",
+  "type": "Enchantment",
+  "text": "Creatures named Lightning Rager can't attack you or planeswalkers you control. At the beginning of each player's upkeep, that player creates a 5/1 red Elemental creature token named Lightning Rager. It has trample, haste, and \"At the beginning of the end step, sacrifice this token.\"",
+  "pt": null
+ },
+ "Shiny Impetus": {
+  "cost": "2R",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 and is goaded. (It attacks each combat if able and attacks a player other than you if able.) Whenever enchanted creature attacks, you create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Sign in Blood": {
+  "cost": "BB",
+  "type": "Sorcery",
+  "text": "Target player draws two cards and loses 2 life.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Solemn Simulacrum": {
+  "cost": "4",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle. When this creature dies, you may draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Sower of Discord": {
+  "cost": "4BB",
+  "type": "Creature \u2014 Demon",
+  "text": "Flying As this creature enters, choose two players. Whenever damage is dealt to one of the chosen players, the other chosen player also loses that much life.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Stormfist Crusader": {
+  "cost": "BR",
+  "type": "Creature \u2014 Human Knight",
+  "text": "Menace At the beginning of your upkeep, each player draws a card and loses 1 life.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land",
+  "text": "{T}: Add {B}.",
+  "pt": null
+ },
+ "Syphon Mind": {
+  "cost": "3B",
+  "type": "Sorcery",
+  "text": "Each other player discards a card. You draw a card for each card discarded this way.",
+  "pt": null
+ },
+ "Talisman of Indulgence": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {T}: Add {B} or {R}. This artifact deals 1 damage to you.",
+  "pt": null
+ },
+ "Temple of Malice": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {B} or {R}.",
+  "pt": null
+ },
+ "Terminate": {
+  "cost": "BR",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated.",
+  "pt": null
+ },
+ "Terramorphic Expanse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T},Sac: search a basic, battlefield tapped.",
+  "pt": null
+ },
+ "Vandalblast": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Destroy target artifact you don't control. Overload {4}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Vengeful Ancestor": {
+  "cost": "2RR",
+  "type": "Creature \u2014 Spirit Dragon",
+  "text": "Flying Whenever this creature enters or attacks, goad target creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.) Whenever a goaded creature attacks, it deals 1 damage to its controller.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Village Rites": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Sacrifice a creature: draw two cards.",
+  "pt": null
+ },
+ "Wheel of Misfortune": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Each player secretly chooses a number 0 or greater, then all players reveal those numbers simultaneously and determine the highest and lowest numbers revealed this way. Wheel of Misfortune deals damage equal to the highest number to each player who chose that number. Each player who didn't choose the lowest number discards their hand, then draws seven cards.",
+  "pt": null
+ },
+ "Worn Powerstone": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Xantcha, Sleeper Agent": {
+  "cost": "1BR",
+  "type": "Legendary Creature \u2014 Phyrexian Minion",
+  "text": "Xantcha enters under the control of an opponent of your choice. Xantcha attacks each combat if able and can't attack its owner or planeswalkers its owner controls. {3}: Xantcha's controller loses 2 life and you draw a card. Any player may activate this ability.",
+  "pt": [
+   5,
+   5
+  ]
+ }
+}
