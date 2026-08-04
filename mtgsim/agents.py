@@ -334,6 +334,14 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
                 print(f"{_HBOLD}{hand}{_HRESET}")
             print(f"{_HDIM}(enter/'keep' keeps, 'mull' mulligans — or ask the scribe){_HRESET}")
             return
+        if instr.startswith("Responses resolved while"):
+            # stack-confirm: an empty reply re-applies the original declaration,
+            # so enter must NOT silently pass here — demand an explicit word
+            self._banner("CONFIRM")
+            print(f"{_HDIM}{instr}{_HRESET}")
+            print(f"{_HDIM}('resolve' applies it as declared, 'fizzle' fizzles it, or describe "
+                  f"adjustments — enter does nothing here){_HRESET}")
+            return
         if instr.startswith("COMBAT"):
             self._banner("BLOCK?")
         elif instr.startswith("DECISION"):
@@ -398,6 +406,7 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
         self.session_id = self.session_id or "human"   # engine: send deltas now
         instr = self._instruction(prompt)
         mainphase = instr.startswith("It is your MAIN PHASE")
+        confirm = instr.startswith("Responses resolved while")
         opening = instr.startswith("OPENING HAND")
         self._show(prompt, instr, mainphase)
         if "FULL STATE (start of your turn)" in prompt:
@@ -408,6 +417,15 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
             except EOFError:
                 return FALLBACK
             low = line.lower()
+            if confirm:
+                if low in ("resolve", "go", "as declared", "yes", "y"):
+                    return self._with_talk({"action": "pass"})   # engine: apply as declared
+                if low == "fizzle":
+                    return self._with_talk({"action": "fizzle"})
+                if low in _PASS_WORDS:      # enter/'pass'/'no' are ambiguous here — never default
+                    print(f"{_HDIM}  (this window has no silent default — 'resolve' applies as "
+                          f"declared, 'fizzle' fizzles, or describe adjustments){_HRESET}")
+                    continue
             if low in _PASS_WORDS:
                 if mainphase and low == "":
                     print(f"{_HDIM}  ('done' ends your turn — anything else, just say it){_HRESET}")

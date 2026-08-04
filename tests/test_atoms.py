@@ -246,3 +246,14 @@ def test_dead_id_move_ambiguous_name_still_skips(make_game):
     g.apply_effects(0, [{"move": {"id": "Forest#99", "to": "exile"}}])
     assert any("ambiguous" in l for l in g.table)
     assert g.p[0].graveyard == ["Forest"] and g.p[1].graveyard == ["Forest"]
+
+
+def test_life_change_on_eliminated_player_ignored(make_game):
+    """Seen live: a stale combat correction re-applied -28 to a player already
+    eliminated at -1. Dead seats take no further bookkeeping."""
+    g = make_game()
+    g.p[2].alive = False
+    g.p[2].life = -1
+    g.apply_effects(0, [{"life": {"player": "P3", "delta": -28}}])
+    assert g.p[2].life == -1
+    assert any("already eliminated" in l for l in g.table)

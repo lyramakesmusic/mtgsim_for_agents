@@ -661,6 +661,9 @@ class Game:
                 if not tgt:
                     self.log(f"  !! life: can't resolve player {l.get('player')!r}; skipped")
                     continue
+                if not tgt.alive:
+                    self.log(f"  ({tgt.name} is already eliminated — life change ignored)")
+                    continue
                 d = int(l.get("delta", 0))
                 tgt.life += d
                 self.log(f"  ↳ {tgt.name} {'+' if d >= 0 else ''}{d} life (now {tgt.life})")

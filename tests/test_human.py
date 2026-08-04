@@ -240,3 +240,23 @@ def test_engine_integration_full_turn(make_game, monkeypatch):
     # first prompt was the full brief; once session_id is set the engine sends deltas
     assert "=== PROTOCOL ===" in scribe.received[0]
     assert h.session_id and g.log_sent[0] == len(g.table)
+
+
+CONFIRM_PROMPT = ("=== STATE DIGEST (authoritative) ===\nTURN 7. Seats: stuff\n"
+                  "YOUR HAND (1): Forest\n"
+                  "=== INSTRUCTION ===\nResponses resolved while The Unbeatable Squirrel Girl#58 "
+                  "(stack#54) was on the stack — the board may have changed (see log). Give the "
+                  'final resolution: the same action with targets/effects adjusted, or {"action":"fizzle"}.\n')
+
+
+def test_confirm_window_has_no_silent_default(monkeypatch):
+    """Seen live: enter at the stack-confirm window re-applied a stale combat
+    correction verbatim. Enter/'pass'/'nah' now reprompt; only explicit words act."""
+    scribe = StubScribe()
+    h = HumanAgent("P4(squirrels)", scribe)
+    feed(monkeypatch, ["", "nah", "pass", "resolve"])
+    assert json.loads(h.ask(CONFIRM_PROMPT)) == {"action": "pass"}   # only 'resolve' got through
+    assert scribe.calls == 0
+    h2 = HumanAgent("P4(squirrels)", StubScribe())
+    feed(monkeypatch, ["fizzle"])
+    assert json.loads(h2.ask(CONFIRM_PROMPT)) == {"action": "fizzle"}
