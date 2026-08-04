@@ -161,12 +161,22 @@ nothing you don't:
  {"search":{"player":P,"card":name,"to":zone,"tapped":bool,"shuffle":bool}}  (engine verifies)
  {"reveal":{"player":P,"zone":"hand"|"library_top","n":N}}
  {"random":{"coin":true}|{"die":N}}   (engine rolls — never claim your own randomness)
- {"ask":{"player":P,"question":"...","if_yes":[atoms],"if_no":[atoms]}} — a decision that
-   belongs to another seat, made at resolution time: Tithe/Rhystic payments ("pay {2}? if
-   not I get a Treasure"), punisher modes, "may" abilities, votes. The engine puts the
-   question to them, logs their answer publicly, and applies the matching branch as yours.
-   Use this instead of assuming what an opponent would choose — assumed answers get
-   disputed; asked answers are binding.
+ {"ask":{"player":P,"question":"...","if_yes":[atoms],"if_no":[atoms]}} — a one-off decision
+   that belongs to another seat, made at resolution time: punisher modes, "may" abilities,
+   votes. The engine puts the question to them, logs their answer publicly, and applies the
+   matching branch as yours. Use this instead of assuming what an opponent would choose —
+   assumed answers get disputed; asked answers are binding.
+ {"standing":{"source":perm_id,"on":condition,"question":"...","if_yes":[...],"if_no":[...]}}
+   — registers a *standing* tax/query for a repeating trigger (Smothering Tithe, Rhystic
+   Study, Mystic Remora, or anything with the same shape). Declare it once when the source
+   resolves. The engine knows nothing about the card — the declaration IS the behavior.
+   If "on" is "draw" or "cast" (events the engine itself bookkeeps), it runs the question
+   automatically against every other seat's draws/casts, multi-draws asked once with a
+   count. Any other condition ("sacrifices a creature", "second spell each turn"...) can't
+   be seen by the engine: it's kept in every seat's state digest as a standing reminder,
+   and whoever's action meets the condition triggers it with an ask atom — with the whole
+   table watching for misses. Entries expire by themselves when the source permanent
+   leaves the battlefield.
  {"eliminate":{"player":P,"reason":...}}   {"note":"ongoing constraints — the log is the table's memory"}
 Player refs: seat handles ("P1".."P4") or "self". Declare upkeep/beginning-of-turn triggers
 in your first main-phase action's effects. States the engine can't hold (emblems, roles,
@@ -224,6 +234,8 @@ class Game:
         self.pending_talk = []                    # table_talk queued to land AFTER the play
         self.stack = []                           # live stack objects (announce -> resolve)
         self.stack_seq = 0
+        self.standing = []                        # standing taxes/queries (Tithe, Rhystic):
+        self._standing_busy = False               # source-permanent-bound, swept per event
         self.judge_inbox = Path(f"{log_path}.judge")
         self.judge_factory = judge_factory
         # console privacy: "all" = spectator mode, everything prints. A set of
@@ -544,6 +556,53 @@ class Game:
         self._zone_put(pl, card, to, tapped=bool(mv.get("tapped")))
         self.log(f"  ↳ {pl.name}: {card} {frm} → {to}")
 
+    def check_standing(self, event, actor_i, n=1):
+        """State-based query sweep. Standing effects (Smothering Tithe, Rhystic
+        Study...) registered against a source permanent fire whenever the
+        engine sees a qualifying event by another seat. An entry whose source
+        has left the battlefield expires on its next check — the board is the
+        registry. Busy-guard: branches that themselves draw/cast don't
+        re-trigger the sweep (no Rhystic-into-Tithe recursion)."""
+        if self._standing_busy or not self.standing:
+            return
+        self._standing_busy = True
+        try:
+            for st in list(self.standing):
+                _, perm = self.find(st["source"])
+                if not perm:
+                    self.standing.remove(st)
+                    self.log(f"  (standing effect from {st['source']} expired — source left the battlefield)")
+                    continue
+                if st["on"] != event or st["owner"] == actor_i or not self.p[st["owner"]].alive:
+                    continue
+                self._standing_query(st, actor_i, n)
+        finally:
+            self._standing_busy = False
+
+    def _standing_query(self, st, actor_i, n):
+        owner, pl = self.p[st["owner"]], self.p[actor_i]
+        q = st["question"]
+        times = (f' It triggers {n}x — reply {{"choice":"yes","n":K}} with how many you '
+                 f'accept/pay for (default all).' if n > 1 else
+                 ' Reply {"choice":"yes"} or {"choice":"no"}.')
+        r = self.ask(actor_i,
+                     f"DECISION: standing effect — {owner.name}'s {st['source']} asks you: "
+                     f"{q}{times} \"table_talk\" welcome.",
+                     schema_hint='{"choice":"yes"|"no","n":int}')
+        yes = str(r.get("choice", "no")).strip().lower() in ("yes", "y", "pay", "true")
+        try:
+            k = max(0, min(n, int(r.get("n", n if yes else 0))))
+        except (TypeError, ValueError):
+            k = n if yes else 0
+        if n > 1:
+            self.log(f"  ↳ {pl.name} accepts/pays {k} of {n} — {st['source']}: {q}")
+        else:
+            self.log(f"  ↳ {pl.name} answers {'YES' if yes else 'NO'} — {st['source']}: {q}")
+        for _ in range(k):
+            self.apply_effects(st["owner"], st["if_yes"])
+        for _ in range(n - k):
+            self.apply_effects(st["owner"], st["if_no"])
+
     def _atom_ask(self, i, q):
         """A decision that belongs to another seat, made at resolution time
         (Tithe/Rhystic payments, punisher modes, 'may' abilities). The engine
@@ -627,8 +686,24 @@ class Game:
                          + (" from the BOTTOM" if d.get("from") == "bottom" else ""))
                 if got:
                     self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})", seat=tgt.handle)
+                    self.check_standing("draw", self.p.index(tgt), len(got))
             elif "ask" in e:
                 self._atom_ask(i, e["ask"])
+            elif "standing" in e:
+                st = e["standing"]
+                src = str(st.get("source") or "")
+                on = str(st.get("on") or "").strip()
+                if not on or "#" not in src:
+                    self.log('  !! standing: needs "on" (condition) and a "source" permanent id; skipped')
+                    continue
+                self.standing.append({
+                    "owner": i, "source": src, "on": on,
+                    "question": str(st.get("question") or "?")[:400],
+                    "if_yes": st.get("if_yes") or [], "if_no": st.get("if_no") or []})
+                auto = on in ("draw", "cast")
+                self.log(f"  ↳ standing effect: {src} — on {on!r}: \"{self.standing[-1]['question']}\""
+                         + ("" if auto else " (engine can't see this event — it stays in every"
+                                             " digest; trigger it with an ask atom when it happens)"))
             elif "search" in e:
                 s = e["search"]
                 tgt = self.resolve_player(i, s.get("player", "self"))
@@ -809,6 +884,8 @@ class Game:
         verb = "" if kind == "spell" else "activation of "
         self.log(f"{me.name} announces {verb}{name} ({obj['id']})...")
         self._flush_talk()
+        if kind == "spell":
+            self.check_standing("cast", i)        # Rhystic-style taxes fire on announce
         responded = False
         try:
             if plan.get("split_second"):
@@ -941,6 +1018,7 @@ class Game:
             if from_cz is None:
                 self.log(f"  !! cast of {c} by {me.name} ignored (not in hand/CZ)")
             else:
+                self.check_standing("cast", i)
                 return self._resolve_spell(i, a, from_cz)
         elif act == "activate":
             perm = self._pay_ability(i, a)
@@ -1014,6 +1092,12 @@ class Game:
                              for pl in self.p if pl.alive)
             extra = f"\nCOMMANDERS:\n{cz}\nGRAVEYARDS:\n{gys}"
         stackline = f"\nSTACK (top first): {self._stack_line()}" if self.stack else ""
+        if self.standing:
+            live = [st for st in self.standing if self.find(st["source"])[1]]
+            if live:
+                stackline += "\nSTANDING EFFECTS (declared; honor them): " + "; ".join(
+                    f"{st['source']} ({self.p[st['owner']].handle}) on {st['on']}: {st['question']}"
+                    for st in live)
         return (f"TURN {self.turn}. Seats: {seats}\n"
                 f"YOUR HAND ({len(me.hand)}): {'; '.join(me.hand)}\n"
                 f"BATTLEFIELDS:\n{boards}\n"
@@ -1194,6 +1278,7 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                  ", ".join(f"{pl.handle} {pl.life}" for pl in self.p if pl.alive))
         if not (self.turn == 1 and i == 0 and len(self.p) == 2):
             self.draw(me, 1)  # CR 103.8: only 2-player pods skip the first draw
+            self.check_standing("draw", i, 1)
         # main phase: up to N sequential decisions
         for _step in range(24):
             if not me.alive:

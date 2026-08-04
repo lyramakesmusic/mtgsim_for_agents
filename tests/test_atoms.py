@@ -172,3 +172,52 @@ def test_ask_atom_no_branch_applies_as_asker(make_game):
     assert any(x["name"] == "Treasure" for x in g.p[2].battlefield)
     assert not any(x["name"] == "Treasure" for x in g.p[1].battlefield)
     assert any("answers NO" in l for l in g.table)
+
+
+def test_standing_tithe_auto_fires_on_draw(make_game):
+    """Registered once, fires on another seat's draw without the owner doing
+    anything; payer answers; declined trigger mints the owner's Treasure."""
+    from conftest import StubAgent
+    g = make_game()
+    tithe = g.perm(g.p[2], "Smothering Tithe")
+    g.apply_effects(2, [{"standing": {"source": tithe["id"], "on": "draw",
+                                      "question": "pay {2} for Smothering Tithe?",
+                                      "if_no": [{"create": {"player": "self", "name": "Treasure", "n": 1}}]}}])
+    g.agents[1] = StubAgent('{"choice":"no"}')
+    g.apply_effects(1, [{"draw": {"player": "self", "n": 1}}])
+    assert sum(1 for x in g.p[2].battlefield if x["name"] == "Treasure") == 1
+    assert any("answers NO" in l for l in g.table)
+
+
+def test_standing_expires_with_source_and_multidraw_counts(make_game):
+    from conftest import StubAgent
+    g = make_game()
+    tithe = g.perm(g.p[2], "Smothering Tithe")
+    g.apply_effects(2, [{"standing": {"source": tithe["id"], "on": "draw",
+                                      "question": "pay {2}?",
+                                      "if_no": [{"create": {"player": "self", "name": "Treasure", "n": 1}}]}}])
+    g.agents[1] = StubAgent('{"choice":"yes","n":1}')   # wheel of 3: pay for 1, decline 2
+    g.apply_effects(1, [{"draw": {"player": "self", "n": 3}}])
+    assert sum(1 for x in g.p[2].battlefield if x["name"] == "Treasure") == 2
+    # kill the source; next draw asks nothing and the entry expires
+    g.apply_effects(0, [{"move": {"id": tithe["id"], "to": "graveyard"}}])
+    g.agents[1] = StubAgent('{"choice":"no"}')
+    g.apply_effects(1, [{"draw": {"player": "self", "n": 1}}])
+    assert sum(1 for x in g.p[2].battlefield if x["name"] == "Treasure") == 2   # unchanged
+    assert not g.standing
+    assert any("expired" in l for l in g.table)
+
+
+def test_standing_arbitrary_condition_is_memory_not_hook(make_game):
+    """Unknown conditions don't auto-fire — they live in the digest as
+    reminders and get triggered by agents via ask atoms."""
+    g = make_game()
+    src = g.perm(g.p[2], "Mangara, the Diplomat")
+    g.apply_effects(2, [{"standing": {"source": src["id"], "on": "attacks me with 2+ creatures",
+                                      "question": "Mangara draw check",
+                                      "if_yes": [{"draw": {"player": "self", "n": 1}}]}}])
+    before = len(g.p[2].hand)
+    g.apply_effects(1, [{"draw": {"player": "self", "n": 1}}])   # draw event: no auto-fire
+    assert len(g.p[2].hand) == before
+    assert "STANDING EFFECTS" in g.digest(0)
+    assert "Mangara draw check" in g.digest(0)
