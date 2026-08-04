@@ -649,148 +649,160 @@ class Game:
             self.apply_effects(i, branch)
 
     def apply_effects(self, i, effects):
-        me = self.p[i]
+        """Apply agent-declared atoms. Each atom is armored: a malformed one
+        (bad key, wrong type) logs a red skip instead of unwinding a whole
+        game — the bookkeeper errs loud and keeps going."""
         for e in effects or []:
             if not isinstance(e, dict):
                 continue
-            if "move" in e:
-                self._atom_move(i, e["move"])
-            elif "life" in e:
-                l = e["life"]
-                tgt = self.resolve_player(i, l.get("player", "self"))
-                if not tgt:
-                    self.log(f"  !! life: can't resolve player {l.get('player')!r}; skipped")
-                    continue
-                if not tgt.alive:
-                    self.log(f"  ({tgt.name} is already eliminated — life change ignored)")
-                    continue
-                d = int(l.get("delta", 0))
-                tgt.life += d
-                self.log(f"  ↳ {tgt.name} {'+' if d >= 0 else ''}{d} life (now {tgt.life})")
-                if tgt.life <= 0 and tgt.alive:
-                    self.eliminate(tgt, f"reduced to {tgt.life} life")
-            elif "create" in e:
-                t = e["create"]
-                tgt = self.resolve_player(i, t.get("player", "self")) or me
-                for _ in range(int(t.get("n", 1))):
-                    self.perm(tgt, t.get("name", "Token"), token=True,
-                              tapped=bool(t.get("tapped")), pt=tuple(t.get("pt", (1, 1))))
-                self.log(f"  ↳ {tgt.name} creates {t.get('n',1)}x {t.get('name')} token(s)")
-            elif "set" in e:
-                s = e["set"]
-                _, perm = self.find(s.get("id"), prefer=i)
-                if not perm:
-                    self.log(f"  !! set: no permanent {s.get('id')!r}; skipped")
-                    continue
-                changes = []
-                if "tapped" in s:
-                    perm["tapped"] = bool(s["tapped"]); changes.append(f"tapped={s['tapped']}")
-                if "sick" in s:
-                    perm["sick"] = bool(s["sick"]); changes.append(f"sick={s['sick']}")
-                if "counters" in s:
-                    perm["counters"] += int(s["counters"]); changes.append(f"counters{int(s['counters']):+d}")
-                if "pt" in s:
-                    perm["pt"] = tuple(s["pt"]); changes.append(f"pt={s['pt']}")
-                self.log(f"  ↳ {perm['id']}: {', '.join(changes) or 'no-op'}")
-            elif "draw" in e:
-                d = e["draw"]
-                tgt = self.resolve_player(i, d.get("player", "self"))
-                if not tgt:
-                    self.log(f"  !! draw: can't resolve player {d.get('player')!r}; skipped")
-                    continue
-                got = self.draw(tgt, int(d["n"]), frm=d.get("from", "top"))
-                self.log(f"  ↳ {tgt.name} draws {len(got)}"
-                         + (" from the BOTTOM" if d.get("from") == "bottom" else ""))
-                if got:
-                    self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})", seat=tgt.handle)
-                    self.check_standing("draw", self.p.index(tgt), len(got))
-            elif "ask" in e:
-                self._atom_ask(i, e["ask"])
-            elif "standing" in e:
-                st = e["standing"]
-                src = str(st.get("source") or "")
-                on = str(st.get("on") or "").strip()
-                if not on or "#" not in src:
-                    self.log('  !! standing: needs "on" (condition) and a "source" permanent id; skipped')
-                    continue
-                self.standing.append({
-                    "owner": i, "source": src, "on": on,
-                    "question": str(st.get("question") or "?")[:400],
-                    "if_yes": st.get("if_yes") or [], "if_no": st.get("if_no") or []})
-                auto = on in ("draw", "cast")
-                self.log(f"  ↳ standing effect: {src} — on {on!r}: \"{self.standing[-1]['question']}\""
-                         + ("" if auto else " (engine can't see this event — it stays in every"
-                                             " digest; trigger it with an ask atom when it happens)"))
-            elif "search" in e:
-                s = e["search"]
-                tgt = self.resolve_player(i, s.get("player", "self"))
-                if not tgt:
-                    self.log(f"  !! search: can't resolve player {s.get('player')!r}; skipped")
-                    continue
-                card = s.get("card")
-                if card not in tgt.library:
-                    self.log(f"  !! search: {card!r} is NOT in {tgt.name}'s library (VERIFICATION FAILED); "
-                             f"library shuffled anyway" if s.get("shuffle", True) else "")
-                    if s.get("shuffle", True):
-                        self.rng.shuffle(tgt.library)
-                    continue
-                tgt.library.remove(card)
-                to = s.get("to", "hand")
-                self._zone_put(tgt, card, to, tapped=bool(s.get("tapped")))
+            try:
+                self._apply_atom(i, e)
+            except GameOver:
+                raise
+            except Exception as ex:
+                self.log(f"  !! atom crashed the bookkeeper ({type(ex).__name__}: {str(ex)[:80]}) "
+                         f"— skipped: {json.dumps(e, default=str)[:200]}")
+
+    def _apply_atom(self, i, e):
+        me = self.p[i]
+        if "move" in e:
+            self._atom_move(i, e["move"])
+        elif "life" in e:
+            l = e["life"]
+            tgt = self.resolve_player(i, l.get("player", "self"))
+            if not tgt:
+                self.log(f"  !! life: can't resolve player {l.get('player')!r}; skipped")
+                return
+            if not tgt.alive:
+                self.log(f"  ({tgt.name} is already eliminated — life change ignored)")
+                return
+            d = int(l.get("delta", 0))
+            tgt.life += d
+            self.log(f"  ↳ {tgt.name} {'+' if d >= 0 else ''}{d} life (now {tgt.life})")
+            if tgt.life <= 0 and tgt.alive:
+                self.eliminate(tgt, f"reduced to {tgt.life} life")
+        elif "create" in e:
+            t = e["create"]
+            tgt = self.resolve_player(i, t.get("player", "self")) or me
+            for _ in range(int(t.get("n", 1))):
+                self.perm(tgt, t.get("name", "Token"), token=True,
+                          tapped=bool(t.get("tapped")), pt=tuple(t.get("pt", (1, 1))))
+            self.log(f"  ↳ {tgt.name} creates {t.get('n',1)}x {t.get('name')} token(s)")
+        elif "set" in e:
+            s = e["set"]
+            _, perm = self.find(s.get("id"), prefer=i)
+            if not perm:
+                self.log(f"  !! set: no permanent {s.get('id')!r}; skipped")
+                return
+            changes = []
+            if "tapped" in s:
+                perm["tapped"] = bool(s["tapped"]); changes.append(f"tapped={s['tapped']}")
+            if "sick" in s:
+                perm["sick"] = bool(s["sick"]); changes.append(f"sick={s['sick']}")
+            if "counters" in s:
+                perm["counters"] += int(s["counters"]); changes.append(f"counters{int(s['counters']):+d}")
+            if "pt" in s:
+                perm["pt"] = tuple(s["pt"]); changes.append(f"pt={s['pt']}")
+            self.log(f"  ↳ {perm['id']}: {', '.join(changes) or 'no-op'}")
+        elif "draw" in e:
+            d = e["draw"]
+            tgt = self.resolve_player(i, d.get("player", "self"))
+            if not tgt:
+                self.log(f"  !! draw: can't resolve player {d.get('player')!r}; skipped")
+                return
+            got = self.draw(tgt, int(d.get("n", 1)), frm=d.get("from", "top"))
+            self.log(f"  ↳ {tgt.name} draws {len(got)}"
+                     + (" from the BOTTOM" if d.get("from") == "bottom" else ""))
+            if got:
+                self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})", seat=tgt.handle)
+                self.check_standing("draw", self.p.index(tgt), len(got))
+        elif "ask" in e:
+            self._atom_ask(i, e["ask"])
+        elif "standing" in e:
+            st = e["standing"]
+            src = str(st.get("source") or "")
+            on = str(st.get("on") or "").strip()
+            if not on or "#" not in src:
+                self.log('  !! standing: needs "on" (condition) and a "source" permanent id; skipped')
+                return
+            self.standing.append({
+                "owner": i, "source": src, "on": on,
+                "question": str(st.get("question") or "?")[:400],
+                "if_yes": st.get("if_yes") or [], "if_no": st.get("if_no") or []})
+            auto = on in ("draw", "cast")
+            self.log(f"  ↳ standing effect: {src} — on {on!r}: \"{self.standing[-1]['question']}\""
+                     + ("" if auto else " (engine can't see this event — it stays in every"
+                                         " digest; trigger it with an ask atom when it happens)"))
+        elif "search" in e:
+            s = e["search"]
+            tgt = self.resolve_player(i, s.get("player", "self"))
+            if not tgt:
+                self.log(f"  !! search: can't resolve player {s.get('player')!r}; skipped")
+                return
+            card = s.get("card")
+            if card not in tgt.library:
+                self.log(f"  !! search: {card!r} is NOT in {tgt.name}'s library (VERIFICATION FAILED); "
+                         f"library shuffled anyway" if s.get("shuffle", True) else "")
                 if s.get("shuffle", True):
                     self.rng.shuffle(tgt.library)
-                self.log(f"  ↳ {tgt.name} searches library: {card} → {to}" +
-                         (" (shuffled)" if s.get("shuffle", True) else ""))
-            elif "shuffle" in e:
-                s = e["shuffle"]
-                tgt = self.resolve_player(i, (s or {}).get("player", "self"))
-                if tgt:
-                    self.rng.shuffle(tgt.library)
-                    self.log(f"  ↳ {tgt.name} shuffles their library")
-            elif "reveal" in e:
-                r = e["reveal"]
-                tgt = self.resolve_player(i, r.get("player", "self"))
-                if not tgt:
-                    continue
-                if r.get("zone") == "hand":
-                    self.log(f"  ↳ {tgt.name} REVEALS HAND: {', '.join(tgt.hand) or '(empty)'}")
-                else:
-                    n = int(r.get("n", 1))
-                    self.log(f"  ↳ {tgt.name} reveals top {n}: {', '.join(tgt.library[:n]) or '(library empty)'}")
-            elif "random" in e:
-                r = e["random"]
-                if r.get("coin"):
-                    self.log(f"  ↳ coin flip: {self.rng.choice(['HEADS', 'TAILS'])}")
-                else:
-                    sides = int(r.get("die", 6))
-                    self.log(f"  ↳ d{sides} roll: {self.rng.randint(1, sides)}")
-            elif "eliminate" in e:
-                el = e["eliminate"]
-                tgt = self.resolve_player(i, el.get("player", "self"))
-                reason = el.get("reason", "unspecified")
-                if not tgt or not tgt.alive:
-                    continue
-                if tgt is me:
-                    self.eliminate(tgt, f"loses the game: {reason}")
-                else:
-                    self.log(f"**{me.name} declares {tgt.name} LOSES THE GAME: {reason}**")
-                    v = self.ask(self.p.index(tgt),
-                        f"{me.name} declares you lose the game: {reason}. Per the actual rules, is this "
-                        f"correct? Reply {{\"accept\": true/false, \"reason\": \"...\"}}. Accept only if "
-                        f"it is genuinely rules-correct.",
-                        schema_hint='{"accept": bool, "reason": str}')
-                    if v.get("accept"):
-                        self.eliminate(tgt, f"accepted: {reason}")
-                    else:
-                        self.log(f"  ↳ {tgt.name} DISPUTES ({v.get('reason','')}) — play continues, table judges")
-            elif "note" in e:
-                self.log(f"  ↳ note ({me.handle}): {e['note']}")
+                return
+            tgt.library.remove(card)
+            to = s.get("to", "hand")
+            self._zone_put(tgt, card, to, tapped=bool(s.get("tapped")))
+            if s.get("shuffle", True):
+                self.rng.shuffle(tgt.library)
+            self.log(f"  ↳ {tgt.name} searches library: {card} → {to}" +
+                     (" (shuffled)" if s.get("shuffle", True) else ""))
+        elif "shuffle" in e:
+            s = e["shuffle"]
+            tgt = self.resolve_player(i, (s or {}).get("player", "self"))
+            if tgt:
+                self.rng.shuffle(tgt.library)
+                self.log(f"  ↳ {tgt.name} shuffles their library")
+        elif "reveal" in e:
+            r = e["reveal"]
+            tgt = self.resolve_player(i, r.get("player", "self"))
+            if not tgt:
+                return
+            if r.get("zone") == "hand":
+                self.log(f"  ↳ {tgt.name} REVEALS HAND: {', '.join(tgt.hand) or '(empty)'}")
             else:
-                self.log(f"  !! unknown effect atom {list(e.keys())}; skipped")
+                n = int(r.get("n", 1))
+                self.log(f"  ↳ {tgt.name} reveals top {n}: {', '.join(tgt.library[:n]) or '(library empty)'}")
+        elif "random" in e:
+            r = e["random"]
+            if r.get("coin"):
+                self.log(f"  ↳ coin flip: {self.rng.choice(['HEADS', 'TAILS'])}")
+            else:
+                sides = int(r.get("die", 6))
+                self.log(f"  ↳ d{sides} roll: {self.rng.randint(1, sides)}")
+        elif "eliminate" in e:
+            el = e["eliminate"]
+            tgt = self.resolve_player(i, el.get("player", "self"))
+            reason = el.get("reason", "unspecified")
+            if not tgt or not tgt.alive:
+                return
+            if tgt is me:
+                self.eliminate(tgt, f"loses the game: {reason}")
+            else:
+                self.log(f"**{me.name} declares {tgt.name} LOSES THE GAME: {reason}**")
+                v = self.ask(self.p.index(tgt),
+                    f"{me.name} declares you lose the game: {reason}. Per the actual rules, is this "
+                    f"correct? Reply {{\"accept\": true/false, \"reason\": \"...\"}}. Accept only if "
+                    f"it is genuinely rules-correct.",
+                    schema_hint='{"accept": bool, "reason": str}')
+                if v.get("accept"):
+                    self.eliminate(tgt, f"accepted: {reason}")
+                else:
+                    self.log(f"  ↳ {tgt.name} DISPUTES ({v.get('reason','')}) — play continues, table judges")
+        elif "note" in e:
+            self.log(f"  ↳ note ({me.handle}): {e['note']}")
+        else:
+            self.log(f"  !! unknown effect atom {list(e.keys())}; skipped")
 
-    # ---------------- actions ----------------
+# ---------------- actions ----------------
 
-    # ---------------- the stack ----------------
+# ---------------- the stack ----------------
     def _stack_line(self):
         return " -> ".join(f"{o['id']} {o['name']} ({self.p[o['caster']].handle})"
                            for o in reversed(self.stack)) or "(empty)"

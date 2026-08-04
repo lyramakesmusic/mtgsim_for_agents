@@ -257,3 +257,26 @@ def test_life_change_on_eliminated_player_ignored(make_game):
     g.apply_effects(0, [{"life": {"player": "P3", "delta": -28}}])
     assert g.p[2].life == -1
     assert any("already eliminated" in l for l in g.table)
+
+
+def test_draw_atom_defaults_to_one(make_game):
+    """Seen live (fatal): Yawgmoth's 'draw a card' declared without "n" —
+    KeyError crashed a three-hour game. One is the default draw."""
+    g = make_game()
+    before = len(g.p[0].hand)
+    g.apply_effects(0, [{"draw": {"player": "self"}}])
+    assert len(g.p[0].hand) == before + 1
+
+
+def test_malformed_atom_cannot_crash_the_game(make_game):
+    """Atom armor: garbage keys/types log a red skip and play continues;
+    later atoms in the same list still apply."""
+    g = make_game()
+    before = g.p[1].life
+    g.apply_effects(0, [
+        {"life": {"player": "P2", "delta": "not a number"}},   # ValueError
+        {"set": None},                                          # TypeError
+        {"life": {"player": "P2", "delta": -3}},                # still applies
+    ])
+    assert g.p[1].life == before - 3
+    assert sum("crashed the bookkeeper" in l for l in g.table) == 2
