@@ -1,4 +1,4 @@
-// strategy: 1) Make a lot of mana — dorks first, then Cryptolith Rite / Citanul Hierophants / Enduring Vitality turn every squirrel into a Forest. 2) Turn that mana into squirrels. 3) Turn those squirrels into pain. Combo lines: Squirrel Girl + Concordant Crossroads + (Rite or Hierophants) = infinite squirrels and mana. Squirrel Girl + Supportive Parents also goes infinite — tapping two creatures is a cost, so it works through summoning sickness. Scurry Oak + Ivy Lane Denizen loops squirrels with no commander needed (each green creature ETB puts a counter on Oak, which makes another squirrel). Champion of Lambholt makes the swarm unblockable; Skullclamp, Bestiary, Garruk's Uprising and Toski keep cards flowing without overextending into wipes. Hold up protection for the go-off turn — Overprotect, Collective Resistance, Druid's Deliverance, Fog, Spore Frog — the table WILL have answers, and the deck dies to one board wipe or a sac-outlet ping-off if you tap out and pray. Kill on the turn you crank, not the turn after.
+// strategy: 1) Make a lot of mana — dorks first, then Cryptolith Rite / Citanul Hierophants / Song of Freyalise turn every squirrel into a Forest, and Jiang Yanggu makes anything carrying a +1/+1 counter tap for mana too. 2) Turn that mana into squirrels. 3) Turn those squirrels into pain. Combo lines: Squirrel Girl + Concordant Crossroads or Crashing Drawbridge + (Rite or Hierophants or Freyalise) = infinite squirrels and mana. Squirrel Girl + Supportive Parents also goes infinite — tapping two creatures is a cost, so it works through summoning sickness. Scurry Oak + Ivy Lane Denizen loops squirrels with no commander needed (each green creature ETB puts a counter on Oak, which makes another squirrel). Champion of Lambholt makes the swarm unblockable; Skullclamp, Bestiary, Garruk's Uprising and Toski keep cards flowing without overextending into wipes. Hold up protection for the go-off turn — Overprotect, Collective Resistance, Druid's Deliverance, Fog, Spore Frog — the table WILL have answers, and the deck dies to one board wipe or a sac-outlet ping-off if you tap out and pray. Kill on the turn you crank, not the turn after.
 Commander
 1 The Unbeatable Squirrel Girl
 
@@ -11,19 +11,19 @@ Deck
 1 Altar of the Brood
 1 Beast Within
 1 Bite Down
+1 Bloodroot Apothecary
 1 Bushwhack
-1 Bushy Bodyguard
 1 Champion of Lambholt
 1 Chatter of the Squirrel
 1 Chatterstorm
 1 Citanul Hierophants
 1 Collective Resistance
 1 Concordant Crossroads
+1 Crashing Drawbridge
 1 Cryptolith Rite
 1 Druid's Deliverance
 1 Elven Farsight
 1 Elvish Mystic
-1 Enduring Vitality
 1 Eternal Witness
 1 Fog
 1 Forgotten Ancient
@@ -35,6 +35,7 @@ Deck
 1 Inspiring Call
 1 Ivy Lane Denizen
 1 Jaheira, Friend of the Forest
+1 Jiang Yanggu, Wildcrafter
 1 Karametra's Acolyte
 1 Lead the Stampede
 1 Lifecrafter's Bestiary
@@ -46,7 +47,6 @@ Deck
 1 Prosperous Innkeeper
 1 Realmwalker
 1 Return to Nature
-1 Crashing Drawbridge
 1 Rootcast Apprenticeship
 1 Scrapshooter
 1 Scurry Oak
@@ -55,10 +55,10 @@ Deck
 1 Shang-Chi, Master of Kung Fu
 1 Skullclamp
 1 Sol Ring
+1 Song of Freyalise
 1 Spore Frog
 1 Squirrel Mob
 1 Squirrel Nest
-1 Squirrel Sanctuary
 1 Supportive Parents
 1 Symmetry Matrix
 1 Tender Wildguide

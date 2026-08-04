@@ -35,15 +35,6 @@
   "text": "Choose one \u2014 \u2022 Search your library for a basic land card, reveal it, put it into your hand, then shuffle. \u2022 Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)",
   "pt": null
  },
- "Bushy Bodyguard": {
-  "cost": "1G",
-  "type": "Creature \u2014 Squirrel Warrior",
-  "text": "Offspring {2} (You may pay an additional {2} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.) When this creature enters, you may forage. If you do, put two +1/+1 counters on it. (To forage, exile three cards from your graveyard or sacrifice a Food.)",
-  "pt": [
-   2,
-   1
-  ]
- },
  "Champion of Lambholt": {
   "cost": "1GG",
   "type": "Creature \u2014 Human Warrior",
@@ -111,15 +102,6 @@
   "pt": [
    1,
    1
-  ]
- },
- "Enduring Vitality": {
-  "cost": "1GG",
-  "type": "Enchantment Creature \u2014 Elk Glimmer",
-  "text": "Vigilance Creatures you control have \"{T}: Add one mana of any color.\" When Enduring Vitality dies, if it was a creature, return it to the battlefield under its owner's control. It's an enchantment. (It's not a creature.)",
-  "pt": [
-   3,
-   3
   ]
  },
  "Eternal Witness": {
@@ -383,12 +365,6 @@
   "text": "Enchant land Enchanted land has \"{T}: Create a 1/1 green Squirrel creature token.\"",
   "pt": null
  },
- "Squirrel Sanctuary": {
-  "cost": "G",
-  "type": "Enchantment",
-  "text": "When this enchantment enters, create a 1/1 green Squirrel creature token. Whenever a nontoken creature you control dies, you may pay {1}. If you do, return this enchantment to its owner's hand.",
-  "pt": null
- },
  "Supportive Parents": {
   "cost": "2G",
   "type": "Creature \u2014 Human Citizen",
@@ -502,5 +478,26 @@
    0,
    4
   ]
+ },
+ "Bloodroot Apothecary": {
+  "cost": "2G",
+  "type": "Creature \u2014 Squirrel Druid",
+  "text": "Toxic 2 (Players dealt combat damage by this creature also get two poison counters. A player with ten or more poison counters loses the game.) When this creature enters, you and target opponent each create a Treasure token. Whenever an opponent sacrifices a noncreature token, that player gets two poison counters.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Jiang Yanggu, Wildcrafter": {
+  "cost": "2G",
+  "type": "Legendary Planeswalker \u2014 Yanggu",
+  "text": "Each creature you control with a +1/+1 counter on it has \"{T}: Add one mana of any color.\" \u22121: Put a +1/+1 counter on target creature. [Loyalty 3 \u2014 track via counters+notes]",
+  "pt": null
+ },
+ "Song of Freyalise": {
+  "cost": "1G",
+  "type": "Enchantment \u2014 Saga",
+  "text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I, II \u2014 Until your next turn, creatures you control gain \"{T}: Add one mana of any color.\" III \u2014 Put a +1/+1 counter on each creature you control. Those creatures gain vigilance, trample, and indestructible until end of turn.",
+  "pt": null
  }
 }
