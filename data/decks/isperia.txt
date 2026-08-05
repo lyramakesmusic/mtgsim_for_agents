@@ -1,11 +1,4 @@
-// strategy: The examination. Pillow-fort control: taxes (Propaganda, Ghostly Prison,
-// Windborn Muse) make attacking you expensive, Isperia turns the attacks that come anyway
-// into cards. Hold up counterspells, wrath on YOUR schedule — six board wipes and three
-// mass bounces; make each one count against the board that most deserves it. Cursed Totem
-// switches off activated-ability engines entirely — deploy it against ability-driven decks
-// and watch them play fair. Win long: Approach of the Second Sun (announce the second cast
-// and claim it), Azor's Elocutors filibuster counters, Dream Trawler beats, or Storm Herd.
-// You are the control seat: the game should end because YOU decided how.
+// strategy: The examination. Pillow-fort control: Propaganda, Ghostly Prison and Windborn Muse price combat out, and Isperia turns the attacks that come anyway into cards. Cursed Totem switches activated-ability engines off entirely. The long-clock wins: Approach of the Second Sun (announce the second cast and claim), Azor's Elocutors filibuster, Dream Trawler and Storm Herd beat down. The game should end because you decided how.
 Commander
 1 Isperia, Supreme Judge
 

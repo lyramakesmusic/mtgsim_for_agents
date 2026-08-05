@@ -1,9 +1,4 @@
-// strategy: The instigator. You win by making everyone else fight: goad their creatures
-// (Karazikar, Disrupt Decorum, Bloodthirsty Blade, the Impetuses) so combat happens
-// anywhere but your face, and collect cards and treasures for every punch thrown.
-// Curse of Opulence and Mahadi fund Revel in Riches — an actual alternate win to claim.
-// Insurrection is the finale: borrow every army you spent the game aiming. Stay chatty,
-// stay generous, and never look like the reason everyone is bleeding.
+// strategy: The instigator. Goad (Karazikar, Disrupt Decorum, Bloodthirsty Blade, the Impetuses) makes combat happen anywhere but your face, and every punch thrown pays you cards and treasures. Curse of Opulence and Mahadi fund Revel in Riches — an actual alternate win to claim. Insurrection is the finale: borrow every army you spent the game aiming. The table does the fighting; you do the collecting.
 Commander
 1 Karazikar, the Eye Tyrant
 

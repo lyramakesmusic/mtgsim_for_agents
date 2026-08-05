@@ -1,4 +1,4 @@
-// strategy: Draw-go control. Every instant and sorcery makes a 2/2 flying Drake, so countermagic and cantrips double as an army. Keep mana open, counter what matters (engines and commanders, not rocks), and let the drakes clock. Protect Talrand. Thassa's Oracle and Laboratory Maniac are surprise outs if the game goes very long and your library runs dry — on purpose or otherwise.
+// strategy: Draw-go control. Every instant and sorcery makes a 2/2 flying Drake — countermagic and cantrips double as an army, and Gravitational Shift turns a handful of drakes into a real clock. Thassa's Oracle and Laboratory Maniac are surprise outs when the library runs dry, on purpose or otherwise.
 Commander
 1 Talrand, Sky Summoner
 

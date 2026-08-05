@@ -1,4 +1,4 @@
-// strategy: Graveyard value engine, now with teeth. The yard is your second hand: sac cheap bodies for value (Skullclamp, altars, Village Rites, Yawgmoth), grow Meren's experience, rebuy threats every end step. Edicts tax the table's best creatures. Entomb/Buried Alive put Mikaeus, the Unhallowed in the yard early — Meren or Reanimate brings him back, and Mikaeus + Triskelion is a game-ending two-card combo (infinite damage via undying loops; demonstrate it and claim the win). Toxic Deluge and Grave Titan close grindy games. Board wipes barely hurt you — everyone rebuilds, you reanimate.
+// strategy: Graveyard value engine with teeth. Meren's experience grows with each of your creatures that dies while she's out, and her end step rebuys from the yard — so cheap bodies plus sac outlets (Skullclamp, altars, Village Rites, Yawgmoth) are the engine. The combo: Mikaeus, the Unhallowed + Triskelion is infinite damage, and Entomb, Buried Alive, Meren and Reanimate are all roads to it — demonstrate the loop and claim. Blood Artist makes every death at the table a drain.
 Commander
 1 Meren of Clan Nel Toth
 

@@ -1,4 +1,4 @@
-// strategy: Cheat huge things into play and sell it as charity. Braids gifts EVERY player a free permanent each upkeep — but your deck is nothing but 8-12 drops (Eldrazi, leviathans, colossi), so the symmetry is a con: your gifts are game-enders, theirs are lands. Group-draw engines keep the table placated and your hand full. Protect Braids (Kira), keep the room calm, and drop something unanswerable (Blightsteel, annihilators) before they notice the arithmetic. Strongest deck at the table — act like it isn't.
+// strategy: Cheat huge things into play and sell it as charity. Braids gifts every player a free permanent each upkeep — but this deck is nothing except 8-12 drops (Eldrazi, leviathans, colossi), so the symmetry is a con: your gifts are game-enders, theirs are lands. Kira protects Braids; Blightsteel Colossus ends a player in one connect.
 1 Mind Control (m12)
 1 Rapid Hybridization (gtc)
 1 Imprisoned in the Moon (emn)

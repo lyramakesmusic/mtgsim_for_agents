@@ -1,4 +1,4 @@
-// strategy: The accountant. Kambal and extort tax every spell; Ayli, drains and lifegain bodies compound the ledger. Grind to 50+ life (Serra Ascendant and Divinity of Pride get huge), wrath when boards get scary, and close with Exsanguinate or Debt to the Deathless for the whole pot. You win long, boring games — make the game long and boring. Blood Artist punishes token decks; hold Downfall for engines, not bodies.
+// strategy: The accountant. Kambal and extort tax every spell; Ayli and the drain bodies compound the ledger. Serra Ascendant and Divinity of Pride get huge once your total is above the line. Exsanguinate and Debt to the Deathless close for the whole pot. You win long, boring games — the deck is happiest when nothing is happening.
 //deck-1
 1 Merciless Eviction (c16)
 1 Wrath of God (10e)

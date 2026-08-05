@@ -1,10 +1,4 @@
-// strategy: The clock. Torbran adds +2 to every red damage source, so your chip damage
-// is a landslide: pingers (Guttersnipe, Thermo-Alchemist, Electrostatic Field) hit for 3
-// per trigger, Earthquake-style sweepers become one-sided nukes with your bigger bodies,
-// and every burn spell overperforms. Sulfuric Vortex and Roiling Vortex switch lifegain
-// OFF — the accountant's ledger stops working. Rampaging Ferocidon punishes token swarms.
-// You are the table's doomsday timer: make every turn cost everyone something, and race.
-// The game ends before value matters — that's the whole argument.
+// strategy: The clock. Torbran adds +2 to every red damage source: pingers (Guttersnipe, Thermo-Alchemist, Electrostatic Field) hit for 3 a trigger, Earthquake-style sweepers become one-sided nukes, every burn spell overperforms. Sulfuric Vortex and Roiling Vortex switch lifegain off entirely. You are the table's doomsday timer — the game ends before value matters, that's the whole argument.
 Commander
 1 Torbran, Thane of Red Fell
 

@@ -1,10 +1,4 @@
-// strategy: Voltron. Put auras on Sigarda — a hexproof, flying 5/5 the table cannot
-// target — until she kills someone in two or three hits. Twenty-one combat damage from
-// the same commander eliminates that player: TRACK COMMANDER DAMAGE PER OPPONENT IN
-// NOTES, it is your entire win condition. Enchantresses (Presence, Mesa, Setessan)
-// turn every aura into a card. Hexproof means the table's only outs are edicts, wraths
-// and goad — hold protection (Akroma's Will, Timely Ward) for exactly those. Winds of
-// Rath wraths everyone but your enchanted angel. One threat, all-in, knight-errant.
+// strategy: Voltron. Auras on Sigarda — a hexproof, flying 5/5 the table cannot target — until 21 commander damage eliminates someone (the sim doesn't track it; keep a note per opponent, it's the entire wincon). Enchantresses (Presence, Mesa, Setessan) turn every aura into a card. Hexproof leaves the table only edicts, wraths and goad as outs — Akroma's Will and Timely Ward answer exactly those, and Winds of Rath wraths everyone except your enchanted angel.
 Commander
 1 Sigarda, Host of Herons
 

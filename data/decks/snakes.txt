@@ -1,4 +1,4 @@
-// strategy: Political group hug with a knife. Xyris turns every extra card an opponent draws into a snake for you — so hand out cards generously ('here, have cards!') and play the table's friendly enabler while the snakes pile up. Wheels are your nukes: with Xyris out, one wheel is 15+ snakes. The kill is 'oops hehe' — a pump spell and a Xyris connect draws you a fistful and doubles the board. You die to a stiff breeze, so stay harmless-looking and politically indispensable... until they die.
+// strategy: Political group hug with a knife. Xyris turns every extra card an opponent draws into a snake for you, and Xyris combat damage makes the defender draw that many — so a pump spell on a connecting Xyris is a draw engine and a board doubler at once. Wheels are the nukes: one wheel with Xyris out is 15+ snakes. Purphoros and Impact Tremors make the snakes themselves the clock; Goblin Bombardment makes them removal and reach. The deck dies to a stiff breeze — the cards you hand out are the armor.
 Commander
 1 Xyris, the Writhing Storm
 

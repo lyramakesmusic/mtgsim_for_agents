@@ -1,9 +1,4 @@
-// strategy: Steal, sacrifice, keep. Temporary-theft spells (Act of Treason and friends)
-// become permanent removal through sac outlets — their best creature blocks for you,
-// then dies for value. Dethrone (Marchesa, Vengeful units) rewards attacking whoever
-// has the most life, so point everything at the table leader. +1/+1 counters make your
-// board immortal under Marchesa: wraths barely touch you. Notion Thief turns everyone's
-// group-draw and wheels into your card advantage. Be the vulture, not the storm.
+// strategy: Steal, sacrifice, keep. Temporary theft (Act of Treason and friends) plus a sac outlet is permanent removal that blocks for you first. +1/+1 counters under Marchesa bring your creatures back when they die — wraths barely touch you, and feeding your own countered bodies to an outlet is value, not loss. Notion Thief turns everyone's wheels and group-draw into your cards. Be the vulture, not the storm.
 Commander
 1 Marchesa, the Black Rose
 

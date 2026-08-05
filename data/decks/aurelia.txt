@@ -1,9 +1,4 @@
-// strategy: Boros fliers midrange with a combo topper. Efficient angels, evasive pressure, Aurelia's second combat doubling your clock. Lifelink angels race; three wraths punish token boards; instant protection (Akroma's Will, Teferi's Protection, Flawless Maneuver) beats theirs. Smothering Tithe funds everything. The finisher: Helm of the Host on Aurelia = a new Aurelia every combat, each granting another combat — effectively unlimited attack steps; demonstrate the loop and claim. Embercleave and Windbrisk Heights reward the wide-and-fast plan. Punish setup turns from the air.
-// Aurelia untaps your team for a second combat every turn she swings, doubling your clock.
-// Evasion is the plan: almost everything flies, so ground armies (snakes, squirrels) can't
-// block you. Lifelink angels (Lyra, Thune, Valkyrie) race aggro; three wraths reset token
-// decks; instant-speed protection (Akroma's Will, Flawless Maneuver) beats their wraths.
-// You're the tempo check on greedy engines: punish setup turns with fast flying damage.
+// strategy: Boros fliers with a combo topper. Aurelia herself is the clock — her second combat doubles everything, and 21 commander damage to one player is its own wincon. Smothering Tithe collects on the table's sins. Helm of the Host on Aurelia is a new Aurelia every combat, each granting another combat — effectively unlimited attack steps; demonstrate and claim. Akroma's Will, Teferi's Protection and Flawless Maneuver trump combat math at instant speed.
 Commander
 1 Aurelia, the Warleader
 
