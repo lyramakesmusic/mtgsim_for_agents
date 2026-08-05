@@ -31,7 +31,7 @@ if __name__ == "__main__":
     ap.add_argument("--edit", default=None)
     ap.add_argument("--minds", default="fresh", choices=["fresh", "cloned"])
     ap.add_argument("--pod", default=None)
-    ap.add_argument("--max-turns", type=int, default=12)
+    ap.add_argument("--max-turns", type=int, default=20)
     ap.add_argument("--seed", type=int, default=None)
     args = ap.parse_args()
 

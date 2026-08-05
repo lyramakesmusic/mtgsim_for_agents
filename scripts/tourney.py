@@ -24,7 +24,7 @@ if __name__ == "__main__":
     ap.add_argument("--pod", required=True, action="append",
                     help="repeatable; games cycle through the given pods (vary the opposition)")
     ap.add_argument("--n", type=int, default=8)
-    ap.add_argument("--max-turns", type=int, default=12)
+    ap.add_argument("--max-turns", type=int, default=20)
     ap.add_argument("--seed", type=int, default=None, help="base seed; game k uses seed+k")
     ap.add_argument("--codex-tier", default=None, choices=["fast", "priority", "flex"])
     ap.add_argument("--codex-effort", default=None, choices=["minimal", "low", "medium", "high"])
