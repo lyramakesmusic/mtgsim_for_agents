@@ -41,6 +41,22 @@ if __name__ == "__main__":
     ap.add_argument("--stateless", action="store_true", help="no session continuity")
     ap.add_argument("--log", default=None, help="default: games/<timestamp>.md")
     ap.add_argument("--transcripts", default=None, help="per-agent transcript dir ('' to disable; default: logs/<timestamp>)")
+    ap.add_argument("--resume", default=None, metavar="EVENTS",
+                    help="branch a saved game: path to its .md or .md.events.jsonl. "
+                         "Seats and decks come from the log; --pod overrides agent kinds.")
+    ap.add_argument("--at", type=int, default=None,
+                    help="event index to branch from (default: latest; snaps to a clean stack)")
+    ap.add_argument("--edit", default=None,
+                    help="state edits as inline JSON or @file: {\"P4\": {\"hand\": [...], \"life\": 30}}")
+    ap.add_argument("--minds", default="fresh", choices=["fresh", "cloned"],
+                    help="fresh: new sessions briefed with the game's public history. "
+                         "cloned: each seat's recorded session copied and truncated to the "
+                         "save point — same minds, same private plans, no memory of the future")
+    ap.add_argument("--hold", action="store_true",
+                    help="after mind-cloning, print the session file paths and wait — your "
+                         "window to edit memories before play resumes")
+    ap.add_argument("--dump-state", action="store_true",
+                    help="print the chosen event's state as JSON and exit (edit it, then --edit @file)")
     args = ap.parse_args()
     from datetime import datetime
     from pathlib import Path
@@ -53,6 +69,29 @@ if __name__ == "__main__":
 
     seed = args.seed if args.seed is not None else random.randrange(10**6)
     rng = random.Random(seed)
+
+    resume_info = None
+    if args.resume:
+        import json
+        import re as _re
+        from mtgsim.branching import load_events, pick_event
+        ev_path = args.resume if args.resume.endswith(".jsonl") else f"{args.resume}.events.jsonl"
+        events = load_events(ev_path)
+        idx = pick_event(events, args.at)
+        if args.dump_state:
+            print(json.dumps(events[idx]["state"], indent=1))
+            raise SystemExit
+        decknames = _re.findall(r"P\d\(([^)]+)\)", events[0]["line"])
+        sess = events[idx]["state"].get("sessions") or [{} for _ in decknames]
+        kindmap = {"ClaudeAgent": "claude", "CodexAgent": "codex",
+                   "OpenRouterAgent": "openrouter", "LocalAgent": "local",
+                   "HumanAgent": "human"}
+        if args.pod != ap.get_default("pod"):     # explicit --pod overrides recorded kinds
+            podkinds = [s.strip().rpartition(":")[0] or "codex" for s in args.pod.split(",")]
+        else:
+            podkinds = [kindmap.get(s.get("kind"), "codex") for s in sess]
+        args.pod = ",".join(f"{k}:{d}" for k, d in zip(podkinds, decknames))
+        resume_info = (ev_path, idx, sess)
 
     seats = []
     for spec in args.pod.split(","):
@@ -100,9 +139,34 @@ if __name__ == "__main__":
 
     human_handles = {f"P{n+1}" for n, (k, _, _) in enumerate(seats) if k == "human"}
     console_private = "all" if (args.show_hidden or not human_handles) else human_handles
-    game = Game(db, decks, agents, seed, args.log, args.max_turns, rng,
-                judge_factory=None if args.mock else judge_factory,
-                console_private=console_private)
+    from_turn, from_seat = 1, 0
+    if resume_info:
+        ev_path, idx, sess = resume_info
+        if args.minds == "cloned":
+            from mtgsim.branching import clone_session
+            for n, (a, s) in enumerate(zip(agents, sess)):
+                nid, note = clone_session(s.get("kind"), s.get("id"), s.get("calls"))
+                if nid and getattr(a, "resume", False):
+                    a.session_id = nid
+                    print(f"P{n+1}: mind branched -> {note}")
+                else:
+                    print(f"P{n+1}: fresh mind ({note})")
+            if args.hold:
+                input("edit the session files above if you like, then press enter to resume... ")
+        edits = None
+        if args.edit:
+            import json
+            raw = open(args.edit[1:]).read() if args.edit.startswith("@") else args.edit
+            edits = json.loads(raw)
+        from mtgsim.branching import restore_game
+        game, from_turn, from_seat = restore_game(
+            db, decks, agents, ev_path, args.log, args.max_turns, rng,
+            at=idx, edits=edits, judge_factory=None if args.mock else judge_factory,
+            console_private=console_private)
+    else:
+        game = Game(db, decks, agents, seed, args.log, args.max_turns, rng,
+                    judge_factory=None if args.mock else judge_factory,
+                    console_private=console_private)
     import atexit
     import subprocess as _sp
     atexit.register(lambda: _sp.run(
@@ -119,7 +183,7 @@ if __name__ == "__main__":
               f"you> — plain words, the scribe handles the JSON. enter/'pass' passes a window, "
               f"'done' ends your turn, 'hand'/'board' reprint state, \"quotes\" go to the table. "
               f"Lines typed *between* prompts go to the judge channel, not your seat. {vis}")
-    game.run()
+    game.run(from_turn, from_seat)
     for a in agents:
         extra = f", ~${a.cost_usd:.2f} api-equiv (covered by subscription)" if a.cost_usd else ""
         print(f"{a.label} [{type(a).__name__}]: {a.calls} calls, "

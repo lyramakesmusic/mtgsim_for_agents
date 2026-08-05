@@ -249,14 +249,25 @@ class Game:
 
     # ---------------- public table log ----------------
     def snapshot(self):
-        """Full authoritative state as plain data — the renderer's ground
-        truth. Diffs between consecutive snapshots are the animations."""
+        """Full authoritative state as plain data. The renderer diffs
+        consecutive snapshots for animations; restore_game() rebuilds a live
+        Game from any one of them — every event is a save point."""
         return {
             "turn": self.turn,
+            "next_id": self.next_id, "stack_seq": self.stack_seq,
+            "stack_empty": not self.stack,
+            "standing": [dict(st) for st in self.standing],
+            # which minds played this moment — branching clones + truncates these
+            "sessions": [{"kind": type(a).__name__,
+                          "id": getattr(getattr(a, "scribe", a), "session_id", None),
+                          "calls": getattr(getattr(a, "scribe", a), "calls", 0)}
+                         for a in self.agents],
             "players": [{
                 "handle": pl.handle, "name": pl.name, "life": pl.life, "alive": pl.alive,
                 "hand": list(pl.hand), "graveyard": list(pl.graveyard), "exile": list(pl.exile),
-                "library": len(pl.library), "command_zone": pl.command_zone,
+                "library": len(pl.library), "library_cards": list(pl.library),
+                "lands_played": pl.lands_played, "drew_this_turn": pl.drew_this_turn,
+                "command_zone": pl.command_zone,
                 "commander": pl.commander, "commander_tax": pl.commander_tax,
                 "battlefield": [dict(x) for x in pl.battlefield],
             } for pl in self.p],
@@ -1538,11 +1549,17 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         for pl in self.p:
             pl.drew_this_turn = 0
 
-    def run(self):
+    def run(self, from_turn=1, from_seat=0):
+        """Play from (from_turn, from_seat) to the end. The defaults play a
+        fresh game, mulligans included; restore_game() passes the half-turn
+        after its save point."""
         try:
-            self.mulligans()
-            for self.turn in range(1, self.max_turns + 1):
+            if from_turn == 1 and from_seat == 0:
+                self.mulligans()
+            for self.turn in range(from_turn, self.max_turns + 1):
                 for i in range(len(self.p)):
+                    if self.turn == from_turn and i < from_seat:
+                        continue
                     self.half_turn(i)
             standings = sorted((pl for pl in self.p if pl.alive), key=lambda p: -p.life)
             self.log(f"\n**Turn cap {self.max_turns} reached. Standings: " +
