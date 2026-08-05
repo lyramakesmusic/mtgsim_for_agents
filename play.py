@@ -29,7 +29,9 @@ if __name__ == "__main__":
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--max-turns", type=int, default=12)
     ap.add_argument("--claude-model", default="opus")
-    ap.add_argument("--codex-model", default=None, help="default: codex config default")
+    ap.add_argument("--codex-model", default="gpt-5.6-terra",
+                    help="codex model for all codex seats + judge + scribe (default gpt-5.6-terra; "
+                         "want sol? --codex-model gpt-5.6-sol, or per-seat codex@gpt-5.6-sol:deck)")
     ap.add_argument("--codex-tier", default=None, choices=["fast", "priority", "flex"],
                     help="codex service_tier (what /fast sets); default: your ~/.codex config")
     ap.add_argument("--codex-effort", default=None,

@@ -164,7 +164,7 @@ if __name__ == "__main__":
     ap.add_argument("--parallel", type=int, default=4)
     ap.add_argument("--force", action="store_true", help="redo existing postmortems")
     ap.add_argument("--combine-only", action="store_true")
-    ap.add_argument("--codex-model", default=None)
+    ap.add_argument("--codex-model", default="gpt-5.6-terra")
     ap.add_argument("--codex-effort", default=None,
                     choices=["minimal", "low", "medium", "high"])
     args = ap.parse_args()
