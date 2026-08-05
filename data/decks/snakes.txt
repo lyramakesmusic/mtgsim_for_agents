@@ -1,4 +1,4 @@
-// strategy: Political group hug with a knife. Xyris turns every extra card an opponent draws into a snake for you, and Xyris combat damage makes the defender draw that many — so a pump spell on a connecting Xyris is a draw engine and a board doubler at once. Wheels are the nukes: one wheel with Xyris out is 15+ snakes. Purphoros and Impact Tremors make the snakes themselves the clock; Goblin Bombardment makes them removal and reach. The deck dies to a stiff breeze — the cards you hand out are the armor.
+// strategy: Political group hug with a knife. Xyris turns every extra card an opponent draws into a snake for you, and Xyris combat damage makes the defender draw that many — so a pump spell on a connecting Xyris is a draw engine and a board doubler at once. Wheels are the nukes: one wheel with Xyris out is 15+ snakes. Purphoros and Impact Tremors make the snakes themselves the clock; Goblin Bombardment makes them removal and reach. Pump spells chain, and cast after blocks are declared nobody knows which creature hits for 9 until it's too late to block it.
 Commander
 1 Xyris, the Writhing Storm
 
