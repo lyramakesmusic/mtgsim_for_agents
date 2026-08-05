@@ -201,3 +201,29 @@ def test_split_second_skips_windows(make_game):
     assert "split second" in joined
     assert not windows                               # nobody was ever asked
     assert "Krosan Grip" in g.p[0].graveyard
+
+
+def test_stack_target_never_battlefield_fizzles(make_game):
+    """Seen in tourney: Counterspell targeting stack#48 got fizzled by the
+    battlefield police — stack ids are spells, exempt from that check."""
+    g = make_game()
+    g.p[0].hand.append("Counterspell")
+    g.do_action(0, {"action": "cast", "card": "Counterspell", "targets": ["stack#3"],
+                    "narration": "countering a thing the engine can't see"})
+    assert not any("FIZZLES" in l for l in g.table)
+    assert "Counterspell" in g.p[0].graveyard      # instants still resolve to gy
+
+
+def test_counter_atom_in_corrections(make_game):
+    """Seen in tourney: two agents filed correct actions carrying counter
+    atoms to repair a bad fizzle — 'unknown effect atom'. Now honored."""
+    g = make_game()
+    g.stack.append({"id": "stack#9", "caster": 1, "kind": "spell",
+                    "name": "Blind Obedience", "countered": False})
+    g.do_action(0, {"action": "correct",
+                    "effects": [{"counter": {"target": "stack#9"}}],
+                    "narration": "counterspell legally counters it"})
+    assert g.stack[0]["countered"]
+    assert any("is countered" in l for l in g.table)
+    g.apply_effects(0, [{"counter": {"target": "stack#404"}}])
+    assert any("not on the stack" in l for l in g.table)

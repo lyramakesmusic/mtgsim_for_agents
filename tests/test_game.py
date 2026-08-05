@@ -196,3 +196,16 @@ def test_combat_trick_window_lets_stack_grow(make_game):
     assert state["first"] and state["second"]
     assert g.p[0].graveyard.count("Fog") == 2      # both resolved
     assert not g.stack
+
+
+def test_narrated_no_damage_combat_not_flagged(make_game):
+    """A combat that honestly resolves to nothing (all blocked, fog...) with
+    a narration should NOT trip the no-consequences warning."""
+    g = make_game()
+    atk = g.perm(g.p[0], "Snake", token=True, pt=(1, 1))
+    atk["sick"] = False
+    g.agents[0] = StubAgent('{"action":"activate","effects":[],'
+                            '"narration":"fully blocked, no damage anywhere"}')
+    g.agents[2] = StubAgent('{"action":"block","blocks":{}}')
+    g.combat(0, {"action": "attack", "attacks": {"P3": [atk["id"]]}})
+    assert not any("no combat consequences" in l for l in g.table)

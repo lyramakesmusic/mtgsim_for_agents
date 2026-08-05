@@ -716,6 +716,15 @@ class Game:
             if got:
                 self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})", seat=tgt.handle)
                 self.check_standing("draw", self.p.index(tgt), len(got))
+        elif "counter" in e:
+            # honored anywhere (responses, corrections): counter a live stack object
+            tid = str((e["counter"] or {}).get("target", ""))
+            tgt = next((o for o in self.stack if o["id"] == tid), None)
+            if tgt:
+                tgt["countered"] = True
+                self.log(f"  ↳ {tgt['id']} {tgt['name']} is countered.")
+            else:
+                self.log(f"  !! counter: {tid!r} is not on the stack; no effect")
         elif "ask" in e:
             self._atom_ask(i, e["ask"])
         elif "standing" in e:
@@ -835,7 +844,10 @@ class Game:
         c = a.get("card")
         targets = [str(t) for t in (a.get("targets") or [])]
         if targets:
-            gone = [t for t in targets if "#" in t and not self.find(t, prefer=i)[1]]
+            # stack#N targets are spells, not permanents — the battlefield
+            # search can't see them, and countering is adjudicated elsewhere
+            gone = [t for t in targets if "#" in t and not str(t).startswith("stack#")
+                    and not self.find(t, prefer=i)[1]]
             if gone and len(gone) == len(targets):
                 if from_cz:
                     me.command_zone = True
@@ -1457,9 +1469,9 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             schema_hint='{"action":"activate","effects":[...],"narration":str}')
         self.log(f"combat result — {result.get('narration','')}")
         self.apply_effects(i, result.get("effects"))
-        if not result.get("effects"):
-            self.log(f"  !! {me.name} declared no combat consequences at all — if damage "
-                     f"happened, repair via a correct action; the table should check this")
+        if not result.get("effects") and not result.get("narration"):
+            self.log(f"  !! {me.name} declared no combat consequences and gave no explanation "
+                     f"— if damage happened, repair via a correct action; the table should check")
 
     def _trick_window(self, i, context):
         """An instant-speed offer that opens the real stack. Anything cast here
