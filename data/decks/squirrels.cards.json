@@ -1,10 +1,4 @@
 {
- "Acorn Harvest": {
-  "cost": "3G",
-  "type": "Sorcery",
-  "text": "Create two 1/1 green Squirrel creature tokens. Flashback\u2014{1}{G}, Pay 3 life. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
-  "pt": null
- },
  "Adventure Awaits": {
   "cost": "1G",
   "type": "Sorcery",
@@ -143,12 +137,6 @@
    1
   ]
  },
- "Garruk's Uprising": {
-  "cost": "2G",
-  "type": "Enchantment",
-  "text": "When this enchantment enters, if you control a creature with power 4 or greater, draw a card. Creatures you control have trample. (Each of those creatures can deal excess combat damage to the player or planeswalker it's attacking.) Whenever a creature you control with power 4 or greater enters, draw a card.",
-  "pt": null
- },
  "Harmonize": {
   "cost": "2GG",
   "type": "Sorcery",
@@ -269,15 +257,6 @@
    1
   ]
  },
- "Realmwalker": {
-  "cost": "2G",
-  "type": "Creature \u2014 Shapeshifter",
-  "text": "Changeling (This card is every creature type.) As this creature enters, choose a creature type. You may look at the top card of your library any time. You may cast creature spells of the chosen type from the top of your library.",
-  "pt": [
-   2,
-   3
-  ]
- },
  "Return to Nature": {
   "cost": "1G",
   "type": "Instant",
@@ -350,15 +329,6 @@
    1
   ]
  },
- "Squirrel Mob": {
-  "cost": "1GG",
-  "type": "Creature \u2014 Squirrel",
-  "text": "This creature gets +1/+1 for each other Squirrel on the battlefield.",
-  "pt": [
-   2,
-   2
-  ]
- },
  "Squirrel Nest": {
   "cost": "1GG",
   "type": "Enchantment \u2014 Aura",
@@ -388,12 +358,6 @@
    2,
    2
   ]
- },
- "The Ten Rings": {
-  "cost": "8",
-  "type": "Legendary Artifact",
-  "text": "Your maximum hand size is ten. At the beginning of your end step, if you have fewer than ten cards in hand, draw cards equal to the difference.",
-  "pt": null
  },
  "The Unbeatable Squirrel Girl": {
   "cost": "1GGG",
@@ -446,15 +410,6 @@
   "text": "Search your library for a basic land card, reveal it, put it into your hand, then shuffle. Delirium \u2014 If there are four or more card types among cards in your graveyard, instead search your library for a creature or land card, reveal it, put it into your hand, then shuffle.",
   "pt": null
  },
- "Treetop Sentries": {
-  "cost": "3G",
-  "type": "Creature \u2014 Squirrel Archer",
-  "text": "Reach When this creature enters, you may forage. If you do, draw a card. (To forage, exile three cards from your graveyard or sacrifice a Food.)",
-  "pt": [
-   2,
-   4
-  ]
- },
  "Verdant Command": {
   "cost": "1G",
   "type": "Instant",
@@ -488,16 +443,49 @@
    3
   ]
  },
- "Jiang Yanggu, Wildcrafter": {
-  "cost": "2G",
-  "type": "Legendary Planeswalker \u2014 Yanggu",
-  "text": "Each creature you control with a +1/+1 counter on it has \"{T}: Add one mana of any color.\" \u22121: Put a +1/+1 counter on target creature. [Loyalty 3 \u2014 track via counters+notes]",
-  "pt": null
- },
  "Song of Freyalise": {
   "cost": "1G",
   "type": "Enchantment \u2014 Saga",
   "text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I, II \u2014 Until your next turn, creatures you control gain \"{T}: Add one mana of any color.\" III \u2014 Put a +1/+1 counter on each creature you control. Those creatures gain vigilance, trample, and indestructible until end of turn.",
+  "pt": null
+ },
+ "Evolutionary Leap": {
+  "cost": "1G",
+  "type": "Enchantment",
+  "text": "{G}, Sacrifice a creature: Reveal cards from the top of your library until you reveal a creature card. Put that card into your hand and the rest on the bottom of your library in a random order.",
+  "pt": null
+ },
+ "Herd Baloth": {
+  "cost": "3GG",
+  "type": "Creature \u2014 Beast",
+  "text": "Whenever one or more +1/+1 counters are put on this creature, you may create a 4/4 green Beast creature token.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Kenrith's Transformation": {
+  "cost": "1G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature When this Aura enters, draw a card. Enchanted creature loses all abilities and is a green Elk creature with base power and toughness 3/3. (It loses all other card types and creature types.)",
+  "pt": null
+ },
+ "Lightning Greaves": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
+  "pt": null
+ },
+ "Staff of Domination": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{1}: Untap this artifact. {2}, {T}: You gain 1 life. {3}, {T}: Untap target creature. {4}, {T}: Tap target creature. {5}, {T}: Draw a card.",
+  "pt": null
+ },
+ "Vitalize": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Untap all creatures you control.",
   "pt": null
  }
 }

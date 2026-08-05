@@ -1,12 +1,11 @@
-// strategy: 1) Make a lot of mana — land drops before optional draw engines (commander tax is real and creature mana dies to wipes), dorks next, then Cryptolith Rite / Citanul Hierophants turn every squirrel into a Forest. Song of Freyalise is the same effect on a timer: chapters I-II give you a two-turn window to go infinite (all you need), and chapter III crowns the swing — a +1/+1 counter on everything (permanent mana dorks under Yanggu) plus vigilance, trample, indestructible. Cast it the turn before you crank. Jiang Yanggu pairs specifically with Ivy Lane Denizen: every green creature that enters gets a counter from the Denizen, and anything with a counter is a mana dork under Yanggu — each new squirrel pays for the next. 2) Turn that mana into squirrels. 3) Turn those squirrels into pain. Combo lines: Squirrel Girl + Concordant Crossroads + (Rite or Hierophants or Freyalise) = infinite squirrels and mana — new tokens need haste to tap, so Crossroads sustains the loop. Crashing Drawbridge does not: its tap only blesses creatures already on board, once per turn — use it for the final swing after the crank, or an early hasty commander, not to run the loop. Squirrel Girl + Supportive Parents also goes infinite — tapping two creatures is a cost, so it works through summoning sickness. Scurry Oak + Ivy Lane Denizen loops squirrels with no commander needed (each green creature ETB puts a counter on Oak, which makes another squirrel). Champion of Lambholt makes the swarm unblockable; Skullclamp, Bestiary, Garruk's Uprising and Toski keep cards flowing without overextending into wipes. Hold up protection — Overprotect, Collective Resistance, Druid's Deliverance, Fog, Spore Frog — and spend it on removal aimed at your final mana or haste enabler, never on earlier value exchanges; the table WILL have answers. Don't activate Squirrel Girl as a mana engine unless haste is already in play or the board survives a full rotation — Hierophants alone is not a loop. Kill on the turn you crank, not the turn after.
+// strategy: 1) Make a lot of mana — land drops before optional draw engines (commander tax is real and creature mana dies to wipes), dorks next, then Cryptolith Rite / Citanul Hierophants turn every squirrel into a Forest. Song of Freyalise is the same effect on a timer: chapters I-II give you a two-turn window to go infinite (all you need), and chapter III crowns the swing — a +1/+1 counter on everything plus vigilance, trample, indestructible. Cast it the turn before you crank. Vitalize is a one-mana ritual once creatures tap for mana, and Staff of Domination + Karametra's Acolyte (devotion 5+) is infinite mana that draws your whole deck — jackpot line, no tutor for the Staff. 2) Turn that mana into squirrels. 3) Turn those squirrels into pain. Combo lines: Squirrel Girl + Concordant Crossroads + (Rite or Hierophants or Freyalise) = infinite squirrels and mana — new tokens need haste to tap, so Crossroads sustains the loop. Crashing Drawbridge does not: its tap only blesses creatures already on board, once per turn — final swing or an early hasty commander only. Squirrel Girl + Supportive Parents also goes infinite — tapping two creatures is a cost, so it works through summoning sickness. Ivy Lane Denizen goes infinite with either Scurry Oak or Herd Baloth, no commander needed (each green creature ETB puts a counter on Oak/Baloth, which makes another token). Lightning Greaves haste the commander and shroud her through the announce window — but shroud blocks YOUR targeting too: no Overprotect, no Season of Growth, no Denizen counters on the wearer, so boots on Girl, counters at Baloth. Champion of Lambholt makes the swarm unblockable; Skullclamp, Bestiary and Toski keep cards flowing without overextending into wipes. Evolutionary Leap is wipe insurance: sacrifice the board in response and turn tokens into creature cards — die on your terms. Hold up protection — Overprotect, Collective Resistance, Druid's Deliverance, Fog, Spore Frog — and spend it on removal aimed at your final mana or haste enabler, never on earlier value exchanges; the table WILL have answers. Don't activate Squirrel Girl as a mana engine unless haste is already in play or the board survives a full rotation — Hierophants alone is not a loop. Kill on the turn you crank, not the turn after.
 Commander
 1 The Unbeatable Squirrel Girl
 
 Deck
-31 Forest
+32 Forest
 1 Oakhollow Village
 1 Oran-Rief, the Vastwood
-1 Acorn Harvest
 1 Adventure Awaits
 1 Altar of the Brood
 1 Beast Within
@@ -25,27 +24,28 @@ Deck
 1 Elven Farsight
 1 Elvish Mystic
 1 Eternal Witness
+1 Evolutionary Leap
 1 Fog
 1 Forgotten Ancient
 1 Fyndhorn Elves
-1 Garruk's Uprising
 1 Harmonize
+1 Herd Baloth
 1 Honored Dreyleader
 1 Idol of Oblivion
 1 Inspiring Call
 1 Ivy Lane Denizen
 1 Jaheira, Friend of the Forest
-1 Jiang Yanggu, Wildcrafter
 1 Karametra's Acolyte
+1 Kenrith's Transformation
 1 Lead the Stampede
 1 Lifecrafter's Bestiary
+1 Lightning Greaves
 1 Llanowar Elves
 1 Nature's Claim
 1 Overprotect
 1 Prey Upon
 1 Prizefight
 1 Prosperous Innkeeper
-1 Realmwalker
 1 Return to Nature
 1 Rootcast Apprenticeship
 1 Scrapshooter
@@ -57,18 +57,17 @@ Deck
 1 Sol Ring
 1 Song of Freyalise
 1 Spore Frog
-1 Squirrel Mob
 1 Squirrel Nest
+1 Staff of Domination
 1 Supportive Parents
 1 Symmetry Matrix
 1 Tender Wildguide
-1 The Ten Rings
 1 Thornvault Forager
 1 Thousand-Year Elixir
 1 Throne of the God-Pharaoh
 1 Time of Need
 1 Toski, Bearer of Secrets
 1 Traverse the Ulvenwald
-1 Treetop Sentries
 1 Verdant Command
+1 Vitalize
 1 Woodland Champion
