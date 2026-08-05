@@ -46,7 +46,7 @@ def test_response_window_pass_never_wakes_scribe(monkeypatch):
     h = HumanAgent("P2(snakes)", scribe)
     feed(monkeypatch, [""])
     assert json.loads(h.ask(RESP_PROMPT)) == {"action": "pass"}
-    feed(monkeypatch, ["nah"])
+    feed(monkeypatch, ["pass"])
     assert json.loads(h.ask(RESP_PROMPT)) == {"action": "pass"}
     assert scribe.calls == 0
     assert h.session_id            # engine may switch to deltas immediately
@@ -146,7 +146,7 @@ def test_scribe_crash_not_mistaken_for_pass(monkeypatch):
 def test_quoted_line_is_table_talk_on_pass(monkeypatch):
     scribe = StubScribe()
     h = HumanAgent("P2(snakes)", scribe)
-    feed(monkeypatch, ['"B is way too strong"', "nah"])
+    feed(monkeypatch, ['"B is way too strong"', "pass"])
     out = json.loads(h.ask(RESP_PROMPT))
     assert out == {"action": "pass", "table_talk": "B is way too strong"}
     assert scribe.calls == 0                     # banter costs zero LLM calls
@@ -166,7 +166,7 @@ def test_quoted_line_rides_next_action(monkeypatch):
 def test_local_state_commands(monkeypatch, capsys):
     scribe = StubScribe()
     h = HumanAgent("P2(snakes)", scribe)
-    feed(monkeypatch, ["hand", "board", "nah"])
+    feed(monkeypatch, ["hand", "board", "pass"])
     h.ask(RESP_PROMPT)
     out = capsys.readouterr().out
     assert "Counterspell; Island" in out         # 'hand' reprints
@@ -254,9 +254,19 @@ def test_confirm_window_has_no_silent_default(monkeypatch):
     correction verbatim. Enter/'pass'/'nah' now reprompt; only explicit words act."""
     scribe = StubScribe()
     h = HumanAgent("P4(squirrels)", scribe)
-    feed(monkeypatch, ["", "nah", "pass", "resolve"])
+    feed(monkeypatch, ["", "pass", "resolve"])
     assert json.loads(h.ask(CONFIRM_PROMPT)) == {"action": "pass"}   # only 'resolve' got through
     assert scribe.calls == 0
     h2 = HumanAgent("P4(squirrels)", StubScribe())
     feed(monkeypatch, ["fizzle"])
     assert json.loads(h2.ask(CONFIRM_PROMPT)) == {"action": "fizzle"}
+
+
+def test_nah_is_language_scribe_passes(monkeypatch):
+    """'nah' is language: it routes to the scribe, which passes on the
+    human's behalf."""
+    scribe = StubScribe(['{"action":"pass","chat":"passing for you"}'])
+    h = HumanAgent("P4(squirrels)", scribe)
+    feed(monkeypatch, ["nah"])
+    assert json.loads(h.ask(RESP_PROMPT)) == {"action": "pass"}
+    assert scribe.calls == 1

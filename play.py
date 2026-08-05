@@ -116,7 +116,7 @@ if __name__ == "__main__":
                if args.show_hidden else
                "Other seats' private thinking is hidden from this console (--show-hidden to peek).")
         print(f"you're seated ({args.human_agent} scribing). When the banner fires, type at "
-              f"you> — plain words, the scribe handles the JSON. enter/'nah' passes a window, "
+              f"you> — plain words, the scribe handles the JSON. enter/'pass' passes a window, "
               f"'done' ends your turn, 'hand'/'board' reprint state, \"quotes\" go to the table. "
               f"Lines typed *between* prompts go to the judge channel, not your seat. {vis}")
     game.run()

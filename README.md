@@ -47,7 +47,7 @@ you> lets cast squirrel girl. next turn we want the combo pieces out
   → {"action":"cast","card":"The Unbeatable Squirrel Girl","tap":[...]}
 ```
 
-a reverse-video banner + terminal bell fires when the game needs you, so you can alt-tab while the agents think. enter or 'nah' passes a response window (costs nothing, no llm call), 'done' ends your turn, "anything in quotes" goes to the table as talk. asking the scribe questions is private; quoted lines are public. by default you can't see the other seats' private thinking (no wallhacks) — `--show-hidden` if you'd rather spectate-while-playing and police yourself.
+a reverse-video banner + terminal bell fires when the game needs you, so you can alt-tab while the agents think. enter or 'pass' passes a response window (costs nothing, no llm call — a typed "nah" works too, the scribe knows what you mean), 'done' ends your turn, "anything in quotes" goes to the table as talk. you can ask the agent interpreting you questions about cards and board state and it will answer them to you privately without taking action unless you clearly request it. by default you can't see the other seats' private thinking (no wallhacks) — `--show-hidden` if you'd rather spectate-while-playing and police yourself.
 
 the agents don't know which seat is human. they will politick you, cut deals with you, and betray you on schedule.
 

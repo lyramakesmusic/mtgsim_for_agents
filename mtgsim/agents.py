@@ -237,7 +237,9 @@ class LocalAgent(OpenRouterAgent):
 
 _HBOLD, _HDIM, _HGREY, _HITAL, _HBANNER, _HRESET = \
     "\033[1m", "\033[2m", "\033[90m", "\033[3m", "\033[1;7m", "\033[0m"
-_PASS_WORDS = {"", "pass", "done", "nah", "no", "n", "nothing", "nope", "skip"}
+# protocol keywords: resolve locally, zero llm calls. everything else is
+# language and routes to the scribe, which acts on it (including passing)
+_PASS_WORDS = {"", "pass", "done"}
 
 
 class HumanAgent:
@@ -248,7 +250,7 @@ class HumanAgent:
     committed intent into the action JSON, and does the bookkeeping (tap
     lists, effect atoms, triggers) the human shouldn't have to type.
 
-    Cheap paths never wake the scribe: enter/'nah' passes a response window,
+    Cheap paths never wake the scribe: enter/'pass' passes a response window,
     'done' ends your turn, 'keep'/'mull' answer the opening hand, 'hand' and
     'board' reprint state locally. Engine prompts that arrive while the human
     isn't talking are buffered and delivered to the scribe on the next real
@@ -317,7 +319,7 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
             print(f"{_HDIM}{instr.split('. You may')[0]}{_HRESET}")
             if stack:
                 print(f"{_HDIM}{stack}{_HRESET}")
-            print(f"{_HDIM}(enter/'nah' passes — or say what you want to do){_HRESET}")
+            print(f"{_HDIM}(enter/'pass' passes — or say what you want to do){_HRESET}")
             return
         if mainphase:
             self._banner("YOUR TURN")
@@ -437,6 +439,8 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
                 continue
             if instr.startswith("DECISION") and low in ("yes", "y"):
                 return self._with_talk({"choice": "yes"})
+            if instr.startswith("DECISION") and low in ("no",):
+                return self._with_talk({"choice": "no"})
             if opening and low == "keep":
                 return self._with_talk({"action": "keep"})
             if opening and low in ("mull", "mulligan"):
