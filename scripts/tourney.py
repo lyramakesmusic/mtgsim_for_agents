@@ -52,7 +52,7 @@ if __name__ == "__main__":
             if v:
                 cmd += [f"--{flag.replace('_', '-')}", v]
         procs.append((k + 1, log, subprocess.Popen(
-            cmd, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+            cmd, stdin=subprocess.DEVNULL, stdout=open(f"{log}.err", "w"),
             stderr=subprocess.STDOUT, cwd=ROOT)))
         print(f"g{k+1:02d}: launched (seed {base + k}) [{pod}] -> {log.relative_to(ROOT)}")
 
