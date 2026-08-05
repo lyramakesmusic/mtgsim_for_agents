@@ -8,7 +8,11 @@ minimal state-tracking sim that allows various claude or codex agents to play mt
 
 the models already know the rules. they have quite extensive knowledge of cards, rulings, archetypes, etc. each seat is just a persistent `claude -p` or `codex exec` session. agents reply with json actions plus "effect atoms" incl move, life, create, draw, etc. the engine tracks exactly what the agents declare and handles anything involving hidden info: draws, tutors, shuffles, scry peeks, coin flips.
 
-triggers, combat math, payments, ruling decisions, the stack, etc is on the agents. the agents will occasionally get something wrong, get called out, and take action to fix board state. 
+triggers, combat math, payments, ruling decisions, etc is on the agents. the agents will occasionally get something wrong, get called out, and take action to fix board state.
+
+the stack is real: spells and abilities announce as stack objects, everyone gets response windows, responses can be responded to, and you get the last window on your own spells — so casting a pump and then responding to yourself with a second pump is just how holding priority works. counterspell wars go as deep as anyone wants (within a sane cap).
+
+decisions that belong to someone else actually get asked: if you play smothering tithe, you register it once and the engine automatically asks each player "pay {2}?" on their draws until the tithe dies. same machinery covers rhystic study, punisher cards, votes — the agent declares what the card does, the engine just carries the question. 
 
 for example: P3 mind controlled P1's creature. P1 then lost the game. the sim removed P1's board state but was unable to handle removing the P3-controlled creature and left it on the board. the table realized, and took an action to hand the creature back to nonexistent P1 (removing it from the game) explicitly, noting it as a correction of board state rather than a play.
 
@@ -24,11 +28,41 @@ you need claude code and/or the codex cli, logged in, plus `uv`. then:
 uv run play.py --pod claude:squirrels,codex:snakes,claude:meren,codex:aurelia
 ```
 
-2-4 seats, each `agent:deck`. the game streams to your terminal as shown above and saves to `games/` as markdown plus a jsonl event stream. claude seats default to opus5, codex does not choose a default model.
+2-4 seats, each `agent:deck`, or `agent@model:deck` to pin a model per seat (`codex@gpt-5.6-sol:snakes`). the game streams to your terminal as shown above and saves to `games/` as markdown plus a jsonl event stream. claude seats default to opus5, codex to gpt-5.6-terra. theres also an `openrouter@provider/slug:deck` backend for seating oss models, and `local:deck` for whatever your lm studio / llama.cpp server is running.
+
+## playing against them
+
+you can take a seat yourself:
+
+```bash
+uv run play.py --pod claude:snakes,codex:meren,codex:aurelia,human:squirrels
+```
+
+you don't write json — a scribe agent (codex by default, `--human-agent claude` to switch) sits between you and the engine. you type plain words at a `you>` prompt, it does the bookkeeping:
+
+```
+you> how much mana for jaheira *and* crossroads
+scribe: Four mana total: {2}{G} for Jaheira and {G} for Crossroads.
+you> lets cast squirrel girl. next turn we want the combo pieces out
+  → {"action":"cast","card":"The Unbeatable Squirrel Girl","tap":[...]}
+```
+
+a reverse-video banner + terminal bell fires when the game needs you, so you can alt-tab while the agents think. enter or 'nah' passes a response window (costs nothing, no llm call), 'done' ends your turn, "anything in quotes" goes to the table as talk. asking the scribe questions is private; quoted lines are public. by default you can't see the other seats' private thinking (no wallhacks) — `--show-hidden` if you'd rather spectate-while-playing and police yourself.
+
+the agents don't know which seat is human. they will politick you, cut deals with you, and betray you on schedule.
+
+## running a lot of games
+
+```bash
+uv run scripts/tourney.py --pod codex:meren,codex:snakes,codex:aurelia,codex:squirrels --n 8
+uv run scripts/postmortem.py games/tourney_<stamp>/
+```
+
+tourney runs n games in parallel (pass `--pod` multiple times to vary the opposition per game). postmortem points a codex agent at each finished log: it reports the wincon that actually fired vs what the deck's memo promised, mvp and dead cards, who the table decided was the problem and when, and the one change most likely to flip the result — then a synthesis pass over all games writes a combined report with win rates, recurring failure modes, and proposed edits to your strategy memos. useful for playtesting a deck overnight without touching a keyboard.
 
 ## decks
 
-we've included 6 stock decks (bracket ~2.5-3): unbeatable squirrel girl (ramp into infinite squirrel tokens and cause pain), xyris group hug combat tricks ("here have cards" until they die), braids (everyone gets free stuff every upkeep but mine are eldrazi), lifedrain (anything anybody does drains them life and gives it to me), meren (graveyard grind), aurelia (boros fliers).
+we've included 6 stock decks (bracket ~2.5-3.5): unbeatable squirrel girl (ramp into infinite squirrel tokens and cause pain), xyris group hug combat tricks ("here have cards" until they die), braids (everyone gets free stuff every upkeep but mine are eldrazi), lifedrain (anything anybody does drains them life and gives it to me), meren (graveyard grind), aurelia (boros fliers).
 
 adding yours: paste any decklist export (moxfield/arena/deckstats formats all parse) into `data/decks/whatever.txt`, then, to actually grab the rules text from each card:
 
@@ -44,7 +78,6 @@ optionally put a `// strategy: ...` comment at the top, the agents will read it 
 - extreme janky game-bending cards that can't be easily handled by the sim aren't able to be corrected for by the agents. if you absolutely need them, patch the sim.
   - no extra turns or weird turn order, the turn loop is a fixed rotation.
   - no shared zones (knowledge pool type stuff): cards live in exactly one player's zones.
-- the stack is weakly handled, so long counterspell wars etc aren't always possible - spells give opponents a chance to react, but there's currently no infra for reacting-in-response-to-a-reaction.
 - if agents are slow, their window will time out and the harness will pass its turn after 10 minutes.
 - pumps, clones, attachments, first strike, commander damage, poison, floating mana, and "doesn't untap" are all manually tracked by agents, not in the sim. so there's potential for issues if the agents aren't on top of things.
 
