@@ -38,7 +38,7 @@ you can take a seat yourself:
 uv run play.py --pod claude:snakes,codex:meren,codex:aurelia,human:squirrels
 ```
 
-you don't write json — a scribe agent (codex by default, `--human-agent claude` to switch) sits between you and the engine. you type plain words at a `you>` prompt, it does the bookkeeping:
+you type plain words at a `you>` prompt, and a scribe agent (codex by default, `--human-agent claude` to switch) turns them into engine actions and does the bookkeeping:
 
 ```
 you> how much mana for jaheira *and* crossroads
