@@ -59,12 +59,6 @@
   "text": "Target creature gets +3/+1 until end of turn. Exile the top card of your library. Until the end of your next turn, you may play that card.",
   "pt": null
  },
- "Blood Moon": {
-  "cost": "2R",
-  "type": "Enchantment",
-  "text": "Nonbasic lands are Mountains.",
-  "pt": null
- },
  "Bloodshot Cyclops": {
   "cost": "5R",
   "type": "Creature \u2014 Cyclops Giant",
@@ -434,15 +428,6 @@
   "text": "Target creature gets +3/+1 until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
   "pt": null
  },
- "Twinflame Tyrant": {
-  "cost": "3RR",
-  "type": "Creature \u2014 Dragon",
-  "text": "Flying If a source you control would deal damage to an opponent or a permanent an opponent controls, it deals double that damage instead.",
-  "pt": [
-   3,
-   5
-  ]
- },
  "Young Pyromancer": {
   "cost": "1R",
   "type": "Creature \u2014 Human Shaman",
@@ -451,5 +436,32 @@
    2,
    1
   ]
+ },
+ "Access Tunnel": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {3}, {T}: Target creature with power 3 or less can't be blocked this turn.",
+  "pt": null
+ },
+ "Rogue's Passage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {4}, {T}: Target creature can't be blocked this turn.",
+  "pt": null
+ },
+ "Thermopod": {
+  "cost": "4R",
+  "type": "Snow Creature \u2014 Slug",
+  "text": "{S}: This creature gains haste until end of turn. ({S} can be paid with one mana from a snow source.) Sacrifice a creature: Add {R}.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Weaponize the Monsters": {
+  "cost": "R",
+  "type": "Enchantment",
+  "text": "{2}, Sacrifice a creature: This enchantment deals 2 damage to any target.",
+  "pt": null
  }
 }
