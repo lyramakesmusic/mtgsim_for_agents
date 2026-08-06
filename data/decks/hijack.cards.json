@@ -1,0 +1,455 @@
+{
+ "Abrade": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Abrade deals 3 damage to target creature. \u2022 Destroy target artifact.",
+  "pt": null
+ },
+ "Ancestral Anger": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Target creature gains trample and gets +X/+0 until end of turn, where X is 1 plus the number of cards named Ancestral Anger in your graveyard. Draw a card.",
+  "pt": null
+ },
+ "Anger of the Gods": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Anger of the Gods deals 3 damage to each creature. If a creature dealt damage this way would die this turn, exile it instead.",
+  "pt": null
+ },
+ "Arcane Lighthouse": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {1}, {T}: Until end of turn, creatures your opponents control lose hexproof and shroud and can't have hexproof or shroud.",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Ashnod's Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add {C}{C}.",
+  "pt": null
+ },
+ "Assault Strobe": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Target creature gains double strike until end of turn. (It deals both first-strike and regular combat damage.)",
+  "pt": null
+ },
+ "Barrage of Expendables": {
+  "cost": "R",
+  "type": "Enchantment",
+  "text": "{R}, Sacrifice a creature: This enchantment deals 1 damage to any target.",
+  "pt": null
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "This spell costs {1} less to cast for each creature on the battlefield. Blasphemous Act deals 13 damage to each creature.",
+  "pt": null
+ },
+ "Blazing Crescendo": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Target creature gets +3/+1 until end of turn. Exile the top card of your library. Until the end of your next turn, you may play that card.",
+  "pt": null
+ },
+ "Blood Moon": {
+  "cost": "2R",
+  "type": "Enchantment",
+  "text": "Nonbasic lands are Mountains.",
+  "pt": null
+ },
+ "Bloodshot Cyclops": {
+  "cost": "5R",
+  "type": "Creature \u2014 Cyclops Giant",
+  "text": "{T}, Sacrifice a creature: This creature deals damage equal to the sacrificed creature's power to any target.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Brute Force": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature gets +3/+3 until end of turn.",
+  "pt": null
+ },
+ "Built to Smash": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target attacking creature gets +3/+3 until end of turn. If it's an artifact creature, it gains trample until end of turn.",
+  "pt": null
+ },
+ "Bulk Up": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Double target creature's power until end of turn. Flashback {4}{R}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Burning Inquiry": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Each player draws three cards, then discards three cards at random.",
+  "pt": null
+ },
+ "Captivating Crew": {
+  "cost": "3R",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "{3}{R}: Gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn. Activate only as a sorcery.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "The owner of target permanent shuffles it into their library, then reveals the top card of their library. If it's a permanent card, they put it onto the battlefield.",
+  "pt": null
+ },
+ "Crimson Wisps": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature becomes red and gains haste until end of turn. (It can attack and {T} this turn.) Draw a card.",
+  "pt": null
+ },
+ "Dark-Dweller Oracle": {
+  "cost": "1R",
+  "type": "Creature \u2014 Goblin Shaman",
+  "text": "{1}, Sacrifice a creature: Exile the top card of your library. You may play that card this turn. (You still pay its costs. You can play a land this way only if you have an available land play remaining.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Dictate of the Twin Gods": {
+  "cost": "3RR",
+  "type": "Enchantment",
+  "text": "Flash If a source would deal damage to a permanent or player, it deals double that damage to that permanent or player instead.",
+  "pt": null
+ },
+ "Dragon Fodder": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "Create two 1/1 red Goblin creature tokens.",
+  "pt": null
+ },
+ "Expedite": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature gains haste until end of turn. Draw a card.",
+  "pt": null
+ },
+ "Faithless Looting": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Draw two cards, then discard two cards. Flashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Flame Jab": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Flame Jab deals 1 damage to any target. Retrace (You may cast this card from your graveyard by discarding a land card in addition to paying its other costs.)",
+  "pt": null
+ },
+ "Fling": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Fling deals damage equal to the sacrificed creature's power to any target.",
+  "pt": null
+ },
+ "Goblin Bombardment": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "Sacrifice a creature: This enchantment deals 1 damage to any target.",
+  "pt": null
+ },
+ "Goblin Matron": {
+  "cost": "2R",
+  "type": "Creature \u2014 Goblin",
+  "text": "When this creature enters, you may search your library for a Goblin card, reveal that card, put it into your hand, then shuffle.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Grab the Reins": {
+  "cost": "3R",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Until end of turn, you gain control of target creature and it gains haste. \u2022 Sacrifice a creature. Grab the Reins deals damage equal to that creature's power to any target. Entwine {2}{R} (Choose both if you pay the entwine cost.)",
+  "pt": null
+ },
+ "Gut Shot": {
+  "cost": "(R/P)",
+  "type": "Instant",
+  "text": "({R/P} can be paid with either {R} or 2 life.) Gut Shot deals 1 damage to any target.",
+  "pt": null
+ },
+ "Guttersnipe": {
+  "cost": "2R",
+  "type": "Creature \u2014 Goblin Shaman",
+  "text": "Whenever you cast an instant or sorcery spell, this creature deals 2 damage to each opponent.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Hijack": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Gain control of target artifact or creature until end of turn. Untap it. It gains haste until end of turn.",
+  "pt": null
+ },
+ "Howling Mine": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "At the beginning of each player's draw step, if this artifact is untapped, that player draws an additional card.",
+  "pt": null
+ },
+ "Humble Defector": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "{T}: Draw two cards. Target opponent gains control of this creature. Activate only during your turn.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Infuriate": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature gets +3/+2 until end of turn.",
+  "pt": null
+ },
+ "Isochron Scepter": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Imprint \u2014 When this artifact enters, you may exile an instant card with mana value 2 or less from your hand. {2}, {T}: You may copy the exiled card. If you do, you may cast the copy without paying its mana cost.",
+  "pt": null
+ },
+ "Kari Zev's Expertise": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Gain control of target creature or Vehicle until end of turn. Untap it. It gains haste until end of turn. You may cast a spell with mana value 2 or less from your hand without paying its mana cost.",
+  "pt": null
+ },
+ "Krenko, Mob Boss": {
+  "cost": "2RR",
+  "type": "Legendary Creature \u2014 Goblin Warrior",
+  "text": "{T}: Create X 1/1 red Goblin creature tokens, where X is the number of Goblins you control.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Light Up the Stage": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Spectacle {R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.) Exile the top two cards of your library. Until the end of your next turn, you may play those cards.",
+  "pt": null
+ },
+ "Lightning Bolt": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Lightning Bolt deals 3 damage to any target.",
+  "pt": null
+ },
+ "Lightning Greaves": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
+  "pt": null
+ },
+ "Loki, God of Lies": {
+  "cost": "1RR",
+  "type": "Legendary Creature \u2014 God Sorcerer Villain",
+  "text": "Whenever you cast a spell that targets only a single creature, gain control of that creature until end of turn. If it's your turn, untap that creature and it gains haste until end of turn.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Magus of the Moon": {
+  "cost": "2R",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Nonbasic lands are Mountains.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Makeshift Munitions": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "{1}, Sacrifice an artifact or creature: This enchantment deals 1 damage to any target.",
+  "pt": null
+ },
+ "Meekstone": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "Creatures with power 3 or greater don't untap during their controllers' untap steps.",
+  "pt": null
+ },
+ "Might of the Meek": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature gains trample until end of turn. It also gets +1/+0 until end of turn if you control a Mouse. Draw a card.",
+  "pt": null
+ },
+ "Mizzium Mortars": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "Mizzium Mortars deals 4 damage to target creature you don't control. Overload {3}{R}{R}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Past in Flames": {
+  "cost": "3R",
+  "type": "Sorcery",
+  "text": "Each instant and sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost. Flashback {4}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Power Surge": {
+  "cost": "RR",
+  "type": "Enchantment",
+  "text": "At the beginning of each player's upkeep, this enchantment deals X damage to that player, where X is the number of untapped lands they controlled at the beginning of this turn.",
+  "pt": null
+ },
+ "Pyromancer's Goggles": {
+  "cost": "5",
+  "type": "Legendary Artifact",
+  "text": "{T}: Add {R}. When that mana is spent to cast a red instant or sorcery spell, copy that spell and you may choose new targets for the copy.",
+  "pt": null
+ },
+ "Raphael, the Nightwatcher": {
+  "cost": "2RR",
+  "type": "Legendary Creature \u2014 Mutant Ninja Turtle",
+  "text": "Sneak {1}{R}{R} (You may cast this spell for {1}{R}{R} if you also return an unblocked attacker you control to hand during the declare blockers step. He enters tapped and attacking.) Attacking creatures you control have double strike.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Renegade Tactics": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Target creature can't block this turn. Draw a card.",
+  "pt": null
+ },
+ "Rionya, Fire Dancer": {
+  "cost": "3RR",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "At the beginning of combat on your turn, create X tokens that are copies of another target creature you control, where X is one plus the number of instant and sorcery spells you've cast this turn. They gain haste. Exile them at the beginning of the next end step.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Rush of Adrenaline": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature gets +2/+1 and gains trample until end of turn.",
+  "pt": null
+ },
+ "Seething Anger": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Buyback {3} (You may pay an additional {3} as you cast this spell. If you do, put this card into your hand as it resolves.) Target creature gets +3/+0 until end of turn.",
+  "pt": null
+ },
+ "Shock": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Shock deals 2 damage to any target.",
+  "pt": null
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/-1. Whenever equipped creature dies, draw two cards. Equip {1}",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Soul's Fire": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to any target.",
+  "pt": null
+ },
+ "Stun": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Target creature can't block this turn. Draw a card.",
+  "pt": null
+ },
+ "Swiftfoot Boots": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.) Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Team Tactics": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Teamwork 1 (As an additional cost to cast this spell, you may tap any number of creatures you control with total power 1 or more.) Target creature gains double strike until end of turn. If this spell was cast using teamwork, that creature also gains trample until end of turn.",
+  "pt": null
+ },
+ "Temple Bell": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Each player draws a card.",
+  "pt": null
+ },
+ "Temur Battle Rage": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Target creature gains double strike until end of turn. Ferocious \u2014 That creature also gains trample until end of turn if you control a creature with power 4 or greater.",
+  "pt": null
+ },
+ "Thud": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Thud deals damage equal to the sacrificed creature's power to any target.",
+  "pt": null
+ },
+ "Titan's Strength": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature gets +3/+1 until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+  "pt": null
+ },
+ "Twinflame Tyrant": {
+  "cost": "3RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying If a source you control would deal damage to an opponent or a permanent an opponent controls, it deals double that damage instead.",
+  "pt": [
+   3,
+   5
+  ]
+ },
+ "Young Pyromancer": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.",
+  "pt": [
+   2,
+   1
+  ]
+ }
+}
