@@ -86,12 +86,6 @@
   "text": "Double target creature's power until end of turn. Flashback {4}{R}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
   "pt": null
  },
- "Burning Inquiry": {
-  "cost": "R",
-  "type": "Sorcery",
-  "text": "Each player draws three cards, then discards three cards at random.",
-  "pt": null
- },
  "Captivating Crew": {
   "cost": "3R",
   "type": "Creature \u2014 Human Pirate",
@@ -128,12 +122,6 @@
   "text": "Flash If a source would deal damage to a permanent or player, it deals double that damage to that permanent or player instead.",
   "pt": null
  },
- "Dragon Fodder": {
-  "cost": "1R",
-  "type": "Sorcery",
-  "text": "Create two 1/1 red Goblin creature tokens.",
-  "pt": null
- },
  "Expedite": {
   "cost": "R",
   "type": "Instant",
@@ -144,12 +132,6 @@
   "cost": "R",
   "type": "Sorcery",
   "text": "Draw two cards, then discard two cards. Flashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
-  "pt": null
- },
- "Flame Jab": {
-  "cost": "R",
-  "type": "Sorcery",
-  "text": "Flame Jab deals 1 damage to any target. Retrace (You may cast this card from your graveyard by discarding a land card in addition to paying its other costs.)",
   "pt": null
  },
  "Fling": {
@@ -164,15 +146,6 @@
   "text": "Sacrifice a creature: This enchantment deals 1 damage to any target.",
   "pt": null
  },
- "Goblin Matron": {
-  "cost": "2R",
-  "type": "Creature \u2014 Goblin",
-  "text": "When this creature enters, you may search your library for a Goblin card, reveal that card, put it into your hand, then shuffle.",
-  "pt": [
-   1,
-   1
-  ]
- },
  "Grab the Reins": {
   "cost": "3R",
   "type": "Instant",
@@ -184,15 +157,6 @@
   "type": "Instant",
   "text": "({R/P} can be paid with either {R} or 2 life.) Gut Shot deals 1 damage to any target.",
   "pt": null
- },
- "Guttersnipe": {
-  "cost": "2R",
-  "type": "Creature \u2014 Goblin Shaman",
-  "text": "Whenever you cast an instant or sorcery spell, this creature deals 2 damage to each opponent.",
-  "pt": [
-   2,
-   2
-  ]
  },
  "Hijack": {
   "cost": "1RR",
@@ -215,12 +179,6 @@
    1
   ]
  },
- "Infuriate": {
-  "cost": "R",
-  "type": "Instant",
-  "text": "Target creature gets +3/+2 until end of turn.",
-  "pt": null
- },
  "Isochron Scepter": {
   "cost": "2",
   "type": "Artifact",
@@ -233,31 +191,10 @@
   "text": "Gain control of target creature or Vehicle until end of turn. Untap it. It gains haste until end of turn. You may cast a spell with mana value 2 or less from your hand without paying its mana cost.",
   "pt": null
  },
- "Krenko, Mob Boss": {
-  "cost": "2RR",
-  "type": "Legendary Creature \u2014 Goblin Warrior",
-  "text": "{T}: Create X 1/1 red Goblin creature tokens, where X is the number of Goblins you control.",
-  "pt": [
-   3,
-   3
-  ]
- },
- "Light Up the Stage": {
-  "cost": "2R",
-  "type": "Sorcery",
-  "text": "Spectacle {R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.) Exile the top two cards of your library. Until the end of your next turn, you may play those cards.",
-  "pt": null
- },
  "Lightning Bolt": {
   "cost": "R",
   "type": "Instant",
   "text": "Lightning Bolt deals 3 damage to any target.",
-  "pt": null
- },
- "Lightning Greaves": {
-  "cost": "2",
-  "type": "Artifact \u2014 Equipment",
-  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
   "pt": null
  },
  "Loki, God of Lies": {
@@ -269,25 +206,10 @@
    3
   ]
  },
- "Magus of the Moon": {
-  "cost": "2R",
-  "type": "Creature \u2014 Human Wizard",
-  "text": "Nonbasic lands are Mountains.",
-  "pt": [
-   2,
-   2
-  ]
- },
  "Makeshift Munitions": {
   "cost": "1R",
   "type": "Enchantment",
   "text": "{1}, Sacrifice an artifact or creature: This enchantment deals 1 damage to any target.",
-  "pt": null
- },
- "Meekstone": {
-  "cost": "1",
-  "type": "Artifact",
-  "text": "Creatures with power 3 or greater don't untap during their controllers' untap steps.",
   "pt": null
  },
  "Might of the Meek": {
@@ -312,12 +234,6 @@
   "cost": "3R",
   "type": "Sorcery",
   "text": "Each instant and sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost. Flashback {4}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
-  "pt": null
- },
- "Power Surge": {
-  "cost": "RR",
-  "type": "Enchantment",
-  "text": "At the beginning of each player's upkeep, this enchantment deals X damage to that player, where X is the number of untapped lands they controlled at the beginning of this turn.",
   "pt": null
  },
  "Pyromancer's Goggles": {
@@ -350,12 +266,6 @@
    4
   ]
  },
- "Rush of Adrenaline": {
-  "cost": "R",
-  "type": "Instant",
-  "text": "Target creature gets +2/+1 and gains trample until end of turn.",
-  "pt": null
- },
  "Seething Anger": {
   "cost": "R",
   "type": "Sorcery",
@@ -384,12 +294,6 @@
   "cost": "2R",
   "type": "Instant",
   "text": "Target creature you control deals damage equal to its power to any target.",
-  "pt": null
- },
- "Stun": {
-  "cost": "1R",
-  "type": "Instant",
-  "text": "Target creature can't block this turn. Draw a card.",
   "pt": null
  },
  "Swiftfoot Boots": {
@@ -428,15 +332,6 @@
   "text": "Target creature gets +3/+1 until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
   "pt": null
  },
- "Young Pyromancer": {
-  "cost": "1R",
-  "type": "Creature \u2014 Human Shaman",
-  "text": "Whenever you cast an instant or sorcery spell, create a 1/1 red Elemental creature token.",
-  "pt": [
-   2,
-   1
-  ]
- },
  "Access Tunnel": {
   "cost": "",
   "type": "Land",
@@ -462,6 +357,114 @@
   "cost": "R",
   "type": "Enchantment",
   "text": "{2}, Sacrifice a creature: This enchantment deals 2 damage to any target.",
+  "pt": null
+ },
+ "Act of Treason": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. (It can attack and {T} this turn.)",
+  "pt": null
+ },
+ "Caldera Pyremaw": {
+  "cost": "3RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying Whenever you cast an instant or sorcery spell, put a +1/+1 counter on this creature. Then this creature deals damage equal to its power to target opponent.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Crowd's Favor": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.) Target creature gets +1/+0 and gains first strike until end of turn. (It deals combat damage before creatures without first strike.)",
+  "pt": null
+ },
+ "Fists of Flame": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Draw a card. Until end of turn, target creature gains trample and gets +1/+0 for each card you've drawn this turn. (A creature with trample can deal excess combat damage to the player or planeswalker it's attacking.)",
+  "pt": null
+ },
+ "Haste Magic": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Target creature gets +3/+1 and gains haste until end of turn. Exile the top card of your library. You may play it until your next end step.",
+  "pt": null
+ },
+ "Jeska, Thrice Reborn": {
+  "cost": "2R",
+  "type": "Legendary Planeswalker \u2014 Jeska",
+  "text": "Jeska enters with a loyalty counter on her for each time you've cast a commander from the command zone this game. 0: Choose target creature. Until your next turn, if that creature would deal combat damage to one of your opponents, it deals triple that damage to that player instead. \u2212X: Jeska deals X damage to each of up to three targets. Jeska, Thrice Reborn can be your commander. Partner [Loyalty 0 \u2014 track via counters+notes]",
+  "pt": null
+ },
+ "Krark, the Thumbless": {
+  "cost": "1R",
+  "type": "Legendary Creature \u2014 Goblin Wizard",
+  "text": "Whenever you cast an instant or sorcery spell, flip a coin. If you lose the flip, return that spell to its owner's hand. If you win the flip, copy that spell, and you may choose new targets for the copy. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Magda, the Hoardmaster": {
+  "cost": "1R",
+  "type": "Legendary Creature \u2014 Dwarf Berserker",
+  "text": "Whenever you commit a crime, create a tapped Treasure token. This ability triggers only once each turn. (Targeting opponents, anything they control, and/or cards in their graveyards is a crime.) Sacrifice three Treasures: Create a 4/4 red Scorpion Dragon creature token with flying and haste. Activate only as a sorcery.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Raking Claws": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Target creature gains double strike until end of turn. Cycling {2} ({2}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Reliquary Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "You have no maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Siege Smash": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.) Choose one \u2014 \u2022 Destroy target artifact. \u2022 Target creature gets +3/+2 and gains trample until end of turn.",
+  "pt": null
+ },
+ "Snort": {
+  "cost": "3R",
+  "type": "Sorcery",
+  "text": "Each player may discard their hand and draw five cards. Then Snort deals 5 damage to each opponent who discarded their hand this way. Flashback {5}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Spectacular Showdown": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "Put a double strike counter on target creature, then goad each creature that had a double strike counter put on it this way. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.) Overload {4}{R}{R}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Sticky Fingers": {
+  "cost": "R",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has menace and \"Whenever this creature deals combat damage to a player, create a Treasure token.\" (It can't be blocked except by two or more creatures. The token is an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\") When enchanted creature dies, draw a card.",
+  "pt": null
+ },
+ "Storm-Kiln Artist": {
+  "cost": "3R",
+  "type": "Creature \u2014 Dwarf Shaman",
+  "text": "This creature gets +1/+0 for each artifact you control. Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Tablet of Discovery": {
+  "cost": "2R",
+  "type": "Artifact",
+  "text": "When this artifact enters, mill a card. You may play that card this turn. (To mill a card, put the top card of your library into your graveyard.) {T}: Add {R}. {T}: Add {R}{R}. Spend this mana only to cast instant and sorcery spells.",
   "pt": null
  }
 }

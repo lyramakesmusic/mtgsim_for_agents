@@ -1,12 +1,11 @@
-// strategy: A voltron deck wearing a steal-denial mask. The kill is usually pump-math commander damage — Loki through the tunnel, or any borrowed body doubled twice — and the theft suite is the mask: removal, defense, and the thing opponents play around while the 3/3 clocks them. Loki turns every spell that targets only a single creature into a theft — on your turn it untaps and hastes too — so aim the one-mana tricks at THEIR creatures. The kill is burst math on a borrowed body: Bulk Up doubles its power, Assault Strobe / Temur Battle Rage / Team Tactics give double strike, Dictate of the Twin Gods doubles all of it again, and Thud or Fling adds its power once more after combat — a stolen 8/8 is ~90 damage across three cheap spells. Rionya copies the stolen creature at combat, X = tricks cast this turn, hasted, exiled at end step so the copies never go home; Raphael gives all attackers double strike. Sac outlets (Bombardment, Barrage, Munitions, Ashnod's, Thermopod, Weaponize the Monsters, Bloodshot Cyclops) make any theft permanent; Meekstone does it without an outlet — stolen 3+ power creatures go home tapped and stay that way. Humble Defector loops: tap for two cards, it defects, any trick steals it back next turn for two more. Pyromancer's Goggles doubles any trick cast with its mana — a copied Bulk Up is x4 power, a copied Thud flings the same body's power twice (copies don't pay the sacrifice), a copied Dragon Fodder is four goblins for the clamp, and a copied Hijack / Kari Zev's / Grab the Reins takes a second creature — but note copies aren't cast, so a copied trick does NOT trigger Loki; only the true theft spells double-grab. Isochron Scepter imprints a trick for repeatable theft; Gut Shot steals for zero via phyrexian; Flame Jab retraces; Seething Anger has buyback; Past in Flames rebuys whole turns. The table learns to hold mana open in fear of instant-speed theft — Power Surge burns them for exactly that. Magus of the Moon hijacks greedy manabases. Access Tunnel is tuned to Loki's 3 power and Rogue's Passage sends any borrowed body through unblocked. Against creature-light boards (stax, control) the tricks point at Loki himself — Bulk Up plus a double-strike effect is 21 commander damage in two swings; the steal deck carries a voltron mode in the command zone. Cantrip tricks (Ancestral Anger, Expedite, Stun, Might of the Meek, Renegade Tactics, Titan's Strength, Blazing Crescendo) replace themselves; Krenko + Skullclamp is the draw engine: goblins double each tap and every goblin is two cards — twenty cards deep finds the whole voltron package. Young Pyromancer and Dragon Fodder feed the same clamp and the altars once the table stops playing creatures out of fear — which is also a win.
+// strategy: A voltron deck wearing a steal-denial mask. The kill is usually pump-math commander damage — Loki through the Access Tunnel, or a borrowed body doubled and thrown — and the theft suite is the mask: removal, defense, and the thing opponents play around while the 3/3 clocks them. Loki turns every spell that targets only a single creature into a theft (on your turn it untaps and hastes too), so aim the cheap tricks at THEIR creatures: the pump is a Threaten with the buff attached. Jeska's 0 makes a body deal triple combat damage — Loki plus any pump is 21 commander damage in one connect. Sac outlets (Bombardment, Barrage, Munitions, Ashnod's, Thermopod, Weaponize the Monsters, Bloodshot Cyclops) make thefts permanent; Fling, Thud and Soul's Fire convert power to face. Krark can't really lose in this deck: win the flip and the trick copies, lose and the steal already happened at cast — the spell just comes home for another theft later. Storm-Kiln Artist mints a Treasure per spell and Magda one per crime (targeting their stuff is a crime), so the tricks fund themselves. Pyromancer's Goggles doubles a trick cast with its mana — but copies aren't cast, so no extra Loki trigger; only true theft spells (Hijack, Act of Treason, Kari Zev's, Grab the Reins) double-grab. Isochron Scepter copies ARE cast: an imprinted trick steals every single turn. Fists of Flame plus the group-draw pieces (Howling Mine, Temple Bell, Snort) is a giant trampler from an empty board; Reliquary Tower keeps the ammo. Sticky Fingers on their creature is an aura-theft that leaves a Treasure engine; Caldera Pyremaw grows with every trick and throws its weight around; Spectacular Showdown goads the table's fatties into each other. Humble Defector loops: tap for two cards, it defects, steal it back with any trick tomorrow. Access Tunnel is tuned to Loki's 3 power; Rogue's Passage sends anything through unblocked.
 Commander
 1 Loki, God of Lies
 
 Deck
-30 Mountain
-1 Access Tunnel
-1 Rogue's Passage
 1 Abrade
+1 Access Tunnel
+1 Act of Treason
 1 Ancestral Anger
 1 Anger of the Gods
 1 Arcane Lighthouse
@@ -20,51 +19,54 @@ Deck
 1 Brute Force
 1 Built to Smash
 1 Bulk Up
-1 Burning Inquiry
+1 Caldera Pyremaw
 1 Captivating Crew
 1 Chaos Warp
 1 Crimson Wisps
+1 Crowd's Favor
 1 Dark-Dweller Oracle
 1 Dictate of the Twin Gods
-1 Dragon Fodder
 1 Expedite
 1 Faithless Looting
-1 Flame Jab
+1 Fists of Flame
 1 Fling
 1 Goblin Bombardment
-1 Goblin Matron
 1 Grab the Reins
 1 Gut Shot
-1 Guttersnipe
+1 Haste Magic
 1 Hijack
 1 Howling Mine
 1 Humble Defector
-1 Infuriate
 1 Isochron Scepter
+1 Jeska, Thrice Reborn
 1 Kari Zev's Expertise
-1 Krenko, Mob Boss
-1 Light Up the Stage
+1 Krark, the Thumbless
 1 Lightning Bolt
-1 Lightning Greaves
-1 Magus of the Moon
+1 Magda, the Hoardmaster
 1 Makeshift Munitions
-1 Meekstone
 1 Might of the Meek
 1 Mizzium Mortars
+29 Mountain
 1 Past in Flames
-1 Power Surge
 1 Pyromancer's Goggles
+1 Raking Claws
 1 Raphael, the Nightwatcher
+1 Reliquary Tower
 1 Renegade Tactics
 1 Rionya, Fire Dancer
-1 Rush of Adrenaline
+1 Rogue's Passage
 1 Seething Anger
 1 Shock
+1 Siege Smash
 1 Skullclamp
+1 Snort
 1 Sol Ring
 1 Soul's Fire
-1 Stun
+1 Spectacular Showdown
+1 Sticky Fingers
+1 Storm-Kiln Artist
 1 Swiftfoot Boots
+1 Tablet of Discovery
 1 Team Tactics
 1 Temple Bell
 1 Temur Battle Rage
@@ -72,4 +74,3 @@ Deck
 1 Thud
 1 Titan's Strength
 1 Weaponize the Monsters
-1 Young Pyromancer
