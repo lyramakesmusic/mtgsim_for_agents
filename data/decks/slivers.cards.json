@@ -1,0 +1,695 @@
+{
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Belligerent Sliver": {
+  "cost": "2R",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have menace. (They can't be blocked except by two or more creatures.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Blood Crypt": {
+  "cost": "",
+  "type": "Land \u2014 Swamp Mountain",
+  "text": "({T}: Add {B} or {R}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Blur Sliver": {
+  "cost": "2R",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have haste. (They can attack and {T} as soon as they come under your control.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Bonescythe Sliver": {
+  "cost": "3W",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have double strike. (They deal both first-strike and regular combat damage.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Brainstorm": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw three cards, then put two cards from your hand on top of your library in any order.",
+  "pt": null
+ },
+ "Breeding Pool": {
+  "cost": "",
+  "type": "Land \u2014 Forest Island",
+  "text": "({T}: Add {G} or {U}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Brood Sliver": {
+  "cost": "4G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Whenever a Sliver deals combat damage to a player, its controller may create a 1/1 colorless Sliver creature token.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Chronicle of Victory": {
+  "cost": "6",
+  "type": "Legendary Artifact",
+  "text": "As Chronicle of Victory enters, choose a creature type. Creatures you control of the chosen type get +2/+2 and have first strike and trample. Whenever you cast a spell of the chosen type, draw a card.",
+  "pt": null
+ },
+ "Cleaving Sliver": {
+  "cost": "3R",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control get +2/+0.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Cloudshredder Sliver": {
+  "cost": "RW",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have flying and haste.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Constricting Sliver": {
+  "cost": "5W",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have \"When this creature enters, you may exile target creature an opponent controls until this creature leaves the battlefield.\"",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Cryptolith Rite": {
+  "cost": "1G",
+  "type": "Enchantment",
+  "text": "Creatures you control have \"{T}: Add one mana of any color.\"",
+  "pt": null
+ },
+ "Crystalline Sliver": {
+  "cost": "WU",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Slivers have shroud. (They can't be the targets of spells or abilities.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Descendants' Path": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "At the beginning of your upkeep, reveal the top card of your library. If it's a creature card that shares a creature type with a creature you control, you may cast it without paying its mana cost. If you don't cast it, put it on the bottom of your library.",
+  "pt": null
+ },
+ "Diffusion Sliver": {
+  "cost": "1U",
+  "type": "Creature \u2014 Sliver",
+  "text": "Whenever a Sliver creature you control becomes the target of a spell or ability an opponent controls, counter that spell or ability unless its controller pays {2}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Distant Melody": {
+  "cost": "3U",
+  "type": "Sorcery",
+  "text": "Choose a creature type. Draw a card for each permanent you control of that type.",
+  "pt": null
+ },
+ "Door of Destinies": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "As this artifact enters, choose a creature type. Whenever you cast a spell of the chosen type, put a charge counter on this artifact. Creatures you control of the chosen type get +1/+1 for each charge counter on this artifact.",
+  "pt": null
+ },
+ "For the Ancestors": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Choose a creature type. Look at the top six cards of your library. You may reveal any number of cards of the chosen type from among them and put the revealed cards into your hand. Put the rest on the bottom of your library in a random order. Flashback {3}{G} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land \u2014 Forest",
+  "text": "({T}: Add {G}.)",
+  "pt": null
+ },
+ "Frantic Search": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Draw two cards, then discard two cards. Untap up to three lands.",
+  "pt": null
+ },
+ "Frontier Bivouac": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {G}, {U}, or {R}.",
+  "pt": null
+ },
+ "Galerider Sliver": {
+  "cost": "U",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have flying.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Gemhide Sliver": {
+  "cost": "1G",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Slivers have \"{T}: Add one mana of any color.\"",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Godless Shrine": {
+  "cost": "",
+  "type": "Land \u2014 Plains Swamp",
+  "text": "({T}: Add {W} or {B}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Growth Spiral": {
+  "cost": "GU",
+  "type": "Instant",
+  "text": "Draw a card. You may put a land card from your hand onto the battlefield.",
+  "pt": null
+ },
+ "Hallowed Fountain": {
+  "cost": "",
+  "type": "Land \u2014 Plains Island",
+  "text": "({T}: Add {W} or {U}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Harmonic Sliver": {
+  "cost": "1GW",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Slivers have \"When this permanent enters, destroy target artifact or enchantment.\"",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Hatchery Sliver": {
+  "cost": "1G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Replicate {1}{G} (When you cast this spell, copy it for each time you paid its replicate cost.) Each Sliver spell you cast has replicate. The replicate cost is equal to its mana cost. (A copy of a permanent spell becomes a token.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Herald's Horn": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "As this artifact enters, choose a creature type. Creature spells you cast of the chosen type cost {1} less to cast. At the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand.",
+  "pt": null
+ },
+ "Heroic Intervention": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Permanents you control gain hexproof and indestructible until end of turn.",
+  "pt": null
+ },
+ "Hive Stirrings": {
+  "cost": "2W",
+  "type": "Sorcery",
+  "text": "Create two 1/1 colorless Sliver creature tokens.",
+  "pt": null
+ },
+ "Hollowhead Sliver": {
+  "cost": "2R",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have \"{T}, Discard a card: Draw a card.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Horned Sliver": {
+  "cost": "2G",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Sliver creatures have trample.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Jungle Shrine": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {R}, {G}, or {W}.",
+  "pt": null
+ },
+ "Kindred Discovery": {
+  "cost": "3UU",
+  "type": "Enchantment",
+  "text": "As this enchantment enters, choose a creature type. Whenever a creature you control of the chosen type enters or attacks, draw a card.",
+  "pt": null
+ },
+ "Kindred Summons": {
+  "cost": "5GG",
+  "type": "Instant",
+  "text": "Choose a creature type. Reveal cards from the top of your library until you reveal X creature cards of the chosen type, where X is the number of creatures you control of that type. Put those cards onto the battlefield, then shuffle the rest of the revealed cards into your library.",
+  "pt": null
+ },
+ "Lavabelly Sliver": {
+  "cost": "1RW",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have \"When this creature enters, it deals 1 damage to target player or planeswalker and you gain 1 life.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Mana Echoes": {
+  "cost": "2RR",
+  "type": "Enchantment",
+  "text": "Whenever a creature enters, you may add an amount of {C} equal to the number of creatures you control that share a creature type with it.",
+  "pt": null
+ },
+ "Manaweft Sliver": {
+  "cost": "1G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have \"{T}: Add one mana of any color.\"",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Megantic Sliver": {
+  "cost": "5G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control get +3/+3.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Might Sliver": {
+  "cost": "4G",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Sliver creatures get +2/+2.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Morophon, the Boundless": {
+  "cost": "7",
+  "type": "Legendary Creature \u2014 Shapeshifter",
+  "text": "Changeling (This card is every creature type.) As Morophon enters, choose a creature type. Spells of the chosen type you cast cost {W}{U}{B}{R}{G} less to cast. This effect reduces only the amount of colored mana you pay. Other creatures you control of the chosen type get +1/+1.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Mystic Monastery": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {U}, {R}, or {W}.",
+  "pt": null
+ },
+ "Opulent Palace": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {B}, {G}, or {U}.",
+  "pt": null
+ },
+ "Overgrown Tomb": {
+  "cost": "",
+  "type": "Land \u2014 Swamp Forest",
+  "text": "({T}: Add {B} or {G}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Path to Exile": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Predatory Sliver": {
+  "cost": "1G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control get +1/+1.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Pulmonic Sliver": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Sliver creatures have flying. All Slivers have \"If this permanent would be put into a graveyard, you may put it on top of its owner's library instead.\"",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Quick Sliver": {
+  "cost": "1G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Flash Any player may cast Sliver spells as though they had flash.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Realmwalker": {
+  "cost": "2G",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "Changeling (This card is every creature type.) As this creature enters, choose a creature type. You may look at the top card of your library any time. You may cast creature spells of the chosen type from the top of your library.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Reliquary Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "You have no maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Roaming Throne": {
+  "cost": "4",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "Ward {2} As this creature enters, choose a creature type. This creature is the chosen type in addition to its other types. If a triggered ability of another creature you control of the chosen type triggers, it triggers an additional time.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Sacred Foundry": {
+  "cost": "",
+  "type": "Land \u2014 Mountain Plains",
+  "text": "({T}: Add {R} or {W}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Sandsteppe Citadel": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {W}, {B}, or {G}.",
+  "pt": null
+ },
+ "Savage Lands": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {B}, {R}, or {G}.",
+  "pt": null
+ },
+ "Seaside Citadel": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {G}, {W}, or {U}.",
+  "pt": null
+ },
+ "Secluded Courtyard": {
+  "cost": "",
+  "type": "Land",
+  "text": "As this land enters, choose a creature type. {T}: Add {C}. {T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type or activate an ability of a creature source of the chosen type.",
+  "pt": null
+ },
+ "Sentinel Sliver": {
+  "cost": "1W",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have vigilance. (Attacking doesn't cause them to tap.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Shifting Sliver": {
+  "cost": "3U",
+  "type": "Creature \u2014 Sliver",
+  "text": "Slivers can't be blocked except by Slivers.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Sinew Sliver": {
+  "cost": "1W",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Sliver creatures get +1/+1.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Sliver Hive": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add one mana of any color. Spend this mana only to cast a Sliver spell. {5}, {T}: Create a 1/1 colorless Sliver creature token. Activate only if you control a Sliver.",
+  "pt": null
+ },
+ "Sliver Hivelord": {
+  "cost": "WUBRG",
+  "type": "Legendary Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have indestructible. (Damage and effects that say \"destroy\" don't destroy them.)",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Sliver Legion": {
+  "cost": "WUBRG",
+  "type": "Legendary Creature \u2014 Sliver",
+  "text": "All Sliver creatures get +1/+1 for each other Sliver on the battlefield.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spiteful Sliver": {
+  "cost": "2R",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have \"Whenever this creature is dealt damage, it deals that much damage to target player or planeswalker.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Steam Vents": {
+  "cost": "",
+  "type": "Land \u2014 Island Mountain",
+  "text": "({T}: Add {U} or {R}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Stomping Ground": {
+  "cost": "",
+  "type": "Land \u2014 Mountain Forest",
+  "text": "({T}: Add {R} or {G}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Striking Sliver": {
+  "cost": "R",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have first strike. (They deal combat damage before creatures without first strike.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land \u2014 Swamp",
+  "text": "({T}: Add {B}.)",
+  "pt": null
+ },
+ "Swan Song": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.",
+  "pt": null
+ },
+ "Swords to Plowshares": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller gains life equal to its power.",
+  "pt": null
+ },
+ "Synapse Sliver": {
+  "cost": "4U",
+  "type": "Creature \u2014 Sliver",
+  "text": "Whenever a Sliver deals combat damage to a player, its controller may draw a card.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Syphon Sliver": {
+  "cost": "2B",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have lifelink. (Damage dealt by a Sliver creature you control also causes you to gain that much life.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Tempered Sliver": {
+  "cost": "2G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have \"Whenever this creature deals combat damage to a player, put a +1/+1 counter on it.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Temple Garden": {
+  "cost": "",
+  "type": "Land \u2014 Forest Plains",
+  "text": "({T}: Add {G} or {W}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Terminate": {
+  "cost": "BR",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated.",
+  "pt": null
+ },
+ "The First Sliver": {
+  "cost": "WUBRG",
+  "type": "Legendary Creature \u2014 Sliver",
+  "text": "Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.) Sliver spells you cast have cascade.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "The World Tree": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {G}. As long as you control six or more lands, lands you control have \"{T}: Add one mana of any color.\" {W}{W}{U}{U}{B}{B}{R}{R}{G}{G}, {T}, Sacrifice this land: Search your library for any number of God cards, put them onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Thorncaster Sliver": {
+  "cost": "4R",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have \"Whenever this creature attacks, it deals 1 damage to any target.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Thrumming Hivepool": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "Affinity for Slivers (This spell costs {1} less to cast for each Sliver you control.) Slivers you control have double strike and haste. At the beginning of your upkeep, create two 1/1 colorless Sliver creature tokens.",
+  "pt": null
+ },
+ "Two-Headed Sliver": {
+  "cost": "1R",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Sliver creatures have menace. (They can't be blocked except by two or more creatures.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Unclaimed Territory": {
+  "cost": "",
+  "type": "Land",
+  "text": "As this land enters, choose a creature type. {T}: Add {C}. {T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type.",
+  "pt": null
+ },
+ "Urza's Incubator": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "As this artifact enters, choose a creature type. Creature spells of the chosen type cost {2} less to cast.",
+  "pt": null
+ },
+ "Venom Sliver": {
+  "cost": "1G",
+  "type": "Creature \u2014 Sliver",
+  "text": "Sliver creatures you control have deathtouch. (Any amount of damage a creature with deathtouch deals to a creature is enough to destroy it.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Virulent Sliver": {
+  "cost": "G",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Sliver creatures have poisonous 1. (Whenever a Sliver deals combat damage to a player, that player gets a poison counter. A player with ten or more poison counters loses the game.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Watery Grave": {
+  "cost": "",
+  "type": "Land \u2014 Island Swamp",
+  "text": "({T}: Add {U} or {B}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Windswept Heath": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Forest or Plains card, put it onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Winged Sliver": {
+  "cost": "1U",
+  "type": "Creature \u2014 Sliver",
+  "text": "All Sliver creatures have flying.",
+  "pt": [
+   1,
+   1
+  ]
+ }
+}

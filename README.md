@@ -62,7 +62,7 @@ tourney runs n games in parallel (pass `--pod` multiple times to vary the opposi
 
 ## decks
 
-we've included 7 stock decks (bracket ~2.5-3.5): unbeatable squirrel girl (ramp into infinite squirrel tokens and cause pain), xyris group hug combat tricks ("here have cards" until they die), braids (everyone gets free stuff every upkeep but mine are eldrazi), lifedrain (anything anybody does drains them life and gives it to me), meren (graveyard grind), aurelia (boros fliers), hijack (loki turns every cheap combat trick into a theft — a voltron deck wearing a steal-denial mask).
+we've included 8 stock decks (bracket ~2.5-3.5): unbeatable squirrel girl (ramp into infinite squirrel tokens and cause pain), xyris group hug combat tricks ("here have cards" until they die), braids (everyone gets free stuff every upkeep but mine are eldrazi), lifedrain (anything anybody does drains them life and gives it to me), meren (graveyard grind), aurelia (boros fliers), hijack (loki turns every cheap combat trick into a theft — a voltron deck wearing a steal-denial mask), slivers (the first sliver makes every sliver spell cascade into another sliver, and they all buff each other).
 
 adding yours: paste any decklist export (moxfield/arena/deckstats formats all parse) into `data/decks/whatever.txt`, then, to actually grab the rules text from each card:
 

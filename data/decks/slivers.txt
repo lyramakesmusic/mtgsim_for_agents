@@ -1,0 +1,100 @@
+// strategy: Every Sliver makes every other Sliver better, so play them out and let the buffs multiply. The First Sliver gives your Sliver spells cascade, which turns each cheap Sliver into a free one that also cascades — one two-drop can unspool half the deck, so cast the commander before the big stuff. Cascade reads mana value, not what you paid, so cost reducers (Morophon naming Sliver makes The First Sliver free, Urza's Incubator, Herald's Horn) stack with it rather than shrinking the chains. Mana Echoes pays you colorless for every creature that shares a type — with a wide board and Hatchery Sliver's replicate, or the token makers (Hive Stirrings, Brood Sliver, Thrumming Hivepool, Sliver Hive), each copy pays for the next; do the math on your board size before committing. Hatchery replicate copies are copies, not casts, so they don't cascade. Gemhide, Manaweft and Cryptolith Rite make the board tap for any color, which is how a WUBRG commander comes down on turn four. The lords stack multiplicatively — Sliver Legion counts every other Sliver, Door of Destinies and Chronicle of Victory grow with each cast — so the swarm goes from durdle to lethal in one attack step. Pick evasion to match the table: Shifting Sliver means only Slivers block, Cloudshredder is flying plus haste, Two-Headed and Belligerent give menace, Horned gives trample. Virulent Sliver is a real second wincon — poisonous 1 on a wide board kills at ten counters, and double strike (Bonescythe, Thrumming Hivepool) doubles the count. Spiteful Sliver plus Sliver Hivelord turns damage-based removal and wraths into face damage while your board shrugs. Crystalline Sliver and Diffusion Sliver blank targeted removal; Heroic Intervention and Hivelord answer the wrath you are absolutely going to eat, because this deck looks like the problem from turn three. Kindred Discovery, Synapse Sliver and Distant Melody refill; Realmwalker, Descendants' Path, For the Ancestors and Kindred Summons find the next wave. Counterspell, Swan Song, An Offer You Can't Refuse, Path, Swords and Terminate are for the one thing that actually beats you.
+
+Commander
+1 The First Sliver
+
+Deck
+1 An Offer You Can't Refuse
+1 Arcane Signet
+1 Belligerent Sliver
+1 Blood Crypt
+1 Blur Sliver
+1 Bonescythe Sliver
+1 Brainstorm
+1 Breeding Pool
+1 Brood Sliver
+1 Chronicle of Victory
+1 Cleaving Sliver
+1 Cloudshredder Sliver
+1 Command Tower
+1 Constricting Sliver
+1 Counterspell
+1 Cryptolith Rite
+1 Crystalline Sliver
+1 Descendants' Path
+1 Diffusion Sliver
+1 Distant Melody
+1 Door of Destinies
+1 For the Ancestors
+2 Forest
+1 Frantic Search
+1 Frontier Bivouac
+1 Galerider Sliver
+1 Gemhide Sliver
+1 Godless Shrine
+1 Growth Spiral
+1 Hallowed Fountain
+1 Harmonic Sliver
+1 Hatchery Sliver
+1 Herald's Horn
+1 Heroic Intervention
+1 Hive Stirrings
+1 Hollowhead Sliver
+1 Horned Sliver
+2 Island
+1 Jungle Shrine
+1 Kindred Discovery
+1 Kindred Summons
+1 Lavabelly Sliver
+1 Mana Echoes
+1 Manaweft Sliver
+1 Megantic Sliver
+1 Might Sliver
+1 Morophon, the Boundless
+2 Mountain
+1 Mystic Monastery
+1 Opulent Palace
+1 Overgrown Tomb
+1 Path to Exile
+2 Plains
+1 Predatory Sliver
+1 Pulmonic Sliver
+1 Quick Sliver
+1 Realmwalker
+1 Reliquary Tower
+1 Roaming Throne
+1 Sacred Foundry
+1 Sandsteppe Citadel
+1 Savage Lands
+1 Seaside Citadel
+1 Secluded Courtyard
+1 Sentinel Sliver
+1 Shifting Sliver
+1 Sinew Sliver
+1 Sliver Hive
+1 Sliver Hivelord
+1 Sliver Legion
+1 Sol Ring
+1 Spiteful Sliver
+1 Steam Vents
+1 Stomping Ground
+1 Striking Sliver
+2 Swamp
+1 Swan Song
+1 Swords to Plowshares
+1 Synapse Sliver
+1 Syphon Sliver
+1 Tempered Sliver
+1 Temple Garden
+1 Terminate
+1 The World Tree
+1 Thorncaster Sliver
+1 Thrumming Hivepool
+1 Two-Headed Sliver
+1 Unclaimed Territory
+1 Urza's Incubator
+1 Venom Sliver
+1 Virulent Sliver
+1 Watery Grave
+1 Windswept Heath
+1 Winged Sliver
