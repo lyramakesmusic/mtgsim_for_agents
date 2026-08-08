@@ -68,6 +68,20 @@ _DIM, _RED, _BOLD, _ITAL, _GREY, _RESET = "\033[2m", "\033[91m", "\033[1m", "\03
 
 _SEAT_RE = re.compile(r"\bP[1-4]\b")
 
+_REMINDER = re.compile(r"\([^)]*\)")
+_ADDS = re.compile(r"\bAdd (\{|one|two|three|four|five|six|seven|X|that much)")
+_TREASURE = re.compile(r"\bcreates? [^.]*\b(Treasure|Gold)\b", re.I)
+_THEIRS = re.compile(r"(its|that player|each opponent|controller) (may )?creates?", re.I)
+
+
+def makes_mana(text):
+    """Is this card a mana source for its controller? Reminder text is stripped
+    first, so a Treasure token's '{T}, Sacrifice: Add one mana' parenthetical
+    doesn't make every card that mentions Treasures look like a rock. Treasure
+    and Gold makers count; ones that hand the tokens to an opponent don't."""
+    t = _REMINDER.sub("", text)
+    return bool(_ADDS.search(t) or (_TREASURE.search(t) and not _THEIRS.search(t)))
+
 
 def _colorize(s):
     """Seat colors everywhere a player owns a line. Private thinking grey
@@ -1509,7 +1523,7 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             lands = sum(1 for c in pl.decklist if "Land" in self.db.get(c, {}).get("type", ""))
             producers = sum(1 for c in pl.decklist
                             if "Land" not in self.db.get(c, {}).get("type", "")
-                            and "Add {" in self.db.get(c, {}).get("text", ""))
+                            and makes_mana(self.db.get(c, {}).get("text", "")))
             mulls = 0
             while mulls < 6:
                 r = self.ask(i,

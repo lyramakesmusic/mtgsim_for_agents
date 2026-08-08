@@ -114,6 +114,19 @@ def test_mulligan_free_then_london(make_game):
         assert len(other.hand) == 7
 
 
+def test_mana_source_count_sees_any_color_and_treasures():
+    from mtgsim.engine import makes_mana
+    assert makes_mana("{T}: Add {C}{C}.")
+    assert makes_mana("{T}: Add one mana of any color in your commander's color identity.")
+    assert makes_mana('Creatures you control have "{T}: Add one mana of any color."')
+    assert makes_mana("{T}: Add three mana of any one color.")
+    assert makes_mana("Whenever an opponent draws a card, that player may pay {2}. If the player "
+                      "doesn't, you create a Treasure token. (It's an artifact with \"{T}, "
+                      "Sacrifice this token: Add one mana of any color.\")")
+    assert not makes_mana("Counter target noncreature spell; its controller creates two Treasures.")
+    assert not makes_mana("Draw three cards, then put two cards from your hand on top of your library.")
+
+
 def test_cleanup_discard_to_seven(make_game):
     class Discarder(StubAgent):
         def ask(self, prompt):
