@@ -58,6 +58,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# the only tokens the if_yes/if_no shortcut matches; every other answer is
+# relayed verbatim for the asking seat to resolve
+AFFIRM = {"yes", "y", "pay"}
+DENY = {"no", "n", "decline"}
 ZONES = ("hand", "battlefield", "graveyard", "exile", "library_top", "library_bottom", "command")
 
 # ---- terminal color (tty only; files/prompts always plain) ----
@@ -177,9 +181,13 @@ nothing you don't:
  {"random":{"coin":true}|{"die":N}}   (engine rolls — never claim your own randomness)
  {"ask":{"player":P,"question":"...","if_yes":[atoms],"if_no":[atoms]}} — a one-off decision
    that belongs to another seat, made at resolution time: punisher modes, "may" abilities,
-   votes. The engine puts the question to them, logs their answer publicly, and applies the
-   matching branch as yours. Use this instead of assuming what an opponent would choose —
-   assumed answers get disputed; asked answers are binding.
+   votes, splitting piles, naming a card or color. The question is yours to frame and the
+   answer comes back in whatever form it asks for; the engine logs it publicly. Supply
+   if_yes/if_no when the question is a yes/no and you want the engine to apply the branch
+   for you — it matches the literal answers yes/y/pay and no/n/decline, and relays anything
+   else verbatim for you to resolve from the log. Use this
+   instead of assuming what an opponent would choose — assumed answers get disputed; asked
+   answers are binding.
  {"standing":{"source":perm_id,"on":condition,"question":"...","if_yes":[...],"if_no":[...]}}
    — registers a *standing* tax/query for a repeating trigger (Smothering Tithe, Rhystic
    Study, Mystic Remora, or anything with the same shape). Declare it once when the source
@@ -625,14 +633,15 @@ class Game:
     def _standing_query(self, st, actor_i, n):
         owner, pl = self.p[st["owner"]], self.p[actor_i]
         q = st["question"]
-        times = (f' It triggers {n}x — reply {{"choice":"yes","n":K}} with how many you '
-                 f'accept/pay for (default all).' if n > 1 else
-                 ' Reply {"choice":"yes"} or {"choice":"no"}.')
+        times = (f' It triggers {n}x — add "n":K for how many you accept/pay for '
+                 f'(default all).' if n > 1 else '')
         r = self.ask(actor_i,
                      f"DECISION: standing effect — {owner.name}'s {st['source']} asks you: "
-                     f"{q}{times} \"table_talk\" welcome.",
-                     schema_hint='{"choice":"yes"|"no","n":int}')
-        yes = str(r.get("choice", "no")).strip().lower() in ("yes", "y", "pay", "true")
+                     f'{q} Answer as the question asks — {{"choice":"<your answer>"}}.{times} '
+                     f'"table_talk" welcome.',
+                     schema_hint='{"choice":str,"n":int}')
+        answer = str(r.get("choice", "")).strip()
+        yes = answer.lower() in AFFIRM
         try:
             k = max(0, min(n, int(r.get("n", n if yes else 0))))
         except (TypeError, ValueError):
@@ -640,7 +649,7 @@ class Game:
         if n > 1:
             self.log(f"  ↳ {pl.name} accepts/pays {k} of {n} — {st['source']}: {q}")
         else:
-            self.log(f"  ↳ {pl.name} answers {'YES' if yes else 'NO'} — {st['source']}: {q}")
+            self.log(f"  ↳ {pl.name} answers: {answer or '(no answer)'} — {st['source']}: {q}")
         for _ in range(k):
             self.apply_effects(st["owner"], st["if_yes"])
         for _ in range(n - k):
@@ -663,17 +672,25 @@ class Game:
             return
         j = self.p.index(pl)
         r = self.ask(j,
-            f"DECISION: {asker.name} asks you: {question} — this is a yes/no choice "
-            f"made now, mid-resolution (paying a cost, choosing a punisher mode). "
-            f'Reply {{"choice":"yes"}} or {{"choice":"no"}}; "table_talk" welcome. '
-            f"Include effect atoms only if your choice itself has a cost to record "
-            f"(e.g. tapping lands you name in a note).",
-            schema_hint='{"choice":"yes"|"no","effects":[...],"table_talk":str}')
-        yes = str(r.get("choice", "no")).strip().lower() in ("yes", "y", "pay", "true")
-        self.log(f"  ↳ {pl.name} answers {'YES' if yes else 'NO'} — {question}")
+            f"DECISION: {asker.name} asks you: {question} — this choice is yours, made now, "
+            f"mid-resolution. Answer in whatever form the question asks for: yes or no, a "
+            f"number, a name, a mode, a split into piles. "
+            f'Reply {{"choice":"<your answer>"}}; "table_talk" welcome. Include effect atoms '
+            f"only if your choice itself has a cost to record (e.g. tapping lands you name).",
+            schema_hint='{"choice":str,"effects":[...],"table_talk":str}')
+        answer = str(r.get("choice", "")).strip()
+        self.log(f"  ↳ {pl.name} answers: {answer or '(no answer)'} — {question}")
         if r.get("effects"):
             self.apply_effects(j, r.get("effects"))
-        branch = q.get("if_yes") if yes else q.get("if_no")
+        low = answer.lower()
+        if low in AFFIRM:
+            branch = q.get("if_yes")
+        elif low in DENY or not answer:
+            branch = q.get("if_no")
+        else:                     # an open answer: the asker resolves from what was said
+            branch = None
+            if q.get("if_yes") or q.get("if_no"):
+                self.log(f"  (open answer — {asker.name} resolves {question!r} from it)")
         if branch:
             self.apply_effects(i, branch)
 
@@ -842,8 +859,10 @@ class Game:
 
 # ---------------- the stack ----------------
     def _stack_line(self):
-        return " -> ".join(f"{o['id']} {o['name']} ({self.p[o['caster']].handle})"
-                           for o in reversed(self.stack)) or "(empty)"
+        def one(o):
+            aim = f" -> {', '.join(o['targets'])}" if o.get("targets") else ""
+            return f"{o['id']} {o['name']} ({self.p[o['caster']].handle}){aim}"
+        return " -> ".join(one(o) for o in reversed(self.stack)) or "(empty)"
 
     def _pay_spell(self, i, a):
         """Costs are paid at announcement. Returns from_cz, or None if illegal."""
@@ -948,11 +967,24 @@ class Game:
         else:
             src_perm = self._pay_ability(i, plan)
         self.stack_seq += 1
+        tgts = [str(t) for t in (plan.get("targets") or [])]
         obj = {"id": f"stack#{self.stack_seq}", "caster": i, "kind": kind,
-               "name": name, "countered": False}
+               "name": name, "countered": False, "targets": tgts}
         self.stack.append(obj)
         verb = "" if kind == "spell" else "activation of "
-        self.log(f"{me.name} announces {verb}{name} ({obj['id']})...")
+        aim = f" targeting {', '.join(tgts)}" if tgts else ""
+        says = plan.get("narration")
+        self.log(f"{me.name} announces {verb}{name} ({obj['id']}){aim}"
+                 + (f" — {says}" if says else "") + "...")
+        if kind == "spell":
+            d_t = self.db.get(name) or {}
+            if "Instant" not in d_t.get("type", "") and "Flash" not in d_t.get("text", ""):
+                if len(self.stack) > 1:
+                    self.log(f"  !! {name} is sorcery-speed and there are spells already on "
+                             f"the stack (timing dubious; logged)")
+                elif i != getattr(self, "active", i):
+                    self.log(f"  !! {name} is sorcery-speed and it is not {me.name}'s turn "
+                             f"(timing dubious; logged)")
         self._flush_talk()
         if kind == "spell":
             self.check_standing("cast", i)        # Rhystic-style taxes fire on announce
@@ -1019,7 +1051,11 @@ class Game:
             order = [self.p.index(pl) for pl in self.others(obj["caster"])] + [obj["caster"]]
             for j in order:
                 pl = self.p[j]
-                if not pl.alive or not self._can_respond(pl):
+                if not pl.alive:
+                    continue
+                if not self._can_respond(pl, j):
+                    self.log_private(f"({pl.name} holds nothing playable at instant speed — "
+                                     f"no window)", seat=pl.handle)
                     continue
                 caster_name = self.p[obj["caster"]].name
                 verb = "casting" if obj["kind"] == "spell" else "activating"
@@ -1319,7 +1355,9 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         — counter wars included — before play continues."""
         for pl in list(self.others(caster_i)):
             j = self.p.index(pl)
-            if not self._can_respond(pl):
+            if not self._can_respond(pl, j):
+                self.log_private(f"({pl.name} holds nothing playable at instant speed — "
+                                 f"no window)", seat=pl.handle)
                 continue
             r = self.ask(j,
                 f"RESPONSE WINDOW: {context}. You may cast an instant/flash or activate an "
@@ -1331,28 +1369,35 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             elif r.get("action") == "correct":
                 self.do_action(j, r)
 
-    def _can_respond(self, pl):
+    def _can_respond(self, pl, j=None):
         """Could this seat conceivably act at instant speed? Errs open — the
         agent judges payability (alternative costs, phyrexian mana, rituals).
         No untapped-mana requirement: free spells exist. Battlefield counts if
         any permanent has a non-mana activated ability, tapped or not (sac
-        outlets don't tap)."""
+        outlets don't tap). A human seat is always asked: the call is free and
+        they may want to talk or repair the board. A skip is noted in the
+        private channel — the table never learns what a seat was holding."""
+        if j is not None and type(self.agents[j]).__name__ == "HumanAgent":
+            return True
         for c in pl.hand:
             d = self.db.get(c, {})
             if "Instant" in d.get("type", "") or "Flash" in d.get("text", ""):
                 return True
         for x in pl.battlefield:
-            d = self.db.get(x["name"], {})
-            text = d.get("text", "")
-            if "Basic Land" in d.get("type", "") or ":" not in text:
-                continue
-            # skip permanents whose every ability is a mana ability
-            if any(not seg.lstrip().startswith("Add") for seg in text.split(":")[1:]):
-                return True
+            text = self.db.get(x["name"], {}).get("text", "")
+            parts = text.split(":")
+            for k in range(1, len(parts)):
+                cost, effect = parts[k - 1], parts[k].lstrip()
+                if not effect.startswith("Add"):
+                    return True        # an ability that does something
+                if "acrifice" in cost:
+                    return True        # mana, but the cost eats a permanent —
+                                       # "in response I sac it to the Altar"
         return False
 
     def half_turn(self, i):
         me = self.p[i]
+        self.active = i
         if not me.alive:
             return
         me.lands_played = 0

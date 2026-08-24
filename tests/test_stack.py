@@ -227,3 +227,91 @@ def test_counter_atom_in_corrections(make_game):
     assert any("is countered" in l for l in g.table)
     g.apply_effects(0, [{"counter": {"target": "stack#404"}}])
     assert any("not on the stack" in l for l in g.table)
+
+
+def test_sorcery_speed_cast_in_response_is_flagged(make_game, db):
+    """The engine doesn't block bad timing, it notices it out loud."""
+    from conftest import StubAgent
+
+    g = make_game(decknames=("squirrels", "meren"))
+    g.active = 1                                   # meren's turn
+    me = g.p[0]
+    sorc = next(c for c in me.decklist
+                if "Sorcery" in db.get(c, {}).get("type", "")
+                and "Flash" not in db.get(c, {}).get("text", ""))
+    me.hand.append(sorc)
+    g.stack.append({"id": "stack#99", "caster": 1, "kind": "spell",
+                    "name": "Massacre Wurm", "countered": False})
+    g.agents = [StubAgent() for _ in g.p]
+    g.resolve_on_stack(0, {"card": sorc, "tap": []})
+    assert any("timing dubious" in l for l in g.table), g.table[-4:]
+
+
+def test_announce_and_stack_line_name_the_targets(make_game, db):
+    """A response window is a blind choice unless the table can see the aim."""
+    from conftest import StubAgent
+
+    g = make_game(decknames=("squirrels", "meren"))
+    g.active = 0
+    me = g.p[0]
+    inst = next(c for c in me.decklist if "Instant" in db.get(c, {}).get("type", ""))
+    me.hand.append(inst)
+    g.agents = [StubAgent() for _ in g.p]
+    g.stack.append({"id": "stack#98", "caster": 1, "kind": "spell", "name": "Massacre Wurm",
+                    "countered": False, "targets": []})
+    g.resolve_on_stack(0, {"card": inst, "tap": [], "targets": ["Massacre Wurm#38"],
+                           "narration": "Exile the Wurm."})
+    assert any("targeting Massacre Wurm#38" in l for l in g.table), g.table[-3:]
+    assert any("Exile the Wurm." in l for l in g.table)
+
+
+def test_response_window_skip_is_visible_and_never_public(make_game, capsys):
+    """A gated seat is noted for the spectator; the table learns nothing."""
+    from conftest import StubAgent
+
+    g = make_game(decknames=("squirrels", "meren"))
+    g.agents = [StubAgent() for _ in g.p]
+    g.p[1].hand.clear()
+    g.p[1].battlefield.clear()
+    g.active = 0
+    me = g.p[0]
+    me.hand.append(me.decklist[0])
+    g.resolve_on_stack(0, {"card": me.decklist[0], "tap": []})
+    assert "no window" in capsys.readouterr().out
+    assert not any("no window" in l for l in g.table), "leaked to the table"
+
+
+def test_human_seat_always_gets_its_window(make_game):
+    """The gate saves API calls; a human costs nothing and may want to talk."""
+    from mtgsim.agents import HumanAgent
+    from conftest import StubAgent
+
+    class Scribe(StubAgent):
+        pass
+
+    g = make_game(decknames=("squirrels", "meren"))
+    g.p[1].hand.clear()
+    g.p[1].battlefield.clear()
+    g.agents[1] = HumanAgent("P2(meren)", Scribe())
+    assert g._can_respond(g.p[1], 1) is True
+
+
+def test_sac_for_mana_outlet_earns_a_response_window(make_game):
+    """'In response I sac it to the Altar' — a mana ability that eats a
+    creature is a real response, so the gate must not filter it out."""
+    g = make_game(decknames=("meren", "squirrels"))
+    pl = g.p[0]
+    pl.hand.clear()
+    pl.battlefield.clear()
+    assert g._can_respond(pl, 0) is False
+    g.perm(pl, "Ashnod's Altar")                 # Sacrifice a creature: Add {C}{C}.
+    assert g._can_respond(pl, 0) is True
+
+
+def test_a_board_of_only_mana_lands_still_gets_no_window(make_game):
+    g = make_game(decknames=("meren", "squirrels"))
+    pl = g.p[0]
+    pl.hand.clear()
+    pl.battlefield.clear()
+    g.perm(pl, "Swamp")
+    assert g._can_respond(pl, 0) is False

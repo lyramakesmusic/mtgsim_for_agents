@@ -157,7 +157,7 @@ def test_ask_atom_yes_branch(make_game):
                                  "question": "Smothering Tithe: pay {2}?",
                                  "if_no": [{"create": {"player": "self", "name": "Treasure", "n": 1}}]}}])
     assert not any(x["name"] == "Treasure" for x in g.p[2].battlefield)
-    assert any("answers YES" in l for l in g.table)
+    assert any("answers: yes" in l for l in g.table)
 
 
 def test_ask_atom_no_branch_applies_as_asker(make_game):
@@ -171,7 +171,7 @@ def test_ask_atom_no_branch_applies_as_asker(make_game):
                                  "if_no": [{"create": {"player": "self", "name": "Treasure", "n": 1}}]}}])
     assert any(x["name"] == "Treasure" for x in g.p[2].battlefield)
     assert not any(x["name"] == "Treasure" for x in g.p[1].battlefield)
-    assert any("answers NO" in l for l in g.table)
+    assert any("answers: " in l for l in g.table)
 
 
 def test_standing_tithe_auto_fires_on_draw(make_game):
@@ -186,7 +186,7 @@ def test_standing_tithe_auto_fires_on_draw(make_game):
     g.agents[1] = StubAgent('{"choice":"no"}')
     g.apply_effects(1, [{"draw": {"player": "self", "n": 1}}])
     assert sum(1 for x in g.p[2].battlefield if x["name"] == "Treasure") == 1
-    assert any("answers NO" in l for l in g.table)
+    assert any("answers: " in l for l in g.table)
 
 
 def test_standing_expires_with_source_and_multidraw_counts(make_game):

@@ -354,8 +354,9 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
             self._banner("BLOCK?")
         elif instr.startswith("DECISION"):
             self._banner("DECIDE")
-            print(f"{_HDIM}{instr.split(' — this is a yes/no')[0]}{_HRESET}")
-            print(f"{_HDIM}('yes' or 'no'/enter — or ask the scribe first){_HRESET}")
+            print(f"{_HDIM}{instr.split(' — this choice is yours')[0]}{_HRESET}")
+            print(f"{_HDIM}(answer in plain words — 'yes'/'no' are shortcuts, enter "
+                  f"declines){_HRESET}")
             return
         else:
             self._banner("YOUR CALL")
@@ -393,7 +394,10 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
         chat = obj.pop("chat", None)
         if chat:
             print(f"{_HGREY}{_HITAL}scribe: {chat}{_HRESET}")
-        if not obj.get("action") and "bottom" not in obj:
+        if not obj.get("action") and not obj.get("choice") and "bottom" not in obj:
+            if not chat:                   # neither an action nor a word: say so
+                print(f"{_HGREY}{_HITAL}scribe: (no action taken — say it another way, or "
+                      f"'board' for state){_HRESET}")
             return None                    # chat-only reply — conversation continues
         return obj
 
@@ -435,6 +439,8 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
                     print(f"{_HDIM}  (this window has no silent default — 'resolve' applies as "
                           f"declared, 'fizzle' fizzles, or describe adjustments){_HRESET}")
                     continue
+            if low in _PASS_WORDS and instr.startswith("DECISION"):
+                return self._with_talk({"choice": "no"})
             if low in _PASS_WORDS:
                 if mainphase and low == "":
                     print(f"{_HDIM}  ('done' ends your turn — anything else, just say it){_HRESET}")
@@ -452,7 +458,7 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
                 continue
             if instr.startswith("DECISION") and low in ("yes", "y"):
                 return self._with_talk({"choice": "yes"})
-            if instr.startswith("DECISION") and low in ("no",):
+            if instr.startswith("DECISION") and low in ("no", "n"):
                 return self._with_talk({"choice": "no"})
             if opening and low == "keep":
                 return self._with_talk({"action": "keep"})
