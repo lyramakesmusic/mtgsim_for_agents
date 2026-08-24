@@ -203,7 +203,7 @@ class GameOver(Exception):
 
 
 class Player:
-    def __init__(self, handle, deckname, decklist, commander, rng, strategy=""):
+    def __init__(self, handle, deckname, decklist, commanders, rng, strategy=""):
         self.handle = handle                  # "P1"
         self.strategy = strategy              # gameplan blurb, delivered in the brief
         self.name = f"{handle}({deckname})"   # "P1(snakes)"
@@ -211,9 +211,9 @@ class Player:
         self.library = decklist[:]
         rng.shuffle(self.library)
         self.hand = [self.library.pop(0) for _ in range(7)]
-        self.commander = commander
-        self.command_zone = True
-        self.commander_tax = 0
+        self.commanders = list(commanders)            # one, or two with partner
+        self.command_zone = {c: True for c in self.commanders}
+        self.commander_tax = {c: 0 for c in self.commanders}
         self.battlefield = []   # dicts: id,name,tapped,sick,counters,token,pt
         self.graveyard = []
         self.exile = []
@@ -227,7 +227,7 @@ class Game:
     def __init__(self, db, decks, agents, seed, log_path, max_turns, rng, log_tail=60,
                  judge_factory=None, console_private="all"):
         """db: card-name -> {cost,type,text,pt}.
-        decks: [(deckname, decklist, commander)] for 2..4 seats.
+        decks: [(deckname, decklist, commanders)] for 2..4 seats.
         agents: objects with .ask(prompt)->str, index-aligned with decks."""
         assert 2 <= len(decks) <= 4, "pod size 2-4"
         self.db = db
@@ -281,8 +281,8 @@ class Game:
                 "hand": list(pl.hand), "graveyard": list(pl.graveyard), "exile": list(pl.exile),
                 "library": len(pl.library), "library_cards": list(pl.library),
                 "lands_played": pl.lands_played, "drew_this_turn": pl.drew_this_turn,
-                "command_zone": pl.command_zone,
-                "commander": pl.commander, "commander_tax": pl.commander_tax,
+                "command_zone": dict(pl.command_zone),
+                "commanders": list(pl.commanders), "commander_tax": dict(pl.commander_tax),
                 "battlefield": [dict(x) for x in pl.battlefield],
             } for pl in self.p],
         }
@@ -355,7 +355,9 @@ class Game:
                 f"{x['id']}{'(' + str(x['pt'][0]+x['counters']) + '/' + str(x['pt'][1]+x['counters']) + ')' if x['pt'] else ''}"
                 f"{'[T]' if x['tapped'] else ''}{'[sick]' if x['sick'] else ''}"
                 for x in pl.battlefield) or "(empty)"
-            cz = f"commander in CZ (tax +{pl.commander_tax})" if pl.command_zone else "commander not in CZ"
+            cz = "; ".join(f"{c} " + (f"in CZ (tax +{pl.commander_tax[c]})"
+                                      if pl.command_zone[c] else "not in CZ")
+                           for c in pl.commanders)
             out.append(f"{pl.name}: life {pl.life}, {cz}\n  HAND: {', '.join(pl.hand) or '(empty)'}\n"
                        f"  BATTLEFIELD: {bf}\n  GRAVEYARD: {', '.join(pl.graveyard) or '(empty)'}\n"
                        f"  library {len(pl.library)} cards")
@@ -498,7 +500,8 @@ class Game:
         elif to == "library_bottom":
             pl.library.append(name)
         elif to == "command":
-            pl.command_zone = True
+            if name in pl.command_zone:
+                pl.command_zone[name] = True
 
     def _atom_move(self, i, mv):
         me = self.p[i]
@@ -566,12 +569,13 @@ class Game:
             return
         srcs = {"hand": pl.hand, "graveyard": pl.graveyard, "exile": pl.exile}
         if frm == "command":
-            if pl.command_zone and mv.get("card") == pl.commander:
-                pl.command_zone = False
-                self._zone_put(pl, pl.commander, to, tapped=bool(mv.get("tapped")))
-                self.log(f"  ↳ {pl.commander}: command zone → {to}")
+            cmdr = mv.get("card") or (pl.commanders[0] if len(pl.commanders) == 1 else None)
+            if pl.command_zone.get(cmdr):
+                pl.command_zone[cmdr] = False
+                self._zone_put(pl, cmdr, to, tapped=bool(mv.get("tapped")))
+                self.log(f"  ↳ {cmdr}: command zone → {to}")
             else:
-                self.log(f"  !! move: commander not in {pl.name}'s command zone; skipped")
+                self.log(f"  !! move: {cmdr!r} not in {pl.name}'s command zone; skipped")
             return
         if frm not in srcs:
             self.log(f"  !! move: bad source {frm!r}; skipped")
@@ -588,8 +592,8 @@ class Game:
             self.log(f"  !! move: {card!r} not in {pl.name}'s {frm}; skipped (VERIFICATION FAILED)")
             return
         srcs[frm].remove(card)
-        if card == pl.commander and to == "command":
-            pl.command_zone = True
+        if card in pl.command_zone and to == "command":
+            pl.command_zone[card] = True
             self.log(f"  ↳ {card}: {frm} → command zone")
             return
         self._zone_put(pl, card, to, tapped=bool(mv.get("tapped")))
@@ -845,7 +849,7 @@ class Game:
         """Costs are paid at announcement. Returns from_cz, or None if illegal."""
         me = self.p[i]
         c = a.get("card")
-        from_cz = (c == me.commander and me.command_zone and c not in me.hand)
+        from_cz = (me.command_zone.get(c, False) and c not in me.hand)
         if not (c in me.hand or from_cz):
             return None
         for ident in a.get("tap", []):
@@ -857,8 +861,8 @@ class Game:
             else:
                 self.log(f"  !! tap: no permanent {ident!r}; payment not recorded")
         if from_cz:
-            me.command_zone = False
-            me.commander_tax += 2   # next cast from CZ costs 2 more
+            me.command_zone[c] = False
+            me.commander_tax[c] += 2   # next cast of this one from CZ costs 2 more
         else:
             me.hand.remove(c)
         return from_cz
@@ -875,7 +879,7 @@ class Game:
                     and not self.find(t, prefer=i)[1]]
             if gone and len(gone) == len(targets):
                 if from_cz:
-                    me.command_zone = True
+                    me.command_zone[c] = True
                     self.log(f"{me.name} casts {c} — FIZZLES on resolution: no remaining "
                              f"legal targets ({', '.join(gone)}). Commander returns to the "
                              f"command zone; mana stays spent.")
@@ -964,9 +968,9 @@ class Game:
             if obj["countered"]:
                 if kind == "spell":
                     if paid:
-                        me.command_zone = True
+                        me.command_zone[name] = True
                         self.log(f"  ↳ {name} is COUNTERED — commander returns to the command "
-                                 f"zone (tax now +{me.commander_tax}); mana stays spent.")
+                                 f"zone (tax now +{me.commander_tax[name]}); mana stays spent.")
                     else:
                         me.graveyard.append(name)
                         self.log(f"  ↳ {name} is COUNTERED (mana stays spent).")
@@ -985,8 +989,9 @@ class Game:
                 if confirm.get("action") == "fizzle":
                     if kind == "spell":
                         if paid:
-                            me.command_zone = True
-                            self.log(f"  ↳ commander stays in command zone (tax now +{me.commander_tax})")
+                            me.command_zone[name] = True
+                            self.log(f"  ↳ {name} stays in command zone "
+                                     f"(tax now +{me.commander_tax[name]})")
                         else:
                             me.graveyard.append(name)
                     self.log(f"  ↳ {name} FIZZLES on resolution (caster's call); costs paid.")
@@ -1119,7 +1124,7 @@ class Game:
         me = self.p[i]
         seats = "; ".join(
             f"{pl.handle} life {pl.life}, hand {len(pl.hand)}, lib {len(pl.library)}, gy {len(pl.graveyard)}"
-            + (", cmdr in CZ" if pl.command_zone else "")
+            + "".join(f", {c.split(',')[0]} in CZ" for c in pl.commanders if pl.command_zone[c])
             if pl.alive else f"{pl.handle} eliminated"
             for pl in self.p)
         def bf(pl):
@@ -1150,8 +1155,10 @@ class Game:
         extra = ""
         if full_board:
             cz = "\n".join(
-                f"{pl.handle}: commander {pl.commander} "
-                + (f"in CZ (tax +{pl.commander_tax})" if pl.command_zone else "on the move")
+                f"{pl.handle}: " + "; ".join(
+                    f"{c} " + (f"in CZ (tax +{pl.commander_tax[c]})"
+                               if pl.command_zone[c] else "on the move")
+                    for c in pl.commanders)
                 + f", drew {pl.drew_this_turn} this turn"
                 for pl in self.p if pl.alive)
             gys = "\n".join(f"{pl.handle}: {', '.join(pl.graveyard) or '(empty)'}"
@@ -1213,14 +1220,26 @@ class Game:
         raw = self.agents[i].ask(prompt)
         return self._parse_reply(i, raw)
 
-    def _parse_reply(self, i, raw):
+    JSON_TRIES = 3          # an unreadable reply goes back to the seat, not to the floor
+
+    def _parse_reply(self, i, raw, tries=0):
         me = self.p[i]
         m = re.search(r"\{.*\}", raw, re.S)
         try:
-            obj = json.loads(m.group(0)) if m else {"action": "pass"}
-        except Exception:
-            self.log(f"  !! unparseable agent reply from {me.name}; treating as pass")
-            return {"action": "pass"}
+            obj = json.loads(m.group(0)) if m else None
+            if obj is None:
+                raise ValueError("no JSON object in reply")
+        except Exception as e:
+            if tries + 1 >= self.JSON_TRIES:
+                self.log(f"  !!! {me.name}: {self.JSON_TRIES} unreadable replies in a row "
+                         f"({e}) — the seat loses this decision")
+                return {"action": "pass"}
+            self.log(f"  !! {me.name}: unreadable reply ({e}) — sent back "
+                     f"[{tries + 1}/{self.JSON_TRIES - 1}]")
+            return self._parse_reply(i, self.agents[i].ask(
+                f"Your last reply could not be read: {e}. Send that same decision again as "
+                f"exactly one valid JSON object — same action, same effects, balanced braces "
+                f"— and nothing outside the object."), tries + 1)
         thinking = obj.pop("thinking", None)
         if thinking:                       # spectator-visible, table-invisible
             self.log_private(f'{me.name} thinks: "{thinking}"', seat=me.handle)
@@ -1267,15 +1286,18 @@ class Game:
             if not pl.alive:
                 seats.append(f"  {pl.handle} {pl.name} — eliminated")
                 continue
-            cz = f"in command zone (tax +{pl.commander_tax})" if pl.command_zone else "*not* in command zone"
+            cz = "; ".join(
+                f"{c} (" + (f"in command zone (tax +{pl.commander_tax[c]})"
+                            if pl.command_zone[c] else "*not* in command zone") + ")"
+                for c in pl.commanders)
             seats.append(f"  {pl.handle} {pl.name}{' <- YOU' if pl is me else ''} — life {pl.life}, "
                          f"hand {len(pl.hand)}, drew {pl.drew_this_turn} this turn — "
-                         f"commander {pl.commander} ({cz})")
+                         f"commander{'s' if len(pl.commanders) > 1 else ''} {cz}")
         boards = "\n".join(
             f"{pl.handle} {pl.name}{' (YOU)' if pl is me else ''} BATTLEFIELD:\n{bf(pl)}"
             for pl in self.p if pl.alive)
         relevant = me.hand + [x["name"] for pl in self.p for x in pl.battlefield] \
-                   + [pl.commander for pl in self.p if pl.alive] + me.graveyard
+                   + [c for pl in self.p if pl.alive for c in pl.commanders] + me.graveyard
         graves = "\n".join(f"  {pl.handle}: {', '.join(pl.graveyard) or '(empty)'}"
                            for pl in self.p if pl.alive)
         tail = "\n".join(self.table[-self.log_tail:])

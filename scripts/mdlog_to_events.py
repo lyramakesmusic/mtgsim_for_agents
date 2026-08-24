@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from mtgsim.cards import load_db  # noqa: E402
+from mtgsim.cards import DECK_DIR, load_db, parse_decklist  # noqa: E402
 
 DB = load_db()
 
@@ -39,7 +39,7 @@ SETLINE = re.compile(r"^↳ (.+?#\d+): (.+)$")
 COUNTERS = re.compile(r"^↳ (\d+) \+1/\+1 counter\(s\) on (.+?#\d+)")
 WHOLEHAND = re.compile(r"^↳ (P\d)\([^)]*\): entire hand \((\d+) cards\) → (\w+)")
 COUNTERED = re.compile(r"^↳ (.+?) is COUNTERED")
-CZBACK = re.compile(r"^↳ (?:.+?#\d+ → command zone|commander (?:stays in|returns to) (?:the )?command zone)")
+CZBACK = re.compile(r"^↳ (?:.+?#\d+ → command zone|.+? (?:stays in|returns to) (?:the )?command zone)")
 ELIM = re.compile(r"^\*\*(P\d)\([^)]*\) is ELIMINATED")
 
 
@@ -48,15 +48,12 @@ class Shadow:
         self.next_id = 1
         self.p = {}
         for h, deck in seats:
+            path = DECK_DIR / f"{deck}.txt"
+            cmdrs = parse_decklist(path.read_text())[1] if path.exists() else ["?"]
             self.p[h] = {"handle": h, "name": f"{h}({deck})", "life": 40, "alive": True,
                          "hand": ["Unknown"] * 7, "graveyard": [], "exile": [], "library": 92,
-                         "command_zone": True, "commander": {"snakes": "Xyris, the Writhing Storm",
-                                                             "squirrels": "The Unbeatable Squirrel Girl",
-                                                             "braids": "Braids, Conjurer Adept",
-                                                             "lifedrain": "Kambal, Consul of Allocation",
-                                                             "meren": "Meren of Clan Nel Toth",
-                                                             "talrand": "Talrand, Sky Summoner"}.get(deck, "?"),
-                         "commander_tax": 0, "battlefield": []}
+                         "commanders": cmdrs, "command_zone": {c: True for c in cmdrs},
+                         "commander_tax": {c: 0 for c in cmdrs}, "battlefield": []}
         self.turn = 0
         self.last_caster = None
 
@@ -108,7 +105,8 @@ class Shadow:
         if zone == "battlefield":
             self.perm(ph, name, explicit_id=explicit_id)
         elif zone in ("command", "command zone"):
-            pl["command_zone"] = True
+            if name in pl["command_zone"]:
+                pl["command_zone"][name] = True
         elif zone in ("library_top", "library_bottom"):
             pl["library"] += 1
         elif z.get(zone):
@@ -137,9 +135,9 @@ class Shadow:
             from_cz = "(from command zone)" in t
             if m.group(3):
                 self.taps(m.group(3))
-            if from_cz:
-                self.p[ph]["command_zone"] = False
-                self.p[ph]["commander_tax"] += 2
+            if from_cz and name in self.p[ph]["command_zone"]:
+                self.p[ph]["command_zone"][name] = False
+                self.p[ph]["commander_tax"][name] += 2
             else:
                 self.remove_hand(ph, name)
             typ = DB.get(name, {}).get("type", "")
@@ -194,8 +192,8 @@ class Shadow:
                 self.remove_hand(ph, card)
             elif frm in ("graveyard", "exile") and card in pl[frm]:
                 pl[frm].remove(card)
-            elif frm.startswith("command"):
-                pl["command_zone"] = False
+            elif frm.startswith("command") and card in pl["command_zone"]:
+                pl["command_zone"][card] = False
             self.zone_put(ph, card, to)
             return
         m = TOPMOVE.match(t)

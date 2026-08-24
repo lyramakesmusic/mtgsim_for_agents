@@ -1,4 +1,5 @@
 """Social layer: private thinking, judge channel, session delta prompts."""
+import json
 from conftest import StubAgent
 
 def test_private_thinking_never_reaches_table(make_game):
@@ -122,3 +123,93 @@ def test_openrouter_context_trim_pins_brief(monkeypatch):
     assert a.messages[0]["content"].startswith("BRIEF")   # opening brief pinned
     assert "trimmed to fit context" in a.messages[1]["content"]
     assert a.messages[-1]["role"] == "assistant"   # tail preserved in order
+
+
+def test_deck_gameplans_stay_private(db, tmp_path):
+    """A seat is briefed on its own gameplan and never sees another seat's."""
+    import random
+
+    from mtgsim.cards import load_deck
+    from mtgsim.engine import Game
+
+    names = ("snakes", "meren")
+    decks = [(n, *load_deck(n, db), f"GAMEPLAN_OF_{n.upper()}") for n in names]
+    seen = {0: [], 1: []}
+    agents = [StubAgent(lambda p, i=i: seen[i].append(p) or '{"action":"pass"}')
+              for i in range(2)]
+    g = Game(db, decks, agents, 1, str(tmp_path / "game.md"), 5, random.Random(1))
+    g.turn = 1
+    g.ask(0, "act")
+    g.ask(1, "act")
+
+    assert "GAMEPLAN_OF_SNAKES" in seen[0][0]
+    assert "GAMEPLAN_OF_MEREN" not in seen[0][0]
+    assert "GAMEPLAN_OF_MEREN" in seen[1][0]
+    assert "GAMEPLAN_OF_SNAKES" not in seen[1][0]
+    for i in (0, 1):
+        assert "GAMEPLAN_OF" not in g.view(i)
+    assert not any("GAMEPLAN_OF" in line for line in g.table)
+
+
+def test_unreadable_reply_goes_back_to_the_seat(make_game):
+    """Malformed JSON is sent back for a resend, not scored as a pass."""
+    replies = iter([
+        # the real shape that broke: one unclosed brace inside a nested atom
+        '{"action":"cast","card":"Winds of Rath","effects":[{"move":{"id":"x#1",'
+        '"to":"graveyard"}]}}',
+        '{"action":"cast","card":"Winds of Rath","effects":[]}',
+    ])
+    class Fumbler:
+        calls, cost_usd, tokens = 0, 0.0, {"in": 0, "out": 0}
+        def ask(self, prompt):
+            self.calls += 1
+            return next(replies)
+
+    g = make_game()
+    g.agents[0] = Fumbler()
+    g.turn = 1
+    out = g.ask(0, "act")
+    assert out["action"] == "cast" and out["card"] == "Winds of Rath"
+    assert g.agents[0].calls == 2                       # asked again, not passed
+    assert any("unreadable reply" in line for line in g.table)
+
+
+def test_seat_loses_the_decision_after_repeated_garbage(make_game):
+    """A seat that never returns JSON is called out loudly and stops the loop."""
+    class Broken:
+        calls, cost_usd, tokens = 0, 0.0, {"in": 0, "out": 0}
+        def ask(self, prompt):
+            self.calls += 1
+            return "I would like to cast Winds of Rath please"
+
+    g = make_game()
+    g.agents[0] = Broken()
+    g.turn = 1
+    assert g.ask(0, "act")["action"] == "pass"
+    assert g.agents[0].calls == g.JSON_TRIES
+    assert any("unreadable replies in a row" in line for line in g.table)
+
+
+def test_human_combat_damage_defaults_to_the_scribe(monkeypatch):
+    """Enter at the damage step asks the scribe to compute it, never a bare pass."""
+    from mtgsim.agents import HumanAgent
+
+    asked = []
+
+    class Scribe:
+        calls, cost_usd, tokens, gave_up = 0, 0.0, {"in": 0, "out": 0}, False
+        resume, session_id = False, None
+        def ask(self, prompt):
+            asked.append(prompt)
+            return ('{"action":"resolve","effects":[{"life":{"player":"P2","delta":-14}}],'
+                    '"narration":"Light-Paws deals 14; it is commander damage."}')
+
+    h = HumanAgent("P1(aurafarming)", Scribe())
+    monkeypatch.setattr("builtins.input", lambda *_: "")
+    out = json.loads(h.ask(
+        "=== GAME STATE ===\nYOUR HAND (2): Plains; Plains\n\n=== INSTRUCTION ===\n"
+        "Blocks and tricks are final (see table log). Compute the combat damage honestly.\n"))
+    assert out["action"] == "resolve"
+    assert out["effects"][0]["life"]["delta"] == -14
+    assert asked, "the scribe was never consulted"
+    assert "resolve this combat from the board" in asked[0]

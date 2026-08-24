@@ -344,6 +344,12 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
             print(f"{_HDIM}('resolve' applies it as declared, 'fizzle' fizzles it, or describe "
                   f"adjustments — enter does nothing here){_HRESET}")
             return
+        if instr.startswith("Blocks and tricks are final"):
+            self._banner("COMBAT DAMAGE")
+            print(f"{_HDIM}{instr}{_HRESET}")
+            print(f"{_HDIM}(enter lets the scribe do the math from the board — or state it "
+                  f"yourself){_HRESET}")
+            return
         if instr.startswith("COMBAT"):
             self._banner("BLOCK?")
         elif instr.startswith("DECISION"):
@@ -410,6 +416,7 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
         mainphase = instr.startswith("It is your MAIN PHASE")
         confirm = instr.startswith("Responses resolved while")
         opening = instr.startswith("OPENING HAND")
+        damage = instr.startswith("Blocks and tricks are final")
         self._show(prompt, instr, mainphase)
         if "FULL STATE (start of your turn)" in prompt:
             self._converse("(the human sits down for their turn — sitrep, please)")
@@ -431,6 +438,12 @@ Don't use a "thinking" field. When the human tells you to pass, decline, or end 
             if low in _PASS_WORDS:
                 if mainphase and low == "":
                     print(f"{_HDIM}  ('done' ends your turn — anything else, just say it){_HRESET}")
+                    continue
+                if damage:      # the board says what happened; the scribe reports it
+                    out = self._converse("(resolve this combat from the board: compute the damage "
+                                         "and report every consequence as effect atoms)")
+                    if out is not None:
+                        return self._with_talk(out)
                     continue
                 return self._with_talk({"action": "pass"})
             if len(line) >= 2 and line[0] == line[-1] == '"':

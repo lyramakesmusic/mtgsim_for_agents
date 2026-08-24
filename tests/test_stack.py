@@ -28,14 +28,14 @@ def test_countered_commander_returns_to_cz(make_game, db):
         def ask(self, prompt):
             self.step += 1
             if "MAIN PHASE" in prompt and self.step == 1:
-                return f'{{"action":"cast","card":"{me.commander}","tap":[]}}'
+                return f'{{"action":"cast","card":"{me.commanders[0]}","tap":[]}}'
             return '{"action":"pass"}'
 
     g.agents[0] = Caster()
     g.turn = 2
     g.half_turn(0)
-    assert me.command_zone and me.commander_tax == 2
-    assert me.commander not in me.graveyard
+    assert me.command_zone[me.commanders[0]] and me.commander_tax[me.commanders[0]] == 2
+    assert me.commanders[0] not in me.graveyard
 
 def test_cast_fizzles_when_all_targets_gone(make_game):
     g = make_game()

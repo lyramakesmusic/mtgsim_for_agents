@@ -23,7 +23,7 @@ def _played_game(make_game, tmp_path):
 
 
 def _restore(g, tmp_path, db, at=None, edits=None):
-    decks = [(pl.name.split("(")[1][:-1], pl.decklist, pl.commander) for pl in g.p]
+    decks = [(pl.name.split("(")[1][:-1], pl.decklist, pl.commanders) for pl in g.p]
     agents = [type("A", (), {"ask": lambda self, p: '{"action":"pass"}',
                              "calls": 0, "cost_usd": 0.0, "tokens": {"in": 0, "out": 0}})()
               for _ in g.p]

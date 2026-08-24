@@ -59,12 +59,15 @@ def fetch(names):
     names = list(names)
     for b in range(0, len(names), 75):
         batch = names[b:b + 75]
-        body = json.dumps({"identifiers": [{"name": n} for n in batch]}).encode()
+        # the endpoint matches front-face names ("Dread Linnorm") and answers with
+        # full ones ("Dread Linnorm // Scale Deflection") — index both to match back
+        body = json.dumps({"identifiers": [{"name": n.split(" // ")[0]} for n in batch]}).encode()
         req = urllib.request.Request(API, data=body, headers=HEADERS, method="POST")
         with urllib.request.urlopen(req, timeout=30) as r:
             resp = json.load(r)
         for card in resp.get("data", []):
             got[card["name"]] = card
+            got.setdefault(card["name"].split(" // ")[0], card)
         missing += [i.get("name", "?") for i in resp.get("not_found", [])]
         time.sleep(0.1)
     return got, missing
@@ -83,8 +86,8 @@ if __name__ == "__main__":
         side = p.with_suffix("").with_suffix("")  # strip .txt
         side = p.parent / (p.stem + ".cards.json")
         db = json.loads(side.read_text()) if side.exists() else {}
-        main, commander = parse_decklist(p.read_text())
-        needed = sorted(set(main + ([commander] if commander else [])))
+        main, commanders = parse_decklist(p.read_text())
+        needed = sorted(set(main + commanders))
         wanted = [n for n in needed if args.refresh or n not in db]
         # prune entries for cards no longer in the deck
         db = {k: v for k, v in db.items() if k in needed}

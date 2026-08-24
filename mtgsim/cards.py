@@ -11,10 +11,12 @@ data/decks/*.txt   — standard plain-text decklists (Moxfield/Arena export styl
     1 Sol Ring
     ...
 
-Accepted per-line: "N Name" or "Nx Name". Section headers ("Commander",
+Accepted per-line: "N Name" or "Nx Name"; two-faced cards may be written with
+either one or two slashes ("Dread Linnorm / Scale Deflection"). Section headers ("Commander",
 "Deck", "Mainboard", with or without colon) are case-insensitive; "// x" and
 "# x" lines are comments. A "1 Name *CMDR*" marker also works in lieu of a
-Commander section. Sideboard sections are ignored.
+Commander section. A Commander section may list two cards (partners); each
+gets its own command zone and its own tax. Sideboard sections are ignored.
 
 Adding a deck = paste a decklist into data/decks/<name>.txt + add any missing
 cards to cards.json. load_deck() validates every name against the DB and
@@ -30,6 +32,7 @@ DECK_DIR = DATA / "decks"
 
 _LINE = re.compile(r"^(\d+)x?\s+(.+?)\s*$")
 _SETCODE = re.compile(r"\s*\(\w{2,6}\)(\s+[\dA-Za-z★-]+)?(\s*\*\w+\*)?\s*$")   # "(m12)" / "(eld) 123" / "... *F*"
+_SLASH = re.compile(r"\s+/\s+")          # "Dread Linnorm / Scale Deflection" -> " // " (oracle form)
 _SECTIONS = {"commander": "commander", "deck": "main", "mainboard": "main",
              "main": "main", "sideboard": "side", "maybeboard": "side", "considering": "side"}
 
@@ -59,8 +62,8 @@ def deck_names():
 
 
 def parse_decklist(text):
-    """-> (main: [name]*N in listed order, commander: str)"""
-    section, commander, main = "main", None, []
+    """-> (main: [name]*N in listed order, commanders: [name])"""
+    section, commanders, main = "main", [], []
     for raw in text.splitlines():
         line = raw.strip()
         if not line:
@@ -83,15 +86,15 @@ def parse_decklist(text):
         m = _LINE.match(line)
         if not m:
             continue
-        n, name = int(m.group(1)), _SETCODE.sub("", m.group(2)).strip()
+        n, name = int(m.group(1)), _SLASH.sub(" // ", _SETCODE.sub("", m.group(2)).strip())
         if name.endswith("*CMDR*"):
-            commander = name[: -len("*CMDR*")].strip()
+            commanders.append(name[: -len("*CMDR*")].strip())
             continue
         if section == "commander":
-            commander = name
+            commanders.append(name)
         elif section == "main":
             main += [name] * n
-    return main, commander
+    return main, commanders
 
 
 STRATEGY = re.compile(r"^(?://|#)\s*strategy:?\s*(.+)$", re.I)
@@ -110,11 +113,11 @@ def load_deck(name, db):
     path = DECK_DIR / f"{name}.txt"
     if not path.exists():
         raise SystemExit(f"no deck {name!r} — available: {', '.join(deck_names())}")
-    main, commander = parse_decklist(path.read_text())
-    if not commander:
+    main, commanders = parse_decklist(path.read_text())
+    if not commanders:
         raise SystemExit(f"deck {name!r}: no commander found (use a 'Commander' section or '*CMDR*' marker)")
-    missing = sorted({c for c in main + [commander] if c not in db})
+    missing = sorted({c for c in main + commanders if c not in db})
     if missing:
         raise SystemExit(f"deck {name!r} references {len(missing)} cards missing from cards.json:\n  "
                          + "\n  ".join(missing))
-    return main, commander
+    return main, commanders

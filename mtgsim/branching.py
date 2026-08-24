@@ -87,8 +87,8 @@ def restore_game(db, decks, agents, events_path, log_path, max_turns, rng,
         pl.hand = list(ps["hand"])
         pl.graveyard = list(ps["graveyard"])
         pl.exile = list(ps["exile"])
-        pl.command_zone = ps["command_zone"]
-        pl.commander_tax = ps["commander_tax"]
+        pl.command_zone = dict(ps["command_zone"])
+        pl.commander_tax = dict(ps["commander_tax"])
         pl.lands_played = ps.get("lands_played", 0)
         pl.drew_this_turn = ps.get("drew_this_turn", 0)
         pl.battlefield = copy.deepcopy(ps["battlefield"])

@@ -37,11 +37,11 @@ def test_commander_zone_roundtrip(make_game):
     g = make_game()
     me = g.p[1]
     g.apply_effects(1, [{"move": {"player": "self", "from": "command",
-                                  "card": me.commander, "to": "battlefield"}}])
-    assert not me.command_zone
-    cid = next(x["id"] for x in me.battlefield if x["name"] == me.commander)
+                                  "card": me.commanders[0], "to": "battlefield"}}])
+    assert not me.command_zone[me.commanders[0]]
+    cid = next(x["id"] for x in me.battlefield if x["name"] == me.commanders[0])
     g.apply_effects(1, [{"move": {"id": cid, "to": "command"}}])
-    assert me.command_zone
+    assert me.command_zone[me.commanders[0]]
 
 
 def test_tokens_cease_and_set_atom(make_game):
@@ -229,13 +229,13 @@ def test_dead_permanent_id_move_falls_back_to_public_zones(make_game):
     Unique public-zone match by name now honors the intent."""
     g = make_game()
     p3 = g.p[2]
-    x = g.perm(p3, p3.commander)
-    p3.command_zone = False
+    x = g.perm(p3, p3.commanders[0])
+    p3.command_zone[p3.commanders[0]] = False
     g.apply_effects(1, [{"move": {"id": x["id"], "to": "graveyard"}}])   # pongify-ish
-    assert p3.commander in p3.graveyard
+    assert p3.commanders[0] in p3.graveyard
     g.apply_effects(2, [{"move": {"id": x["id"], "to": "command"}}])     # by the DEAD id
-    assert p3.command_zone
-    assert p3.commander not in p3.graveyard
+    assert p3.command_zone[p3.commanders[0]]
+    assert p3.commanders[0] not in p3.graveyard
     assert not any("skipped" in l for l in g.table)
 
 
