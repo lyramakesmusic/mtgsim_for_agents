@@ -64,3 +64,25 @@ def test_all_shipped_decks_validate(db):
         main, cmds = load_deck(name, db)   # SystemExits loudly if invalid
         assert cmds
         assert len(main) + len(cmds) == 100, f"{name}: {len(main)} + {len(cmds)}"
+
+
+def test_mana_value_of_compact_costs():
+    """Sidecar costs are compact: multi-digit generic is one token, not two."""
+    from mtgsim.cards import mana_value
+
+    assert mana_value("(11)") == 11          # Metalwork Colossus
+    assert mana_value("(12)") == 12          # Blightsteel Colossus
+    assert mana_value("3UU") == 5
+    assert mana_value("(U/P)") == 1          # Gitaxian Probe
+    assert mana_value("4(G/P)") == 5
+    assert mana_value("XXGG") == 2           # X is zero
+    assert mana_value("") == 0               # lands
+
+
+def test_mana_value_matches_every_shipped_card(db):
+    """Nothing in the card pool parses to a nonsense cost."""
+    from mtgsim.cards import mana_value
+
+    for name, card in db.items():
+        v = mana_value(card["cost"])
+        assert 0 <= v <= 16, f"{name}: {card['cost']!r} -> {v}"

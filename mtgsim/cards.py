@@ -97,6 +97,24 @@ def parse_decklist(text):
     return main, commanders
 
 
+_COST_PART = re.compile(r"\(([^)]*)\)|(\d+)|([A-Za-z])")
+
+
+def mana_value(cost):
+    """Mana value of a compact cost string as stored in the sidecars:
+    '3UU' -> 5, '(11)' -> 11, '(U/P)' -> 1, '4(G/P)' -> 5, 'XXGG' -> 2.
+    Multi-digit generic costs are one token, hybrid and phyrexian symbols
+    count as one each, and X counts as zero."""
+    total = 0
+    for grouped, digits, sym in _COST_PART.findall(cost or ""):
+        tok = grouped or digits or sym
+        if tok.isdigit():
+            total += int(tok)
+        elif tok.upper() != "X":
+            total += 1
+    return total
+
+
 STRATEGY = re.compile(r"^(?://|#)\s*strategy:?\s*(.+)$", re.I)
 
 
