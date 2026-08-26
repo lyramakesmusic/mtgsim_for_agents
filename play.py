@@ -12,7 +12,8 @@ import argparse
 import random
 
 from mtgsim.agents import AGENT_TYPES, MockAgent
-from mtgsim.cards import deck_names, deck_strategy, load_db, load_deck
+from mtgsim.cards import (deck_names, deck_personality, deck_scouting, deck_strategy,
+                          load_db, load_deck)
 from mtgsim.engine import Game
 
 if __name__ == "__main__":
@@ -108,7 +109,8 @@ if __name__ == "__main__":
 
     decks, agents = [], []
     for n, (kind, deck, model_override) in enumerate(seats):
-        decks.append((deck, *load_deck(deck, db), deck_strategy(deck)))
+        decks.append((deck, *load_deck(deck, db), deck_strategy(deck), deck_scouting(deck),
+                      deck_personality(deck)))
         label = f"P{n+1}({deck})"
         if args.mock:
             agents.append(MockAgent(label, db))

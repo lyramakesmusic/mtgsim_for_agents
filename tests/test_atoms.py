@@ -51,7 +51,7 @@ def test_tokens_cease_and_set_atom(make_game):
     zid = next(x["id"] for x in me.battlefield if x["name"] == "Zombie")
     g.apply_effects(1, [{"set": {"id": zid, "tapped": False, "counters": 3}}])
     z = next(x for x in me.battlefield if x["id"] == zid)
-    assert not z["tapped"] and z["counters"] == 3
+    assert not z["tapped"] and z["counters"] == {"+1/+1": 3}
     g.apply_effects(1, [{"move": {"id": zid, "to": "graveyard"}}])
     assert "Zombie" not in me.graveyard          # tokens cease, never hit zones
 
@@ -87,7 +87,7 @@ def test_bare_number_references_resolve(make_game):
     num = next(x["id"] for x in me.battlefield if x["name"] == "Squirrel").split("#")[1]
     g.apply_effects(1, [{"set": {"id": int(num), "counters": 2}}])       # int reference
     sq = next(x for x in me.battlefield if x["name"] == "Squirrel")
-    assert sq["counters"] == 2
+    assert sq["counters"] == {"+1/+1": 2}
     g.apply_effects(1, [{"move": {"id": num, "to": "graveyard"}}])       # str reference
     assert not any(x["name"] == "Squirrel" for x in me.battlefield)
 
@@ -280,3 +280,82 @@ def test_malformed_atom_cannot_crash_the_game(make_game):
     ])
     assert g.p[1].life == before - 3
     assert sum("crashed the bookkeeper" in l for l in g.table) == 2
+
+
+def test_named_counters_do_not_move_power(make_game):
+    """Ingenuity, experience and growth counters share a permanent with +1/+1
+    counters without inflating it — or each other."""
+    g = make_game()
+    me = g.p[0]
+    x = g.perm(me, "Forest")
+    x["pt"] = [2, 2]
+
+    g.apply_effects(0, [{"set": {"id": x["id"], "counters": {"ingenuity": 3}}}])
+    assert x["counters"] == {"ingenuity": 3}
+    assert "Forest#1(2/2)" in g._true_state()       # ingenuity moves nothing
+
+    g.apply_effects(0, [{"set": {"id": x["id"], "counters": 2}}])
+    assert x["counters"] == {"ingenuity": 3, "+1/+1": 2}
+
+    g.apply_effects(0, [{"set": {"id": x["id"], "counters": {"ingenuity": 1, "experience": 1}}}])
+    assert x["counters"] == {"ingenuity": 4, "+1/+1": 2, "experience": 1}
+
+    assert "ingenuity 4" in g.digest(0, full_board=True)
+    assert "Forest#1(4/4)" in g._true_state()       # 2/2 base +2, ingenuity excluded
+
+    g.apply_effects(0, [{"set": {"id": x["id"], "counters": {"experience": -1}}}])
+    assert "experience" not in x["counters"]        # emptied kinds stop being listed
+
+
+def test_attackers_with_vigilance_stay_untapped(make_game):
+    """Attacking taps by default; the declaration says who keeps vigilance,
+    so a vigilant attacker doesn't need a correction after every swing."""
+    g = make_game()
+    me = g.p[0]
+    a = g.perm(me, "Forest"); a["sick"] = False
+    b = g.perm(me, "Mountain"); b["sick"] = False
+
+    g.combat(0, {"attacks": {"P2": [a["id"], b["id"]]}, "vigilance": [a["id"]]})
+    assert not a["tapped"], "vigilant attacker was tapped anyway"
+    assert b["tapped"], "ordinary attacker should tap"
+
+    c = g.perm(me, "Island"); c["sick"] = False
+    g.combat(0, {"attacks": {"P2": [c["id"]]}, "vigilance": True})
+    assert not c["tapped"]
+
+
+def test_set_follows_a_card_that_came_back_with_a_new_id(make_game):
+    """Exile and return mints a new permanent id, so a set aimed at the old one
+    lands on the sole permanent of that name instead of silently skipping."""
+    g = make_game()
+    me = g.p[0]
+    old = g.perm(me, "Forest")
+    old_id = old["id"]
+    me.battlefield.remove(old)                 # left the battlefield
+    new = g.perm(me, "Forest")                 # came back as a different object
+    assert new["id"] != old_id
+
+    g.apply_effects(0, [{"set": {"id": old_id, "tapped": True}}])
+    assert new["tapped"], "set didn't follow the returned card"
+    assert any("applying to" in l for l in g.table)
+
+    g.perm(me, "Forest")                       # now two of them: ambiguous, so say so
+    g.apply_effects(0, [{"set": {"id": old_id, "counters": 1}}])
+    assert any("say which" in l for l in g.table)
+
+
+def test_look_is_private_and_reveal_is_public(make_game):
+    """Gitaxian Probe says "look at", not "reveals" — the table learns that you
+    looked and nothing else."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    secret = g.p[1].hand[0]
+
+    g.apply_effects(0, [{"look": {"player": "P2", "zone": "hand"}}])
+    assert any("looks at" in l for l in g.table)
+    assert not any(secret in l for l in g.table), "a private look leaked to the table"
+
+    g.apply_effects(0, [{"reveal": {"player": "P2", "zone": "hand"}}])
+    assert any(secret in l for l in g.table), "a genuine reveal should be public"

@@ -1,0 +1,416 @@
+{
+ "All That Glitters": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 for each artifact and/or enchantment you control.",
+  "pt": null
+ },
+ "Angelic Destiny": {
+  "cost": "2WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +4/+4, has flying and first strike, and is an Angel in addition to its other types. When enchanted creature dies, return this card to its owner's hand.",
+  "pt": null
+ },
+ "Angelic Gift": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature When this Aura enters, draw a card. Enchanted creature has flying.",
+  "pt": null
+ },
+ "Armored Ascension": {
+  "cost": "3W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 for each Plains you control and has flying.",
+  "pt": null
+ },
+ "Battle Mastery": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has double strike. (It deals both first-strike and regular combat damage.)",
+  "pt": null
+ },
+ "Brilliant Wings": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash Enchant creature you control Enchanted creature has flying and hexproof. Whenever a creature you control enters, you may pay {1}. If you do, attach this Aura to that creature.",
+  "pt": null
+ },
+ "Cartouche of Solidarity": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura Cartouche",
+  "text": "Enchant creature you control When this Aura enters, create a 1/1 white Warrior creature token with vigilance. Enchanted creature gets +1/+1 and has first strike. (It deals combat damage before creatures without first strike.)",
+  "pt": null
+ },
+ "Celestial Mantle": {
+  "cost": "3WWW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +3/+3. Whenever enchanted creature deals combat damage to a player, double its controller's life total.",
+  "pt": null
+ },
+ "Conviction": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+3. {W}: Return this Aura to its owner's hand.",
+  "pt": null
+ },
+ "Danitha Capashen, Paragon": {
+  "cost": "2W",
+  "type": "Legendary Creature \u2014 Human Knight",
+  "text": "First strike, vigilance, lifelink Aura and Equipment spells you cast cost {1} less to cast.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Daybreak Coronet": {
+  "cost": "WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature with another Aura attached to it Enchanted creature gets +3/+3 and has first strike, vigilance, and lifelink. (Damage dealt by the creature also causes its controller to gain that much life.)",
+  "pt": null
+ },
+ "Enter the Avatar State": {
+  "cost": "W",
+  "type": "Instant \u2014 Lesson",
+  "text": "Until end of turn, target creature you control becomes an Avatar in addition to its other types and gains flying, first strike, lifelink, and hexproof. (A creature with hexproof can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Ethereal Armor": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 for each enchantment you control and has first strike.",
+  "pt": null
+ },
+ "Expel the Interlopers": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Choose a number between 0 and 10. Destroy all creatures with power greater than or equal to the chosen number.",
+  "pt": null
+ },
+ "Feather of Flight": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash Enchant creature When this Aura enters, draw a card. Enchanted creature gets +1/+0 and has flying.",
+  "pt": null
+ },
+ "Flickering Ward": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature As this Aura enters, choose a color. Enchanted creature has protection from the chosen color. This effect doesn't remove this Aura. {W}: Return this Aura to its owner's hand.",
+  "pt": null
+ },
+ "Gauntlets of Light": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +0/+2 and assigns combat damage equal to its toughness rather than its power. Enchanted creature has \"{2}{W}: Untap this creature.\"",
+  "pt": null
+ },
+ "Giver of Runes": {
+  "cost": "W",
+  "type": "Creature \u2014 Kor Cleric",
+  "text": "{T}: Another target creature you control gains protection from colorless or from the color of your choice until end of turn.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Glaring Aegis": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature When this Aura enters, tap target creature an opponent controls. Enchanted creature gets +1/+3.",
+  "pt": null
+ },
+ "Gryff's Boon": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+0 and has flying. {3}{W}: Return this card from your graveyard to the battlefield attached to target creature. Activate only as a sorcery.",
+  "pt": null
+ },
+ "Hero of Iroas": {
+  "cost": "1W",
+  "type": "Creature \u2014 Human Soldier",
+  "text": "Aura spells you cast cost {1} less to cast. Heroic \u2014 Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Holy Mantle": {
+  "cost": "2WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 and has protection from creatures.",
+  "pt": null
+ },
+ "Hyena Umbra": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 and has first strike. Umbra armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",
+  "pt": null
+ },
+ "Idolized": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has \"Whenever this creature attacks alone, it gets +X/+X until end of turn, where X is the number of nonland permanents you control.\"",
+  "pt": null
+ },
+ "Karametra's Blessing": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Target creature gets +2/+2 until end of turn. If it's an enchanted creature or enchantment creature, it also gains hexproof and indestructible until end of turn. (It can't be the target of spells or abilities your opponents control. Damage and effects that say \"destroy\" don't destroy it.)",
+  "pt": null
+ },
+ "Light of Promise": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has \"Whenever you gain life, put that many +1/+1 counters on this creature.\"",
+  "pt": null
+ },
+ "Light-Paws, Emperor's Voice": {
+  "cost": "1W",
+  "type": "Legendary Creature \u2014 Fox Advisor",
+  "text": "Whenever an Aura you control enters, if you cast it, you may search your library for an Aura card with mana value less than or equal to that Aura and with a different name than each Aura you control, put that card onto the battlefield attached to Light-Paws, then shuffle.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Mana Tithe": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Counter target spell unless its controller pays {1}.",
+  "pt": null
+ },
+ "Mantle of the Ancients": {
+  "cost": "3WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature you control When this Aura enters, return any number of target Aura and/or Equipment cards from your graveyard to the battlefield attached to enchanted creature. Enchanted creature gets +1/+1 for each Aura and Equipment attached to it.",
+  "pt": null
+ },
+ "Optimistic Scavenger": {
+  "cost": "W",
+  "type": "Creature \u2014 Human Scout",
+  "text": "Eerie \u2014 Whenever an enchantment you control enters and whenever you fully unlock a Room, put a +1/+1 counter on target creature.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Ossification": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant basic land you control When this Aura enters, exile target creature or planeswalker an opponent controls until this Aura leaves the battlefield.",
+  "pt": null
+ },
+ "Path to Exile": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Pearl-Ear, Imperial Advisor": {
+  "cost": "1WW",
+  "type": "Legendary Creature \u2014 Fox Advisor",
+  "text": "Lifelink Enchantment spells you cast have affinity for Auras. (They cost {1} less to cast for each Aura you control.) Whenever you cast an Aura spell that targets a modified permanent you control, draw a card. (Equipment, Auras you control, and counters are modifications.)",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Ravnica at War": {
+  "cost": "3W",
+  "type": "Sorcery",
+  "text": "Exile all multicolored permanents.",
+  "pt": null
+ },
+ "Rebuff the Wicked": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Counter target spell that targets a permanent you control.",
+  "pt": null
+ },
+ "Redemption Arc": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has indestructible and is goaded. (It attacks each combat if able and attacks a player other than you if able.) {1}{W}: Exile enchanted creature.",
+  "pt": null
+ },
+ "Sage's Reverie": {
+  "cost": "3W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature When this Aura enters, draw a card for each Aura you control that's attached to a creature. Enchanted creature gets +1/+1 for each Aura you control that's attached to a creature.",
+  "pt": null
+ },
+ "Sentinel's Eyes": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 and has vigilance. Escape\u2014{W}, Exile two other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+  "pt": null
+ },
+ "Shardmage's Rescue": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash Enchant creature you control As long as this Aura entered this turn, enchanted creature has hexproof. Enchanted creature gets +1/+1.",
+  "pt": null
+ },
+ "Sheltered by Ghosts": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature you control When this Aura enters, exile target nonland permanent an opponent controls until this Aura leaves the battlefield. Enchanted creature gets +1/+0 and has lifelink and ward {2}.",
+  "pt": null
+ },
+ "Shielded by Faith": {
+  "cost": "1WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature has indestructible. Whenever a creature enters, you may attach this Aura to that creature.",
+  "pt": null
+ },
+ "Solid Footing": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash Enchant creature Enchanted creature gets +1/+1. As long as enchanted creature has vigilance, it assigns combat damage equal to its toughness rather than its power.",
+  "pt": null
+ },
+ "Songbirds' Blessing": {
+  "cost": "3W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Whenever enchanted creature attacks, reveal cards from the top of your library until you reveal an Aura card. You may put that card onto the battlefield. If you don't, put it into your hand. Put the rest on the bottom of your library in a random order.",
+  "pt": null
+ },
+ "Spectral Steel": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2. {1}{W}, Exile this card from your graveyard: Return another target Aura or Equipment card from your graveyard to your hand.",
+  "pt": null
+ },
+ "Spirit Link": {
+  "cost": "W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature (Target a creature as you cast this. This card enters attached to that creature.) Whenever enchanted creature deals damage, you gain that much life.",
+  "pt": null
+ },
+ "Spirit Mantle": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +1/+1 and has protection from creatures.",
+  "pt": null
+ },
+ "Split Up": {
+  "cost": "1WW",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Destroy all tapped creatures. \u2022 Destroy all untapped creatures.",
+  "pt": null
+ },
+ "Starfield Mystic": {
+  "cost": "1W",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "Enchantment spells you cast cost {1} less to cast. Whenever an enchantment you control is put into a graveyard from the battlefield, put a +1/+1 counter on this creature.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Stoneskin": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash Enchant creature Enchanted creature gets +0/+10.",
+  "pt": null
+ },
+ "Super-Soldier Serum": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2, has first strike and vigilance, and is a legendary Soldier in addition to its other types. Whenever enchanted creature attacks or blocks, attach any number of target Equipment you control to it.",
+  "pt": null
+ },
+ "Swords to Plowshares": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller gains life equal to its power.",
+  "pt": null
+ },
+ "Tempest Technique": {
+  "cost": "3W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Storm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies. Copies become tokens.) Enchant creature you control Enchanted creature gets +1/+1 for each enchantment you control.",
+  "pt": null
+ },
+ "The Battle of Bywater": {
+  "cost": "1WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures with power 3 or greater. Then create a Food token for each creature you control. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+  "pt": null
+ },
+ "Twinblade Blessing": {
+  "cost": "1WW",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash (You may cast this spell any time you could cast an instant.) Enchant creature Enchanted creature has double strike. (It deals both first-strike and regular combat damage.)",
+  "pt": null
+ },
+ "Winds of Rath": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures that aren't enchanted. They can't be regenerated.",
+  "pt": null
+ },
+ "Brave the Elements": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Choose a color. White creatures you control gain protection from the chosen color until end of turn.",
+  "pt": null
+ },
+ "Chains of Custody": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature you control When this Aura enters, exile target nonland permanent an opponent controls until this Aura leaves the battlefield. Enchanted creature has ward {2}. (Whenever it becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)",
+  "pt": null
+ },
+ "Darksteel Mutation": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature is an Insect artifact creature with base power and toughness 0/1 and has indestructible, and it loses all other abilities, card types, and creature types.",
+  "pt": null
+ },
+ "Flickerform": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature {2}{W}{W}: Exile enchanted creature and all Auras attached to it. At the beginning of the next end step, return that card to the battlefield under its owner's control. If you do, return the other cards exiled this way to the battlefield under their owners' control attached to that creature.",
+  "pt": null
+ },
+ "Open the Armory": {
+  "cost": "1W",
+  "type": "Sorcery",
+  "text": "Search your library for an Aura or Equipment card, reveal it, put it into your hand, then shuffle.",
+  "pt": null
+ },
+ "Super State": {
+  "cost": "7",
+  "type": "Legendary Enchantment \u2014 Aura",
+  "text": "Enchant creature you control Enchanted creature has base power and toughness 9/9 and has flying, first strike, trample, and haste. Whenever enchanted creature deals combat damage to an opponent, it deals that much damage to each other opponent.",
+  "pt": null
+ },
+ "Mother of Runes": {
+  "cost": "W",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "{T}: Target creature you control gains protection from the color of your choice until end of turn.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Petrify": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant artifact or creature Enchanted permanent can't attack or block, and its activated abilities can't be activated.",
+  "pt": null
+ },
+ "With Great Power . . .": {
+  "cost": "3W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature you control Enchanted creature gets +2/+2 for each Aura and Equipment attached to it. All damage that would be dealt to you is dealt to enchanted creature instead.",
+  "pt": null
+ }
+}

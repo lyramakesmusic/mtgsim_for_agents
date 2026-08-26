@@ -1,0 +1,70 @@
+// strategy: your entire game plan is to get both commanders out on turns 3 and 4, then immediately start slamming 6 mana 6/6s for the rest of the game. use Gilanra to cast the first green 6/6, then tap Alena for 6 mana to cast a second red 6/6. important to note that your green spell should be first since Alena doesn't tap for green. all your spells are 6+ mana except for 2 cascade targets. you will want 3-4 mana in your starting hand - you will not be casting anything your first couple turns and you will want to be on-curve the entire time. when you get your big stompys, swing to your hearts content. most of them have some kind of value engine tacked on, use them if you can. most things have trample, so don't worry about chumps. this deck is supposed to play loose and fun. everyone loves playing big stompy, and this gives you buy one get one free for even more fun. hell yeah big creatures!!
+// scouting: slow early turns, plays both commanders, then uses them to play multiple 6-mana 6/6s per turn and stomp for the win.
+// personality: loud, childlike, unironically thrilled. no wryness, no jokes, no internet irony, nothing clever - you are a kid describing dinosaurs. short simple words and a lot of exclamation marks. you never make fun of yourself or your own deck and you never tease what's coming - you genuinely think your creatures are the coolest thing that has ever happened and you are reacting to them right now. haha yay big creature!! im gonna punch you in the face with dinosaurs!!!!! wow that one is SO BIG. yes!!! another one!!
+Commander
+1 Alena, Kessig Trapper (PLST) CMR-160
+1 Gilanra, Caller of Wirewood (CMR) 230
+
+Deck
+1 Angrath's Marauders (LCC) 215
+1 Aurora Phoenix (CMR) 161
+1 Avatar of Slaughter (CLB) 779
+1 Bane of Bala Ged (BFZ) 1
+1 Boarding Party (CMR) 163
+1 Burning Sun's Avatar (PXLN) 135
+1 Cleanup Crew (SNC) 141
+1 Combustible Gearhulk (M3C) 210
+1 Cyclops of Eternal Fury (JOU) 92
+1 Dawnglade Regent (CMR) 222
+1 Doors of Durin (LTR) 199
+1 Dragonlord Atarka (TDC) 285
+1 Drakuseth, Maw of Flames (M20) 136
+1 Dread Linnorm / Scale Deflection (CLB) 225
+1 Earthshaker Dreadmaw (LCI) 183
+1 Elvish Aberration (DMR) 156
+1 Emissary of Grudges (C18) 20
+1 Etali, Primal Storm (MKC) 152
+1 Firbolg Flutist (CLB) 174
+1 Flameblast Dragon (SCD) 142
+20 Forest (TDM) 286
+1 Garruk's Packleader (BLC) 218
+1 Gruul Ragebeast (GTC) 170
+1 Hoard-Smelter Dragon (AFC) 128
+1 Incinerator of the Guilty (MKM) 349
+1 Inferno Titan (BLC) 198
+1 Monstrous Vortex (MH3) 427
+1 Mordant Dragon (SCD) 152
+1 Mosswort Bridge (LCC) 342
+18 Mountain (M14) 245
+1 Myojin of Roaring Blades (NEC) 36
+1 Nessian Wilds Ravager (BNG) 129
+1 Oblivion Sower (M3C) 158
+1 Oliphaunt (LTR) 426
+1 Orchard Strider (MH2) 169
+1 Primordial Sage (JMP) 422
+1 Pyrewood Gearhulk (DFT) 216
+1 Rampaging Baloths (FDN) 645
+1 Rapacious One (PLST) ROE-162
+1 Red Hulk (MSH) 149
+1 Regal Behemoth (LCC) 251
+1 Ruric Thar, the Unbowed (DGM) 99
+1 Sakiko, Mother of Summer (CMM) 319
+1 Savage Ventmaw (DTK) 231
+1 Seismic Monstrosaur (LCI) 166
+1 Shivan Dragon (ORI) 285
+1 Shriekwood Devourer (DSC) 35
+1 Slavering Branchsnapper (DSK) 198
+1 Soul of New Phyrexia (C16) 274
+1 Soul of the Harvest (W16) 16
+1 Spearbreaker Behemoth (ALA) 150
+1 Stalking Vengeance (RVR) 126
+1 Stormkeld Vanguard / Bear Down (WOE) 187
+1 Sweet-Gum Recluse (CMR) 260
+1 Thunderfoot Baloth (DSC) 201
+1 Timberland Ancient (MOM) 210
+1 Topiary Panther (MKM) 179
+1 Towering Titan (TDC) 276
+1 Ulvenwald Hydra (M3C) 250
+1 Ulvenwald Observer (EMN) 176
+1 Umaro, Raging Yeti (FIC) 63
+1 Valley Rannet (DDL) 58

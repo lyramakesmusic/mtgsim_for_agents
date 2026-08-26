@@ -67,7 +67,7 @@ class Shadow:
             self.next_id += 1
         d = DB.get(name, {})
         x = {"id": pid, "name": name, "tapped": False, "sick": sick and bool(d.get("pt")),
-             "counters": 0, "token": False, "pt": list(d["pt"]) if d.get("pt") else None}
+             "counters": {}, "token": False, "pt": list(d["pt"]) if d.get("pt") else None}
         self.p[ph]["battlefield"].append(x)
         return x
 
@@ -218,7 +218,7 @@ class Shadow:
         if m:
             _, x = self.find(m.group(2))
             if x:
-                x["counters"] += int(m.group(1))
+                x["counters"]["+1/+1"] = x["counters"].get("+1/+1", 0) + int(m.group(1))
             return
         m = SETLINE.match(t)
         if m:
@@ -234,7 +234,7 @@ class Shadow:
                 x["sick"] = mm.group(1) == "True"
             mm = re.search(r"counters([+-]\d+)", chg)
             if mm:
-                x["counters"] += int(mm.group(1))
+                x["counters"]["+1/+1"] = x["counters"].get("+1/+1", 0) + int(mm.group(1))
             mm = re.search(r"pt=\[(-?\d+),\s*(-?\d+)\]", chg)
             if mm:
                 x["pt"] = [int(mm.group(1)), int(mm.group(2))]

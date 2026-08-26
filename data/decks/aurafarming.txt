@@ -1,0 +1,72 @@
+// strategy: aura voltron. t1: plains. t2: light-paws. t3: any 2cmc aura -> brilliant wings with enough mana left over to cast a 2nd 1cmc aura as well. t4+: keep farming free auras and win with commander damage. each aura fetches another one with the same or less cmc. you want to hit fast and hard - outpacing answers with consistency enabled by tutoring. you can hit the same turn 4 lethal every game. stack protection first - this deck lives and dies by its commander. if it dies, you're cooked. you have hexproof (wings), indestructible (redemption arc, shielded), and protection from creatures (mantles). your best buff auras buff according to the number of auras on battlefield - all that glitters, ethereal armor, with great power, sage's reverie, idolized, etc. some auras are protection - tapping down or nerfing an opponents creature. use them. cast whatever auras you have - they can tutor the good ones. you also have protection auras in the form of flickerform etc. not the best but if you have them play them. cost reduction creatures etc are optional. if you have path or swords in hand, you might want to leave mana open. your weaknesses: forced sacrifice, linear combo, mass exile. so, kill the azorius board wipe player, the turn 4 combo player, the black forced sacrifice player, etc. dangerous guys lose first. all you need is just a couple of turns. biggest weakness: counterspells and interaction. bait the azorius player with an aura you dont mind getting negated turn 2. you have no answers if they counter the important stuff. you're also weak to path etc without interaction - the runes creatures are emergency temporary protection. they will prevent you from attaching white auras if choosing white, so be careful. gotchas and quirks: with great power requires indestructible aura or your commander dies and your game with it; stoneskin looks wack but two other cards make light-paws deal damage with toughness instead, making it a huge buff; if you can somehow get super state online before the game ends it is your means of taking out multiple players at once instead of one at a time; it's important to keep track of commander damage since it is your entire wincon. this deck is named aura farming - so aura farm while you play. its only fitting.
+// scouting: puts a ton of auras on light-paws - buff, protection, hexproof - and swings for untouchable commander damage.
+// personality: quiet, too cool for school. aura farming. you are the coolest thing on the battlefield. you're gonna mog that graveyard deck so hard. you deliver lethal with a wink and a quiet nod. phonk music plays in the background. you barely speak - a word or two at most, and often nothing at all. "sup." no jokes, no explanations, no puns on your own deck. let the board talk for you. when you do need something from someone, ask for it in voice: "ayo point that somewhere else. im not tryna mog you rn."
+
+Commander
+1 Light-Paws, Emperor's Voice (NEO) 25 *F*
+
+Deck
+1 All That Glitters (CMM) 622
+1 Angelic Destiny (SOC) 134
+1 Angelic Gift (BFZ) 19
+1 Armored Ascension (PLST) SHM-2
+1 Battle Mastery (DDL) 27
+1 Brave the Elements (M14) 10
+1 Brilliant Wings (FIC) 454
+1 Cartouche of Solidarity (PLST) AKH-7
+1 Celestial Mantle (ZEN) 6
+1 Chains of Custody (J22) 3
+1 Conviction (UMA) 12
+1 Danitha Capashen, Paragon (J25) 59
+1 Darksteel Mutation (SOC) 142
+1 Daybreak Coronet (WOC) 65
+1 Enter the Avatar State (TLA) 18
+1 Ethereal Armor (PLST) Q06-2
+1 Expel the Interlopers (TDC) 115
+1 Feather of Flight (BLB) 13
+1 Flickerform (RAV) 18
+1 Flickering Ward (SOC) 109
+1 Gauntlets of Light (M20) 17
+1 Giver of Runes (MH1) 13
+1 Glaring Aegis (DTK) 18
+1 Gryff's Boon (SOI) 20
+1 Hero of Iroas (BNG) 17
+1 Holy Mantle (GTC) 17
+1 Hyena Umbra (UMA) 21
+1 Idolized (PIP) 17
+1 Karametra's Blessing (PLST) THB-26
+1 Light of Promise (M21) 25
+1 Mana Tithe (TSR) 26
+1 Mantle of the Ancients (PIP) 165
+1 Mother of Runes (CLB) 702
+1 Open the Armory (SOI) 32
+1 Optimistic Scavenger (DSK) 288
+1 Ossification (PLST) ONE-26
+1 Path to Exile (CMA) 19
+1 Pearl-Ear, Imperial Advisor (SOC) 160
+1 Petrify (LCI) 30
+36 Plains (MSC) 872
+1 Ravnica at War (PLST) WAR-28
+1 Rebuff the Wicked (PLC) 12
+1 Redemption Arc (SOC) 163
+1 Sage's Reverie (PLST) C18-72
+1 Sentinel's Eyes (THB) 36
+1 Shardmage's Rescue (DSK) 29
+1 Sheltered by Ghosts (SOC) 171
+1 Shielded by Faith (SOC) 172
+1 Solid Footing (IKO) 31
+1 Songbirds' Blessing (SOC) 174
+1 Spectral Steel (J22) 247
+1 Spirit Link (DMR) 29
+1 Spirit Mantle (SOC) 175
+1 Split Up (PDSK) 32p
+1 Starfield Mystic (SOC) 177
+1 Stoneskin (CLB) 45
+1 Super State (SLD) 2081
+1 Super-Soldier Serum (MSH) 38
+1 Swords to Plowshares (SCD) 37
+1 Tempest Technique (TDC) 16
+1 The Battle of Bywater (LTR) 2
+1 Twinblade Blessing (FDN) 26
+1 Winds of Rath (CMR) 392
+1 With Great Power . . . (SPM) 248

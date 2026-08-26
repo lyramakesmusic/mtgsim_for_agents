@@ -116,6 +116,8 @@ def mana_value(cost):
 
 
 STRATEGY = re.compile(r"^(?://|#)\s*strategy:?\s*(.+)$", re.I)
+SCOUTING = re.compile(r"^(?://|#)\s*scouting:?\s*(.+)$", re.I)
+PERSONALITY = re.compile(r"^(?://|#)\s*personality:?\s*(.+)$", re.I)
 
 
 def deck_strategy(name):
@@ -125,6 +127,27 @@ def deck_strategy(name):
         return ""
     return " ".join(m.group(1).strip() for line in path.read_text().splitlines()
                     if (m := STRATEGY.match(line.strip())))
+
+
+def deck_scouting(name):
+    """Public one-liner: what this deck does, as the table would know it.
+    Every seat is shown every deck's scouting line; the strategy memo stays
+    private to its own seat."""
+    path = DECK_DIR / f"{name}.txt"
+    if not path.exists():
+        return ""
+    return " ".join(m.group(1).strip() for line in path.read_text().splitlines()
+                    if (m := SCOUTING.match(line.strip())))
+
+
+def deck_personality(name):
+    """How this seat talks. Private to its own seat, like the strategy memo —
+    the table hears the voice, not the direction."""
+    path = DECK_DIR / f"{name}.txt"
+    if not path.exists():
+        return ""
+    return " ".join(m.group(1).strip() for line in path.read_text().splitlines()
+                    if (m := PERSONALITY.match(line.strip())))
 
 
 def load_deck(name, db):

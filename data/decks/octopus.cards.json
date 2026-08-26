@@ -1,0 +1,452 @@
+{
+ "Alandra, Sky Dreamer": {
+  "cost": "2UU",
+  "type": "Legendary Creature \u2014 Merfolk Wizard",
+  "text": "Whenever you draw your second card each turn, create a 2/2 blue Drake creature token with flying. Whenever you draw your fifth card each turn, Alandra and Drakes you control each get +X/+X until end of turn, where X is the number of cards in your hand.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Ancestral Reminiscence": {
+  "cost": "3U",
+  "type": "Sorcery",
+  "text": "Draw three cards, then discard a card.",
+  "pt": null
+ },
+ "Arcane Denial": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target spell. Its controller may draw up to two cards at the beginning of the next turn's upkeep. You draw a card at the beginning of the next turn's upkeep.",
+  "pt": null
+ },
+ "Archmage of Runes": {
+  "cost": "3UU",
+  "type": "Creature \u2014 Giant Wizard",
+  "text": "Instant and sorcery spells you cast cost {1} less to cast. Whenever you cast an instant or sorcery spell, draw a card.",
+  "pt": [
+   3,
+   6
+  ]
+ },
+ "Auton Soldier": {
+  "cost": "4UU",
+  "type": "Artifact Creature \u2014 Alien Soldier",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield, except it isn't legendary, is an artifact in addition to its other types, and has myriad. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Baral, Chief of Compliance": {
+  "cost": "1U",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "Instant and sorcery spells you cast cost {1} less to cast. Whenever a spell or ability you control counters a spell, you may draw a card. If you do, discard a card.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Brainstorm": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw three cards, then put two cards from your hand on top of your library in any order.",
+  "pt": null
+ },
+ "Brainsurge": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Draw four cards, then put two cards from your hand on top of your library in any order.",
+  "pt": null
+ },
+ "Chimil, the Inner Sun": {
+  "cost": "6",
+  "type": "Legendary Artifact",
+  "text": "Spells you control can't be countered. At the beginning of your end step, discover 5. (Exile cards from the top of your library until you exile a nonland card with mana value 5 or less. Cast it without paying its mana cost or put it into your hand. Put the rest on the bottom in a random order.)",
+  "pt": null
+ },
+ "Commander's Sphere": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity. Sacrifice this artifact: Draw a card.",
+  "pt": null
+ },
+ "Concentrate": {
+  "cost": "2UU",
+  "type": "Sorcery",
+  "text": "Draw three cards.",
+  "pt": null
+ },
+ "Consider": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Surveil 1. (Look at the top card of your library. You may put it into your graveyard.) Draw a card.",
+  "pt": null
+ },
+ "Consuming Tide": {
+  "cost": "2UU",
+  "type": "Sorcery",
+  "text": "Each player chooses a nonland permanent they control. Return all nonland permanents not chosen this way to their owners' hands. Then you draw a card for each opponent who has more cards in their hand than you.",
+  "pt": null
+ },
+ "Contentious Plan": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.) Draw a card.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Decanter of Endless Water": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "You have no maximum hand size. {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Faerie Mastermind": {
+  "cost": "1U",
+  "type": "Creature \u2014 Faerie Rogue",
+  "text": "Flash Flying Whenever an opponent draws their second card each turn, you draw a card. {3}{U}: Each player draws a card.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Genji Glove": {
+  "cost": "5",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has double strike. Whenever equipped creature attacks, if it's the first combat phase of the turn, untap it. After this phase, there is an additional combat phase. Equip {3}",
+  "pt": null
+ },
+ "Gitaxian Probe": {
+  "cost": "(U/P)",
+  "type": "Sorcery",
+  "text": "({U/P} can be paid with either {U} or 2 life.) Look at target player's hand. Draw a card.",
+  "pt": null
+ },
+ "Homunculus Horde": {
+  "cost": "3U",
+  "type": "Creature \u2014 Homunculus",
+  "text": "Whenever you draw your second card each turn, create a token that's a copy of this creature.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Ioreth of the Healing House": {
+  "cost": "2U",
+  "type": "Legendary Creature \u2014 Human Cleric",
+  "text": "{T}: Untap another target permanent. {T}: Untap two other target legendary creatures.",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Katara, Waterbending Master": {
+  "cost": "1U",
+  "type": "Legendary Creature \u2014 Human Warrior Ally",
+  "text": "Whenever you cast a spell during an opponent's turn, you get an experience counter. Whenever Katara attacks, you may draw a card for each experience counter you have. If you do, discard a card.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Lady Octopus, Inspired Inventor": {
+  "cost": "U",
+  "type": "Legendary Creature \u2014 Human Scientist Villain",
+  "text": "Whenever you draw your first or second card each turn, put an ingenuity counter on Lady Octopus. {T}: You may cast an artifact spell from your hand with mana value less than or equal to the number of ingenuity counters on Lady Octopus without paying its mana cost.",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Mental Misstep": {
+  "cost": "(U/P)",
+  "type": "Instant",
+  "text": "({U/P} can be paid with either {U} or 2 life.) Counter target spell with mana value 1.",
+  "pt": null
+ },
+ "Metalwork Colossus": {
+  "cost": "(11)",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "This spell costs {X} less to cast, where X is the total mana value of noncreature artifacts you control. Sacrifice two artifacts: Return this card from your graveyard to your hand.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Minn, Wily Illusionist": {
+  "cost": "1UU",
+  "type": "Legendary Creature \u2014 Gnome Wizard",
+  "text": "Whenever you draw your second card each turn, create a 1/1 blue Illusion creature token with \"This token gets +1/+0 for each other Illusion you control.\" Whenever an Illusion you control dies, you may put a permanent card with mana value less than or equal to that creature's power from your hand onto the battlefield.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Nevinyrral's Disk": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {1}, {T}: Destroy all artifacts, creatures, and enchantments.",
+  "pt": null
+ },
+ "Opt": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Scry 1. (Look at the top card of your library. You may put that card on the bottom.) Draw a card.",
+  "pt": null
+ },
+ "Padeem, Consul of Innovation": {
+  "cost": "3U",
+  "type": "Legendary Creature \u2014 Vedalken Artificer",
+  "text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.) At the beginning of your upkeep, if you control the artifact with the greatest mana value or tied for the greatest mana value, draw a card.",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Platinum Angel": {
+  "cost": "7",
+  "type": "Artifact Creature \u2014 Angel",
+  "text": "Flying You can't lose the game and your opponents can't win the game.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Ponder": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Look at the top three cards of your library, then put them back in any order. You may shuffle. Draw a card.",
+  "pt": null
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Portal to Phyrexia": {
+  "cost": "9",
+  "type": "Artifact",
+  "text": "When this artifact enters, each opponent sacrifices three creatures of their choice. At the beginning of your upkeep, put target creature card from a graveyard onto the battlefield under your control. It's a Phyrexian in addition to its other types.",
+  "pt": null
+ },
+ "Preordain": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Scry 2, then draw a card. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+  "pt": null
+ },
+ "Proft's Eidetic Memory": {
+  "cost": "1U",
+  "type": "Legendary Enchantment",
+  "text": "When Proft's Eidetic Memory enters, draw a card. You have no maximum hand size. At the beginning of combat on your turn, if you've drawn more than one card this turn, put X +1/+1 counters on target creature you control, where X is the number of cards you've drawn this turn minus one.",
+  "pt": null
+ },
+ "Psychosis Crawler": {
+  "cost": "5",
+  "type": "Artifact Creature \u2014 Phyrexian Horror",
+  "text": "Psychosis Crawler's power and toughness are each equal to the number of cards in your hand. Whenever you draw a card, each opponent loses 1 life.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "pt": null
+ },
+ "Reality Shift": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller manifests the top card of their library. (That player puts the top card of their library onto the battlefield face down as a 2/2 creature. If it's a creature card, it can be turned face up any time for its mana cost.)",
+  "pt": null
+ },
+ "Refute": {
+  "cost": "1UU",
+  "type": "Instant",
+  "text": "Counter target spell. Draw a card, then discard a card.",
+  "pt": null
+ },
+ "Reliquary Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "You have no maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Resculpt": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Exile target artifact or creature. Its controller creates a 4/4 blue and red Elemental creature token.",
+  "pt": null
+ },
+ "Rewind": {
+  "cost": "2UU",
+  "type": "Instant",
+  "text": "Counter target spell. Untap up to four lands.",
+  "pt": null
+ },
+ "Sculpting Steel": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "You may have this artifact enter as a copy of any artifact on the battlefield.",
+  "pt": null
+ },
+ "Serum Visions": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Draw a card. Scry 2.",
+  "pt": null
+ },
+ "Swan Song": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.",
+  "pt": null
+ },
+ "Swiftfoot Boots": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.) Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Teferi's Ageless Insight": {
+  "cost": "2UU",
+  "type": "Legendary Enchantment",
+  "text": "If you would draw a card except the first one you draw in each of your draw steps, draw two cards instead.",
+  "pt": null
+ },
+ "Teferi, Mage of Zhalfir": {
+  "cost": "2UUU",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "Flash Creature cards you own that aren't on the battlefield have flash. Each opponent can cast spells only any time they could cast a sorcery.",
+  "pt": [
+   3,
+   4
+  ]
+ },
+ "Temple Bell": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Each player draws a card.",
+  "pt": null
+ },
+ "Thoughtcast": {
+  "cost": "4U",
+  "type": "Sorcery",
+  "text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.) Draw two cards.",
+  "pt": null
+ },
+ "Throne of Eldraine": {
+  "cost": "5",
+  "type": "Legendary Artifact",
+  "text": "As Throne of Eldraine enters, choose a color. {T}: Add four mana of the chosen color. Spend this mana only to cast monocolored spells of that color. {3}, {T}: Draw two cards. Spend only mana of the chosen color to activate this ability.",
+  "pt": null
+ },
+ "Visions of Beyond": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw a card. If a graveyard has twenty or more cards in it, draw three cards instead.",
+  "pt": null
+ },
+ "Wavebreak Hippocamp": {
+  "cost": "2U",
+  "type": "Enchantment Creature \u2014 Horse Fish",
+  "text": "Whenever you cast your first spell during each opponent's turn, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Wurmcoil Engine": {
+  "cost": "6",
+  "type": "Artifact Creature \u2014 Phyrexian Wurm",
+  "text": "Deathtouch, lifelink When this creature dies, create a 3/3 colorless Phyrexian Wurm artifact creature token with deathtouch and a 3/3 colorless Phyrexian Wurm artifact creature token with lifelink.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Blightsteel Colossus": {
+  "cost": "(12)",
+  "type": "Artifact Creature \u2014 Phyrexian Golem",
+  "text": "Trample, infect, indestructible If Blightsteel Colossus would be put into a graveyard from anywhere, reveal Blightsteel Colossus and shuffle it into its owner's library instead.",
+  "pt": [
+   11,
+   11
+  ]
+ },
+ "Experimental Augury": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Flux Channeler": {
+  "cost": "2U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Whenever you cast a noncreature spell, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Inexorable Tide": {
+  "cost": "3UU",
+  "type": "Enchantment",
+  "text": "Whenever you cast a spell, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Radstorm": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Storm (When you cast this spell, copy it for each spell cast before it this turn.) Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Reject Imperfection": {
+  "cost": "1UU",
+  "type": "Instant",
+  "text": "Counter target spell. If that spell's mana value was 3 or less, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Tezzeret's Gambit": {
+  "cost": "3(U/P)",
+  "type": "Sorcery",
+  "text": "({U/P} can be paid with either {U} or 2 life.) Draw two cards, then proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Thrummingbird": {
+  "cost": "1U",
+  "type": "Creature \u2014 Phyrexian Bird Horror",
+  "text": "Flying Whenever this creature deals combat damage to a player, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   1,
+   1
+  ]
+ }
+}

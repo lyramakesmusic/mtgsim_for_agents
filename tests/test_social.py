@@ -213,3 +213,94 @@ def test_human_combat_damage_defaults_to_the_scribe(monkeypatch):
     assert out["effects"][0]["life"]["delta"] == -14
     assert asked, "the scribe was never consulted"
     assert "resolve this combat from the board" in asked[0]
+
+
+def test_every_seat_is_briefed_on_threat_order(make_game):
+    """Kill-the-closest-to-winning is table doctrine, not one deck's memo."""
+    seen = []
+
+    class Watcher:
+        calls, cost_usd, tokens = 0, 0.0, {"in": 0, "out": 0}
+        def ask(self, prompt):
+            seen.append(prompt)
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.agents = [Watcher() for _ in g.p]
+    g.turn = 1
+    for i in range(len(g.p)):
+        g.force_full[i] = True
+        g.ask(i, "act")
+    assert seen and all("closest to winning" in p for p in seen)
+
+
+def test_scouting_is_public_and_gameplans_stay_private(db, tmp_path):
+    """Everyone knows what everyone's deck does; nobody knows how it plans to."""
+    import random
+
+    from mtgsim.cards import load_deck
+    from mtgsim.engine import Game
+
+    names = ("snakes", "meren")
+    decks = [(n, *load_deck(n, db), f"PLAN_OF_{n.upper()}", f"scouts as {n}") for n in names]
+    seen = {0: [], 1: []}
+    agents = [StubAgent(lambda p, i=i: seen[i].append(p) or '{"action":"pass"}')
+              for i in range(2)]
+    g = Game(db, decks, agents, 1, str(tmp_path / "game.md"), 5, random.Random(1))
+    g.turn = 1
+    g.ask(0, "act")
+    g.ask(1, "act")
+
+    for i in (0, 1):
+        assert "scouts as snakes" in seen[i][0]        # both scouting lines
+        assert "scouts as meren" in seen[i][0]
+    assert "PLAN_OF_SNAKES" in seen[0][0] and "PLAN_OF_MEREN" not in seen[0][0]
+    assert "PLAN_OF_MEREN" in seen[1][0] and "PLAN_OF_SNAKES" not in seen[1][0]
+
+
+def test_personality_is_private_voice_direction(db, tmp_path):
+    """A seat is told how it talks; nobody else is told how it talks."""
+    import random
+
+    from mtgsim.cards import load_deck
+    from mtgsim.engine import Game
+
+    names = ("snakes", "meren")
+    decks = [(n, *load_deck(n, db), f"PLAN_{n.upper()}", f"scouts as {n}", f"VOICE_{n.upper()}")
+             for n in names]
+    seen = {0: [], 1: []}
+    agents = [StubAgent(lambda p, i=i: seen[i].append(p) or '{"action":"pass"}')
+              for i in range(2)]
+    g = Game(db, decks, agents, 1, str(tmp_path / "game.md"), 5, random.Random(1))
+    g.turn = 1
+    g.ask(0, "act")
+    g.ask(1, "act")
+
+    assert "VOICE_SNAKES" in seen[0][0] and "VOICE_MEREN" not in seen[0][0]
+    assert "VOICE_MEREN" in seen[1][0] and "VOICE_SNAKES" not in seen[1][0]
+    assert not any("VOICE_" in line for line in g.table)
+
+
+def test_voice_reminder_rides_every_prompt(make_game):
+    """The brief is sent once a session; the voice has to travel with the deltas
+    or the seat drifts back to its default register by turn three."""
+    prompts = []
+
+    class Sessioned:
+        calls, cost_usd, tokens = 0, 0.0, {"in": 0, "out": 0}
+        resume, session_id = True, None
+        def ask(self, prompt):
+            prompts.append(prompt)
+            self.session_id = "sess-1"
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.p[0].personality = "VOICE_UNDER_TEST"
+    g.agents[0] = Sessioned()
+    g.turn = 2
+    g.force_full[0] = True
+    g.ask(0, "first")            # full brief
+    g.ask(0, "second")           # delta
+    g.ask(0, "third")            # delta
+    assert "PROTOCOL" in prompts[0] and "PROTOCOL" not in prompts[1]
+    assert all("VOICE_UNDER_TEST" in p for p in prompts), "voice missing from a delta prompt"

@@ -1,0 +1,72 @@
+// strategy: mono blue draw-synergy control with an artifact cheat endgame. you want to draw a shit ton of cards, play magic on the opponents turns, and get enough counters on octopus girl to cast stuff like blightsteel colossus for free and win. your packages include: big hammer artifacts, proliferate suite, card draw cantrips, draw synergy/payoffs/cost reducers, and some control-ish pieces to slow down the game. use counterspells and interaction freely, you need to buy time. but don't be lazy - you do still want to prefer countering the dangerous pieces early. use proliferate to scale octopus girl past what the 2-counter cap typically limits her to. draw on opponents turns to scale her 4 times faster. other cards include each-turn payoffs too, abuse the value gained by playing on opponents turns. keep your hand full and hold mana for opponents'-turn interaction. ioreth untaps octopus girl for a second free artifact every turn - her second ability untaps two legends at once, so octopus plus katara or minn off one tap. when you cast your big stompy artifacts, sling them for the win. use drakes, homunculus horde, and illusions as alt wincons. for mulls, keep 2 lands and anything that gives you more draws to get octopus online faster. you can draw into your wincons, worry about getting the engine online fast first. your deck is essentially saying fuck you give me cards to the entire table - play it as such.
+// scouting: plays draw and proliferate to build counters, then cheats stompy artifacts; heavy on interaction.
+// personality: smug, clipped, condescending. hmmm how about no. you dont get to do that. and give me another card by the way. and a blightsteel. 🤓
+
+Commander
+1 Lady Octopus, Inspired Inventor (SPM) 35
+
+Deck
+1 Alandra, Sky Dreamer (MKC) 94
+1 An Offer You Can't Refuse (PLST) SNC-51
+1 Ancestral Reminiscence (LCI) 45
+1 Arcane Denial (MSC) 147
+1 Archmage of Runes (FDN) 30
+1 Auton Soldier (WHO) 36
+1 Baral, Chief of Compliance (AER) 28
+1 Blightsteel Colossus (PLST) 2XM-235
+1 Brainstorm (C18) 82
+1 Brainsurge (MH3) 53
+1 Chimil, the Inner Sun (PLCI) 249p
+1 Commander's Sphere (C16) 248
+1 Concentrate (C14) 103
+1 Consider (TLE) 157
+1 Consuming Tide (VOW) 53
+1 Contentious Plan (WAR) 46
+1 Counterspell (DSC) 114
+1 Decanter of Endless Water (PLST) CLB-309
+1 Experimental Augury (PLST) ONE-49
+1 Faerie Mastermind (SOC) 114
+1 Flux Channeler (WAR) 52
+1 Genji Glove (FIN) 258
+1 Gitaxian Probe (PLST) NPH-35
+1 Homunculus Horde (FDN) 454
+1 Inexorable Tide (FIC) 265
+1 Ioreth of the Healing House (LTR) 56
+36 Island (ORI) 259
+1 Katara, Waterbending Master (TLE) 93
+1 Mental Misstep (NPH) 38
+1 Metalwork Colossus (MSC) 204
+1 Minn, Wily Illusionist (AFC) 16
+1 Negate (TMT) 47
+1 Nevinyrral's Disk (CMR) 328
+1 Opt (FDN) 512
+1 Padeem, Consul of Innovation (J25) 62
+1 Platinum Angel (PLST) CN2-214
+1 Ponder (TDC) 159
+1 Pongify (TDC) 160
+1 Portal to Phyrexia (PBRO) 240p
+1 Preordain (TDC) 161
+1 Proft's Eidetic Memory (PMKM) 67p
+1 Psychosis Crawler (CN2) 215
+1 Radstorm (PIP) 37
+1 Rapid Hybridization (LCC) 166
+1 Reality Shift (PLST) NEC-95
+1 Refute (FDN) 48
+1 Reject Imperfection (ONE) 67
+1 Reliquary Tower (SOC) 398
+1 Resculpt (SOC) 201
+1 Rewind (M13) 65
+1 Sculpting Steel (MOC) 374
+1 Serum Visions (AFC) 94
+1 Swan Song (THS) 65
+1 Swiftfoot Boots (MSC) 216
+1 Teferi, Mage of Zhalfir (PLST) IMA-75
+1 Teferi's Ageless Insight (J25) 371
+1 Temple Bell (C13) 265
+1 Tezzeret's Gambit (PLST) NPH-47
+1 Thoughtcast (J25) 374
+1 Throne of Eldraine (PLST) WOC-28
+1 Thrummingbird (MM2) 65
+1 Visions of Beyond (UMA) 81
+1 Wavebreak Hippocamp (J25) 387
+1 Wurmcoil Engine (CM2) 231

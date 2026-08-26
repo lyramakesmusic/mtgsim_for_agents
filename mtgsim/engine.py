@@ -45,7 +45,8 @@ Wins the engine can't see (Thassa's Oracle, Approach, demonstrated loops):
 Actions: play_land, cast, activate, attack, respond, block, claim_win, pass.
   cast/activate carry "tap":[permanent ids] (mana payment; engine taps them)
   and "effects":[atoms] (all consequences, agent-declared).
-  attack: {"attacks":{"P2":[attacker ids],"P4":[...]}}
+  attack: {"attacks":{"P2":[attacker ids],"P4":[...]}, "vigilance":[ids] or true}
+     attackers tap unless you list them under "vigilance" (true covers them all)
 Player references: seat handle ("P3"); "self" always works; "opponent" only
 when exactly one other seat is alive.
 
@@ -131,7 +132,7 @@ the braces is lost. Optional in any reply:
 ACTIONS: {"action":"play_land","card":...} | {"action":"cast","card":...,"tap":[ids],
 "targets":[permanent ids or seat handles],"effects":[...]} |
 {"action":"activate","source":id,"tap_source":bool,"tap":[ids],"effects":[...]} |
-{"action":"attack","attacks":{"P2":[attacker ids],...}} | {"action":"claim_win","how":"..."} |
+{"action":"attack","attacks":{"P2":[attacker ids],...},"vigilance":[ids]} | {"action":"claim_win","how":"..."} |
 {"action":"peek","n":N} | {"action":"correct","effects":[...],"narration":"what was wrong"} |
 {"action":"pass"}
 correct = bookkeeping repair, not a game action: fixing your own earlier error, applying a
@@ -175,9 +176,17 @@ nothing you don't:
  {"life":{"player":P,"delta":±N}}
  {"create":{"player":P,"name":...,"n":N,"pt":[p,t],"tapped":bool}}
  {"set":{"id":perm_id,"tapped":bool,"sick":bool,"counters":±delta,"pt":[p,t]}}
+   counters is a map of named kinds — {"counters":{"ingenuity":1}}, {"experience":1},
+   {"growth":2}, {"loyalty":-3}. A bare number is shorthand for {"+1/+1": n}. The engine
+   tracks whatever you name and shows it on the board; only "+1/+1" is added to printed
+   power, and only because you called it that
  {"draw":{"player":P,"n":N,"from":"top"|"bottom"}}   {"shuffle":{"player":P}}
  {"search":{"player":P,"card":name,"to":zone,"tapped":bool,"shuffle":bool}}  (engine verifies)
- {"reveal":{"player":P,"zone":"hand"|"library_top","n":N}}
+ {"look":{"player":P,"zone":"hand"|"library_top","n":N}} — a PRIVATE look, for Gitaxian Probe,
+   Peek, Duress and anything worded "look at". The table is told only that you looked; the contents
+   come back to you alone.
+ {"reveal":{"player":P,"zone":"hand"|"library_top","n":N}} — a PUBLIC reveal, for cards that actually
+   say "reveals". Everyone sees the names.
  {"random":{"coin":true}|{"die":N}}   (engine rolls — never claim your own randomness)
  {"ask":{"player":P,"question":"...","if_yes":[atoms],"if_no":[atoms]}} — a one-off decision
    that belongs to another seat, made at resolution time: punisher modes, "may" abilities,
@@ -210,10 +219,27 @@ class GameOver(Exception):
         self.winner, self.how = winner, how
 
 
+def _counters(perm):
+    """Counters as {kind: n}. A bare number from an older snapshot means +1/+1."""
+    c = perm.get("counters") or {}
+    return dict(c) if isinstance(c, dict) else {"+1/+1": int(c)}
+
+
+def plus_counters(perm):
+    """How many +1/+1 counters — the only kind whose meaning the engine assumes,
+    and only because the agent named it that. Every other kind is tracked and
+    shown; what it does is the agents' business."""
+    return _counters(perm).get("+1/+1", 0)
+
+
 class Player:
-    def __init__(self, handle, deckname, decklist, commanders, rng, strategy=""):
+    def __init__(self, handle, deckname, decklist, commanders, rng, strategy="", scouting="",
+                 personality=""):
         self.handle = handle                  # "P1"
-        self.strategy = strategy              # gameplan blurb, delivered in the brief
+        self.strategy = strategy              # gameplan blurb, private to this seat
+        self.scouting = scouting              # public one-liner, shown to everyone
+        self.personality = personality        # private voice direction for this seat
+        self.deckname = deckname
         self.name = f"{handle}({deckname})"   # "P1(snakes)"
         self.decklist = decklist[:]           # full 99, for deck-knowledge prompts
         self.library = decklist[:]
@@ -241,7 +267,9 @@ class Game:
         self.db = db
         self.rng = rng
         self.p = [Player(f"P{n+1}", spec[0], spec[1], spec[2], rng,
-                         strategy=spec[3] if len(spec) > 3 else "")
+                         strategy=spec[3] if len(spec) > 3 else "",
+                         scouting=spec[4] if len(spec) > 4 else "",
+                         personality=spec[5] if len(spec) > 5 else "")
                   for n, spec in enumerate(decks)]
         self.agents = agents
         self.turn = 0
@@ -360,7 +388,7 @@ class Game:
                 out.append(f"{pl.name}: eliminated")
                 continue
             bf = "; ".join(
-                f"{x['id']}{'(' + str(x['pt'][0]+x['counters']) + '/' + str(x['pt'][1]+x['counters']) + ')' if x['pt'] else ''}"
+                f"{x['id']}{'(' + str(x['pt'][0]+plus_counters(x)) + '/' + str(x['pt'][1]+plus_counters(x)) + ')' if x['pt'] else ''}"
                 f"{'[T]' if x['tapped'] else ''}{'[sick]' if x['sick'] else ''}"
                 for x in pl.battlefield) or "(empty)"
             cz = "; ".join(f"{c} " + (f"in CZ (tax +{pl.commander_tax[c]})"
@@ -397,7 +425,7 @@ class Game:
     def perm(self, pl, name, token=False, tapped=False, pt=None):
         d = self.db.get(name, {})
         p = {"id": f"{name}#{self.next_id}", "name": name, "tapped": tapped,
-             "sick": True, "counters": 0, "token": token, "owner": pl.handle,
+             "sick": True, "counters": {}, "token": token, "owner": pl.handle,
              "pt": pt or d.get("pt")}
         if not p["pt"]:                      # noncreatures don't get sick
             p["sick"] = False
@@ -736,17 +764,36 @@ class Game:
             self.log(f"  ↳ {tgt.name} creates {t.get('n',1)}x {t.get('name')} token(s)")
         elif "set" in e:
             s = e["set"]
-            _, perm = self.find(s.get("id"), prefer=i)
+            ident = s.get("id")
+            _, perm = self.find(ident, prefer=i)
             if not perm:
-                self.log(f"  !! set: no permanent {s.get('id')!r}; skipped")
-                return
+                # a card that left and came back is a new object with a new id;
+                # if exactly one permanent shares the name, that is plainly the one
+                base = str(ident).split("#")[0].strip()
+                same = [x for pl in self.p for x in pl.battlefield if x["name"] == base]
+                if len(same) == 1:
+                    perm = same[0]
+                    self.log(f"  (set: {ident} is gone — applying to {perm['id']}, "
+                             f"the only {base} on the battlefield)")
+                else:
+                    self.log(f"  !! set: no permanent {ident!r}; skipped"
+                             + (f" ({len(same)} named {base} — say which)" if same else ""))
+                    return
             changes = []
             if "tapped" in s:
                 perm["tapped"] = bool(s["tapped"]); changes.append(f"tapped={s['tapped']}")
             if "sick" in s:
                 perm["sick"] = bool(s["sick"]); changes.append(f"sick={s['sick']}")
             if "counters" in s:
-                perm["counters"] += int(s["counters"]); changes.append(f"counters{int(s['counters']):+d}")
+                c = s["counters"]
+                deltas = c if isinstance(c, dict) else {"+1/+1": c}
+                cs = _counters(perm)
+                for kind, delta in deltas.items():
+                    cs[kind] = cs.get(kind, 0) + int(delta)
+                    if cs[kind] <= 0:
+                        cs.pop(kind)
+                    changes.append(f"{kind}{int(delta):+d}")
+                perm["counters"] = cs
             if "pt" in s:
                 perm["pt"] = tuple(s["pt"]); changes.append(f"pt={s['pt']}")
             self.log(f"  ↳ {perm['id']}: {', '.join(changes) or 'no-op'}")
@@ -814,6 +861,26 @@ class Game:
             if tgt:
                 self.rng.shuffle(tgt.library)
                 self.log(f"  ↳ {tgt.name} shuffles their library")
+        elif "look" in e:
+            lk = e["look"]
+            tgt = self.resolve_player(i, lk.get("player", "self"))
+            if not tgt:
+                self.log(f"  !! look: can't resolve player {lk.get('player')!r}; skipped")
+                return
+            zone = lk.get("zone", "hand")
+            if zone == "hand":
+                cards, what = list(tgt.hand), f"{tgt.name}'s hand"
+            else:
+                n = max(1, int(lk.get("n", 1)))
+                cards, what = list(tgt.library[:n]), f"the top {n} of {tgt.name}'s library"
+            self.log(f"  ↳ {me.name} looks at {what} ({len(cards)} cards).")
+            self.log_private(f"  [{what}: {', '.join(cards) or '(empty)'}]", seat=me.handle)
+            r = self.ask(i,
+                f"PRIVATE LOOK — only you see this. {what}: {', '.join(cards) or '(empty)'}. "
+                f"Declare anything the card does with that knowledge as effect atoms, or pass.",
+                schema_hint='{"action":"pass"|"correct","effects":[...]}')
+            if r.get("effects"):
+                self.apply_effects(i, r["effects"])
         elif "reveal" in e:
             r = e["reveal"]
             tgt = self.resolve_player(i, r.get("player", "self"))
@@ -919,10 +986,10 @@ class Game:
         self.log(f"{me.name} casts {c}" + (" (from command zone)" if from_cz else "") +
                  (f", tapping {a.get('tap')}" if a.get("tap") else "") +
                  (f" — {a.get('narration','')}" if a.get("narration") else ""))
-        d_ = self.db.get(c)
-        if d_:                        # spectator card-text caption
-            pt_ = f" {d_['pt'][0]}/{d_['pt'][1]}" if d_.get("pt") else ""
-            self.log_private(f"  [{c} — {d_['cost'] or 'Land'} — {d_['type']}{pt_} — {d_['text']}]")
+        if not self.stack:            # cast outside the stack still wants its caption
+            cap = self._card_caption(c)
+            if cap:
+                self.log_private(cap)
         self.apply_effects(i, a.get("effects"))
         return c
 
@@ -953,6 +1020,17 @@ class Game:
             self.log_private(f"  [{perm['name']}: {d_['text']}]")
         self.apply_effects(i, a.get("effects"))
 
+    def _card_caption(self, name):
+        """One-line oracle for the console, shown when a thing is announced —
+        a response window is a judgement call about a card, so the card is on
+        screen while the window is open."""
+        d = self.db.get(name)
+        if not d:
+            return None
+        pt = f" {d['pt'][0]}/{d['pt'][1]}" if d.get("pt") else ""
+        return f"  [{name} — {d['cost'] or 'Land'} — {d['type']}{pt} — {d['text']}]"
+
+
     def resolve_on_stack(self, i, plan, kind="spell", depth=0):
         """Announce onto the stack, pay costs, run priority (responses recurse
         and resolve first — the call stack IS the stack), then resolve, get
@@ -976,6 +1054,9 @@ class Game:
         says = plan.get("narration")
         self.log(f"{me.name} announces {verb}{name} ({obj['id']}){aim}"
                  + (f" — {says}" if says else "") + "...")
+        cap = self._card_caption(name if kind == "spell" else plan.get("source", name))
+        if cap:
+            self.log_private(cap)
         if kind == "spell":
             d_t = self.db.get(name) or {}
             if "Instant" not in d_t.get("type", "") and "Flash" not in d_t.get("text", ""):
@@ -1059,8 +1140,11 @@ class Game:
                     continue
                 caster_name = self.p[obj["caster"]].name
                 verb = "casting" if obj["kind"] == "spell" else "activating"
+                d_o = self.db.get(obj["name"]) or {}
+                oracle = (f" [{obj['name']} — {d_o.get('cost') or 'Land'} — "
+                          f"{d_o.get('type','')} — {d_o.get('text','')}]" if d_o else "")
                 r = self.ask(j,
-                    f"RESPONSE WINDOW: {caster_name} is {verb} {obj['name']}. "
+                    f"RESPONSE WINDOW: {caster_name} is {verb} {obj['name']}.{oracle} "
                     f"STACK (top resolves first): {self._stack_line()}. "
                     f"You may cast an instant/flash or activate an instant-speed ability in "
                     f"response — it goes on top and resolves first — or pass. To counter "
@@ -1167,9 +1251,9 @@ class Game:
             out = []
             for x in pl.battlefield:
                 flags = "".join(("T" if x["tapped"] else "", "S" if x["sick"] else ""))
-                pt = f" {x['pt'][0]+x['counters']}/{x['pt'][1]+x['counters']}" if x["pt"] else ""
+                pt = f" {x['pt'][0]+plus_counters(x)}/{x['pt'][1]+plus_counters(x)}" if x["pt"] else ""
                 out.append(x["id"] + pt + (f"[{flags}]" if flags else "")
-                           + (f"[+{x['counters']}]" if x["counters"] else ""))
+                           + "".join(f"[{k} {v}]" for k, v in _counters(x).items()))
             return ", ".join(out) or "(empty)"
         boards = "\n".join(f"{pl.handle}: {bf(pl)}" for pl in self.p if pl.alive)
         new_names = [n for n in
@@ -1229,7 +1313,16 @@ class Game:
                       f"=== {hdr} (authoritative) ===\n{self.digest(i, full_board=fb)}\n\n"
                       f"=== INSTRUCTION ===\n{instruction}\n"
                       + (f"Schema: {schema_hint}\n" if schema_hint else "")
-                      + "Reply per the established protocol: exactly one JSON object.\n")
+                      + "Reply per the established protocol: exactly one JSON object.\n"
+                      + (f"Stay in voice — you are still method acting as: {me.personality} "
+                         f"(a register sample, not a script — never quote it, and don't reference "
+                         f"cards from it that aren't on the board.) No winks: commit to the stance. "
+                         f"The voice is genuine, never ironic. "
+                         f"Speak only as yourself; do not pick up the phrasing or jokes of the other "
+                         f"seats in the log above, don't narrate your own plays, and never dress a game "
+                         f"action in an incongruous everyday domain (offices, paperwork, gyms, "
+                         f"traffic, customer service) — say it in character instead.\n"
+                         if me.personality else ""))
             self.log_sent[i] = len(self.table)
             raw = agent.ask(prompt)
             return self._parse_reply(i, raw)
@@ -1243,11 +1336,47 @@ class Game:
                   f"table, so rules-precision (summoning sickness, mana payment, timing) is what keeps your "
                   f"plays standing. A human judge watches the game: lines marked ⚖ in the table log are "
                   f"authoritative — when one flags an error or issues a ruling, address it in your next "
-                  f"reply (correct state via effect atoms) before advancing your own plans.\n"
+                  f"reply (correct state via effect atoms) before advancing your own plans. "
+                  f"Eliminating someone is not automatically progress: a seat that can't threaten "
+                  f"you absorbs other people's attacks and blocks for you, and killing it early "
+                  f"makes you the archenemy one opponent sooner. Spend your clock on whoever is "
+                  f"closest to winning, not whoever is easiest to finish.\n"
                   + (f"\nYOUR DECK'S GAMEPLAN: {me.strategy}\n" if me.strategy else "")
+                  + (f"\nHOW YOU TALK: {me.personality} That is a sample of the register, never a "
+                     f"script — do not quote it back, and do not mention cards or events from it that "
+                     f"aren't actually happening in this game. The character works better the more "
+                     f"closely you adhere to this voice rather than defaulting to your own register. "
+                     f"Fully inhabit the voice, you are method acting as you play. No winks: commit to "
+                     f"the stance. If you are excited you are not also self-deprecating or meta about "
+                     f"your own deck; if you are pedantic you are not also ironically distant; if you "
+                     f"are haughty you are not begging or playing for laughs. The character does not "
+                     f"know it is a character. The voice is genuine, never ironic. One tic is banned "
+                     f"outright: comic juxtaposition, where a game action is dressed in an incongruous "
+                     f"everyday domain — offices, paperwork, unions, departments, HR, liability, "
+                     f"industrial accidents, clearances, gym routines, traffic, school, customer "
+                     f"service. \"Deeply illegal cardio\" and \"the dinosaur union is filing "
+                     f"paperwork\" are both the same joke and both forbidden. Whatever nouns it wears, "
+                     f"that is the default register you are replacing: say what you mean, in "
+                     f"character, about the actual game. Politics happens in this voice too — when you "
+                     f"cut a deal, deflect a threat or beg for a turn, do it as this character, not by "
+                     f"switching into a neutral diplomat. \"ayo point that somewhere else, im not "
+                     f"tryna mog you rn\" is a truce offer and still fully in voice. Your voice is yours alone: never "
+                     f"echo another seat's phrasing, sentence shape or running joke, however fresh it "
+                     f"is in the log. If someone else just said \"little tree now\", that construction "
+                     f"is now off limits to you. Don't narrate your own plays either — the log "
+                     f"already shows what you did, and \"just a land, nothing yet\" is not worth "
+                     f"saying. Talk to the people instead — react to what they just did, needle them, "
+                     f"answer them, make offers, threaten. You are a player at a table, not a "
+                     f"spectator: expect to say something most turns, and keep it short.\n" if me.personality else "")
+                  + (("\nTHE TABLE (what everyone knows about these decks):\n"
+                      + "\n".join(f"  {pl.handle} {pl.deckname}: {pl.scouting}"
+                                  for pl in self.p if pl.alive and pl.scouting) + "\n")
+                     if any(pl.scouting for pl in self.p if pl.alive) else "")
                   + f"\n{PROTOCOL}\n\n"
                   f"=== GAME STATE ===\n{self.view(i)}\n\n=== INSTRUCTION ===\n{instruction}\n"
-                  + (f"Schema: {schema_hint}\n" if schema_hint else ""))
+                  + (f"Schema: {schema_hint}\n" if schema_hint else "")
+                  + (f"Stay in voice — you are method acting as: {me.personality}\n"
+                     if me.personality else ""))
         self.force_full[i] = False
         self.log_sent[i] = len(self.table)
         self.oracle_shown[i].update(
@@ -1297,11 +1426,11 @@ class Game:
         def bf(pl):
             out = []
             for x in pl.battlefield:
-                pt = f" {x['pt'][0]+x['counters']}/{x['pt'][1]+x['counters']}" if x["pt"] else ""
+                pt = f" {x['pt'][0]+plus_counters(x)}/{x['pt'][1]+plus_counters(x)}" if x["pt"] else ""
                 flags = []
                 if x["tapped"]: flags.append("tapped")
                 if x["sick"]: flags.append("summoning-sick")
-                if x["counters"]: flags.append(f"+1/+1 x{x['counters']}")
+                for k, v in _counters(x).items(): flags.append(f"{k} x{v}")
                 if x["token"]: flags.append("token")
                 out.append(f"  - {x['id']}{pt}" + (f" [{', '.join(flags)}]" if flags else ""))
             return "\n".join(out) or "  (empty)"
@@ -1510,6 +1639,9 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         if not attacks:
             return
         assault = []  # (defender_player, [perm, ...])
+        vig = plan.get("vigilance")
+        vig_all = vig is True
+        vig_ids = set() if vig_all else {str(v) for v in (vig or [])}
         for ref, ids in attacks.items():
             dfd = self.resolve_player(i, ref)
             if not dfd or dfd is me or not dfd.alive:
@@ -1519,7 +1651,8 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             for ident in ids:
                 _, perm = self.find(ident, prefer=i)
                 if perm and not perm["tapped"]:
-                    perm["tapped"] = True  # vigilance: agent untaps via set; keep simple
+                    if not (vig_all or perm["id"] in vig_ids or str(ident) in vig_ids):
+                        perm["tapped"] = True
                     atk.append(perm)
             if atk:
                 assault.append((dfd, atk))

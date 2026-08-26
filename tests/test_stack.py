@@ -315,3 +315,26 @@ def test_a_board_of_only_mana_lands_still_gets_no_window(make_game):
     pl.battlefield.clear()
     g.perm(pl, "Swamp")
     assert g._can_respond(pl, 0) is False
+
+
+def test_response_window_carries_the_card_text(make_game, db):
+    """A window is a decision about a card, so the card's text is in the prompt."""
+    prompts = []
+
+    class Watcher:
+        calls, cost_usd, tokens = 0, 0.0, {"in": 0, "out": 0}
+        def ask(self, prompt):
+            prompts.append(prompt)
+            return '{"action":"pass"}'
+
+    g = make_game(decknames=("squirrels", "meren"))
+    g.active = 0
+    me = g.p[0]
+    inst = next(c for c in me.decklist if "Instant" in db.get(c, {}).get("type", ""))
+    me.hand.append(inst)
+    g.agents = [Watcher() for _ in g.p]
+    g.resolve_on_stack(0, {"card": inst, "tap": []})
+    windows = [p for p in prompts if "RESPONSE WINDOW" in p]
+    assert windows, "nobody was offered a window"
+    text = db[inst]["text"][:40]
+    assert any(text in p for p in windows), windows[0][:300]

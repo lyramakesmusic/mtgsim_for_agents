@@ -1,0 +1,563 @@
+{
+ "Alena, Kessig Trapper": {
+  "cost": "4R",
+  "type": "Legendary Creature \u2014 Human Scout",
+  "text": "First strike {T}: Add an amount of {R} equal to the greatest power among creatures you control that entered this turn. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Angrath's Marauders": {
+  "cost": "5RR",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "If a source you control would deal damage to a permanent or player, it deals double that damage to that permanent or player instead.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Aurora Phoenix": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Phoenix",
+  "text": "Flying Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.) Whenever you cast a spell with cascade, return this card from your graveyard to your hand.",
+  "pt": [
+   5,
+   3
+  ]
+ },
+ "Avatar of Slaughter": {
+  "cost": "6RR",
+  "type": "Creature \u2014 Avatar",
+  "text": "All creatures have double strike and attack each combat if able.",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Bane of Bala Ged": {
+  "cost": "7",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "Whenever this creature attacks, defending player exiles two permanents they control.",
+  "pt": [
+   7,
+   5
+  ]
+ },
+ "Boarding Party": {
+  "cost": "5R",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "Haste Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+  "pt": [
+   6,
+   3
+  ]
+ },
+ "Burning Sun's Avatar": {
+  "cost": "3RRR",
+  "type": "Creature \u2014 Dinosaur Avatar",
+  "text": "When this creature enters, it deals 3 damage to target opponent or planeswalker and 3 damage to up to one target creature.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Cleanup Crew": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Human Citizen",
+  "text": "When this creature enters, choose one \u2014 \u2022 Destroy target artifact. \u2022 Destroy target enchantment. \u2022 Exile target card from a graveyard. \u2022 You gain 4 life.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Combustible Gearhulk": {
+  "cost": "4RR",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "First strike When this creature enters, target opponent may have you draw three cards. If the player doesn't, you mill three cards, then this creature deals damage to that player equal to the total mana value of those cards.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Cyclops of Eternal Fury": {
+  "cost": "4RR",
+  "type": "Enchantment Creature \u2014 Cyclops",
+  "text": "Creatures you control have haste.",
+  "pt": [
+   5,
+   3
+  ]
+ },
+ "Dawnglade Regent": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Elk",
+  "text": "When this creature enters, you become the monarch. As long as you're the monarch, permanents you control have hexproof.",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Doors of Durin": {
+  "cost": "3RG",
+  "type": "Legendary Artifact",
+  "text": "Whenever you attack, scry 2, then you may reveal the top card of your library. If a creature card is revealed this way, put it onto the battlefield tapped and attacking. Until your next turn, it gains trample if you control a Dwarf and hexproof if you control an Elf.",
+  "pt": null
+ },
+ "Dragonlord Atarka": {
+  "cost": "5RG",
+  "type": "Legendary Creature \u2014 Elder Dragon",
+  "text": "Flying, trample When Dragonlord Atarka enters, it deals 5 damage divided as you choose among any number of target creatures and/or planeswalkers your opponents control.",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Drakuseth, Maw of Flames": {
+  "cost": "4RRR",
+  "type": "Legendary Creature \u2014 Dragon",
+  "text": "Flying Whenever Drakuseth attacks, it deals 4 damage to any target and 3 damage to each of up to two other targets.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Earthshaker Dreadmaw": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Trample When this creature enters, draw a card for each other Dinosaur you control.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Elvish Aberration": {
+  "cost": "5G",
+  "type": "Creature \u2014 Elf Mutant",
+  "text": "{T}: Add {G}{G}{G}. Forestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   4,
+   5
+  ]
+ },
+ "Emissary of Grudges": {
+  "cost": "5R",
+  "type": "Creature \u2014 Efreet",
+  "text": "Flying, haste As this creature enters, secretly choose an opponent. Reveal the player you chose: Choose new targets for target spell or ability if it's controlled by the chosen player and if it targets you or a permanent you control. Activate only once.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Etali, Primal Storm": {
+  "cost": "4RR",
+  "type": "Legendary Creature \u2014 Elder Dinosaur",
+  "text": "Whenever Etali attacks, exile the top card of each player's library, then you may cast any number of spells from among those cards without paying their mana costs.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Firbolg Flutist": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Giant Bard",
+  "text": "Enthralling Performance \u2014 When this creature enters, gain control of target creature you don't control until end of turn. Untap it. It gains haste and myriad until end of turn. (Whenever it attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Flameblast Dragon": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying Whenever this creature attacks, you may pay {X}{R}. If you do, it deals X damage to any target.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land \u2014 Forest",
+  "text": "({T}: Add {G}.)",
+  "pt": null
+ },
+ "Garruk's Packleader": {
+  "cost": "4G",
+  "type": "Creature \u2014 Beast",
+  "text": "Whenever another creature you control with power 3 or greater enters, you may draw a card.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Gilanra, Caller of Wirewood": {
+  "cost": "2G",
+  "type": "Legendary Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}. When you spend this mana to cast a spell with mana value 6 or greater, draw a card. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Gruul Ragebeast": {
+  "cost": "5RG",
+  "type": "Creature \u2014 Beast",
+  "text": "Whenever this creature or another creature you control enters, that creature fights target creature an opponent controls.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Hoard-Smelter Dragon": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying {3}{R}: Destroy target artifact. This creature gets +X/+0 until end of turn, where X is that artifact's mana value.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Incinerator of the Guilty": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying, trample Whenever this creature deals combat damage to a player, you may collect evidence X. When you do, this creature deals X damage to each creature and planeswalker that player controls. (To collect evidence X, exile cards with total mana value X or greater from your graveyard.)",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Inferno Titan": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Giant",
+  "text": "{R}: This creature gets +1/+0 until end of turn. Whenever this creature enters or attacks, it deals 3 damage divided as you choose among one, two, or three targets.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Monstrous Vortex": {
+  "cost": "3G",
+  "type": "Enchantment",
+  "text": "Whenever you cast a creature spell with power 5 or greater, discover X, where X is that spell's mana value. (Exile cards from the top of your library until you exile a nonland card with that mana value or less. Cast it without paying its mana cost or put it into your hand. Put the rest on the bottom in a random order.)",
+  "pt": null
+ },
+ "Mordant Dragon": {
+  "cost": "3RRR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying {1}{R}: This creature gets +1/+0 until end of turn. Whenever this creature deals combat damage to a player, you may have it deal that much damage to target creature that player controls.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Mosswort Bridge": {
+  "cost": "",
+  "type": "Land",
+  "text": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.) This land enters tapped. {T}: Add {G}. {G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater.",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Myojin of Roaring Blades": {
+  "cost": "5RRR",
+  "type": "Legendary Creature \u2014 Spirit",
+  "text": "Myojin of Roaring Blades enters with an indestructible counter on it if you cast it from your hand. Remove an indestructible counter from Myojin of Roaring Blades: It deals 7 damage to each of up to three targets.",
+  "pt": [
+   7,
+   4
+  ]
+ },
+ "Nessian Wilds Ravager": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Hydra",
+  "text": "Tribute 6 (As this creature enters, an opponent of your choice may put six +1/+1 counters on it.) When this creature enters, if tribute wasn't paid, you may have this creature fight another target creature. (Each deals damage equal to its power to the other.)",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Oblivion Sower": {
+  "cost": "6",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, target opponent exiles the top four cards of their library, then you may put any number of land cards that player owns from exile onto the battlefield under your control.",
+  "pt": [
+   5,
+   8
+  ]
+ },
+ "Oliphaunt": {
+  "cost": "5R",
+  "type": "Creature \u2014 Elephant",
+  "text": "Trample Whenever this creature attacks, another target creature you control gets +2/+0 and gains trample until end of turn. Mountaincycling {1} ({1}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   6,
+   4
+  ]
+ },
+ "Orchard Strider": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Treefolk",
+  "text": "When this creature enters, create two Food tokens. (They're artifacts with \"{2}, {T}, Sacrifice this token: You gain 3 life.\") Basic landcycling {1}{G} ({1}{G}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   6,
+   4
+  ]
+ },
+ "Primordial Sage": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Spirit",
+  "text": "Whenever you cast a creature spell, you may draw a card.",
+  "pt": [
+   4,
+   5
+  ]
+ },
+ "Pyrewood Gearhulk": {
+  "cost": "2RRGG",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "Vigilance, menace When this creature enters, other creatures you control get +2/+2 and gain vigilance and menace until end of turn. Damage can't be prevented this turn.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Rampaging Baloths": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Beast",
+  "text": "Trample Landfall \u2014 Whenever a land you control enters, create a 4/4 green Beast creature token.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Rapacious One": {
+  "cost": "5R",
+  "type": "Creature \u2014 Eldrazi Drone",
+  "text": "Trample Whenever this creature deals combat damage to a player, create that many 0/1 colorless Eldrazi Spawn creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Red Hulk": {
+  "cost": "4RR",
+  "type": "Legendary Creature \u2014 Gamma Berserker Villain",
+  "text": "Reach, trample Enrage \u2014 Whenever Red Hulk is dealt damage, put a +1/+1 counter on him. When you do, he deals damage equal to the number of +1/+1 counters on him to any other target.",
+  "pt": [
+   6,
+   7
+  ]
+ },
+ "Regal Behemoth": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Trample When this creature enters, you become the monarch. Whenever you tap a land for mana while you're the monarch, add an additional one mana of any color.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Ruric Thar, the Unbowed": {
+  "cost": "4RG",
+  "type": "Legendary Creature \u2014 Ogre Warrior",
+  "text": "Reach, vigilance Ruric Thar attacks each combat if able. Whenever a player casts a noncreature spell, Ruric Thar deals 6 damage to that player.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Sakiko, Mother of Summer": {
+  "cost": "4GG",
+  "type": "Legendary Creature \u2014 Snake Shaman",
+  "text": "Whenever a creature you control deals combat damage to a player, add that much {G}. Until end of turn, you don't lose this mana as steps and phases end.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Savage Ventmaw": {
+  "cost": "4RG",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying Whenever this creature attacks, add {R}{R}{R}{G}{G}{G}. Until end of turn, you don't lose this mana as steps and phases end.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Seismic Monstrosaur": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Trample {2}{R}, Sacrifice a land: Draw a card. Mountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Shivan Dragon": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying {R}: This creature gets +1/+0 until end of turn.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Shriekwood Devourer": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Treefolk",
+  "text": "Trample Whenever you attack with one or more creatures, untap up to X lands, where X is the greatest power among those creatures.",
+  "pt": [
+   7,
+   5
+  ]
+ },
+ "Slavering Branchsnapper": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Lizard",
+  "text": "Trample Forestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   7,
+   6
+  ]
+ },
+ "Soul of New Phyrexia": {
+  "cost": "6",
+  "type": "Artifact Creature \u2014 Phyrexian Avatar",
+  "text": "Trample {5}: Permanents you control gain indestructible until end of turn. {5}, Exile this card from your graveyard: Permanents you control gain indestructible until end of turn.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Soul of the Harvest": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Elemental",
+  "text": "Trample Whenever another nontoken creature you control enters, you may draw a card.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Spearbreaker Behemoth": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Beast",
+  "text": "Indestructible {1}: Target creature with power 5 or greater gains indestructible until end of turn.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Stalking Vengeance": {
+  "cost": "5RR",
+  "type": "Creature \u2014 Avatar",
+  "text": "Haste Whenever another creature you control dies, it deals damage equal to its power to target player or planeswalker.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Sweet-Gum Recluse": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Spider",
+  "text": "Flash Cascade Reach When this creature enters, put three +1/+1 counters on each of any number of target creatures that entered this turn.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Thunderfoot Baloth": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Beast",
+  "text": "Trample Lieutenant \u2014 As long as you control your commander, this creature gets +2/+2 and other creatures you control get +2/+2 and have trample.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Timberland Ancient": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Treefolk",
+  "text": "Reach, trample Forestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Topiary Panther": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Plant Cat",
+  "text": "Trample Basic landcycling {1}{G} ({1}{G}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Towering Titan": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Giant",
+  "text": "This creature enters with X +1/+1 counters on it, where X is the total toughness of other creatures you control. Sacrifice a creature with defender: All creatures gain trample until end of turn.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Ulvenwald Hydra": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Hydra",
+  "text": "Reach Ulvenwald Hydra's power and toughness are each equal to the number of lands you control. When this creature enters, you may search your library for a land card, put it onto the battlefield tapped, then shuffle.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Ulvenwald Observer": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Treefolk",
+  "text": "Whenever a creature you control with toughness 4 or greater dies, draw a card.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Umaro, Raging Yeti": {
+  "cost": "5R",
+  "type": "Legendary Creature \u2014 Yeti Berserker",
+  "text": "Trample At the beginning of combat on your turn, choose one at random \u2014 \u2022 Other creatures you control get +3/+0 and gain trample until end of turn. \u2022 Discard your hand, then draw four cards. \u2022 Umaro deals 5 damage to any target.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Valley Rannet": {
+  "cost": "4RG",
+  "type": "Creature \u2014 Beast",
+  "text": "Mountaincycling {2}, forestcycling {2} ({2}, Discard this card: Search your library for a Mountain or Forest card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   6,
+   3
+  ]
+ },
+ "Dread Linnorm // Scale Deflection": {
+  "cost": "6G",
+  "type": "Creature \u2014 Snake Dragon // Instant \u2014 Adventure",
+  "text": "Dread Linnorm: This creature can't be blocked by creatures with power 3 or less. // Scale Deflection: Put two +1/+1 counters on target creature and untap it. It gains hexproof until end of turn. (Then exile this card. You may cast the creature later from exile.)",
+  "pt": [
+   7,
+   6
+  ]
+ },
+ "Stormkeld Vanguard // Bear Down": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Giant Warrior // Sorcery \u2014 Adventure",
+  "text": "Stormkeld Vanguard: This creature can't be blocked by creatures with power 2 or less. // Bear Down: Destroy target artifact or enchantment. (Then exile this card. You may cast the creature later from exile.)",
+  "pt": [
+   6,
+   7
+  ]
+ }
+}
