@@ -359,3 +359,88 @@ def test_look_is_private_and_reveal_is_public(make_game):
 
     g.apply_effects(0, [{"reveal": {"player": "P2", "zone": "hand"}}])
     assert any(secret in l for l in g.table), "a genuine reveal should be public"
+
+
+def test_a_compulsory_loop_can_end_the_game_as_a_draw(make_game):
+    """Marauding Raptor plus Polyraptor is mandatory on both halves: the table
+    can agree the loop is unbreakable and nobody wins."""
+    import pytest
+    from conftest import StubAgent
+    from mtgsim.engine import GameOver
+
+    g = make_game()
+    g.agents = [StubAgent('{"agree": true, "reason": "no way to interrupt it"}') for _ in g.p]
+    with pytest.raises(GameOver) as end:
+        g.do_action(0, {"action": "claim_draw", "how": "forced Polyraptor loop", "loop": "ping, copy, repeat"})
+    assert end.value.winner is None
+    assert any("DRAW" in l for l in g.table)
+
+
+def test_one_dispute_keeps_the_game_going(make_game):
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent('{"agree": false, "reason": "I can bounce the raptor"}') for _ in g.p]
+    assert g.do_action(0, {"action": "claim_draw", "how": "forced loop"}) is None
+    assert any("DISPUTES" in l for l in g.table)
+
+
+def test_order_can_take_looked_at_cards_into_another_zone(make_game):
+    """Lead the Stampede looks at five, puts the creatures in hand and bottoms
+    the rest — the cards that leave the library are named in take."""
+    from conftest import StubAgent
+    import json
+
+    g = make_game()
+    me = g.p[0]
+    me.library[:6] = ["Plains", "Forest", "Llanowar Elves", "Sol Ring",
+                      "Island", "Birds of Paradise"]   # Plains is the turn's draw
+    replies = iter([
+        json.dumps({"action": "peek", "n": 5}),
+        json.dumps({"action": "order", "take": ["Llanowar Elves", "Birds of Paradise"], "to": "hand",
+                    "top": ["Sol Ring"], "bottom": ["Forest", "Island"]}),
+    ])
+    g.agents = [StubAgent(lambda _p: next(replies, '{"action":"pass"}')) for _ in g.p]
+    hand_before = len(me.hand)
+    g.half_turn(0)
+
+    assert "Llanowar Elves" in me.hand and "Birds of Paradise" in me.hand
+    assert len(me.hand) >= hand_before + 2
+    assert me.library[0] == "Sol Ring"
+    assert me.library[-2:] == ["Forest", "Island"]
+    assert not any("doesn't match" in l or "unchanged" in l for l in g.table)
+    assert "Llanowar Elves" not in me.library
+
+
+def test_move_finds_a_commander_in_the_command_zone(make_game):
+    """A missed Braids trigger is corrected by naming the commander; it's in the
+    command zone, not on the battlefield."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    cmdr = me.commanders[0]
+    assert me.command_zone[cmdr]
+    g.apply_effects(0, [{"move": {"id": cmdr, "to": "battlefield"}}])
+    assert not me.command_zone[cmdr]
+    assert any(x["name"] == cmdr for x in me.battlefield)
+    assert not any("no permanent" in l for l in g.table)
+
+
+def test_move_can_rewind_a_spell_off_the_stack(make_game):
+    """An illegally targeted spell gets taken back; it's on the stack, and the
+    stack is not the battlefield."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    card = me.hand[0]
+    obj = {"id": "stack#7", "caster": 0, "kind": "spell", "name": card,
+           "countered": False, "targets": []}
+    g.stack.append(obj)
+    g.apply_effects(0, [{"move": {"id": obj["id"], "to": "hand"}}])
+    assert obj not in g.stack
+    assert card in me.hand
+    assert not any("no permanent" in l for l in g.table)

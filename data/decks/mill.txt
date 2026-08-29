@@ -1,0 +1,87 @@
+// strategy: mill -> horrors -> more mill. wins by draining opponents libraries. zellix makes a 1/1 horror for every milled creature. the deck is stacked with value engines that exploit mill->tokens, tokens->draw, tokens->more mill, mill->damage, mill->reanimate, and so on. combos: emry + mirran spy + tormod's crypt = infinite artifact etbs for zellix, altar, or drain effects to abuse; mindcrank + duskmantle guildmage = life loss/mill infinite loop; syr konrad + mindcrank = non-d cascade chain reaction with mill doublers. umbrid + zellix is not a combo but strong anyways, there are many such engines. don't be afraid to mill yourself too - zellix happily turns milled creatures into horrors. use your horrors as chumps or skullclamp/ashnods fodder, their value is in their etbs. wincons: any combo, max value mill engines, or cards like psionic ritual (imagine casting 8 reanimates) or consuming aberration can be very fun. this deck plays best when you maximize every possible value engine interaction, your opponents decks will be half gone before they know it. as long as you don't get swarmed out early - and you carry interaction to stop this - the mill engines will shut down everyone that's not turbo reanimator. for those decks, crack tormod's crypt.  mulls: you want land, some cheap mill engine, and ideally a draw or interaction piece. play it like you're exactly the kind of asshole that likes playing value-mill and saying "oh and you mill another one" any time you do literally anything.
+
+// scouting: horror mill tribal. milling creatures make horror tokens that in turn sometimes trigger more milling. contains janky infinite mill combos
+
+// personality: cheerful, relentless, incremental - the player who reads every trigger out loud and enjoys it. you are having a lovely time and everyone else is not. every single thing you do also mills them and you say so every single time. oh and you mill another one. that's a trigger too. sorry - and that. four now.
+
+Commander
+1 Zellix, Sanity Flayer
+1 Scion of Halaster
+
+Deck
+1 A.I.M. Labs
+1 Altar of the Brood
+1 An Offer You Can't Refuse
+1 Arcane Signet
+1 Ashnod's Altar
+1 Bloodchief Ascension
+1 Bruvac the Grandiloquent
+1 Cabal Coffers
+1 Captain N'ghathrod
+1 Codex Shredder
+1 Command Tower
+1 Consuming Aberration
+1 Contaminated Aquifer
+1 Counterspell
+1 Creeping Tar Pit
+1 Darkslick Shores
+1 Darkwater Catacombs
+1 Deadly Dispute
+1 Deadly Rollick
+1 Diabolic Intent
+1 Dimir Aqueduct
+1 Dimir Signet
+1 Dismal Backwater
+1 Distant Melody
+1 Dreamborn Muse
+1 Drown in the Loch
+1 Drowned Catacomb
+1 Duskmantle Guildmage
+1 Emry, Lurker of the Loch
+1 Exhibition Tidecaller
+1 Feed the Swarm
+1 Fetid Pools
+1 Fractured Sanity
+1 Fraying Sanity
+1 Hedron Crab
+1 Idol of Oblivion
+1 Imprisoned in the Moon
+1 Intruder Alarm
+15 Island
+1 Jwar Isle Refuge
+1 Lightning Greaves
+1 Lim-Dûl's Vault
+1 Maddening Cacophony
+1 Mesmeric Orb
+1 Mind Stone
+1 Mindcrank
+1 Mirran Spy
+1 Muddle the Mixture
+1 Notion Thief
+1 Phenax, God of Deception
+1 Pongify
+1 Propaganda
+1 Psionic Ritual
+1 Psychic Corrosion
+1 Rapid Hybridization
+1 Raul, Trouble Shooter
+1 Reanimate
+1 Resculpt
+1 Ruin Crab
+1 Skullclamp
+1 Sol Ring
+1 Strix Serenade
+9 Swamp
+1 Swan Song
+1 Syr Konrad, the Grim
+1 Terisian Mindbreaker
+1 The Mindskinner
+1 The Water Crystal
+1 Tormod's Crypt
+1 Toxic Deluge
+1 Tragic Slip
+1 Traumatize
+1 Umbris, Fear Manifest
+1 Undead Alchemist
+1 Visions of Beyond
+1 Witness Protection

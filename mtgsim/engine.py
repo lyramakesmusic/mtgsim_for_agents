@@ -18,6 +18,7 @@ Bookkeeping (visible state, applied verbatim):
   {"move":{"player":"P2","from":"library_top","n":8,"to":"graveyard"}}   # mill
   {"move":{"player":"self","from":"hand","card":"Fog","to":"graveyard"}} # discard
   {"move":{"player":"self","from":"graveyard","card":"X","to":"battlefield","tapped":false}}
+  {"move":{"from":"stack","card":"Swan Song","to":"hand"}}   # back up a cast that wasn't legal
      zones: hand, battlefield, graveyard, exile, library_top, library_bottom, command
      tokens moved off the battlefield cease to exist. Moves are verified: the
      named card must actually be in the source zone.
@@ -41,8 +42,10 @@ Hidden-information services (the engine executes these because agents can't):
 Wins the engine can't see (Thassa's Oracle, Approach, demonstrated loops):
   {"action":"claim_win","how":"..."} → every other seat votes concede/dispute;
   unanimous concession ends the game. Or eliminate the table seat by seat.
+  {"action":"claim_draw","how":"...","loop":"..."} → for a compulsory loop nobody
+  can break: every other seat votes agree/dispute, unanimous agreement draws.
 
-Actions: play_land, cast, activate, attack, respond, block, claim_win, pass.
+Actions: play_land, cast, activate, attack, respond, block, claim_win, claim_draw, pass.
   cast/activate carry "tap":[permanent ids] (mana payment; engine taps them)
   and "effects":[atoms] (all consequences, agent-declared).
   attack: {"attacks":{"P2":[attacker ids],"P4":[...]}, "vigilance":[ids] or true}
@@ -133,7 +136,10 @@ ACTIONS: {"action":"play_land","card":...} | {"action":"cast","card":...,"tap":[
 "targets":[permanent ids or seat handles],"effects":[...]} |
 {"action":"activate","source":id,"tap_source":bool,"tap":[ids],"effects":[...]} |
 {"action":"attack","attacks":{"P2":[attacker ids],...},"vigilance":[ids]} | {"action":"claim_win","how":"..."} |
-{"action":"peek","n":N} | {"action":"correct","effects":[...],"narration":"what was wrong"} |
+{"action":"peek","n":N} → then {"action":"order","top":[],"bottom":[],"take":[],"to":"hand"}
+  places what you looked at: top and bottom reorder the library, take pulls cards out of
+  it into another zone (Lead the Stampede, hideaway, "look at N, put some in hand").
+{"action":"correct","effects":[...],"narration":"what was wrong"} |
 {"action":"pass"}
 correct = bookkeeping repair, not a game action: fixing your own earlier error, applying a
 judge ruling, honoring a correction the table agreed on. It applies its atoms directly — no
@@ -215,8 +221,15 @@ in your first main-phase action's effects. States the engine can't hold (emblems
 
 
 class GameOver(Exception):
+    """winner is a seat index, or None when the table agreed on a draw."""
+
     def __init__(self, winner, how):
         self.winner, self.how = winner, how
+
+
+def _norm_narration(t):
+    """Comparison form for a narration: case and spacing don't distinguish two tellings."""
+    return " ".join((t or "").lower().split())
 
 
 def _counters(perm):
@@ -282,6 +295,7 @@ class Game:
         self.force_full = [True] * len(decks)     # full re-sync pending per seat
         self.board_full = [False] * len(decks)    # full board state due (own turn start)
         self.pending_talk = []                    # table_talk queued to land AFTER the play
+        self.narrated = set()                     # narrations already said at announce time
         self.stack = []                           # live stack objects (announce -> resolve)
         self.stack_seq = 0
         self.standing = []                        # standing taxes/queries (Tithe, Rhystic):
@@ -548,12 +562,26 @@ class Game:
         # battlefield permanent by id
         if "id" in mv:
             pl, perm = self.find(mv["id"], prefer=i)
+            if not perm and str(mv["id"]).startswith("stack#"):
+                # rewinding a spell that shouldn't have been cast, or bouncing one
+                obj = next((o for o in self.stack if o["id"] == mv["id"]), None)
+                if obj:
+                    self.stack.remove(obj)
+                    owner = self.p[obj["caster"]]
+                    self._zone_put(owner, obj["name"], to)
+                    self.log(f"  ↳ {obj['name']} ({mv['id']}) leaves the stack → {owner.name}'s {to}")
+                else:
+                    self.log(f"  !! move: {mv['id']} is not on the stack; skipped")
+                return
             if not perm:
-                # agents refer to permanents by id even after they've died —
-                # if the name sits in exactly one public zone, honor the intent
+                # agents refer to cards by id from wherever they last saw them —
+                # if the name sits in exactly one other zone, honor the intent
                 name = str(mv["id"]).rsplit("#", 1)[0]
-                hits = [(q, z) for q in self.p if q.alive for z in ("graveyard", "exile")
+                hits = [(q, z) for q in self.p if q.alive
+                        for z in ("graveyard", "exile", "hand")
                         if name in getattr(q, z)]
+                hits += [(q, "command") for q in self.p if q.alive
+                         and q.command_zone.get(name)]
                 if len(hits) == 1:
                     q, z = hits[0]
                     self.log(f"  (move: {mv['id']} isn't on the battlefield — "
@@ -602,6 +630,18 @@ class Game:
             self.log(f"  ↳ {pl.name}: top {len(names)} of library → {to} ({shown})")
             if not pl.library and to != "library_bottom":
                 self.log(f"  (note: {pl.name}'s library is now empty)")
+            return
+        if frm == "stack":
+            want = mv.get("card")
+            obj = next((o for o in reversed(self.stack)
+                        if o["id"] == want or o["name"] == want), None)
+            if not obj:
+                self.log(f"  !! move: {want!r} is not on the stack; skipped")
+                return
+            self.stack.remove(obj)
+            owner = self.p[obj["caster"]]
+            self._zone_put(owner, obj["name"], to, tapped=bool(mv.get("tapped")))
+            self.log(f"  ↳ {obj['name']} ({obj['id']}) leaves the stack → {owner.name}'s {to}")
             return
         srcs = {"hand": pl.hand, "graveyard": pl.graveyard, "exile": pl.exile}
         if frm == "command":
@@ -983,9 +1023,10 @@ class Game:
             self.perm(me, c)
         else:
             me.graveyard.append(c)
+        told = self._fresh_narration(a.get("narration"))
         self.log(f"{me.name} casts {c}" + (" (from command zone)" if from_cz else "") +
                  (f", tapping {a.get('tap')}" if a.get("tap") else "") +
-                 (f" — {a.get('narration','')}" if a.get("narration") else ""))
+                 (f" — {told}" if told else ""))
         if not self.stack:            # cast outside the stack still wants its caption
             cap = self._card_caption(c)
             if cap:
@@ -1013,7 +1054,8 @@ class Game:
     def _resolve_ability(self, i, a, perm=None):
         me = self.p[i]
         src = a.get("source")
-        self.log(f"{me.name} activates {src}" + (f" — {a.get('narration','')}" if a.get('narration') else ""))
+        told = self._fresh_narration(a.get("narration"))
+        self.log(f"{me.name} activates {src}" + (f" — {told}" if told else ""))
         if perm is None:
             _, perm = self.find(src, prefer=i)
         if perm and (d_ := self.db.get(perm["name"])):
@@ -1052,6 +1094,8 @@ class Game:
         verb = "" if kind == "spell" else "activation of "
         aim = f" targeting {', '.join(tgts)}" if tgts else ""
         says = plan.get("narration")
+        if says:
+            self.narrated.add(_norm_narration(says))
         self.log(f"{me.name} announces {verb}{name} ({obj['id']}){aim}"
                  + (f" — {says}" if says else "") + "...")
         cap = self._card_caption(name if kind == "spell" else plan.get("source", name))
@@ -1234,6 +1278,25 @@ class Game:
                     self.eliminate(pl, "conceded to claimed win")
                 else:
                     self.log(f"  ↳ {pl.name} DISPUTES: {verdict.get('reason')} — play continues")
+        elif act == "claim_draw":
+            self.log(f"**{me.name} claims the game is a DRAW: {a.get('how')}"
+                     + (f" — loop: {a.get('loop')}" if a.get("loop") else "") + "**")
+            agreed = []
+            for pl in list(self.others(i)):
+                verdict = self.ask(self.p.index(pl),
+                    f"{me.name} claims the game is a draw (see table log) — a mandatory loop nobody "
+                    "can break, or another state the game can't leave. Reply JSON "
+                    '{"agree": true/false, "reason": "..."}. Agree only if the loop really is '
+                    "compulsory and you genuinely have no way to interrupt it.",
+                    schema_hint='{"agree": bool, "reason": str}')
+                if verdict.get("agree"):
+                    self.log(f"  ↳ {pl.name} AGREES: {verdict.get('reason','')}")
+                    agreed.append(pl)
+                else:
+                    self.log(f"  ↳ {pl.name} DISPUTES: {verdict.get('reason')} — play continues")
+                    return None
+            if len(agreed) == len(list(self.others(i))):
+                raise GameOver(None, a.get("how") or "table agreed the loop is compulsory")
         return None
 
     def digest(self, i, full_board=False):
@@ -1315,11 +1378,15 @@ class Game:
                       + (f"Schema: {schema_hint}\n" if schema_hint else "")
                       + "Reply per the established protocol: exactly one JSON object.\n"
                       + (f"Stay in voice — you are still method acting as: {me.personality} "
-                         f"(a register sample, not a script — never quote it, and don't reference "
-                         f"cards from it that aren't on the board.) No winks: commit to the stance. "
+                         f"(a register sample, not a script: keep its diction, dialect, punctuation "
+                         f"and tics — those are the character — but not its sentences, and don't "
+                         f"reference cards from it that aren't on the board.) The voice holds up "
+                         f"under pressure: a line that carries hard news or a rules point is still "
+                         f"spoken in it. No winks: commit to the stance. "
                          f"The voice is genuine, never ironic. "
-                         f"Speak only as yourself; do not pick up the phrasing or jokes of the other "
-                         f"seats in the log above, don't narrate your own plays, and never dress a game "
+                         f"Speak only as yourself; do not pick up the phrasing, jokes or dialect of "
+                         f"the other seats in the log above, don't narrate your own plays, and never "
+                         f"dress a game "
                          f"action in an incongruous everyday domain (offices, paperwork, gyms, "
                          f"traffic, customer service) — say it in character instead.\n"
                          if me.personality else ""))
@@ -1343,8 +1410,11 @@ class Game:
                   f"closest to winning, not whoever is easiest to finish.\n"
                   + (f"\nYOUR DECK'S GAMEPLAN: {me.strategy}\n" if me.strategy else "")
                   + (f"\nHOW YOU TALK: {me.personality} That is a sample of the register, never a "
-                     f"script — do not quote it back, and do not mention cards or events from it that "
-                     f"aren't actually happening in this game. The character works better the more "
+                     f"script: its diction is yours to keep — the dialect, the punctuation, the "
+                     f"rhythm, the tics are what the character is made of and they belong in every "
+                     f"line you speak, all game. What you don't reuse is its sentences, and don't "
+                     f"mention cards or events from it that aren't happening in this game. The "
+                     f"character works better the more "
                      f"closely you adhere to this voice rather than defaulting to your own register. "
                      f"Fully inhabit the voice, you are method acting as you play. No winks: commit to "
                      f"the stance. If you are excited you are not also self-deprecating or meta about "
@@ -1359,11 +1429,12 @@ class Game:
                      f"that is the default register you are replacing: say what you mean, in "
                      f"character, about the actual game. Politics happens in this voice too — when you "
                      f"cut a deal, deflect a threat or beg for a turn, do it as this character, not by "
-                     f"switching into a neutral diplomat. \"ayo point that somewhere else, im not "
-                     f"tryna mog you rn\" is a truce offer and still fully in voice. Your voice is yours alone: never "
-                     f"echo another seat's phrasing, sentence shape or running joke, however fresh it "
-                     f"is in the log. If someone else just said \"little tree now\", that construction "
-                     f"is now off limits to you. Don't narrate your own plays either — the log "
+                     f"switching into a neutral diplomat — a truce offer sounds like this character "
+                     f"offering a truce. Your voice is yours alone: never "
+                     f"echo another seat's phrasing, sentence shape, running joke or diction, however "
+                     f"fresh it is in the log. If someone else just said \"little tree now\", that "
+                     f"construction is now off limits to you, and another player's dialect is theirs "
+                     f"alone — when the seat across the table says \"ain't\", you still don't. Don't narrate your own plays either — the log "
                      f"already shows what you did, and \"just a land, nothing yet\" is not worth "
                      f"saying. Talk to the people instead — react to what they just did, needle them, "
                      f"answer them, make offers, threaten. You are a player at a table, not a "
@@ -1415,6 +1486,13 @@ class Game:
         if obj.get("action") in (None, "pass"):   # no play follows — speak now
             self._flush_talk()
         return obj
+
+    def _fresh_narration(self, says):
+        """The narration to print now: the announcement already told the table the plan,
+        so resolution speaks only when it has something new to say."""
+        if not says:
+            return None
+        return None if _norm_narration(says) in self.narrated else says
 
     def _flush_talk(self):
         while self.pending_talk:
@@ -1536,6 +1614,7 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         for x in me.battlefield:
             x["tapped"] = False
             x["sick"] = False
+        self.narrated.clear()
         self.log(f"\n## Turn {self.turn} — {me.name} — life: " +
                  ", ".join(f"{pl.handle} {pl.life}" for pl in self.p if pl.alive))
         if not (self.turn == 1 and i == 0 and len(self.p) == 2):
@@ -1569,22 +1648,41 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 r = self.ask(i,
                     f"PRIVATE LOOK — only you see this. Top of your library, in order: "
                     f"{', '.join(top)}. Declare what the authorizing card does with them: reply "
-                    f'{{"action":"order","top":[...],"bottom":[...]}} using exactly those names '
-                    f"(top list becomes the new top order, bottom goes to the bottom in order), "
-                    f"plus any effect atoms the card grants (e.g. move a revealed card to hand). "
-                    f"Or pass to leave the library untouched.",
-                    schema_hint='{"action":"order"|"pass","top":[names],"bottom":[names],"effects":[...]}')
+                    f'{{"action":"order","top":[...],"bottom":[...],"take":[...],"to":"hand"}} '
+                    f"using those names. top becomes the new top order, bottom goes to the bottom "
+                    f"in order, and take pulls cards out of the library into the zone named by to "
+                    f"(hand, exile, graveyard or battlefield) — that is how "
+                    f"\"put the revealed cards into your hand\" and hideaway are declared. "
+                    f"Account for every card you were shown. Or pass to leave the library untouched.",
+                    schema_hint='{"action":"order"|"pass","top":[names],"bottom":[names],'
+                                '"take":[names],"to":str,"effects":[...]}')
                 if r.get("action") == "order":
                     newtop = list(r.get("top") or [])
                     newbot = list(r.get("bottom") or [])
-                    if sorted(newtop + newbot) == sorted(top):
+                    taken = list(r.get("take") or [])
+                    dest = r.get("to", "hand")
+                    pool, stray = list(top), []
+                    for c in newtop + newbot + taken:
+                        if c in pool:
+                            pool.remove(c)
+                        else:
+                            stray.append(c)
+                    if stray:
+                        self.log(f"  !! order names cards you weren't shown "
+                                 f"({', '.join(stray)}); library unchanged")
+                    else:
                         del me.library[:n]
-                        me.library[:0] = newtop
+                        for c in taken:
+                            self._zone_put(me, c, dest)
+                        me.library[:0] = newtop + pool
                         me.library.extend(newbot)
+                        if taken:
+                            self.log(f"  ↳ {me.name} takes {len(taken)} to {dest}"
+                                     + (f" ({', '.join(taken)})" if dest != "hand" else ""))
                         if newbot:
                             self.log(f"  ↳ {me.name} puts {len(newbot)} on the bottom.")
-                    else:
-                        self.log("  !! order reply doesn't match the looked-at cards; library unchanged")
+                        if pool:
+                            self.log(f"  ↳ {len(pool)} unaccounted for, left on top.")
                 if r.get("effects"):
                     self.apply_effects(i, r.get("effects"))
                 continue
@@ -1780,7 +1878,11 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                      ", ".join(f"{pl.name} {pl.life}" for pl in standings) +
                      ". Highest life is the moral victor.**")
         except GameOver as g:
-            self.log(f"\n**GAME OVER: {self.p[g.winner].name} WINS ({g.how}) on turn {self.turn}.**")
+            if g.winner is None:
+                self.log(f"\n**GAME OVER: DRAW on turn {self.turn} — {g.how}. "
+                         f"Nobody wins.**")
+            else:
+                self.log(f"\n**GAME OVER: {self.p[g.winner].name} WINS ({g.how}) on turn {self.turn}.**")
         finally:
             self.logf.close()
             self.eventsf.close()

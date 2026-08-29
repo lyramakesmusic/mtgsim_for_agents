@@ -1,0 +1,99 @@
+// strategy: temur dinosaur control. this is Not Like Other Dino Decks - it runs heavy countermagic and removal (such as cyclonic rift) to slow the game down enough to play huge fuck off dinos and win. the gimmick is fight spells and enrage - removal and a value engine simultaneously. kill stuff with dino power, get stuff from enrage triggers. ramp early, hold up blue mana for interaction, and get your dinos online. you have a cheat engine - champion of rhonas, kona, show and tell - to slam ghalta on turn 5 potentially. your commanders are fun value engines (put all those counters on blue - including a +1/+1 counter somehow - and all your dinos are just Better™), not the deck's gameplan. you have a combo: marauding raptor pings polyraptor copies on etb creating more polyraptors infinitely. beware, the combo is forced and will draw the game unless you can kill via etbs with impact tremors or interrupt the combo with self-removal. play control early, you need time to ramp into expensive value engines, cheat engines, and big enrage targets. don't necessarily wait on the big stuff, nullify commanders and value engines so no one gets off the ground. mulls: ideally keep three lands with green and blue, ramp, and interaction. you do not want 2 forests and a lot of 7-mana dinos. make sure you have early interaction, ramp, etc. you can draw into the good stuff later. pretend to be temur goodstuff dinos until the interaction starts landing.
+
+// scouting: temur dinosaurs, enrage/fight spell subtheme, interaction heavy
+
+// personality: jurassic park. quote it religiously, cite containment breaches for removal, breeding for draw, and so on. *be* the park guys.
+
+Commander
+1 Owen Grady, Raptor Trainer
+1 Blue, Loyal Raptor
+
+Deck
+1 Aetherize
+1 An Offer You Can't Refuse
+1 Ancient Animus
+1 Apex Altisaur
+1 Arcane Denial
+1 Beast Within
+1 Bloom Tender
+1 Bushwhack
+1 Champion of Rhonas
+1 Chandra's Ignition
+1 Cherished Hatchling
+1 Cinder Glade
+1 Command Tower
+1 Commercial District
+1 Counterspell
+1 Cresting Mosasaurus
+1 Cultivate
+1 Cyclonic Rift
+1 Devil Dinosaur
+1 Dreamroot Cascade
+1 Etali, Primal Storm
+1 Fling
+1 Forerunner of the Empire
+7 Forest
+1 Frontier Bivouac
+1 Garruk's Uprising
+1 Ghalta, Primal Hunger
+1 Ghalta, Stampede Tyrant
+1 Greater Good
+1 Hedge Maze
+1 Hinterland Harbor
+1 Hulking Raptor
+1 Impact Tremors
+1 Imprisoned in the Moon
+3 Island
+1 Ixalli's Lorekeeper
+1 Kalamax, the Stormsire
+1 Karametra's Acolyte
+1 Karplusan Forest
+1 Ketria Triome
+1 Kona, Rescue Beastie
+1 Marauding Raptor
+3 Mountain
+1 Nature's Claim
+1 Nature's Lore
+1 Needletooth Raptor
+1 Oran-Rief, the Vastwood
+1 Polyraptor
+1 Pongify
+1 Prizefight
+1 Quartzwood Crasher
+1 Raise the Palisade
+1 Ram Through
+1 Ranging Raptors
+1 Raphael, Ninja Destroyer
+1 Rapid Hybridization
+1 Reality Shift
+1 Rejuvenating Springs
+1 Return of the Wildspeaker
+1 Ripjaw Raptor
+1 Rishkar's Expertise
+1 Rockfall Vale
+1 Rootbound Crag
+1 Savage Order
+1 Savage Stomp
+1 Sheltered Thicket
+1 Shivan Reef
+1 Show and Tell
+1 Silverclad Ferocidons
+1 Sol Ring
+1 Spire Garden
+1 Steam Vents
+1 Stomping Ground
+1 Stormcarved Coast
+1 Sulfur Falls
+1 Sunfrill Imitator
+1 Swan Song
+1 Swiftwater Cliffs
+1 Tail Swipe
+1 Temple of Abandon
+1 The Skullspore Nexus
+1 Thornwood Falls
+1 Three Visits
+1 Trumpeting Carnosaur
+1 Tyrranax Rex
+1 Vaultborn Tyrant
+1 Wrathful Raptors
+1 Yavimaya Coast

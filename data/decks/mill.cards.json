@@ -1,0 +1,527 @@
+{
+ "A.I.M. Labs": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}.",
+  "pt": null
+ },
+ "Altar of the Brood": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "Whenever another permanent you control enters, each opponent mills a card.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Ashnod's Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add {C}{C}.",
+  "pt": null
+ },
+ "Bloodchief Ascension": {
+  "cost": "B",
+  "type": "Enchantment",
+  "text": "At the beginning of each end step, if an opponent lost 2 or more life this turn, you may put a quest counter on this enchantment. (Damage causes loss of life.) Whenever a card is put into an opponent's graveyard from anywhere, if this enchantment has three or more quest counters on it, you may have that player lose 2 life. If you do, you gain 2 life.",
+  "pt": null
+ },
+ "Bruvac the Grandiloquent": {
+  "cost": "2U",
+  "type": "Legendary Creature \u2014 Human Advisor",
+  "text": "If an opponent would mill one or more cards, they mill twice that many cards instead. (To mill a card, a player puts the top card of their library into their graveyard.)",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Cabal Coffers": {
+  "cost": "",
+  "type": "Land",
+  "text": "{2}, {T}: Add {B} for each Swamp you control.",
+  "pt": null
+ },
+ "Captain N'ghathrod": {
+  "cost": "3UB",
+  "type": "Legendary Creature \u2014 Horror Pirate",
+  "text": "Horrors you control have menace. Whenever a Horror you control deals combat damage to a player, that player mills that many cards. At the beginning of your end step, choose target artifact or creature card in an opponent's graveyard that was put there from their library this turn. Put it onto the battlefield under your control.",
+  "pt": [
+   3,
+   6
+  ]
+ },
+ "Codex Shredder": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Target player mills a card. (They put the top card of their library into their graveyard.) {5}, {T}, Sacrifice this artifact: Return target card from your graveyard to your hand.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Consuming Aberration": {
+  "cost": "3UB",
+  "type": "Creature \u2014 Horror",
+  "text": "Consuming Aberration's power and toughness are each equal to the number of cards in your opponents' graveyards. Whenever you cast a spell, each opponent reveals cards from the top of their library until they reveal a land card, then puts those cards into their graveyard.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Contaminated Aquifer": {
+  "cost": "",
+  "type": "Land \u2014 Island Swamp",
+  "text": "({T}: Add {U} or {B}.) This land enters tapped.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Creeping Tar Pit": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {U} or {B}. {1}{U}{B}: Until end of turn, this land becomes a 3/2 blue and black Elemental creature. It's still a land. It can't be blocked this turn.",
+  "pt": null
+ },
+ "Darkslick Shores": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or fewer other lands. {T}: Add {U} or {B}.",
+  "pt": null
+ },
+ "Darkwater Catacombs": {
+  "cost": "",
+  "type": "Land",
+  "text": "{1}, {T}: Add {U}{B}.",
+  "pt": null
+ },
+ "Deadly Dispute": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact or creature. Draw two cards and create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Deadly Rollick": {
+  "cost": "3B",
+  "type": "Instant",
+  "text": "If you control a commander, you may cast this spell without paying its mana cost. Exile target creature.",
+  "pt": null
+ },
+ "Diabolic Intent": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Search your library for a card, put that card into your hand, then shuffle.",
+  "pt": null
+ },
+ "Dimir Aqueduct": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {U}{B}.",
+  "pt": null
+ },
+ "Dimir Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}: Add {U}{B}.",
+  "pt": null
+ },
+ "Dismal Backwater": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}.",
+  "pt": null
+ },
+ "Distant Melody": {
+  "cost": "3U",
+  "type": "Sorcery",
+  "text": "Choose a creature type. Draw a card for each permanent you control of that type.",
+  "pt": null
+ },
+ "Dreamborn Muse": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Spirit",
+  "text": "At the beginning of each player's upkeep, that player mills X cards, where X is the number of cards in their hand.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Drown in the Loch": {
+  "cost": "UB",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Counter target spell with mana value less than or equal to the number of cards in its controller's graveyard. \u2022 Destroy target creature with mana value less than or equal to the number of cards in its controller's graveyard.",
+  "pt": null
+ },
+ "Drowned Catacomb": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control an Island or a Swamp. {T}: Add {U} or {B}.",
+  "pt": null
+ },
+ "Duskmantle Guildmage": {
+  "cost": "UB",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "{1}{U}{B}: Whenever a card is put into an opponent's graveyard from anywhere this turn, that player loses 1 life. {2}{U}{B}: Target player mills two cards.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Emry, Lurker of the Loch": {
+  "cost": "2U",
+  "type": "Legendary Creature \u2014 Merfolk Wizard",
+  "text": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.) When Emry enters, mill four cards. {T}: Choose target artifact card in your graveyard. You may cast that card this turn. (You still pay its costs. Timing rules still apply.)",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Exhibition Tidecaller": {
+  "cost": "U",
+  "type": "Creature \u2014 Djinn Wizard",
+  "text": "Opus \u2014 Whenever you cast an instant or sorcery spell, target player mills three cards. If five or more mana was spent to cast that spell, that player mills ten cards instead.",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Feed the Swarm": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+  "pt": null
+ },
+ "Fetid Pools": {
+  "cost": "",
+  "type": "Land \u2014 Island Swamp",
+  "text": "({T}: Add {U} or {B}.) This land enters tapped. Cycling {2} ({2}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Fractured Sanity": {
+  "cost": "UUU",
+  "type": "Sorcery",
+  "text": "Each opponent mills fourteen cards. Cycling {1}{U} ({1}{U}, Discard this card: Draw a card.) When you cycle this card, each opponent mills four cards.",
+  "pt": null
+ },
+ "Fraying Sanity": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Aura Curse",
+  "text": "Enchant player At the beginning of each end step, enchanted player mills X cards, where X is the number of cards put into their graveyard from anywhere this turn.",
+  "pt": null
+ },
+ "Hedron Crab": {
+  "cost": "U",
+  "type": "Creature \u2014 Crab",
+  "text": "Landfall \u2014 Whenever a land you control enters, target player mills three cards. (They put the top three cards of their library into their graveyard.)",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Idol of Oblivion": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Draw a card. Activate only if you created a token this turn. {8}, {T}, Sacrifice this artifact: Create a 10/10 colorless Eldrazi creature token.",
+  "pt": null
+ },
+ "Imprisoned in the Moon": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature, land, or planeswalker Enchanted permanent is a colorless land with \"{T}: Add {C}\" and loses all other card types and abilities.",
+  "pt": null
+ },
+ "Intruder Alarm": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Creatures don't untap during their controllers' untap steps. Whenever a creature enters, untap all creatures.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Jwar Isle Refuge": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}.",
+  "pt": null
+ },
+ "Lightning Greaves": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
+  "pt": null
+ },
+ "Lim-D\u00fbl's Vault": {
+  "cost": "UB",
+  "type": "Instant",
+  "text": "Look at the top five cards of your library. As many times as you choose, you may pay 1 life, put those cards on the bottom of your library in any order, then look at the top five cards of your library. Then shuffle and put the last cards you looked at this way on top in any order.",
+  "pt": null
+ },
+ "Maddening Cacophony": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "Kicker {3}{U} Each opponent mills eight cards. If this spell was kicked, instead each opponent mills half their library, rounded up.",
+  "pt": null
+ },
+ "Mesmeric Orb": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Whenever a permanent becomes untapped, that permanent's controller mills a card.",
+  "pt": null
+ },
+ "Mind Stone": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {1}, {T}, Sacrifice this artifact: Draw a card.",
+  "pt": null
+ },
+ "Mindcrank": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Whenever an opponent loses life, that player mills that many cards. (Damage causes loss of life.)",
+  "pt": null
+ },
+ "Mirran Spy": {
+  "cost": "2U",
+  "type": "Creature \u2014 Drone",
+  "text": "Flying Whenever you cast an artifact spell, you may untap target creature.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Muddle the Mixture": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target instant or sorcery spell. Transmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+  "pt": null
+ },
+ "Notion Thief": {
+  "cost": "2UB",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "Flash If an opponent would draw a card except the first one they draw in each of their draw steps, instead that player skips that draw and you draw a card.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Phenax, God of Deception": {
+  "cost": "3UB",
+  "type": "Legendary Enchantment Creature \u2014 God",
+  "text": "Indestructible As long as your devotion to blue and black is less than seven, Phenax isn't a creature. Creatures you control have \"{T}: Target player mills X cards, where X is this creature's toughness.\"",
+  "pt": [
+   4,
+   7
+  ]
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Propaganda": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
+  "pt": null
+ },
+ "Psionic Ritual": {
+  "cost": "4UU",
+  "type": "Sorcery",
+  "text": "Replicate\u2014Tap an untapped Horror you control. (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.) Exile target instant or sorcery card from a graveyard and copy it. You may cast the copy without paying its mana cost. Exile Psionic Ritual.",
+  "pt": null
+ },
+ "Psychic Corrosion": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Whenever you draw a card, each opponent mills two cards.",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "pt": null
+ },
+ "Raul, Trouble Shooter": {
+  "cost": "1UB",
+  "type": "Legendary Creature \u2014 Zombie Mutant Rogue",
+  "text": "Once during each of your turns, you may cast a spell from among cards in your graveyard that were milled this turn. {T}: Each player mills a card. (They each put the top card of their library into their graveyard.)",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Reanimate": {
+  "cost": "B",
+  "type": "Sorcery",
+  "text": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+  "pt": null
+ },
+ "Resculpt": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Exile target artifact or creature. Its controller creates a 4/4 blue and red Elemental creature token.",
+  "pt": null
+ },
+ "Ruin Crab": {
+  "cost": "U",
+  "type": "Creature \u2014 Crab",
+  "text": "Landfall \u2014 Whenever a land you control enters, each opponent mills three cards. (To mill a card, a player puts the top card of their library into their graveyard.)",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Scion of Halaster": {
+  "cost": "1B",
+  "type": "Legendary Enchantment \u2014 Background",
+  "text": "Commander creatures you own have \"The first time you would draw a card each turn, instead look at the top two cards of your library. Put one of them into your graveyard and the other back on top of your library. Then draw a card.\"",
+  "pt": null
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/-1. Whenever equipped creature dies, draw two cards. Equip {1}",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Strix Serenade": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target artifact, creature, or planeswalker spell. Its controller creates a 2/2 blue Bird creature token with flying.",
+  "pt": null
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land \u2014 Swamp",
+  "text": "({T}: Add {B}.)",
+  "pt": null
+ },
+ "Swan Song": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.",
+  "pt": null
+ },
+ "Syr Konrad, the Grim": {
+  "cost": "3BB",
+  "type": "Legendary Creature \u2014 Human Knight",
+  "text": "Whenever another creature dies, or a creature card is put into a graveyard from anywhere other than the battlefield, or a creature card leaves your graveyard, Syr Konrad deals 1 damage to each opponent. {1}{B}: Each player mills a card. (They each put the top card of their library into their graveyard.)",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Terisian Mindbreaker": {
+  "cost": "7",
+  "type": "Artifact Creature \u2014 Juggernaut",
+  "text": "Whenever this creature attacks, defending player mills half their library, rounded up. Unearth {1}{U}{U}{U} ({1}{U}{U}{U}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+  "pt": [
+   6,
+   4
+  ]
+ },
+ "The Mindskinner": {
+  "cost": "UUU",
+  "type": "Legendary Enchantment Creature \u2014 Nightmare",
+  "text": "The Mindskinner can't be blocked. If a source you control would deal damage to an opponent, prevent that damage and each opponent mills that many cards.",
+  "pt": [
+   10,
+   1
+  ]
+ },
+ "The Water Crystal": {
+  "cost": "2UU",
+  "type": "Legendary Artifact",
+  "text": "Blue spells you cast cost {1} less to cast. If an opponent would mill one or more cards, they mill that many cards plus four instead. {4}{U}{U}, {T}: Each opponent mills cards equal to the number of cards in your hand.",
+  "pt": null
+ },
+ "Tormod's Crypt": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "{T}, Sacrifice this artifact: Exile target player's graveyard.",
+  "pt": null
+ },
+ "Toxic Deluge": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, pay X life. All creatures get -X/-X until end of turn.",
+  "pt": null
+ },
+ "Tragic Slip": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target creature gets -1/-1 until end of turn. Morbid \u2014 That creature gets -13/-13 until end of turn instead if a creature died this turn.",
+  "pt": null
+ },
+ "Traumatize": {
+  "cost": "3UU",
+  "type": "Sorcery",
+  "text": "Target player mills half their library, rounded down.",
+  "pt": null
+ },
+ "Umbris, Fear Manifest": {
+  "cost": "3UB",
+  "type": "Legendary Creature \u2014 Nightmare Horror",
+  "text": "Umbris gets +1/+1 for each card your opponents own in exile. Whenever Umbris or another Nightmare or Horror you control enters, target opponent exiles cards from the top of their library until they exile a land card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Undead Alchemist": {
+  "cost": "3U",
+  "type": "Creature \u2014 Zombie",
+  "text": "If a Zombie you control would deal combat damage to a player, instead that player mills that many cards. Whenever a creature card is put into an opponent's graveyard from their library, exile that card and create a 2/2 black Zombie creature token.",
+  "pt": [
+   4,
+   2
+  ]
+ },
+ "Visions of Beyond": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw a card. If a graveyard has twenty or more cards in it, draw three cards instead.",
+  "pt": null
+ },
+ "Witness Protection": {
+  "cost": "U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature loses all abilities and is a green and white Citizen creature with base power and toughness 1/1 named Legitimate Businessperson. (It loses all other colors, card types, creature types, and names.)",
+  "pt": null
+ },
+ "Zellix, Sanity Flayer": {
+  "cost": "2U",
+  "type": "Legendary Creature \u2014 Horror",
+  "text": "Hive Mind \u2014 Whenever a player mills one or more creature cards, you create a 1/1 black Horror creature token. {1}, {T}: Target player mills three cards. Choose a Background (You can have a Background as a second commander.)",
+  "pt": [
+   2,
+   3
+  ]
+ }
+}

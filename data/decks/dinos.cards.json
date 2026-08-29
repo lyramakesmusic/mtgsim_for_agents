@@ -1,0 +1,632 @@
+{
+ "Aetherize": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Return all attacking creatures to their owner's hand.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Ancient Animus": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Put a +1/+1 counter on target creature you control if it's legendary. Then it fights target creature an opponent controls. (Each deals damage equal to its power to the other.)",
+  "pt": null
+ },
+ "Apex Altisaur": {
+  "cost": "7GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "When this creature enters, it fights up to one target creature you don't control. Enrage \u2014 Whenever this creature is dealt damage, it fights up to one target creature you don't control.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Arcane Denial": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target spell. Its controller may draw up to two cards at the beginning of the next turn's upkeep. You draw a card at the beginning of the next turn's upkeep.",
+  "pt": null
+ },
+ "Beast Within": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "pt": null
+ },
+ "Bloom Tender": {
+  "cost": "1G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "Vivid \u2014 {T}: For each color among permanents you control, add one mana of that color.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Blue, Loyal Raptor": {
+  "cost": "2GU",
+  "type": "Legendary Creature \u2014 Dinosaur",
+  "text": "Partner with Owen Grady, Raptor Trainer (When this creature enters, target player may put Owen into their hand from their library, then shuffle.) For each kind of counter on Blue, Loyal Raptor, each other Dinosaur you control enters with a counter of that kind on it.",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Bushwhack": {
+  "cost": "G",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Search your library for a basic land card, reveal it, put it into your hand, then shuffle. \u2022 Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+  "pt": null
+ },
+ "Champion of Rhonas": {
+  "cost": "3G",
+  "type": "Creature \u2014 Jackal Warrior",
+  "text": "You may exert this creature as it attacks. When you do, you may put a creature card from your hand onto the battlefield. (An exerted creature won't untap during your next untap step.)",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Chandra's Ignition": {
+  "cost": "3RR",
+  "type": "Sorcery",
+  "text": "Target creature you control deals damage equal to its power to each other creature and each opponent.",
+  "pt": null
+ },
+ "Cherished Hatchling": {
+  "cost": "1G",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "When this creature dies, you may cast Dinosaur spells this turn as though they had flash, and whenever you cast a Dinosaur spell this turn, it gains \"When this creature enters, you may have it fight another target creature.\"",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Cinder Glade": {
+  "cost": "",
+  "type": "Land \u2014 Mountain Forest",
+  "text": "({T}: Add {R} or {G}.) This land enters tapped unless you control two or more basic lands.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Commercial District": {
+  "cost": "",
+  "type": "Land \u2014 Mountain Forest",
+  "text": "({T}: Add {R} or {G}.) This land enters tapped. When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Cresting Mosasaurus": {
+  "cost": "6UU",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Emerge {6}{U} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.) When this creature enters, if you cast it, return each non-Dinosaur creature to its owner's hand.",
+  "pt": [
+   4,
+   8
+  ]
+ },
+ "Cultivate": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+  "pt": null
+ },
+ "Cyclonic Rift": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Return target nonland permanent you don't control to its owner's hand. Overload {6}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Devil Dinosaur": {
+  "cost": "2GG",
+  "type": "Legendary Creature \u2014 Dinosaur",
+  "text": "Trample Other Dinosaurs you control get +1/+1 and have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Dreamroot Cascade": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or more other lands. {T}: Add {G} or {U}.",
+  "pt": null
+ },
+ "Etali, Primal Storm": {
+  "cost": "4RR",
+  "type": "Legendary Creature \u2014 Elder Dinosaur",
+  "text": "Whenever Etali attacks, exile the top card of each player's library, then you may cast any number of spells from among those cards without paying their mana costs.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Fling": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Fling deals damage equal to the sacrificed creature's power to any target.",
+  "pt": null
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land \u2014 Forest",
+  "text": "({T}: Add {G}.)",
+  "pt": null
+ },
+ "Frontier Bivouac": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {G}, {U}, or {R}.",
+  "pt": null
+ },
+ "Garruk's Uprising": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, if you control a creature with power 4 or greater, draw a card. Creatures you control have trample. (Each of those creatures can deal excess combat damage to the player or planeswalker it's attacking.) Whenever a creature you control with power 4 or greater enters, draw a card.",
+  "pt": null
+ },
+ "Ghalta, Primal Hunger": {
+  "cost": "(10)GG",
+  "type": "Legendary Creature \u2014 Elder Dinosaur",
+  "text": "This spell costs {X} less to cast, where X is the total power of creatures you control. Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Ghalta, Stampede Tyrant": {
+  "cost": "5GGG",
+  "type": "Legendary Creature \u2014 Elder Dinosaur",
+  "text": "Trample When Ghalta enters, put any number of creature cards from your hand onto the battlefield.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Greater Good": {
+  "cost": "2GG",
+  "type": "Enchantment",
+  "text": "Sacrifice a creature: Draw cards equal to the sacrificed creature's power, then discard three cards.",
+  "pt": null
+ },
+ "Hedge Maze": {
+  "cost": "",
+  "type": "Land \u2014 Forest Island",
+  "text": "({T}: Add {G} or {U}.) This land enters tapped. When this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+  "pt": null
+ },
+ "Hinterland Harbor": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control a Forest or an Island. {T}: Add {G} or {U}.",
+  "pt": null
+ },
+ "Hulking Raptor": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Ward {2} At the beginning of your first main phase, add {G}{G}.",
+  "pt": [
+   5,
+   3
+  ]
+ },
+ "Imprisoned in the Moon": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature, land, or planeswalker Enchanted permanent is a colorless land with \"{T}: Add {C}\" and loses all other card types and abilities.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Ixalli's Lorekeeper": {
+  "cost": "G",
+  "type": "Creature \u2014 Human Druid",
+  "text": "{T}: Add one mana of any color. Spend this mana only to cast a Dinosaur spell or activate an ability of a Dinosaur source.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Kalamax, the Stormsire": {
+  "cost": "1GUR",
+  "type": "Legendary Creature \u2014 Elemental Dinosaur",
+  "text": "Whenever you cast your first instant spell each turn, if Kalamax is tapped, copy that spell. You may choose new targets for the copy. Whenever you copy an instant spell, put a +1/+1 counter on Kalamax.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Karametra's Acolyte": {
+  "cost": "3G",
+  "type": "Creature \u2014 Human Druid",
+  "text": "{T}: Add an amount of {G} equal to your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Karplusan Forest": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {R} or {G}. This land deals 1 damage to you.",
+  "pt": null
+ },
+ "Ketria Triome": {
+  "cost": "",
+  "type": "Land \u2014 Forest Island Mountain",
+  "text": "({T}: Add {G}, {U}, or {R}.) This land enters tapped. Cycling {3} ({3}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Kona, Rescue Beastie": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Beast Survivor",
+  "text": "Survival \u2014 At the beginning of your second main phase, if Kona is tapped, you may put a permanent card from your hand onto the battlefield.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Marauding Raptor": {
+  "cost": "1R",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Creature spells you cast cost {1} less to cast. Whenever another creature you control enters, this creature deals 2 damage to it. If a Dinosaur is dealt damage this way, this creature gets +2/+0 until end of turn.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Nature's Claim": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Destroy target artifact or enchantment. Its controller gains 4 life.",
+  "pt": null
+ },
+ "Nature's Lore": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Needletooth Raptor": {
+  "cost": "3R",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Enrage \u2014 Whenever this creature is dealt damage, it deals 5 damage to target creature an opponent controls.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Oran-Rief, the Vastwood": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {G}. {T}: Put a +1/+1 counter on each green creature that entered this turn.",
+  "pt": null
+ },
+ "Owen Grady, Raptor Trainer": {
+  "cost": "1RG",
+  "type": "Legendary Creature \u2014 Human Soldier Scientist",
+  "text": "Partner with Blue, Loyal Raptor {T}: Put your choice of a reach, menace, trample, or haste counter on target Dinosaur. Activate only as a sorcery.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Polyraptor": {
+  "cost": "6GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Enrage \u2014 Whenever this creature is dealt damage, create a token that's a copy of this creature.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Prizefight": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.) Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Quartzwood Crasher": {
+  "cost": "2RRG",
+  "type": "Creature \u2014 Dinosaur Beast",
+  "text": "Trample Whenever one or more creatures you control with trample deal combat damage to a player, create an X/X green Dinosaur Beast creature token with trample, where X is the amount of damage those creatures dealt to that player.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Raise the Palisade": {
+  "cost": "4U",
+  "type": "Sorcery",
+  "text": "Choose a creature type. Return all creatures that aren't of the chosen type to their owners' hands.",
+  "pt": null
+ },
+ "Ram Through": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to target creature you don't control. If the creature you control has trample, excess damage is dealt to that creature's controller instead.",
+  "pt": null
+ },
+ "Ranging Raptors": {
+  "cost": "2G",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Enrage \u2014 Whenever this creature is dealt damage, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Raphael, Ninja Destroyer": {
+  "cost": "2RR",
+  "type": "Legendary Creature \u2014 Mutant Ninja Turtle",
+  "text": "Raphael must be blocked if able. Enrage \u2014 Whenever Raphael is dealt damage, add that much {R}. Until end of turn, you don't lose this mana as steps and phases end.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "pt": null
+ },
+ "Reality Shift": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller manifests the top card of their library. (That player puts the top card of their library onto the battlefield face down as a 2/2 creature. If it's a creature card, it can be turned face up any time for its mana cost.)",
+  "pt": null
+ },
+ "Rejuvenating Springs": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you have two or more opponents. {T}: Add {G} or {U}.",
+  "pt": null
+ },
+ "Return of the Wildspeaker": {
+  "cost": "4G",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Draw cards equal to the greatest power among non-Human creatures you control. \u2022 Non-Human creatures you control get +3/+3 until end of turn.",
+  "pt": null
+ },
+ "Ripjaw Raptor": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Enrage \u2014 Whenever this creature is dealt damage, draw a card.",
+  "pt": [
+   4,
+   5
+  ]
+ },
+ "Rishkar's Expertise": {
+  "cost": "4GG",
+  "type": "Sorcery",
+  "text": "Draw cards equal to the greatest power among creatures you control. You may cast a spell with mana value 5 or less from your hand without paying its mana cost.",
+  "pt": null
+ },
+ "Rockfall Vale": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or more other lands. {T}: Add {R} or {G}.",
+  "pt": null
+ },
+ "Rootbound Crag": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control a Mountain or a Forest. {T}: Add {R} or {G}.",
+  "pt": null
+ },
+ "Savage Order": {
+  "cost": "2GG",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, sacrifice a creature with power 4 or greater. Search your library for a Dinosaur creature card, put it onto the battlefield, then shuffle. It gains indestructible until your next turn.",
+  "pt": null
+ },
+ "Savage Stomp": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "This spell costs {2} less to cast if it targets a Dinosaur you control. Put a +1/+1 counter on target creature you control. Then that creature fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+  "pt": null
+ },
+ "Sheltered Thicket": {
+  "cost": "",
+  "type": "Land \u2014 Mountain Forest",
+  "text": "({T}: Add {R} or {G}.) This land enters tapped. Cycling {2} ({2}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Shivan Reef": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {U} or {R}. This land deals 1 damage to you.",
+  "pt": null
+ },
+ "Show and Tell": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Each player may put an artifact, creature, enchantment, or land card from their hand onto the battlefield.",
+  "pt": null
+ },
+ "Silverclad Ferocidons": {
+  "cost": "5RR",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Enrage \u2014 Whenever this creature is dealt damage, each opponent sacrifices a permanent of their choice.",
+  "pt": [
+   8,
+   5
+  ]
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spire Garden": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you have two or more opponents. {T}: Add {R} or {G}.",
+  "pt": null
+ },
+ "Steam Vents": {
+  "cost": "",
+  "type": "Land \u2014 Island Mountain",
+  "text": "({T}: Add {U} or {R}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Stomping Ground": {
+  "cost": "",
+  "type": "Land \u2014 Mountain Forest",
+  "text": "({T}: Add {R} or {G}.) As this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "pt": null
+ },
+ "Stormcarved Coast": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or more other lands. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Sulfur Falls": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control an Island or a Mountain. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Sunfrill Imitator": {
+  "cost": "2G",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Whenever this creature attacks, you may have it become a copy of another target Dinosaur you control, except its name is Sunfrill Imitator and it has this ability.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Swan Song": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.",
+  "pt": null
+ },
+ "Swiftwater Cliffs": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Tail Swipe": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Choose target creature you control and target creature you don't control. If you cast this spell during your main phase, the creature you control gets +1/+1 until end of turn. Then those creatures fight each other. (Each deals damage equal to its power to the other.)",
+  "pt": null
+ },
+ "Temple of Abandon": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {R} or {G}.",
+  "pt": null
+ },
+ "The Skullspore Nexus": {
+  "cost": "6GG",
+  "type": "Legendary Artifact",
+  "text": "This spell costs {X} less to cast, where X is the greatest power among creatures you control. Whenever one or more nontoken creatures you control die, create a green Fungus Dinosaur creature token with base power and toughness each equal to the total power of those creatures. {2}, {T}: Double target creature's power until end of turn.",
+  "pt": null
+ },
+ "Thornwood Falls": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {G} or {U}.",
+  "pt": null
+ },
+ "Three Visits": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a Forest card, put it onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Trumpeting Carnosaur": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Trample When this creature enters, discover 5. {2}{R}, Discard this card: It deals 3 damage to target creature or planeswalker.",
+  "pt": [
+   7,
+   6
+  ]
+ },
+ "Tyrranax Rex": {
+  "cost": "4GGG",
+  "type": "Creature \u2014 Phyrexian Dinosaur",
+  "text": "This spell can't be countered. Trample, ward {4}, haste Toxic 4 (Players dealt combat damage by this creature also get four poison counters.)",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Vaultborn Tyrant": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Trample Whenever this creature or another creature you control with power 4 or greater enters, you gain 3 life and draw a card. When this creature dies, if it's not a token, create a token that's a copy of it, except it's an artifact in addition to its other types.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Wrathful Raptors": {
+  "cost": "4R",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Trample Whenever a Dinosaur you control is dealt damage, it deals that much damage to any target that isn't a Dinosaur.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Yavimaya Coast": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {G} or {U}. This land deals 1 damage to you.",
+  "pt": null
+ },
+ "Forerunner of the Empire": {
+  "cost": "3R",
+  "type": "Creature \u2014 Human Soldier",
+  "text": "When this creature enters, you may search your library for a Dinosaur card, reveal it, then shuffle and put that card on top. Whenever a Dinosaur you control enters, you may have this creature deal 1 damage to each creature.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Impact Tremors": {
+  "cost": "1R",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
+  "pt": null
+ }
+}

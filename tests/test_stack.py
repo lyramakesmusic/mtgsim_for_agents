@@ -338,3 +338,37 @@ def test_response_window_carries_the_card_text(make_game, db):
     assert windows, "nobody was offered a window"
     text = db[inst]["text"][:40]
     assert any(text in p for p in windows), windows[0][:300]
+
+
+def test_resolution_does_not_repeat_the_announcement(make_game):
+    """The announcement tells the table the plan; resolution has nothing to add
+    unless it says something new."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    plan = {"card": g.p[0].hand[0], "narration": "Tapping three lands, drawing two."}
+    g.resolve_on_stack(0, dict(plan), kind="spell")
+    announced = [l for l in g.table if "announces" in l]
+    assert announced and "drawing two" in announced[0]
+
+    g.table.clear()
+    assert g._fresh_narration("Tapping three lands, drawing two.") is None
+    assert g._fresh_narration("Actually I scry first.") == "Actually I scry first."
+
+
+def test_an_illegal_cast_can_be_backed_up_off_the_stack(make_game):
+    """The table catches a spell cast without the mana for it; the correction
+    takes it back to hand, and the stack is a zone a card can come from."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    card = me.hand[0]
+    g.stack.append({"id": "stack#3", "caster": 0, "kind": "spell", "name": card,
+                    "countered": False, "targets": []})
+    g.apply_effects(1, [{"move": {"from": "stack", "card": card, "to": "hand"}}])
+    assert not g.stack
+    assert card in me.hand
+    assert not any("bad source" in l for l in g.table)
