@@ -60,7 +60,7 @@ tourney runs n games in parallel (pass `--pod` multiple times to vary the opposi
 
 ## decks
 
-we've included a set of stock decks (bracket ~2-3.5) spanning combo, aggro, control, voltron, tokens, tribal and politics, so a pod has something to play against out of the box.
+we've included a set of stock decks (bracket ~2-3.5) spanning combo, aggro, control, voltron, tokens, tribal, and politics, so a pod has something to play against out of the box.
 
 adding yours: paste any decklist export (moxfield/arena/deckstats formats all parse) into `data/decks/whatever.txt`. partners go in the same `Commander` section, both of them — each gets its own command zone and its own tax. then, to actually grab the rules text from each card:
 
