@@ -8,6 +8,8 @@ minimal state-tracking sim that allows various claude or codex agents to play mt
 
 the models already know the rules. they have quite extensive knowledge of cards, rulings, archetypes, etc. each seat is just a persistent `claude -p` or `codex exec` session. agents reply with json actions plus "effect atoms" incl move, life, create, draw, etc. the engine tracks exactly what the agents declare and handles anything involving hidden info: draws, tutors, shuffles, scry peeks, coin flips.
 
+the engine tracks state and nothing else: zones, life, tapped and untapped, marked damage, counters on permanents and on players (+1/+1, poison, experience — whatever you name), the stack, and the turn structure. it knows no card text. everything a card *does* is declared by the seat playing it, as effect atoms, and the other three check it.
+
 triggers, combat math, payments, ruling decisions, etc is on the agents. the agents will occasionally get something wrong, get called out, and take action to fix board state.
 
 the stack is real: spells and abilities announce as stack objects, everyone gets response windows, responses can be responded to, and you get the last window on your own spells — so casting a pump and then responding to yourself with a second pump is just how holding priority works. counterspell wars go as deep as anyone wants (within a sane cap).
@@ -62,7 +64,7 @@ tourney runs n games in parallel (pass `--pod` multiple times to vary the opposi
 
 ## decks
 
-we've included 22 stock decks (bracket ~2.5-3.5): unbeatable squirrel girl (ramp into infinite squirrel tokens and cause pain), squirrels_old (the same girl before the rebuild — slower mana, same crank), snakes (xyris group hug combat tricks — "here have cards" until they die), braids (everyone gets free stuff every upkeep but mine are eldrazi), lifedrain (anything anybody does drains them life and gives it to me), meren (graveyard grind), aurelia (boros fliers), hijack (loki turns every cheap combat trick into a theft — a voltron deck wearing a steal-denial mask), slivers (the first sliver makes every sliver spell cascade into another sliver, and they all buff each other), allgasnobrakes (gruul fat where the creatures are the ramp — the green one you just cast pays for the red one, and there is no interaction in the deck at all), aurafarming (mono-white auras: light-paws fetches a free aura onto herself every time you cast one, and turn four is usually lethal), octopus (mono-blue draw-go where every counterspell is also progress — lady octopus free-casts an artifact as big as her counter count, and the count ends at blightsteel colossus), poison (mono-green deathtouch aggro — fynn turns every connection into poison counters instead of damage, and ten of those is a loss no matter what anyone's life total says), mill (dimir horror mill — every creature milled off anyone's library becomes a 1/1, and the tokens feed the engines that mill again), dinos (temur control that wins with lizards — counter and remove early, ramp into enormous dinosaurs, then fight spells that kill their creature and pay you for damaging your own), isperia (azorius pillowfort — attacking anyone costs you cards, and it wins with approach of the second sun or a fat flier), talrand (draw-go where every instant leaves a 2/2 flier behind, so countering things is also building an army), karazikar (goad everything — the table fights everywhere except your face and every punch thrown pays you cards and treasure), marchesa (steal a creature, sacrifice it, keep it; +1/+1 counters bring your own bodies back, so wraths barely register), sigarda (auras on a hexproof flying angel nobody can target, until 21 commander damage lands), riversong (chaos — randomness and rule-changing effects, nothing behaves the way anyone planned), torbran (mono-red burn where every red source deals two extra, plus sweepers and anti-lifegain).
+we've included a set of stock decks (bracket ~2.5-3.5) spanning combo, aggro, control, voltron, tokens, tribal and politics, so a pod has something to play against out of the box.
 
 adding yours: paste any decklist export (moxfield/arena/deckstats formats all parse) into `data/decks/whatever.txt`. partners go in the same `Commander` section, both of them — each gets its own command zone and its own tax. then, to actually grab the rules text from each card:
 
@@ -70,18 +72,10 @@ adding yours: paste any decklist export (moxfield/arena/deckstats formats all pa
 uv run scripts/fetch_oracle.py data/decks/whatever.txt
 ```
 
-optionally put a `// strategy: ...` comment at the top, the agents will read it and use it as guidance to play in case there are odd strategies they need to know about. what a guide needs to cover:
+optionally put a `// strategy: ...` comment at the top, the agents will read it and use it as guidance to play in case there are odd strategies they need to know about. useful things to put in one: what the deck is optimizing, what the resource loops are, which cards are interchangeable members of a package, what sequencing errors matter, what apparent "value" is bait, how aggressive it should be, mulligan heuristics, and how to tell setup from the kill.
 
-- what the deck is optimizing
-- what the resource loops are
-- which cards are interchangeable members of a package
-- what sequencing errors matter
-- what apparent "value" is actually bait
-- how aggressive or conservative it should be
-- mulligan heuristics
-- how to recognize the transition from setup to killing people
+`// scouting: ...` is a public line every seat sees; `// personality: ...` is private and sets that seat's table-talk voice.
 
-combo decks are the exception to "packages, not card names" — when the play pattern is hunting specific pieces, list them as columns with their backups, because the redundancy is the information. a `// scouting: ...` line is the public counterpart — one or two sentences on what the deck does, shown to *every* seat, the way a pod knows each other's decks after a few games. the strategy memo stays private to its own seat. a `// personality: ...` line is private too — it is the seat's `table_talk` voice, so a squirrel deck sounds like a squirrel deck instead of four identical wry commentators. write it as three or four adjectives and then the character actually talking, in their own rhythm — the model copies the form of that sample closely, so capitalisation, punctuation and dialect in the sample are what you get back all game. give it something to perform: a stage direction like `*mutters*` comes back as rasps and coughs and long looks down the table. put a number on the length if the character is terse ("a word or two at most") — an adjective like "clipped" loses to the model's own habits. and keep the sample's sentences either about the character's outlook or too specific to reuse; a line that would fit any table ("cute little machine you've built") comes back verbatim, several times a game. a good scouting line says what the deck physically does — the pieces and the axis — rather than how scary it is. "puts protection auras on a fox" tells the table to interact before targeting stops working; "kills you on turn four" tells them nothing they can act on. it should be enough to play against and not enough to play for you, so your actual lines still land on turn six.
 
 ## known jank
 
