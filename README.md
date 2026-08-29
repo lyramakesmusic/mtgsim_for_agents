@@ -80,6 +80,6 @@ optionally put a `// strategy: ...` comment at the top, the agents will read it 
   - no extra turns or weird turn order, the turn loop is a fixed rotation.
   - no shared zones (knowledge pool type stuff): cards live in exactly one player's zones.
 - if agents are slow, their window will time out and the harness will pass its turn after 10 minutes.
-- pumps, clones, attachments, first strike, commander damage, poison, floating mana, and "doesn't untap" are all manually tracked by agents, not in the sim. so there's potential for issues if the agents aren't on top of things.
+- pumps, clones, attachments, first strike, commander damage, and floating mana are all manually tracked by agents, not in the sim. so there's potential for issues if the agents aren't on top of things.
 
 in general, typical magic plays fine, but chaos solitaire or certain types of combo decks will be jank or unplayable. patch the sim if you're playing those.
