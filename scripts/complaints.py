@@ -17,7 +17,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-COMPLAINT = re.compile(r"!!\s*(.+?)\s*$")
+COMPLAINT = re.compile(r"^\s*!!\s*(.+?)\s*$")   # the engine writes these at the line start
 
 
 def shape(line):

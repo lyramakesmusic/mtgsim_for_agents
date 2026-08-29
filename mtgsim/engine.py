@@ -17,13 +17,23 @@ Bookkeeping (visible state, applied verbatim):
   {"move":{"id":"Sol Ring#4","to":"graveyard"}}            # battlefield → zone
   {"move":{"player":"P2","from":"library_top","n":8,"to":"graveyard"}}   # mill
   {"move":{"player":"self","from":"hand","card":"Fog","to":"graveyard"}} # discard
+ {"move":{"player":"P2","from":"hand","n":1,"to":"graveyard","chooser":...}}  # leave "card" out
+   when the zone is hidden from you. chooser "owner" (default) is "discards a card",
+   "self" is Duress and Thoughtseize (you look and pick), "random" is "at random"
+   and the engine rolls it so neither of you chooses. Add "types" or "not_types"
+   for a restricted pick — Duress is not_types:["Creature","Land"].
   {"move":{"player":"self","from":"graveyard","card":"X","to":"battlefield","tapped":false}}
   {"move":{"from":"stack","card":"Swan Song","to":"hand"}}   # back up a cast that wasn't legal
+ {"move":{"card":"Approach of the Second Sun","to":"library_depth","depth":7}}
+   — a card put into the library a set distance down, not just top or bottom
+ {"move":{"from":"library_bottom","n":1,"to":"hand"}} or {"from":"library","card":"X","to":"hand"}
+   — anything you can move a card TO you can move one FROM, the bottom included,
+   and naming a card in the library moves it without the shuffle a search forces
      zones: hand, battlefield, graveyard, exile, library_top, library_bottom, command
      tokens moved off the battlefield cease to exist. Moves are verified: the
      named card must actually be in the source zone.
   {"life":{"player":"P3","delta":-6}}          # damage and lifegain alike
-  {"create":{"player":"self","name":"Drake","n":2,"pt":[2,2],"tapped":false}}
+  {"create":{"player":"self","name":"Drake","n":2,"pt":[2,2],"tapped":false,"counters":{"+1/+1":1}}}
   {"set":{"id":"Scurry Oak#9","tapped":false,"sick":false,"counters":3,"pt":[5,5]}}
      counters is a DELTA; pt overrides base p/t (layers are your problem)
   {"eliminate":{"player":"P3","reason":"Thassa's Oracle"}}
@@ -37,7 +47,18 @@ Hidden-information services (the engine executes these because agents can't):
      engine verifies the card is really in that library — no lying tutors
   {"shuffle":{"player":"self"}}
   {"reveal":{"player":"self","zone":"hand"}} or {"zone":"library_top","n":3}
-  {"random":{"coin":true}} or {"random":{"die":6}}   # engine-owned, logged
+  {"damage":{"id":"Bear#3","n":4,"from":"Bolt"}}  # marked damage; it wears off at end of turn
+ {"fight":{"a":"Bear#3","b":"Wolf#9"}}           # each deals its power to the other
+   — Prey Upon, Savage Stomp, Bushwhack, Ram Through, an Apex Altisaur trigger. Damage
+   at or above toughness is pointed out, never acted on: whether it dies is yours.
+ {"random":{"coin":true}} or {"random":{"die":6}}   # engine-owned, logged
+ {"dig":{"player":P,"until":{"max_mv":0,"not_types":["Land"]},"found":"exile",
+         "rest":"library_bottom"}}
+   walk a library from the top until a card matches, in one atom instead of a
+   chain of peeks: cascade (max_mv one less than the spell, not_types Land),
+   Umbris and Etali (types ["Land"], rest "exile"), discover. until takes
+   names/types/not_types/max_mv/min_mv; rest defaults to the library bottom in
+   random order, "shuffle_rest":false to keep them in order.
 
 Wins the engine can't see (Thassa's Oracle, Approach, demonstrated loops):
   {"action":"claim_win","how":"..."} → every other seat votes concede/dispute;
@@ -62,11 +83,14 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from mtgsim.cards import mana_value
+
 # the only tokens the if_yes/if_no shortcut matches; every other answer is
 # relayed verbatim for the asking seat to resolve
 AFFIRM = {"yes", "y", "pay"}
 DENY = {"no", "n", "decline"}
-ZONES = ("hand", "battlefield", "graveyard", "exile", "library_top", "library_bottom", "command")
+ZONES = ("hand", "battlefield", "graveyard", "exile", "library_top", "library_bottom",
+         "library_depth", "command")
 
 # ---- terminal color (tty only; files/prompts always plain) ----
 # seat identity: P1 cyan, P2 yellow, P3 magenta, P4 green
@@ -132,7 +156,10 @@ the braces is lost. Optional in any reply:
    three, tops: banter, deals, threats, reactions, needling. Analysis and reasoning belong in
    "thinking" instead — spoken analysis reads like a commentator rather than a player, and it
    hands your plans to the table. Silence is fine; you don't have to talk every window.
-ACTIONS: {"action":"play_land","card":...} | {"action":"cast","card":...,"tap":[ids],
+ACTIONS: {"action":"play_land","card":...,"tapped":bool} | {"action":"cast","card":...,"tap":[ids],
+  "from":"exile"|"graveyard"|"library",   # cascade, discover, foretell, flashback, escape,
+                                          # impulse draws — omit it and hand/command zone is assumed
+  "tapped":bool,"counters":{"+1/+1":N},   # how it ARRIVES: entering tapped, entering with counters
 "targets":[permanent ids or seat handles],"effects":[...]} |
 {"action":"activate","source":id,"tap_source":bool,"tap":[ids],"effects":[...]} |
 {"action":"attack","attacks":{"P2":[attacker ids],...},"vigilance":[ids]} | {"action":"claim_win","how":"..."} |
@@ -181,7 +208,13 @@ nothing you don't:
    mill is from "library_top" with "n": {"move":{"player":"P2","from":"library_top","n":2,"to":"graveyard"}})
  {"life":{"player":P,"delta":±N}}
  {"create":{"player":P,"name":...,"n":N,"pt":[p,t],"tapped":bool}}
- {"set":{"id":perm_id,"tapped":bool,"sick":bool,"counters":±delta,"pt":[p,t]}}
+ {"set":{"id":perm_id,"tapped":bool,"sick":bool,"counters":±delta,"pt":[p,t],"skip_untaps":N}}
+ {"set":{"player":"self","counters":{"experience":1}}}   # counters the PLAYER has, not a
+   permanent: experience, poison, energy. They stay when the permanent that gave
+   them leaves — that is what experience counters are for.
+   skip_untaps: how many of your untap steps this permanent sits out — exerting it,
+   freezing it, any "doesn't untap during your next untap step". It counts itself
+   down. A stun counter does the same thing and shows on the board as a counter.
    counters is a map of named kinds — {"counters":{"ingenuity":1}}, {"experience":1},
    {"growth":2}, {"loyalty":-3}. A bare number is shorthand for {"+1/+1": n}. The engine
    tracks whatever you name and shows it on the board; only "+1/+1" is added to printed
@@ -239,10 +272,12 @@ def _counters(perm):
 
 
 def plus_counters(perm):
-    """How many +1/+1 counters — the only kind whose meaning the engine assumes,
-    and only because the agent named it that. Every other kind is tracked and
-    shown; what it does is the agents' business."""
-    return _counters(perm).get("+1/+1", 0)
+    """What the counters named "+1/+1" and "-1/-1" do to printed power. With
+    "stun", which spends itself at the untap step, those are the only counter
+    names the engine reads, and only because the agent chose them; every other
+    kind is tracked and shown, and what it does is the agents' business."""
+    c = _counters(perm)
+    return c.get("+1/+1", 0) - c.get("-1/-1", 0)
 
 
 class Player:
@@ -265,6 +300,7 @@ class Player:
         self.graveyard = []
         self.exile = []
         self.life = 40
+        self.counters = {}          # experience, poison, energy: the player's, not a permanent's
         self.alive = True
         self.lands_played = 0
         self.drew_this_turn = 0
@@ -436,11 +472,11 @@ class Game:
         self.log(f'⚖ JUDGE RULES: {ruling}')
 
     # ---------------- lookups ----------------
-    def perm(self, pl, name, token=False, tapped=False, pt=None):
+    def perm(self, pl, name, token=False, tapped=False, pt=None, counters=None):
         d = self.db.get(name, {})
         p = {"id": f"{name}#{self.next_id}", "name": name, "tapped": tapped,
-             "sick": True, "counters": {}, "token": token, "owner": pl.handle,
-             "pt": pt or d.get("pt")}
+             "sick": True, "counters": dict(counters or {}), "token": token,
+             "owner": pl.handle, "pt": pt or d.get("pt"), "damage": 0}
         if not p["pt"]:                      # noncreatures don't get sick
             p["sick"] = False
         self.next_id += 1
@@ -535,7 +571,7 @@ class Game:
         return drawn
 
     # ---------------- the atoms ----------------
-    def _zone_put(self, pl, name, to, tapped=False):
+    def _zone_put(self, pl, name, to, tapped=False, depth=0):
         """Route a card name into a zone of pl."""
         if to == "battlefield":
             self.perm(pl, name, tapped=tapped)
@@ -547,6 +583,8 @@ class Game:
             pl.exile.append(name)
         elif to == "library_top":
             pl.library.insert(0, name)
+        elif to == "library_depth":
+            pl.library.insert(min(int(depth or 0), len(pl.library)), name)
         elif to == "library_bottom":
             pl.library.append(name)
         elif to == "command":
@@ -619,13 +657,39 @@ class Game:
             self.log(f"  !! move: can't resolve player {mv.get('player')!r}; skipped")
             return
         frm = mv.get("from")
-        if frm in ("library", "deck", "top"):     # what everyone means by "mill"
-            frm = "library_top"
+        if frm in ("library", "deck", "top") and not mv.get("card"):
+            frm = "library_top"                  # what everyone means by "mill"
+        if frm in ("library_bottom", "bottom"):
+            n = max(1, int(mv.get("n", 1)))
+            want = mv.get("card")
+            if want:
+                if want not in pl.library:
+                    self.log(f"  !! move: {want!r} is not in {pl.name}'s library; skipped")
+                    return
+                names = [want]
+                pl.library.remove(want)
+            else:
+                names = [pl.library.pop() for _ in range(min(n, len(pl.library)))]
+            for name in names:
+                self._zone_put(pl, name, to, tapped=bool(mv.get("tapped")), depth=mv.get("depth", 0))
+            self.log(f"  ↳ {pl.name}: {', '.join(names)} from the bottom of library → {to}")
+            return
+        if frm == "library" and mv.get("card"):
+            # a named card anywhere in the library, without the shuffle a search forces
+            want = mv["card"]
+            if want not in pl.library:
+                self.log(f"  !! move: {want!r} is not in {pl.name}'s library; skipped")
+                return
+            pl.library.remove(want)
+            self._zone_put(pl, want, to, tapped=bool(mv.get("tapped")),
+                           depth=mv.get("depth", 0))
+            self.log(f"  ↳ {pl.name}: {want} from library → {to} (no shuffle)")
+            return
         if frm == "library_top":
             n = int(mv.get("n", 1))
             names = [pl.library.pop(0) for _ in range(min(n, len(pl.library)))]
             for name in names:
-                self._zone_put(pl, name, to, tapped=bool(mv.get("tapped")))
+                self._zone_put(pl, name, to, tapped=bool(mv.get("tapped")), depth=mv.get("depth", 0))
             shown = ", ".join(names) if to not in ("hand", "library_bottom") else f"{len(names)} cards"
             self.log(f"  ↳ {pl.name}: top {len(names)} of library → {to} ({shown})")
             if not pl.library and to != "library_bottom":
@@ -656,11 +720,61 @@ class Game:
         if frm not in srcs:
             self.log(f"  !! move: bad source {frm!r}; skipped")
             return
+        if not mv.get("card") and not mv.get("all") and frm in ("hand", "library"):
+            # Plaguecrafter, edicts, "target player discards": the seat making
+            # them do it can't see the zone, so the owner names the card
+            n = max(1, int(mv.get("n", 1)))
+            pool = srcs.get(frm) if frm in srcs else pl.library
+            if not pool:
+                self.log(f"  ({pl.name}'s {frm} is empty — nothing to {to})")
+                return
+            ok_types = [t.lower() for t in (mv.get("types") or [])]
+            no_types = [t.lower() for t in (mv.get("not_types") or [])]
+
+            def eligible(name):
+                typ = (self.db.get(name, {}).get("type", "") or "").lower()
+                if ok_types and not any(t in typ for t in ok_types):
+                    return False
+                return not any(t in typ for t in no_types)
+
+            legal = [c for c in pool if eligible(c)] if (ok_types or no_types) else list(pool)
+            if not legal:
+                self.log(f"  ({pl.name}'s {frm} has nothing that qualifies — nothing moves)")
+                return
+            limit = ("" if legal == list(pool)
+                     else f" You may only take: {', '.join(legal)}.")
+            who = str(mv.get("chooser") or "owner").lower()
+            if who == "random":
+                # "at random" is nobody's choice — the engine rolls it
+                picked = [legal[self.rng.randrange(len(legal))] for _ in range(min(n, len(legal)))]
+                how = "at random"
+            elif who in ("self", "me", "caster", "chooser"):
+                # Duress, Thoughtseize: the card lets YOU pick out of their hand
+                r = self.ask(i, f"{pl.name}'s {frm}: {', '.join(pool)}.{limit} Choose {n} to move "
+                                f'to their {to}. Reply {{"cards":[names]}}.',
+                             schema_hint='{"cards":[names],"table_talk":str}')
+                picked = [str(x) for x in (r.get("cards") or [])][:n]
+                how = f"{me.name}'s choice"
+            else:
+                r = self.ask(self.p.index(pl),
+                             f"{me.name} is making you move {n} card{'s' if n != 1 else ''} from your "
+                             f"{frm} to your {to}. You choose which. Your {frm}: {', '.join(pool)}."
+                             f'{limit} Reply {{"cards":[names]}}.',
+                             schema_hint='{"cards":[names],"table_talk":str}')
+                picked = [str(x) for x in (r.get("cards") or [])][:n]
+                how = "their choice"
+            picked = [x for x in picked if x in legal] or legal[:n]
+            for name in picked:
+                pool.remove(name)
+                self._zone_put(pl, name, to, tapped=bool(mv.get("tapped")), depth=mv.get("depth", 0))
+            shown = ", ".join(picked) if to != "hand" else f"{len(picked)} cards"
+            self.log(f"  ↳ {pl.name} moves {shown} from {frm} to {to} ({how})")
+            return
         if mv.get("all"):                       # wheels, discard-hand, mass exile
             names = list(srcs[frm])
             srcs[frm].clear()
             for name in names:
-                self._zone_put(pl, name, to, tapped=bool(mv.get("tapped")))
+                self._zone_put(pl, name, to, tapped=bool(mv.get("tapped")), depth=mv.get("depth", 0))
             self.log(f"  ↳ {pl.name}: entire {frm} ({len(names)} cards) → {to}")
             return
         card = mv.get("card")
@@ -672,7 +786,8 @@ class Game:
             pl.command_zone[card] = True
             self.log(f"  ↳ {card}: {frm} → command zone")
             return
-        self._zone_put(pl, card, to, tapped=bool(mv.get("tapped")))
+        self._zone_put(pl, card, to, tapped=bool(mv.get("tapped")),
+                       depth=mv.get("depth", 0))
         self.log(f"  ↳ {pl.name}: {card} {frm} → {to}")
 
     def check_standing(self, event, actor_i, n=1):
@@ -800,10 +915,27 @@ class Game:
             tgt = self.resolve_player(i, t.get("player", "self")) or me
             for _ in range(int(t.get("n", 1))):
                 self.perm(tgt, t.get("name", "Token"), token=True,
-                          tapped=bool(t.get("tapped")), pt=tuple(t.get("pt", (1, 1))))
+                          tapped=bool(t.get("tapped")), pt=tuple(t.get("pt", (1, 1))),
+                          counters=t.get("counters"))
             self.log(f"  ↳ {tgt.name} creates {t.get('n',1)}x {t.get('name')} token(s)")
         elif "set" in e:
             s = e["set"]
+            if "player" in s and "id" not in s:
+                tgt = self.resolve_player(i, s.get("player", "self"))
+                if not tgt:
+                    self.log(f"  !! set: can't resolve player {s.get('player')!r}; skipped")
+                    return
+                delta = s.get("counters") or {}
+                if not isinstance(delta, dict):
+                    delta = {"experience": int(delta)}
+                for kind, n in delta.items():
+                    tgt.counters[kind] = tgt.counters.get(kind, 0) + int(n)
+                    if tgt.counters[kind] <= 0:
+                        tgt.counters.pop(kind)
+                self.log(f"  ↳ {tgt.name}: "
+                         + ", ".join(f"{k}{int(v):+d}" for k, v in delta.items())
+                         + f" (now {tgt.counters or 'none'})")
+                return
             ident = s.get("id")
             _, perm = self.find(ident, prefer=i)
             if not perm:
@@ -833,10 +965,28 @@ class Game:
                     if cs[kind] <= 0:
                         cs.pop(kind)
                     changes.append(f"{kind}{int(delta):+d}")
-                perm["counters"] = cs
+                plus, minus = cs.get("+1/+1", 0), cs.get("-1/-1", 0)
+                if plus and minus:            # CR 704.5q: they cancel in pairs
+                    both = min(plus, minus)
+                    cs["+1/+1"], cs["-1/-1"] = plus - both, minus - both
+                    self.log(f"  ↳ {perm['id']}: {both} +1/+1 and {both} -1/-1 cancel")
+                perm["counters"] = {k: v for k, v in cs.items() if v}
+            if "skip_untaps" in s:
+                perm["skip_untaps"] = max(0, int(s["skip_untaps"] or 0))
+                changes.append(f"skip_untaps={perm['skip_untaps']}")
             if "pt" in s:
-                perm["pt"] = tuple(s["pt"]); changes.append(f"pt={s['pt']}")
+                # null is how a manland says it went back to being a land
+                perm["pt"] = tuple(s["pt"]) if s["pt"] else None
+                if not perm["pt"]:
+                    perm["sick"] = False
+                changes.append(f"pt={s['pt']}")
             self.log(f"  ↳ {perm['id']}: {', '.join(changes) or 'no-op'}")
+            if perm["pt"] and perm["pt"][1] + plus_counters(perm) <= 0:
+                # the engine only knows printed pt plus counters, so it says so
+                # rather than acting — an anthem it hasn't been told about is
+                # the seat's to account for
+                self.log(f"  (note: {perm['id']} is at {perm['pt'][1] + plus_counters(perm)} "
+                         f"toughness — if nothing is holding it up it belongs in the graveyard)")
         elif "draw" in e:
             d = e["draw"]
             tgt = self.resolve_player(i, d.get("player", "self"))
@@ -864,8 +1014,17 @@ class Game:
             st = e["standing"]
             src = str(st.get("source") or "")
             on = str(st.get("on") or "").strip()
+            if src and "#" not in src:
+                # a permanent registering its own trigger as it resolves doesn't
+                # know its id yet — take the name if it points somewhere unambiguous
+                same = [x for pl in self.p for x in pl.battlefield if x["name"] == src]
+                if len(same) == 1:
+                    src = same[0]["id"]
+                    self.log(f"  (standing: {st.get('source')!r} → {src})")
             if not on or "#" not in src:
-                self.log('  !! standing: needs "on" (condition) and a "source" permanent id; skipped')
+                self.log('  !! standing: needs "on" (condition) and a "source" permanent id'
+                         + (f" — {st.get('source')!r} matches no single permanent" if src else "")
+                         + "; skipped")
                 return
             self.standing.append({
                 "owner": i, "source": src, "on": on,
@@ -875,13 +1034,111 @@ class Game:
             self.log(f"  ↳ standing effect: {src} — on {on!r}: \"{self.standing[-1]['question']}\""
                      + ("" if auto else " (engine can't see this event — it stays in every"
                                          " digest; trigger it with an ask atom when it happens)"))
+        elif "damage" in e or "fight" in e:
+            def hit(perm, n, why):
+                perm["damage"] = perm.get("damage", 0) + int(n)
+                tough = (perm["pt"][1] + plus_counters(perm)) if perm["pt"] else None
+                self.log(f"  ↳ {perm['id']} takes {n} damage{why}"
+                         + (f" ({perm['damage']}/{tough})" if tough is not None else ""))
+                if tough is not None and perm["damage"] >= tough:
+                    self.log(f"  (note: {perm['id']} has lethal damage marked — if nothing is "
+                             f"holding it up it belongs in the graveyard)")
+
+            if "fight" in e:
+                f = e["fight"]
+                _, a = self.find(str(f.get("a", "")), prefer=i)
+                _, b = self.find(str(f.get("b", "")), prefer=i)
+                if not a or not b:
+                    self.log(f"  !! fight: can't find {f.get('a')!r} and/or {f.get('b')!r}; skipped")
+                    return
+                pa = (a["pt"][0] + plus_counters(a)) if a["pt"] else 0
+                pb = (b["pt"][0] + plus_counters(b)) if b["pt"] else 0
+                self.log(f"  ↳ {a['id']} fights {b['id']}")
+                hit(b, pa, f" from {a['id']}")
+                hit(a, pb, f" from {b['id']}")
+                return
+            d = e["damage"]
+            _, tgt = self.find(str(d.get("id", "")), prefer=i)
+            if not tgt:
+                pl = self.resolve_player(i, d.get("id") or d.get("player") or "")
+                if pl:      # damage to a player is life loss
+                    self.apply_effects(i, [{"life": {"player": pl.handle,
+                                                     "delta": -int(d.get("n", 0))}}])
+                    return
+                self.log(f"  !! damage: no permanent or player {d.get('id')!r}; skipped")
+                return
+            hit(tgt, int(d.get("n", 0)), f" from {d['from']}" if d.get("from") else "")
+        elif "dig" in e:
+            # "reveal/exile from the top until X" — cascade, Umbris, discover,
+            # Etali. The seat writes the predicate; the engine just walks the
+            # library so an 80-card whiff doesn't cost three prompts.
+            dg = e["dig"]
+            tgt = self.resolve_player(i, dg.get("player", "self"))
+            if not tgt:
+                self.log(f"  !! dig: can't resolve player {dg.get('player')!r}; skipped")
+                return
+            u = dg.get("until") or {}
+            names = [str(x).lower() for x in (u.get("names") or [])]
+            ok_t = [t.lower() for t in (u.get("types") or [])]
+            no_t = [t.lower() for t in (u.get("not_types") or [])]
+
+            def matches(card):
+                d = self.db.get(card, {})
+                typ = (d.get("type", "") or "").lower()
+                if names and card.lower() not in names:
+                    return False
+                if ok_t and not any(t in typ for t in ok_t):
+                    return False
+                if any(t in typ for t in no_t):
+                    return False
+                mv = mana_value(d.get("cost", ""))
+                if "max_mv" in u and mv > int(u["max_mv"]):
+                    return False
+                if "min_mv" in u and mv < int(u["min_mv"]):
+                    return False
+                return True
+
+            cap = min(int(dg.get("max", len(tgt.library))), len(tgt.library))
+            passed, found = [], None
+            for _ in range(cap):
+                card = tgt.library.pop(0)
+                if matches(card):
+                    found = card
+                    break
+                passed.append(card)
+            rest_to = dg.get("rest", "library_bottom")
+            if dg.get("shuffle_rest", True) and rest_to.startswith("library"):
+                self.rng.shuffle(passed)
+            for card in passed:
+                self._zone_put(tgt, card, rest_to)
+            if found is not None:
+                self._zone_put(tgt, found, dg.get("found", "exile"))
+            self.log(f"  ↳ {tgt.name} digs {len(passed) + (1 if found else 0)} deep: "
+                     + (f"finds {found} → {dg.get('found', 'exile')}" if found
+                        else "no match in the whole library")
+                     + f"; {len(passed)} → {rest_to}")
+            self.log_private(f"  (passed over: {', '.join(passed) or 'nothing'})",
+                             seat=tgt.handle)
         elif "search" in e:
-            s = e["search"]
+            s = e["search"]   # card, or types/not_types to search by description
             tgt = self.resolve_player(i, s.get("player", "self"))
             if not tgt:
                 self.log(f"  !! search: can't resolve player {s.get('player')!r}; skipped")
                 return
             card = s.get("card")
+            ok_t = [t.lower() for t in (s.get("types") or [])]
+            no_t = [t.lower() for t in (s.get("not_types") or [])]
+            if card not in tgt.library and (ok_t or no_t):
+                # "search for a basic land" — a category, not a name; the seat
+                # writes the filter and takes the first thing that fits
+                def fits(n):
+                    typ = (self.db.get(n, {}).get("type", "") or "").lower()
+                    return ((not ok_t or all(t in typ for t in ok_t))
+                            and not any(t in typ for t in no_t))
+                hit = next((n for n in tgt.library if fits(n)), None)
+                if hit:
+                    self.log(f"  (search: {card!r} is a description, not a card — taking {hit})")
+                    card = hit
             if card not in tgt.library:
                 self.log(f"  !! search: {card!r} is NOT in {tgt.name}'s library (VERIFICATION FAILED); "
                          f"library shuffled anyway" if s.get("shuffle", True) else "")
@@ -971,13 +1228,35 @@ class Game:
             return f"{o['id']} {o['name']} ({self.p[o['caster']].handle}){aim}"
         return " -> ".join(one(o) for o in reversed(self.stack)) or "(empty)"
 
+    ZONES_CASTABLE = {"hand": "hand", "graveyard": "graveyard", "exile": "exile",
+                      "library": "library", "yard": "graveyard"}
+
     def _pay_spell(self, i, a):
-        """Costs are paid at announcement. Returns from_cz, or None if illegal."""
+        """Costs are paid at announcement. Returns from_cz, or None if illegal.
+        A spell can be cast from wherever the card says it can: hand by default,
+        the command zone, or the zone named in "from" — exile for cascade,
+        discover, foretell and impulse draws, the graveyard for flashback and
+        escape, the library for the likes of Etali."""
         me = self.p[i]
         c = a.get("card")
         from_cz = (me.command_zone.get(c, False) and c not in me.hand)
+        frm = self.ZONES_CASTABLE.get(str(a.get("from") or "").lower())
         if not (c in me.hand or from_cz):
-            return None
+            zone = getattr(me, frm, None) if frm and frm != "hand" else None
+            if zone is None or c not in zone:
+                # the seat may have named no zone; find it in exactly one of its own
+                hits = [z for z in ("exile", "graveyard", "library") if c in getattr(me, z)]
+                if len(hits) != 1:
+                    return None
+                frm = hits[0]
+                self.log(f"  (cast: {c} isn't in hand — casting it from {me.name}'s {frm})")
+                zone = getattr(me, frm)
+            zone.remove(c)
+            for ident in a.get("tap", []):
+                _, perm = self.find(ident, prefer=i)
+                if perm:
+                    perm["tapped"] = True
+            return False
         for ident in a.get("tap", []):
             _, perm = self.find(ident, prefer=i)
             if perm:
@@ -1020,7 +1299,7 @@ class Game:
         typ = self.db.get(c, {}).get("type", "")
         if any(k in typ for k in ("Creature", "Artifact", "Enchantment", "Land")) \
                 and "Sorcery" not in typ and "Instant" not in typ:
-            self.perm(me, c)
+            self.perm(me, c, tapped=bool(a.get("tapped")), counters=a.get("counters"))
         else:
             me.graveyard.append(c)
         told = self._fresh_narration(a.get("narration"))
@@ -1156,12 +1435,18 @@ class Game:
                 if confirm.get("action") in ("cast", "activate"):
                     keep = {"targets", "effects", "narration"}
                     plan = {**plan, **{k: v for k, v in confirm.items() if k in keep}}
+            if obj not in self.stack:
+                # a correction took it back off the stack while this was live —
+                # an illegal cast rewound, a spell bounced in response
+                self.log(f"  ↳ {name} left the stack before it resolved; it does not resolve.")
+                return False
             if kind == "spell":
                 return self._resolve_spell(i, plan, paid) is not None
             self._resolve_ability(i, plan, src_perm)
             return True
         finally:
-            self.stack.remove(obj)
+            if obj in self.stack:
+                self.stack.remove(obj)
 
     def _priority_rounds(self, obj, depth):
         """Rotate priority until everyone passes on the current stack state.
@@ -1243,8 +1528,10 @@ class Game:
             if c in me.hand and me.lands_played < 2:  # Rites/etc: agent responsible; hard cap 2
                 me.hand.remove(c)
                 me.lands_played += 1
-                self.perm(me, c)
-                self.log(f"{me.name} plays land: {c}")
+                tapped = bool(a.get("tapped"))
+                self.perm(me, c, tapped=tapped, counters=a.get("counters"))
+                self.log(f"{me.name} plays land: {c}" + (" (tapped)" if tapped else ""))
+                self.apply_effects(i, a.get("effects"))
             else:
                 self.log(f"  !! illegal/ignored land play by {me.name}: {c}")
         elif act == "cast":
@@ -1306,7 +1593,9 @@ class Game:
         start-of-turn planning view."""
         me = self.p[i]
         seats = "; ".join(
-            f"{pl.handle} life {pl.life}, hand {len(pl.hand)}, lib {len(pl.library)}, gy {len(pl.graveyard)}"
+            f"{pl.handle} life {pl.life}"
+            + (f" [{', '.join(f'{k} {v}' for k, v in pl.counters.items())}]" if pl.counters else "")
+            + f", hand {len(pl.hand)}, lib {len(pl.library)}, gy {len(pl.graveyard)}"
             + "".join(f", {c.split(',')[0]} in CZ" for c in pl.commanders if pl.command_zone[c])
             if pl.alive else f"{pl.handle} eliminated"
             for pl in self.p)
@@ -1509,6 +1798,7 @@ class Game:
                 if x["tapped"]: flags.append("tapped")
                 if x["sick"]: flags.append("summoning-sick")
                 for k, v in _counters(x).items(): flags.append(f"{k} x{v}")
+                if x.get("damage"): flags.append(f"{x['damage']} damage")
                 if x["token"]: flags.append("token")
                 out.append(f"  - {x['id']}{pt}" + (f" [{', '.join(flags)}]" if flags else ""))
             return "\n".join(out) or "  (empty)"
@@ -1611,12 +1901,40 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         self.board_full[i] = True                 # full board read at own turn start
         for pl in self.p:
             pl.drew_this_turn = 0
+        for pl in self.p:                     # damage wears off at end of turn
+            for x in pl.battlefield:
+                x["damage"] = 0
         for x in me.battlefield:
-            x["tapped"] = False
+            stun = _counters(x).get("stun", 0)
+            skip = int(x.get("skip_untaps", 0))
+            if x["tapped"] and (stun or skip):
+                if stun:                       # a real counter on the board comes off
+                    c = _counters(x); c["stun"] = stun - 1
+                    x["counters"] = {k: v for k, v in c.items() if v}
+                    why = "a stun counter comes off instead"
+                else:                          # exerted, frozen, whatever the seat called it
+                    x["skip_untaps"] = skip - 1
+                    why = "it skips this untap step"
+                left = (stun or skip) - 1
+                self.log(f"  ({x['id']} stays tapped — {why}"
+                         + (f", {left} more" if left else "") + ")")
+            else:
+                x["tapped"] = False
             x["sick"] = False
         self.narrated.clear()
         self.log(f"\n## Turn {self.turn} — {me.name} — life: " +
                  ", ".join(f"{pl.handle} {pl.life}" for pl in self.p if pl.alive))
+        upkeep = self.ask(i, "UPKEEP — your turn has begun and you have not drawn yet. Declare "
+                             "everything that triggers at the beginning of your upkeep or your draw "
+                             "step (Braids, Howling Mine, Font of Mythos, Phyrexian Arena, cumulative "
+                             "upkeep, vanishing, sagas, your commander's beginning-of-turn ability...) "
+                             "as effect atoms, or pass. Your normal draw for the turn happens after "
+                             "this and the engine takes it — declare only the extra ones.",
+                          schema_hint='{"action":"pass"|"activate","effects":[...],"narration":str}')
+        if upkeep.get("action") != "pass":
+            self.apply_effects(i, upkeep.get("effects"))
+        if not me.alive:
+            return
         if not (self.turn == 1 and i == 0 and len(self.p) == 2):
             self.draw(me, 1)  # CR 103.8: only 2-player pods skip the first draw
             self.check_standing("draw", i, 1)
@@ -1628,9 +1946,7 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 "It is your MAIN PHASE (pre- or post-combat as you prefer; the engine doesn't distinguish — "
                 "sequence responsibly). Give one action per protocol: play_land, cast, activate, attack, "
                 "claim_win, or pass (pass ends your turn). For cast/activate: name every permanent you tap "
-                "for mana in \"tap\" and declare every consequence as effect atoms. Declare upkeep/beginning "
-                "phase triggers (Meren, Phyrexian Arena, vanishing...) in your first action's effects, since "
-                "the engine won't remember them for you. "
+                "for mana in \"tap\" and declare every consequence as effect atoms. "
                 "For attack you may split attackers among players; only untapped, non-sick (or haste-granted, "
                 "justify in narration) creatures; attacking taps them unless vigilance (use set to untap). "
                 "One attack step per turn unless an effect grants extra combats (Aurelia, Aggravated "
@@ -1724,15 +2040,43 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             if r.get("effects"):
                 self.apply_effects(i, r.get("effects"))
 
+    SHAPE = ('{"action":"attack","attacks":{"P2":["Bear#3"],"P4":["Wolf#7"]}} '
+             '— a defender per group')
+
     def combat(self, i, plan):
         me = self.p[i]
         attacks = plan.get("attacks")
+        if isinstance(attacks, list):
+            # a list of groups, each naming its own defender
+            spread = {}
+            for grp in attacks:
+                if not isinstance(grp, dict):
+                    spread = None
+                    break
+                who = grp.get("defender") or grp.get("player") or grp.get("target")
+                ids = grp.get("with") or grp.get("attackers") or grp.get("ids") or []
+                if not who:
+                    spread = None
+                    break
+                spread.setdefault(str(who), []).extend(ids if isinstance(ids, list) else [ids])
+            attacks = spread
+            if attacks is None:
+                self.log(f"  !! {me.name}: attacks must say who each group is hitting — {self.SHAPE}")
+                return
+        if attacks and not isinstance(attacks, dict):
+            self.log(f"  !! {me.name}: attacks must say who each group is hitting — {self.SHAPE}")
+            return
         if not attacks and plan.get("attackers"):
-            others = self.others(i)
-            if len(others) == 1:
+            others = [p for p in self.others(i) if p.alive]
+            defender = plan.get("defender") or plan.get("target")
+            if defender:
+                attacks = {str(defender): plan["attackers"]}
+            elif len(others) == 1:
                 attacks = {others[0].handle: plan["attackers"]}
             else:
-                self.log(f"  !! {me.name} attacked without naming defenders in a multiplayer pod; ignored")
+                self.log(f"  !! {me.name} attacked without naming a defender, and "
+                         f"{len(others)} seats are alive — say who each attacker is hitting: "
+                         f"{self.SHAPE}")
                 return
         if not attacks:
             return
@@ -1807,12 +2151,17 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             f"RESPONSE WINDOW: {context} You may cast an instant/flash — it goes on the "
             f"stack, and to chain more spells (multiple pumps...), respond to your *own* "
             f"spell when the response window comes back around: that is holding priority "
-            f"— or pass.",
+            f"— or pass. If something of yours TRIGGERS off this rather than being cast — "
+            f"Kambal, Blood Artist, a tax — pass and put the trigger in \"effects\".",
             schema_hint='{"action":"cast"|"pass", "card":str, "tap":[ids], "targets":[ids], "effects":[...]}')
         if r.get("action") == "cast":
             self.resolve_on_stack(i, r, kind="spell")
-        elif r.get("action") == "correct":
+        elif r.get("action") in ("correct", "activate", "play_land"):
             self.do_action(i, r)
+        elif r.get("effects"):
+            # passing with atoms is how a trigger fires here — Kambal, Blood
+            # Artist, anything that answers what just happened without casting
+            self.apply_effects(i, r["effects"])
 
     def mulligans(self):
         """Opening hands. Commander house rules: first mulligan free, then

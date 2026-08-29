@@ -89,7 +89,7 @@ def test_peek_private_look_and_order(make_game):
         def ask(self, prompt):
             prompts.append(prompt)
             self.step += 1
-            if "MAIN PHASE" in prompt and self.step == 1:
+            if "MAIN PHASE" in prompt and self.step <= 2:
                 return '{"action":"peek","n":3}'
             if "PRIVATE LOOK" in prompt:
                 import re as _re, json as _json
@@ -163,7 +163,7 @@ def test_unreadable_reply_goes_back_to_the_seat(make_game):
         calls, cost_usd, tokens = 0, 0.0, {"in": 0, "out": 0}
         def ask(self, prompt):
             self.calls += 1
-            return next(replies)
+            return next(replies, '{"action":"pass"}')
 
     g = make_game()
     g.agents[0] = Fumbler()
@@ -304,3 +304,20 @@ def test_voice_reminder_rides_every_prompt(make_game):
     g.ask(0, "third")            # delta
     assert "PROTOCOL" in prompts[0] and "PROTOCOL" not in prompts[1]
     assert all("VOICE_UNDER_TEST" in p for p in prompts), "voice missing from a delta prompt"
+
+
+
+def test_the_turn_has_an_upkeep_phase(make_game):
+    """Upkeep triggers were 17% of every board correction in the archive: the
+    turn went untap, draw, main, with no moment to declare them in."""
+    from conftest import StubAgent
+
+    seen = []
+    g = make_game()
+    g.agents = [StubAgent(lambda p: seen.append(p) or '{"action":"pass"}') for _ in g.p]
+    g.half_turn(0)
+    ups = [k for k, p in enumerate(seen) if "UPKEEP —" in p]
+    mains = [k for k, p in enumerate(seen) if "MAIN PHASE" in p]
+    assert ups, "the seat is asked for upkeep triggers"
+    assert ups[0] < mains[0], "before the main phase"
+    assert len(ups) == 1, "once a turn"

@@ -396,6 +396,7 @@ def test_order_can_take_looked_at_cards_into_another_zone(make_game):
     me.library[:6] = ["Plains", "Forest", "Llanowar Elves", "Sol Ring",
                       "Island", "Birds of Paradise"]   # Plains is the turn's draw
     replies = iter([
+        '{"action":"pass"}',   # upkeep
         json.dumps({"action": "peek", "n": 5}),
         json.dumps({"action": "order", "take": ["Llanowar Elves", "Birds of Paradise"], "to": "hand",
                     "top": ["Sol Ring"], "bottom": ["Forest", "Island"]}),
@@ -444,3 +445,379 @@ def test_move_can_rewind_a_spell_off_the_stack(make_game):
     assert obj not in g.stack
     assert card in me.hand
     assert not any("no permanent" in l for l in g.table)
+
+
+def test_a_manland_can_stop_being_a_creature(make_game):
+    """Celestial Colonnade animates for a turn and reverts at end of it; a null
+    pt is how the seat says that, and it used to crash the bookkeeper."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    g.apply_effects(0, [{"create": {"player": "self", "name": "Celestial Colonnade", "pt": [4, 4]}}])
+    land = me.battlefield[-1]
+    g.apply_effects(0, [{"set": {"id": land["id"], "pt": None}}])
+    assert land["pt"] is None
+    assert not any("crashed" in l for l in g.table)
+
+
+def test_a_permanent_can_register_its_own_standing_trigger(make_game):
+    """Mystic Remora sets up its tax as it resolves, before it has an id."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    g.apply_effects(0, [{"create": {"player": "self", "name": "Mystic Remora"}}])
+    g.apply_effects(0, [{"standing": {"source": "Mystic Remora", "on": "cast",
+                                      "question": "pay {4} or I draw"}}])
+    assert g.standing and g.standing[-1]["source"].startswith("Mystic Remora#")
+    assert not any("standing: needs" in l for l in g.table)
+
+
+def test_a_land_can_enter_tapped(make_game):
+    """Two thirds of taplands in the archive were never recorded as tapped,
+    because saying so needed a second atom."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    land = next(c for c in me.hand if "Land" in g.db.get(c, {}).get("type", "")) \
+        if any("Land" in g.db.get(c, {}).get("type", "") for c in me.hand) else None
+    if land is None:
+        me.hand.append("Island"); land = "Island"
+    g.do_action(0, {"action": "play_land", "card": land, "tapped": True})
+    assert me.battlefield[-1]["tapped"] is True
+    assert any("(tapped)" in l for l in g.table)
+
+
+def test_a_permanent_can_arrive_with_counters(make_game):
+    """Blue, Loyal Raptor makes every other dinosaur enter with a counter, and
+    Giada does it for angels — how it arrives is part of declaring it."""
+    from conftest import StubAgent
+    from mtgsim.engine import plus_counters
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    g.apply_effects(0, [{"create": {"player": "self", "name": "Angel", "pt": [3, 3],
+                                    "counters": {"+1/+1": 1}}}])
+    tok = me.battlefield[-1]
+    assert plus_counters(tok) == 1
+
+    card = me.hand[0]
+    g.do_action(0, {"action": "cast", "card": card, "tapped": True,
+                    "counters": {"+1/+1": 2}, "tap": []})
+    made = [x for x in me.battlefield if x["name"] == card]
+    if made:                       # only if that card is a permanent
+        assert made[-1]["tapped"] is True
+        assert plus_counters(made[-1]) == 2
+
+
+def test_minus_counters_shrink_a_creature(make_game):
+    """The engine reads the two counter names that say what they do to power.
+    A creature carrying both doesn't need its pt hand-adjusted to compensate."""
+    from mtgsim.engine import plus_counters, _counters
+
+    g = make_game()
+    p = g.perm(g.p[0], "Llanowar Elves")
+    g.apply_effects(0, [{"set": {"id": p["id"], "counters": {"+1/+1": 3}}}])
+    g.apply_effects(0, [{"set": {"id": p["id"], "counters": {"-1/-1": 1}}}])
+    g.apply_effects(0, [{"set": {"id": p["id"], "counters": {"stun": 2}}}])
+    assert plus_counters(p) == 2
+    assert _counters(p) == {"+1/+1": 2, "stun": 2}, "the opposing pair cancelled"
+
+
+
+def test_a_stun_counter_spends_itself_at_untap(make_game):
+    """A stun counter is one-shot by construction — it comes off instead of the
+    permanent untapping, so there's nothing left set for a seat to forget."""
+    from conftest import StubAgent
+    from mtgsim.engine import _counters
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    frozen = g.perm(me, "Sol Ring", tapped=True, counters={"stun": 2})
+    normal = g.perm(me, "Llanowar Elves", tapped=True)
+
+    g.half_turn(0)
+    assert frozen["tapped"] is True and _counters(frozen)["stun"] == 1
+    assert normal["tapped"] is False
+
+    frozen["tapped"] = True
+    g.half_turn(0)
+    assert frozen["tapped"] is True and "stun" not in _counters(frozen)
+
+    frozen["tapped"] = True
+    g.half_turn(0)
+    assert frozen["tapped"] is False, "with the counters gone it untaps normally"
+
+
+def test_an_exerted_creature_sits_out_one_untap_step(make_game):
+    """Exerting isn't a stun counter — the board shouldn't show one — but it
+    expires the same way, so nothing is left set for a seat to forget."""
+    from conftest import StubAgent
+    from mtgsim.engine import _counters
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    champ = g.perm(g.p[0], "Llanowar Elves", tapped=True)
+    g.apply_effects(0, [{"set": {"id": champ["id"], "skip_untaps": 1}}])
+    assert _counters(champ) == {}, "no counter appears on the board"
+
+    g.half_turn(0)
+    assert champ["tapped"] is True
+    champ["tapped"] = True
+    g.half_turn(0)
+    assert champ["tapped"] is False, "it expired on its own"
+
+
+def test_a_player_has_counters_of_their_own(make_game):
+    """Meren's experience counters belong to the player and survive her dying —
+    a seat trying to keep them on the permanent loses them with it. Poison and
+    energy live in the same place."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    g.apply_effects(0, [{"set": {"player": "self", "counters": {"experience": 1}}}])
+    g.apply_effects(0, [{"set": {"player": "self", "counters": {"experience": 2}}}])
+    g.apply_effects(0, [{"set": {"player": "P2", "counters": {"poison": 4}}}])
+    assert me.counters == {"experience": 3}
+    assert g.p[1].counters == {"poison": 4}
+
+    # they show up in the state every seat is handed
+    assert "experience 3" in g.digest(0)
+    # and they outlive the permanent that granted them
+    me.battlefield.clear()
+    assert me.counters["experience"] == 3
+
+
+def test_opposing_counters_cancel(make_game):
+    """CR 704.5q: +1/+1 and -1/-1 counters annihilate in pairs, so the board
+    shows what is actually on the creature."""
+    from conftest import StubAgent
+    from mtgsim.engine import _counters, plus_counters
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    p = g.perm(g.p[0], "Llanowar Elves")
+    g.apply_effects(0, [{"set": {"id": p["id"], "counters": {"-1/-1": 1}}}])
+    g.apply_effects(0, [{"set": {"id": p["id"], "counters": {"+1/+1": 3}}}])
+    assert _counters(p) == {"+1/+1": 2}
+    assert plus_counters(p) == 2
+
+
+def test_a_creature_shrunk_to_nothing_is_pointed_out(make_game):
+    """The engine knows printed pt and counters and nothing else, so a 0/0
+    gets named rather than removed — an anthem it wasn't told about is the
+    seat's to account for."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    p = g.perm(g.p[0], "Llanowar Elves")          # a 1/1
+    g.apply_effects(0, [{"set": {"id": p["id"], "counters": {"-1/-1": 1}}}])
+    assert any("belongs in the graveyard" in l for l in g.table)
+    assert p in g.p[0].battlefield, "the engine says so, it doesn't act"
+
+
+def test_a_land_drop_carries_its_effects(make_game):
+    """Landfall, a tapland's scry, the upkeep triggers a seat attaches to its
+    first action — play_land was the one action that threw its effects away."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    land = next((c for c in me.hand if "Land" in g.db.get(c, {}).get("type", "")), None)
+    if land is None:
+        me.hand.append("Island"); land = "Island"
+    before = g.p[1].life
+    g.do_action(0, {"action": "play_land", "card": land,
+                    "effects": [{"life": {"player": "P2", "delta": -3}}]})
+    assert any(x["name"] == land for x in me.battlefield)
+    assert g.p[1].life == before - 3, "the landfall trigger resolved with the drop"
+
+
+def test_a_forced_discard_is_the_owners_choice(make_game):
+    """Plaguecrafter makes each opponent discard; the seat casting it can't see
+    their hands, so it names no card and the owner picks."""
+    from conftest import StubAgent
+    import json
+
+    g = make_game()
+    victim = g.p[1]
+    victim.hand = ["Forest", "Counterspell", "Sol Ring"]
+    g.agents = [StubAgent() for _ in g.p]
+    g.agents[1] = StubAgent(json.dumps({"cards": ["Counterspell"]}))
+
+    g.apply_effects(0, [{"move": {"player": "P2", "from": "hand", "n": 1, "to": "graveyard"}}])
+    assert "Counterspell" in victim.graveyard
+    assert victim.hand == ["Forest", "Sol Ring"]
+    assert not any("VERIFICATION FAILED" in l for l in g.table)
+
+
+def test_duress_takes_a_restricted_card_of_the_casters_choosing(make_game):
+    """Duress: they reveal, YOU pick, and only a noncreature nonland qualifies."""
+    from conftest import StubAgent
+    import json
+
+    g = make_game()
+    victim = g.p[1]
+    victim.hand = ["Forest", "Llanowar Elves", "Counterspell"]
+    g.agents = [StubAgent() for _ in g.p]
+    # the caster reaches for the creature; only the counterspell qualifies
+    g.agents[0] = StubAgent(json.dumps({"cards": ["Llanowar Elves"]}))
+
+    g.apply_effects(0, [{"move": {"player": "P2", "from": "hand", "n": 1, "to": "graveyard",
+                                  "chooser": "self", "not_types": ["Creature", "Land"]}}])
+    assert "Counterspell" in victim.graveyard
+    assert "Llanowar Elves" in victim.hand and "Forest" in victim.hand
+
+
+def test_discard_at_random_is_the_engines_roll(make_game):
+    """"At random" is nobody's choice — neither seat gets to steer it."""
+    from conftest import StubAgent
+    import json
+
+    g = make_game()
+    victim = g.p[1]
+    victim.hand = ["Forest", "Llanowar Elves", "Counterspell"]
+    g.agents = [StubAgent(json.dumps({"cards": ["Forest"]})) for _ in g.p]
+
+    g.apply_effects(0, [{"move": {"player": "P2", "from": "hand", "n": 1,
+                                  "to": "graveyard", "chooser": "random"}}])
+    assert len(victim.hand) == 2 and len(victim.graveyard) == 1
+    assert any("at random" in l for l in g.table)
+
+
+def test_dig_walks_a_library_until_it_matches(make_game):
+    """Cascade off a one-drop whiffs through the whole deck; Umbris exiles until
+    a land. Both used to be a chain of peeks with the card list inlined."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    me.library[:5] = ["Forest", "Island", "Llanowar Elves", "Sol Ring", "Counterspell"]
+
+    # Umbris: exile from the top until you exile a land — everything goes to exile
+    g.apply_effects(0, [{"dig": {"player": "self", "until": {"types": ["Land"]},
+                                 "found": "exile", "rest": "exile"}}])
+    assert me.exile == ["Forest"], "it stopped on the very first card"
+
+    # cascade off a 1-drop: nothing costs zero, so it whiffs the whole library
+    lib = len(me.library)
+    g.apply_effects(0, [{"dig": {"until": {"max_mv": 0, "not_types": ["Land"]},
+                                 "found": "exile", "rest": "library_bottom"}}])
+    assert len(me.library) == lib, "everything came back"
+    assert any("no match in the whole library" in l for l in g.table)
+
+
+def test_dig_finds_a_real_hit(make_game):
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    me.library[:3] = ["Forest", "Island", "Sol Ring"]
+    g.apply_effects(0, [{"dig": {"until": {"max_mv": 1, "not_types": ["Land"]},
+                                 "found": "hand", "rest": "graveyard", "max": 3}}])
+    assert "Sol Ring" in me.hand
+    assert set(me.graveyard[-2:]) == {"Forest", "Island"}
+
+
+def test_a_card_can_come_back_off_the_library_bottom(make_game):
+    """library_bottom was a destination and not a source, so a seat could put
+    cards there and never address them again."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    me.library.append("Brood Sliver")
+
+    g.apply_effects(0, [{"move": {"from": "library_bottom", "n": 1, "to": "hand"}}])
+    assert "Brood Sliver" in me.hand
+
+    # and by name, anywhere in the library, without the shuffle a search forces
+    target = me.library[len(me.library) // 2]
+    order = list(me.library)
+    g.apply_effects(0, [{"move": {"from": "library", "card": target, "to": "graveyard"}}])
+    assert target in me.graveyard
+    order.remove(target)
+    assert me.library == order, "the rest of the library kept its order"
+    assert not any("bad source" in l for l in g.table)
+
+
+def test_a_card_can_go_into_the_library_at_a_depth(make_game):
+    """Approach of the Second Sun puts itself seventh from the top, and the
+    library only had a top and a bottom."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    me.graveyard.append("Approach of the Second Sun")
+    g.apply_effects(0, [{"move": {"from": "graveyard", "card": "Approach of the Second Sun",
+                                  "to": "library_depth", "depth": 7}}])
+    assert me.library[7] == "Approach of the Second Sun"
+
+
+def test_search_accepts_a_description(make_game):
+    """"Search your library for a basic land" is a category, not a card name."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    g.apply_effects(0, [{"search": {"player": "self", "card": "a basic land",
+                                    "types": ["basic", "land"], "to": "battlefield",
+                                    "tapped": True}}])
+    got = me.battlefield[-1]
+    assert "Land" in g.db.get(got["name"], {}).get("type", "")
+    assert got["tapped"] is True
+    assert not any("VERIFICATION FAILED" in l for l in g.table)
+
+
+def test_creatures_carry_marked_damage_that_wears_off(make_game):
+    """The engine had no damage concept at all — agents wrote "damage marked"
+    into prose 188 times across the archive."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    bear = g.perm(g.p[0], "Llanowar Elves")     # 1/1
+    bear["pt"] = (4, 4)
+
+    g.apply_effects(0, [{"damage": {"id": bear["id"], "n": 3, "from": "a bolt"}}])
+    assert bear["damage"] == 3
+    assert not any("lethal damage" in l for l in g.table)
+
+    g.apply_effects(0, [{"damage": {"id": bear["id"], "n": 1}}])
+    assert bear["damage"] == 4
+    assert any("lethal damage marked" in l for l in g.table), "the engine says so"
+    assert bear in g.p[0].battlefield, "and doesn't act on it"
+
+    g.half_turn(1)
+    assert bear["damage"] == 0, "damage wears off at end of turn"
+
+
+def test_fight_is_each_creature_dealing_its_power(make_game):
+    """Prey Upon, Savage Stomp, Ram Through — 'fight' was an unknown atom."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    mine = g.perm(g.p[0], "Llanowar Elves"); mine["pt"] = (5, 5)
+    theirs = g.perm(g.p[1], "Llanowar Elves"); theirs["pt"] = (2, 3)
+    g.apply_effects(0, [{"set": {"id": mine["id"], "counters": {"+1/+1": 1}}}])
+
+    g.apply_effects(0, [{"fight": {"a": mine["id"], "b": theirs["id"]}}])
+    assert theirs["damage"] == 6, "counters count toward the power it deals"
+    assert mine["damage"] == 2
+    assert not any("unknown effect atom" in l for l in g.table)

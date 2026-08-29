@@ -1,0 +1,506 @@
+{
+ "Beast Within": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "pt": null
+ },
+ "Birds of Paradise": {
+  "cost": "G",
+  "type": "Creature \u2014 Bird",
+  "text": "Flying {T}: Add one mana of any color.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Bloodroot Apothecary": {
+  "cost": "2G",
+  "type": "Creature \u2014 Squirrel Druid",
+  "text": "Toxic 2 (Players dealt combat damage by this creature also get two poison counters. A player with ten or more poison counters loses the game.) When this creature enters, you and target opponent each create a Treasure token. Whenever an opponent sacrifices a noncreature token, that player gets two poison counters.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Blossoming Defense": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature you control gets +2/+2 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Courage in Crisis": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "Put a +1/+1 counter on target creature, then proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Dragon Sniper": {
+  "cost": "G",
+  "type": "Creature \u2014 Human Archer",
+  "text": "Reach, vigilance, deathtouch",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Elvish Mystic": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Evolution Sage": {
+  "cost": "2G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "Landfall \u2014 Whenever a land you control enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Fog": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Prevent all combat damage that would be dealt this turn.",
+  "pt": null
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land \u2014 Forest",
+  "text": "({T}: Add {G}.)",
+  "pt": null
+ },
+ "Fynn, the Fangbearer": {
+  "cost": "1G",
+  "type": "Legendary Creature \u2014 Human Warrior",
+  "text": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.) Whenever a creature you control with deathtouch deals combat damage to a player, that player gets two poison counters. (A player with ten or more poison counters loses the game.)",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Glistener Elf": {
+  "cost": "G",
+  "type": "Creature \u2014 Phyrexian Elf Warrior",
+  "text": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Gnarlwood Dryad": {
+  "cost": "G",
+  "type": "Creature \u2014 Dryad Horror",
+  "text": "Deathtouch Delirium \u2014 This creature gets +2/+2 as long as there are four or more card types among cards in your graveyard.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Infectious Bite": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to target creature you don't control. Each opponent gets a poison counter.",
+  "pt": null
+ },
+ "Kenrith's Transformation": {
+  "cost": "1G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature When this Aura enters, draw a card. Enchanted creature loses all abilities and is a green Elk creature with base power and toughness 3/3. (It loses all other card types and creature types.)",
+  "pt": null
+ },
+ "Lightning Greaves": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
+  "pt": null
+ },
+ "Llanowar Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Narnam Renegade": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Warrior",
+  "text": "Deathtouch Revolt \u2014 This creature enters with a +1/+1 counter on it if a permanent left the battlefield under your control this turn.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Ohran Frostfang": {
+  "cost": "3GG",
+  "type": "Snow Creature \u2014 Snake",
+  "text": "Attacking creatures you control have deathtouch. Whenever a creature you control deals combat damage to a player, draw a card.",
+  "pt": [
+   2,
+   6
+  ]
+ },
+ "Pollenbright Druid": {
+  "cost": "1G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "When this creature enters, choose one \u2014 \u2022 Put a +1/+1 counter on target creature. \u2022 Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Prey Upon": {
+  "cost": "G",
+  "type": "Sorcery",
+  "text": "Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+  "pt": null
+ },
+ "Ranger's Guile": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature you control gets +1/+1 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Sedge Scorpion": {
+  "cost": "G",
+  "type": "Creature \u2014 Scorpion",
+  "text": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Smell Fear": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.) Target creature you control fights up to one target creature you don't control.",
+  "pt": null
+ },
+ "Snakeskin Veil": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Put a +1/+1 counter on target creature you control. It gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Tajuru Blightblade": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Rogue",
+  "text": "Deathtouch",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Tamiyo's Safekeeping": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target permanent you control gains hexproof and indestructible until end of turn. You gain 2 life. (A permanent with hexproof and indestructible can't be the target of spells or abilities your opponents control. Damage and effects that say \"destroy\" don't destroy it.)",
+  "pt": null
+ },
+ "Thirsting Roots": {
+  "cost": "G",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Search your library for a basic land card, reveal it, put it into your hand, then shuffle. \u2022 Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Toski, Bearer of Secrets": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Squirrel",
+  "text": "This spell can't be countered. Indestructible Toski attacks each combat if able. Whenever a creature you control deals combat damage to a player, draw a card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Triumph of the Hordes": {
+  "cost": "2GG",
+  "type": "Sorcery",
+  "text": "Until end of turn, creatures you control get +1/+1 and gain trample and infect. (Creatures with infect deal damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+  "pt": null
+ },
+ "Venerated Rotpriest": {
+  "cost": "G",
+  "type": "Creature \u2014 Phyrexian Druid",
+  "text": "Toxic 1 (Players dealt combat damage by this creature also get a poison counter.) Whenever a creature you control becomes the target of a spell, target opponent gets a poison counter.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Karametra's Acolyte": {
+  "cost": "3G",
+  "type": "Creature \u2014 Human Druid",
+  "text": "{T}: Add an amount of {G} equal to your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Ambush Viper": {
+  "cost": "1G",
+  "type": "Creature \u2014 Snake",
+  "text": "Flash Deathtouch",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Ankle Biter": {
+  "cost": "G",
+  "type": "Creature \u2014 Snake",
+  "text": "Deathtouch",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Attercop": {
+  "cost": "1G",
+  "type": "Creature \u2014 Spider",
+  "text": "Reach, deathtouch Landfall \u2014 Whenever a land you control enters, this creature gets +1/+1 until end of turn.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Bellowing Tanglewurm": {
+  "cost": "3GG",
+  "type": "Creature \u2014 Wurm",
+  "text": "Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.) Other green creatures you control have intimidate.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Bloated Contaminator": {
+  "cost": "2G",
+  "type": "Creature \u2014 Phyrexian Beast",
+  "text": "Trample Toxic 1 (Players dealt combat damage by this creature also get a poison counter.) Whenever this creature deals combat damage to a player, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Champion of Lambholt": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "Creatures with power less than this creature's power can't block creatures you control. Whenever another creature you control enters, put a +1/+1 counter on this creature.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Contaminant Grafter": {
+  "cost": "4G",
+  "type": "Creature \u2014 Phyrexian Druid",
+  "text": "Trample, toxic 1 Whenever one or more creatures you control deal combat damage to one or more players, proliferate. Corrupted \u2014 At the beginning of your end step, if an opponent has three or more poison counters, draw a card, then you may put a land card from your hand onto the battlefield.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Cosmic Hunger": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to another target creature, planeswalker, or battle.",
+  "pt": null
+ },
+ "Deadly Recluse": {
+  "cost": "1G",
+  "type": "Creature \u2014 Spider",
+  "text": "Reach (This creature can block creatures with flying.) Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Genesis Wave": {
+  "cost": "XGGG",
+  "type": "Sorcery",
+  "text": "Reveal the top X cards of your library. You may put any number of permanent cards with mana value X or less from among them onto the battlefield. Then put all cards revealed this way that weren't put onto the battlefield into your graveyard.",
+  "pt": null
+ },
+ "Gran Pulse Ochu": {
+  "cost": "G",
+  "type": "Creature \u2014 Plant Beast",
+  "text": "Deathtouch {8}: Until end of turn, this creature gets +1/+1 for each permanent card in your graveyard.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Hornet Nest": {
+  "cost": "2G",
+  "type": "Creature \u2014 Insect",
+  "text": "Defender (This creature can't attack.) Whenever this creature is dealt damage, create that many 1/1 green Insect creature tokens with flying and deathtouch. (Any amount of damage a creature with deathtouch deals to a creature is enough to destroy it.)",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Hornet Queen": {
+  "cost": "4GGG",
+  "type": "Creature \u2014 Insect",
+  "text": "Flying, deathtouch When this creature enters, create four 1/1 green Insect creature tokens with flying and deathtouch.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Ichorspit Basilisk": {
+  "cost": "2G",
+  "type": "Creature \u2014 Phyrexian Basilisk",
+  "text": "Deathtouch Toxic 1 (Players dealt combat damage by this creature also get a poison counter.)",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Lifecrafter's Bestiary": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "At the beginning of your upkeep, scry 1. Whenever you cast a creature spell, you may pay {G}. If you do, draw a card.",
+  "pt": null
+ },
+ "Master's Rebuke": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.",
+  "pt": null
+ },
+ "Moss Viper": {
+  "cost": "G",
+  "type": "Creature \u2014 Snake",
+  "text": "Deathtouch",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Nightshade Dryad": {
+  "cost": "1G",
+  "type": "Creature \u2014 Dryad",
+  "text": "Deathtouch {T}: Add {C}. {T}: Add one mana of any color.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Oakhame Adversary": {
+  "cost": "3G",
+  "type": "Creature \u2014 Elf Warrior",
+  "text": "This spell costs {2} less to cast if an opponent controls a green permanent. Deathtouch Whenever this creature deals combat damage to a player, draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Overprotect": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control gets +3/+3 and gains trample, hexproof, and indestructible until end of turn.",
+  "pt": null
+ },
+ "Overrun": {
+  "cost": "2GGG",
+  "type": "Sorcery",
+  "text": "Creatures you control get +3/+3 and gain trample until end of turn. (Each of those creatures can deal excess combat damage to the player or planeswalker it's attacking.)",
+  "pt": null
+ },
+ "Prizefight": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.) Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Quarrel": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to target creature an opponent controls.",
+  "pt": null
+ },
+ "Ram Through": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to target creature you don't control. If the creature you control has trample, excess damage is dealt to that creature's controller instead.",
+  "pt": null
+ },
+ "Return of the Wildspeaker": {
+  "cost": "4G",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Draw cards equal to the greatest power among non-Human creatures you control. \u2022 Non-Human creatures you control get +3/+3 until end of turn.",
+  "pt": null
+ },
+ "Return to Nature": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Destroy target artifact. \u2022 Destroy target enchantment. \u2022 Exile target card from a graveyard.",
+  "pt": null
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/-1. Whenever equipped creature dies, draw two cards. Equip {1}",
+  "pt": null
+ },
+ "Spore Frog": {
+  "cost": "G",
+  "type": "Creature \u2014 Frog",
+  "text": "Sacrifice this creature: Prevent all combat damage that would be dealt this turn.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Thornweald Archer": {
+  "cost": "1G",
+  "type": "Creature \u2014 Elf Archer",
+  "text": "Reach (This creature can block creatures with flying.) Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Tyrranax Rex": {
+  "cost": "4GGG",
+  "type": "Creature \u2014 Phyrexian Dinosaur",
+  "text": "This spell can't be countered. Trample, ward {4}, haste Toxic 4 (Players dealt combat damage by this creature also get four poison counters.)",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Urban Daggertooth": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Vigilance Enrage \u2014 Whenever this creature is dealt damage, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Venomous Brutalizer": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Phyrexian Knight",
+  "text": "Toxic 3 (Players dealt combat damage by this creature also get three poison counters.) When this creature enters, you may pay {1}{G}. If you do, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Wasteland Viper": {
+  "cost": "G",
+  "type": "Creature \u2014 Snake",
+  "text": "Deathtouch Bloodrush \u2014 {G}, Discard this card: Target attacking creature gets +1/+2 and gains deathtouch until end of turn.",
+  "pt": [
+   1,
+   2
+  ]
+ }
+}

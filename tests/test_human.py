@@ -227,12 +227,13 @@ def test_engine_integration_full_turn(make_game, monkeypatch):
     g = make_game()
     land = next(c for c in g.p[0].hand
                 if "Land" in g.db.get(c, {}).get("type", ""))
-    scribe = StubScribe([json.dumps({"action": "play_land", "card": land,
+    scribe = StubScribe(['{"action": "pass"}',                      # upkeep
+                         json.dumps({"action": "play_land", "card": land,
                                      "chat": f"dropping the {land}"})])
     h = HumanAgent("P1(snakes)", scribe)
     g.agents[0] = h
     g.turn = 1
-    feed(monkeypatch, ["play a land", '"glhf everyone"', "done", ""])  # main, banter, end turn, end step
+    feed(monkeypatch, ["", "play a land", '"glhf everyone"', "done", "", "", "", ""])  # upkeep, main, banter, end turn, end step, cleanup
     monkeypatch.setattr(g, "check_judge", lambda: None)  # don't drain test-runner stdin
     g.half_turn(0)
     assert any(x["name"] == land for x in g.p[0].battlefield)

@@ -26,8 +26,8 @@ def test_countered_commander_returns_to_cz(make_game, db):
         def __init__(self):
             self.step = 0
         def ask(self, prompt):
-            self.step += 1
-            if "MAIN PHASE" in prompt and self.step == 1:
+            if "MAIN PHASE" in prompt and not self.step:
+                self.step = 1
                 return f'{{"action":"cast","card":"{me.commanders[0]}","tap":[]}}'
             return '{"action":"pass"}'
 
@@ -72,7 +72,7 @@ def test_substantive_activation_gets_response_window(make_game):
             self.n = 0
         def ask(self, prompt):
             self.n += 1
-            if "MAIN PHASE" in prompt and self.n == 1:
+            if "MAIN PHASE" in prompt and self.n <= 2:
                 return ('{"action":"activate","source":"X#1","tap_source":true,'
                         '"effects":[{"create":{"player":"self","name":"Squirrel","n":4,"pt":[1,1]}}]}')
             return '{"action":"pass"}'
@@ -372,3 +372,96 @@ def test_an_illegal_cast_can_be_backed_up_off_the_stack(make_game):
     assert not g.stack
     assert card in me.hand
     assert not any("bad source" in l for l in g.table)
+
+
+def test_a_spell_can_be_cast_from_exile(make_game):
+    """The First Sliver cascades on every sliver spell: the hit is exiled and
+    cast from there. Etali and discover do the same, and flashback casts from
+    the graveyard."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    me.exile.append("Lightning Bolt")
+    me.graveyard.append("Llanowar Elves")
+
+    assert g._pay_spell(0, {"card": "Lightning Bolt", "from": "exile", "tap": []}) is False
+    assert "Lightning Bolt" not in me.exile
+
+    # the seat can also leave the zone unsaid when the card sits in exactly one
+    assert g._pay_spell(0, {"card": "Llanowar Elves", "tap": []}) is False
+    assert "Llanowar Elves" not in me.graveyard
+    assert any("casting it from" in l for l in g.table)
+
+    assert g._pay_spell(0, {"card": "Not In Any Zone", "tap": []}) is None
+
+
+def test_combat_survives_an_attack_declared_as_a_list(make_game):
+    """A list where a dict was expected crashed the whole game two hours in.
+    The shapes agents actually reach for are accepted; anything else is
+    refused with the shape spelled out."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    bear = g.perm(me, "Llanowar Elves")
+    bear["sick"] = False
+
+    # a list of groups, each naming its defender
+    g.combat(0, {"attacks": [{"defender": "P2", "with": [bear["id"]]}]})
+    assert any("attacks P2" in l for l in g.table)
+
+    # a bare list of ids can't say who it's hitting — refused, not crashed
+    g.table.clear()
+    g.combat(0, {"attacks": [bear["id"]]})
+    assert any("must say who each group is hitting" in l for l in g.table)
+
+    # attackers plus a defender is the other shape they reach for
+    g.table.clear()
+    bear["tapped"] = False
+    g.combat(0, {"attackers": [bear["id"]], "defender": "P3"})
+    assert any("attacks P3" in l for l in g.table)
+
+
+def test_a_spell_rewound_mid_resolution_does_not_resolve(make_game):
+    """A seat casts something illegal, the table objects, and the caster takes it
+    back — while that spell's own resolution is still live on the call stack.
+    It must not resolve, and the cleanup must not crash."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    card = g.p[0].hand[0]
+
+    def rewind(obj, depth):           # what a correction does mid-flight
+        g.apply_effects(1, [{"move": {"from": "stack", "card": obj["id"], "to": "hand"}}])
+        return False
+    g._priority_rounds = rewind
+
+    ok = g.resolve_on_stack(0, {"card": card, "narration": "an illegal cast"}, kind="spell")
+    assert ok is False
+    assert g.stack == []
+    assert card in g.p[0].hand
+    assert any("left the stack before it resolved" in l for l in g.table)
+
+
+def test_a_trigger_declared_in_a_response_window_fires(make_game):
+    """Kambal and Blood Artist answer what just happened without casting
+    anything — passing with atoms is the shape, and the atoms were dropped."""
+    from conftest import StubAgent
+    import json
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    g.agents[1] = StubAgent(json.dumps({
+        "action": "pass",
+        "effects": [{"life": {"player": "P1", "delta": -2}}],
+        "narration": "Kambal triggers off that noncreature spell",
+    }))
+    g.p[1].hand = ["Counterspell"]
+    g.perm(g.p[1], "Island")
+    before = g.p[0].life
+    g._trick_window(1, "P1 cast something.")
+    assert g.p[0].life == before - 2

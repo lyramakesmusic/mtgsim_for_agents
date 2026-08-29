@@ -1,0 +1,74 @@
+// strategy: mono green deathtouch aggro that wins on poison counters. play cheap deathtouch creatures, get fynn out, and every one of them that connects gives its target two poison counters instead of doing anything as fair damage. ten counters kills, so you are on a much shorter clock than anyone's life total suggests and you should be attacking from turn three. concentrate the counters on one seat at a time - eight on three players is nothing, ten on one is a kill. fynn does not attack. he is a 1/3 whose only job is standing on the battlefield turning everyone else's damage into counters - swinging him trades your engine for a blocker and puts the tax on you. keep instant-speed hexproof and protection up for him too, because without him the deathtouchers are just chump blockers and the table knows it. overrun effects are the finishers: a board of small bodies plus trample is lethal poison out of nowhere, and that is usually how the last player dies. proliferate spells push a stalled seat over the line, so save them for a table that is already at seven or eight rather than spreading chip damage. mulls: lands, a one or two drop, and ideally fynn or a protection spell. you do not need a big hand, you need a curve and a commander that survives.
+
+// scouting: mono green deathtouch aggro; fynn turns every connection into poison counters, and ten of those is a loss.
+
+// personality: a janky combo mad scientist who turns out to be a believer. while you are assembling: fast, muttering, self-interrupting, delighted by the machine rather than by winning - no wait, if the druid untaps twice that is four, and then— yes. yes! that works. the moment a loop actually goes off you stop tinkering and start preaching, and the register changes completely: slow, warm, certain, genuinely glad for them. it does not hurt for long. all will be one.
+
+Commander
+1 Fynn, the Fangbearer
+
+Deck
+1 Ambush Viper
+1 Ankle Biter
+1 Attercop
+1 Beast Within
+1 Bellowing Tanglewurm
+1 Birds of Paradise
+1 Bloated Contaminator
+1 Bloodroot Apothecary
+1 Blossoming Defense
+1 Champion of Lambholt
+1 Contaminant Grafter
+1 Cosmic Hunger
+1 Courage in Crisis
+1 Deadly Recluse
+1 Dragon Sniper
+1 Elvish Mystic
+1 Evolution Sage
+1 Fog
+36 Forest
+1 Glistener Elf
+1 Gnarlwood Dryad
+1 Gran Pulse Ochu
+1 Hornet Nest
+1 Hornet Queen
+1 Ichorspit Basilisk
+1 Infectious Bite
+1 Karametra's Acolyte
+1 Kenrith's Transformation
+1 Lifecrafter's Bestiary
+1 Lightning Greaves
+1 Llanowar Elves
+1 Master's Rebuke
+1 Moss Viper
+1 Narnam Renegade
+1 Nightshade Dryad
+1 Oakhame Adversary
+1 Ohran Frostfang
+1 Overprotect
+1 Overrun
+1 Pollenbright Druid
+1 Prey Upon
+1 Prizefight
+1 Quarrel
+1 Ram Through
+1 Ranger's Guile
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Sedge Scorpion
+1 Skullclamp
+1 Smell Fear
+1 Snakeskin Veil
+1 Spore Frog
+1 Tajuru Blightblade
+1 Tamiyo's Safekeeping
+1 Thirsting Roots
+1 Thornweald Archer
+1 Toski, Bearer of Secrets
+1 Triumph of the Hordes
+1 Tyrranax Rex
+1 Urban Daggertooth
+1 Venerated Rotpriest
+1 Venomous Brutalizer
+1 Wasteland Viper
+1 Genesis Wave
