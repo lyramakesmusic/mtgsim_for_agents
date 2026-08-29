@@ -6,15 +6,11 @@ minimal state-tracking sim that allows various claude or codex agents to play mt
 
 ## how it works
 
-the models already know the rules. they have quite extensive knowledge of cards, rulings, archetypes, etc. each seat is just a persistent `claude -p` or `codex exec` session. agents reply with json actions plus "effect atoms" incl move, life, create, draw, etc. the engine tracks exactly what the agents declare and handles anything involving hidden info: draws, tutors, shuffles, scry peeks, coin flips.
+the models already know the rules. they have quite extensive knowledge of cards, rulings, archetypes, etc. each seat is just a persistent `claude -p` or `codex exec` session. agents reply with json actions plus "effect atoms" incl move, life, create, draw, etc. the engine tracks exactly what the agents declare and handles anything involving hidden info: draws, tutors, shuffles, scry peeks, coin flips. there are also atoms for setting triggers like tithes: the sim fires a reminder on the specified phase every turn until an agent removes it. it also offers a response window to every player on every spell announcement so agents can use the stack to respond to effects before they resolve.
 
-the engine tracks state and nothing else: zones, life, tapped and untapped, marked damage, counters on permanents and on players (+1/+1, poison, experience — whatever you name), the stack, and the turn structure. it knows no card text. everything a card *does* is declared by the seat playing it, as effect atoms, and the other three check it.
+the engine tracks state and nothing else: zones, life, tapped and untapped, marked damage, counters on permanents and on players (+1/+1, poison, experience, etc arbitrarily named by agents), the stack, and the turn structure. everything a card *does* is declared by the seat playing it as effect atoms.
 
 triggers, combat math, payments, ruling decisions, etc is on the agents. the agents will occasionally get something wrong, get called out, and take action to fix board state.
-
-the stack is real: spells and abilities announce as stack objects, everyone gets response windows, responses can be responded to, and you get the last window on your own spells — so casting a pump and then responding to yourself with a second pump is just how holding priority works. counterspell wars go as deep as anyone wants (within a sane cap).
-
-decisions that belong to someone else actually get asked: if you play smothering tithe, you register it once and the engine automatically asks each player "pay {2}?" on their draws until the tithe dies. same machinery covers rhystic study, punisher cards, votes — the agent declares what the card does, the engine just carries the question. 
 
 for example: P3 mind controlled P1's creature. P1 then lost the game. the sim removed P1's board state but was unable to handle removing the P3-controlled creature and left it on the board. the table realized, and took an action to hand the creature back to nonexistent P1 (removing it from the game) explicitly, noting it as a correction of board state rather than a play.
 
@@ -60,11 +56,11 @@ uv run scripts/tourney.py --pod codex:meren,codex:snakes,codex:aurelia,codex:squ
 uv run scripts/postmortem.py games/tourney_<stamp>/
 ```
 
-tourney runs n games in parallel (pass `--pod` multiple times to vary the opposition per game). postmortem points a codex agent at each finished log: it reports the wincon that actually fired vs what the deck's memo promised, mvp and dead cards, who the table decided was the problem and when, and the one change most likely to flip the result — then a synthesis pass over all games writes a combined report with win rates, recurring failure modes, and proposed edits to your strategy memos. useful for playtesting a deck overnight without touching a keyboard.
+tourney runs n games in parallel (pass `--pod` multiple times to vary the opposition per game). postmortem points a codex agent at each finished log: it reports the wincon that actually fired vs what the deck's memo promised, mvp and dead cards, who the table decided was the problem and when, and the one change most likely to flip the result. then it runs a synthesis pass over all games and writes a combined report with win rates, recurring failure modes, and proposed edits to your strategy memos. useful for playtesting a deck overnight without touching a keyboard.
 
 ## decks
 
-we've included a set of stock decks (bracket ~2.5-3.5) spanning combo, aggro, control, voltron, tokens, tribal and politics, so a pod has something to play against out of the box.
+we've included a set of stock decks (bracket ~2-3.5) spanning combo, aggro, control, voltron, tokens, tribal and politics, so a pod has something to play against out of the box.
 
 adding yours: paste any decklist export (moxfield/arena/deckstats formats all parse) into `data/decks/whatever.txt`. partners go in the same `Commander` section, both of them — each gets its own command zone and its own tax. then, to actually grab the rules text from each card:
 
@@ -86,6 +82,4 @@ optionally put a `// strategy: ...` comment at the top, the agents will read it 
 - if agents are slow, their window will time out and the harness will pass its turn after 10 minutes.
 - pumps, clones, attachments, first strike, commander damage, poison, floating mana, and "doesn't untap" are all manually tracked by agents, not in the sim. so there's potential for issues if the agents aren't on top of things.
 
-in general - typical magic plays fine, but izzet solitaire or certain types of combo decks will be jank or unplayable. patch the sim if you're playing those.
-
-we included "river song's chaos emporium" (`data/decks/riversong.txt`) as an example: this deck will probably not be playable in any sane manner, the sim does not have a way to handle many of its mechanics.
+in general, typical magic plays fine, but chaos solitaire or certain types of combo decks will be jank or unplayable. patch the sim if you're playing those.
