@@ -821,3 +821,127 @@ def test_fight_is_each_creature_dealing_its_power(make_game):
     assert theirs["damage"] == 6, "counters count toward the power it deals"
     assert mine["damage"] == 2
     assert not any("unknown effect atom" in l for l in g.table)
+
+
+def test_unknown_atom_goes_back_to_the_seat(make_game):
+    """A consequence the engine can't read is a consequence that didn't happen,
+    so the seat is asked to redeclare it in the documented vocabulary."""
+    import json as _json
+    from conftest import StubAgent
+
+    replies = []
+
+    def scribe(prompt):
+        replies.append(prompt)
+        return _json.dumps({"effects": [{"life": {"player": "self", "delta": -3}}]})
+
+    g = make_game()
+    g.agents = [StubAgent(scribe) for _ in g.p]
+    before = g.p[0].life
+
+    g.apply_effects(0, [{"op": "gain_experience", "player": "P1", "experience": 1}])
+
+    assert any("PROTOCOL ERROR" in p for p in replies), "the seat was never told"
+    assert g.p[0].life == before - 3, "the redeclared atom should apply"
+    assert any("unknown effect atom" in line for line in g.table)
+
+
+def test_redeclared_atoms_do_not_recurse_forever(make_game):
+    """One repair round, then the engine stops asking."""
+    import json as _json
+    from conftest import StubAgent
+
+    calls = []
+
+    def stubborn(prompt):
+        calls.append(prompt)
+        return _json.dumps({"effects": [{"op": "still wrong"}]})
+
+    g = make_game()
+    g.agents = [StubAgent(stubborn) for _ in g.p]
+    g.apply_effects(0, [{"op": "wrong"}])
+    assert len(calls) == 1, f"expected exactly one repair round, got {len(calls)}"
+
+
+def test_either_face_of_a_modal_card_can_be_played(make_game):
+    """Malakir Rebirth // Malakir Mire is one card; a seat naming the land face
+    is playing that card, and naming the spell face is casting it."""
+    g = make_game()
+    me = g.p[0]
+    me.hand.append("Malakir Rebirth // Malakir Mire")
+
+    g.do_action(0, {"action": "play_land", "card": "Malakir Mire"})
+    assert any("plays land: Malakir Mire" in line for line in g.table)
+    assert "Malakir Rebirth // Malakir Mire" not in me.hand, "the card left hand"
+    assert not any("illegal/ignored" in line for line in g.table)
+
+
+def test_a_name_in_no_zone_is_still_refused(make_game):
+    g = make_game()
+    g.do_action(0, {"action": "play_land", "card": "Not A Real Card"})
+    assert any("illegal/ignored land play" in line for line in g.table)
+
+
+def test_a_failed_search_is_logged_even_without_a_shuffle(make_game):
+    """Failing to find is legal, and the tutor still shuffles when it says to —
+    but the failure itself has to reach the table either way."""
+    g = make_game()
+    g.apply_effects(0, [{"search": {"player": "self", "card": "Black Lotus",
+                                    "to": "hand", "shuffle": False}}])
+    assert any("VERIFICATION FAILED" in line for line in g.table)
+    assert not any("shuffled anyway" in line for line in g.table)
+
+    g.apply_effects(0, [{"search": {"player": "self", "card": "Black Lotus", "to": "hand"}}])
+    assert any("shuffled anyway" in line for line in g.table)
+
+
+def test_a_tutor_that_shuffles_first_is_three_atoms(make_game):
+    """Mystical Tutor reads "reveal it, then shuffle and put that card on top", so
+    the seat sequences it: find, shuffle, place. The engine holds no opinion about
+    which order a card wants."""
+    g = make_game()
+    me = g.p[0]
+    me.library = [f"Card{n}" for n in range(40)] + ["Counterspell"]
+
+    g.apply_effects(0, [
+        {"search": {"player": "self", "card": "Counterspell", "to": "hand", "shuffle": False}},
+        {"shuffle": {"player": "self"}},
+        {"move": {"player": "self", "from": "hand", "card": "Counterspell", "to": "library_top"}},
+    ])
+    assert me.library[0] == "Counterspell", f"top is {me.library[0]}"
+    assert me.library.count("Counterspell") == 1
+    assert "Counterspell" not in me.hand
+
+
+def test_search_shuffles_after_placing_when_told_to(make_game):
+    """The plain form does what it says: place, then shuffle."""
+    g = make_game()
+    me = g.p[0]
+    me.library = [f"Card{n}" for n in range(40)] + ["Counterspell"]
+    g.apply_effects(0, [{"search": {"player": "self", "card": "Counterspell", "to": "hand"}}])
+    assert "Counterspell" in me.hand
+
+
+
+def test_a_bad_zone_goes_back_to_the_seat(make_game):
+    """'library' has two ends and is not itself a destination; the seat is told
+    the vocabulary rather than having the move dropped."""
+    import json as _json
+    from conftest import StubAgent
+
+    seen = []
+
+    def scribe(prompt):
+        seen.append(prompt)
+        return _json.dumps({"effects": [{"move": {"player": "self", "from": "hand",
+                                                  "card": "Forest", "to": "library_bottom"}}]})
+
+    g = make_game()
+    g.agents = [StubAgent(scribe) for _ in g.p]
+    g.p[0].hand.append("Forest")
+
+    g.apply_effects(0, [{"move": {"player": "self", "from": "hand",
+                                  "card": "Forest", "to": "library"}}])
+    assert any("not a zone" in line for line in g.table)
+    assert any("library_top" in p for p in seen), "the seat was not told the zone names"
+    assert g.p[0].library[-1] == "Forest"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """CLI glue — assemble a pod and run it.
 
-Pod seats are agent:deck pairs (agent defaults to claude):
+Pod seats are agent:deck pairs (agent defaults to codex):
 
   uv run play.py --pod claude:snakes,claude:meren,codex:squirrels,codex:talrand
   uv run play.py --pod squirrels,snakes --mock          # plumbing test, no LLMs
@@ -18,7 +18,7 @@ from mtgsim.engine import Game
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pod", default="claude:snakes,claude:squirrels",
+    ap.add_argument("--pod", default="codex:snakes,codex:squirrels",
                     help="2-4 comma-separated seats, each 'agent:deck' or just 'deck' "
                          f"(agents: {', '.join(AGENT_TYPES)}, human; decks: {', '.join(deck_names())})")
     ap.add_argument("--human-agent", default="codex", choices=["claude", "codex"],
@@ -29,6 +29,9 @@ if __name__ == "__main__":
                          "human playing (default: hidden when a human is seated — no wallhacks)")
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--max-turns", type=int, default=20)
+    ap.add_argument("--max-actions", type=int, default=150,
+                    help="sequential main-phase actions per turn "
+                         "(storm turns are long)")
     ap.add_argument("--claude-model", default="opus")
     ap.add_argument("--codex-model", default="gpt-5.6-terra",
                     help="codex model for all codex seats + judge + scribe (default gpt-5.6-terra; "
@@ -98,7 +101,7 @@ if __name__ == "__main__":
     for spec in args.pod.split(","):
         spec = spec.strip()
         kind, _, deck = spec.rpartition(":")
-        kind = kind or "claude"
+        kind = kind or "codex"
         model_override = None
         if "@" in kind:                          # agent@model:deck, e.g. openrouter@moonshotai/kimi-k2:snakes
             kind, model_override = kind.split("@", 1)
@@ -163,10 +166,12 @@ if __name__ == "__main__":
         from mtgsim.branching import restore_game
         game, from_turn, from_seat = restore_game(
             db, decks, agents, ev_path, args.log, args.max_turns, rng,
+            max_actions=args.max_actions,
             at=idx, edits=edits, judge_factory=None if args.mock else judge_factory,
             console_private=console_private)
     else:
         game = Game(db, decks, agents, seed, args.log, args.max_turns, rng,
+                    max_actions=args.max_actions,
                     judge_factory=None if args.mock else judge_factory,
                     console_private=console_private)
     import atexit

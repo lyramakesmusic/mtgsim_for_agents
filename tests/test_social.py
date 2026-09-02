@@ -321,3 +321,25 @@ def test_the_turn_has_an_upkeep_phase(make_game):
     assert ups, "the seat is asked for upkeep triggers"
     assert ups[0] < mains[0], "before the main phase"
     assert len(ups) == 1, "once a turn"
+
+
+def test_a_seat_is_shown_its_own_decklist_with_text(make_game):
+    """A player knows their own 99 and what each card does. Tutoring is the most
+    information-hungry action in the game and seats were doing it blind."""
+    g = make_game(decknames=("stella", "rats", "orvar", "meren"))
+    block = g._decklist_block(g.p[0])
+
+    assert "Hidden Strings" in block
+    assert "tap or untap target permanent" in block, "rules text has to be there"
+    assert "Island x18" in block, "duplicates are counted, not repeated"
+    assert "Rat Colony" not in block, "a seat must not see another seat's list"
+
+
+def test_own_deck_text_is_not_repeated_in_the_digest(make_game):
+    """It rode the opening brief, so the digest spends its lines on cards the seat
+    meets for the first time across the table."""
+    g = make_game(decknames=("stella", "rats", "orvar", "meren"))
+    me = g.p[0]
+    me.hand = ["Hidden Strings", "Ponder"]
+    assert "ORACLE TEXT" not in g.digest(0)
+

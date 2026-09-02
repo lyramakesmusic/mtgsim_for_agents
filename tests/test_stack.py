@@ -465,3 +465,52 @@ def test_a_trigger_declared_in_a_response_window_fires(make_game):
     before = g.p[0].life
     g._trick_window(1, "P1 cast something.")
     assert g.p[0].life == before - 2
+
+
+def test_spells_cast_this_turn_is_counted(make_game):
+    """Storm counts every spell cast before it this turn, whoever cast it, and a
+    countered spell still counted — so the tally is kept when a spell is announced."""
+    from conftest import StubAgent
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    me = g.p[0]
+    me.hand.append("Counterspell")
+    g.p[1].hand.append("Counterspell")
+    g.resolve_on_stack(0, {"card": "Counterspell", "targets": []})
+    g.resolve_on_stack(1, {"card": "Counterspell", "targets": []})
+    assert (me.spells_this_turn, g.p[1].spells_this_turn) == (1, 1)
+    assert "Spells cast this turn: 2 (P1 1)" in g.digest(0)
+
+
+
+def test_a_seat_whose_brain_dies_ends_the_game(make_game):
+    """800 failed calls produced twenty turns of nothing that looked like a game;
+    a seat that keeps giving up stops it instead."""
+    import pytest
+    from mtgsim.engine import GameOver
+    from conftest import StubAgent
+
+    class Dead(StubAgent):
+        gave_up = True
+
+    g = make_game()
+    g.agents = [Dead() for _ in g.p]
+    with pytest.raises(GameOver) as caught:
+        for _ in range(g.DEAD_SEAT_CALLS + 2):
+            g.ask(0, "anything")
+    assert "failed" in caught.value.how
+    assert caught.value.winner is None
+
+
+def test_a_recovered_seat_does_not_count_toward_the_limit(make_game):
+    from conftest import StubAgent
+
+    class Flaky(StubAgent):
+        gave_up = False
+
+    g = make_game()
+    g.agents = [Flaky() for _ in g.p]
+    for _ in range(g.DEAD_SEAT_CALLS * 3):
+        g.ask(0, "anything")
+    assert g.dead_calls[0] == 0

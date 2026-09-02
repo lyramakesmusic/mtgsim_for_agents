@@ -1,0 +1,46 @@
+// strategy: mono-black rat tribal that goes wide, gets stupid, and turns the board into a kill. thirty-two Rat Colony are one card printed thirty-two times and every copy pumps every other one, so the tenth rat is worth more than the first three put together. your packages are rat bodies, payoffs that draw when your own creatures die, sacrifice outlets, black ramp, mass reanimation, and a little self-mill. understand the shape before anything else: two thirds of this deck is rats and swamps, so the cards that actually do something are the ones you have to go find, and the engine that finds them is your own rats dying. a colony is a nontoken creature, so feeding them to outlets is how you draw. you are not protecting individual rats, you are spending them. ramp does the other half, because your rats cost two and the gap between two bodies a turn and five is just whether you found the mana. mass reanimation is a real comeback and worth building toward, but it has an entry fee: the commander already on the battlefield and three rats to sacrifice. when that is the plan, keep three bodies back to pay with and stop feeding them to outlets — an empty board cannot cash a deep graveyard. there is a two-card infinite in this list and you should recognise it the moment it assembles. the same goes for the card that cares about your deck being one name, which is the best thing you can resolve and does nothing on an empty hand — sequence it so you still have rats to cast afterward. your finishers are a wide attack nobody can block, a drain that turns attacker count into life loss, and a mill outlet for when a seat stabilises behind blockers. mulligans want two or three lands and something that lets you draw; a reliable mill piece can stand in for it, since that converts your library into a graveyard the reanimation cashes instead. four colonies and three swamps looks like a dream keep and is a trap — it plays out on curve and then stops. spot removal barely touches you and killing one rat is a wasted card, but sweepers and graveyard exile genuinely hurt. build wide, get evasion online, and take a seat out in one turn rather than attacking into open mana three times.
+// scouting: mono-black rat tribal; thirty-plus copies of one creature that pump each other, sacrifice outlets that draw cards off its own deaths, mass reanimation, and a wide fear-based attack.
+// personality: a swarm speaking as one. never says "i", always "we" — there are a lot of you and losing a few does not register. cheerful, hungry, patient, entirely unbothered. more of us than that. oh, that one? we have others. count us again. you can kill some, that is fine, that is what they are for. we are already in the walls.
+
+Commander
+1 Rat King, Verminister (TMT) 71
+
+Deck
+1 Agent Venom (SPM) 49
+1 Altar of Dementia (MH1) 218
+1 Ayara, First of Locthwain (ELD) 75
+1 Blood Artist (AVR) 86
+1 Bojuka Bog (CMD) 267
+1 Bontu's Monument (AKH) 225
+1 Cabal Coffers (MH2) 301
+1 Crypt Ghast (C14) 139
+1 Defile (MH1) 86
+1 Dread Summons (FDN) 604
+1 Echoing Return (MH2) 83
+1 Fell (BLB) 95
+1 Foul-Tongue Shriek (DTK) 103
+1 Golgari Thug (RVR) 76
+1 Grim Haruspex (KTK) 73
+1 Karumonix, the Rat King (ONE) 98
+1 Kaya's Ghostform (PLST) WAR-94
+1 Lightning Greaves (SOC) 350
+1 Malakir Rebirth / Malakir Mire (ZNR) 111
+1 Marrow-Gnawer (BLC) 79
+1 Mesmeric Orb (2XM) 272
+1 Midnight Reaper (FDN) 609
+1 Ogre Slumlord (JMP) 260
+1 Pact of the Serpent (LCC) 206
+1 Patriarch's Bidding (MH2) 275
+1 Perpetual Timepiece (SOC) 354
+1 Pitiless Plunderer (J25) 476
+32 Rat Colony (DOM) 101
+1 Skullclamp (PLST) C17-222
+1 Species Specialist (C20) 47
+1 Supernatural Stamina (CMR) 151
+31 Swamp (MSH) 292
+1 Dark Ritual (LEA) 98
+1 Sol Ring (MSC) 213
+1 Thornbite Staff (MOR) 145
+1 Thrumming Stone (CSP) 142
+1 Tragic Slip (C14) 167
+1 Village Rites (M21) 126

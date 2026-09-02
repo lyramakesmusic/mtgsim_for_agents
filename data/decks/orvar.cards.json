@@ -1,0 +1,467 @@
+{
+ "Amphibian Downpour": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash Storm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies. Copies become tokens.) Enchant creature Enchanted creature loses all abilities and is a blue Frog creature with base power and toughness 1/1.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Archaeomancer": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "When this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Archmage Emeritus": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Archmage of Runes": {
+  "cost": "3UU",
+  "type": "Creature \u2014 Giant Wizard",
+  "text": "Instant and sorcery spells you cast cost {1} less to cast. Whenever you cast an instant or sorcery spell, draw a card.",
+  "pt": [
+   3,
+   6
+  ]
+ },
+ "Artful Dodge": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Target creature can't be blocked this turn. Flashback {U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Boomerang Basics": {
+  "cost": "U",
+  "type": "Sorcery \u2014 Lesson",
+  "text": "Return target nonland permanent to its owner's hand. If you controlled that permanent, draw a card.",
+  "pt": null
+ },
+ "Cerulean Wisps": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature becomes blue until end of turn. Untap that creature. Draw a card.",
+  "pt": null
+ },
+ "Chilling Trap": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature gets -4/-0 until end of turn. If you control a Wizard, draw a card.",
+  "pt": null
+ },
+ "Clever Impersonator": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of any nonland permanent on the battlefield.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Cloud of Faeries": {
+  "cost": "1U",
+  "type": "Creature \u2014 Faerie",
+  "text": "Flying When this creature enters, untap up to two lands. Cycling {2} ({2}, Discard this card: Draw a card.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Council of Reeds": {
+  "cost": "2U",
+  "type": "Legendary Creature \u2014 Human Scientist Hero",
+  "text": "The \"legend rule\" doesn't apply to creatures you control. At the beginning of combat on your turn, if you've cast a noncreature spell this turn, create a token that's a copy of Council of Reeds.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Distortion Strike": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Target creature gets +1/+0 until end of turn and can't be blocked this turn. Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)",
+  "pt": null
+ },
+ "Dive Down": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature you control gets +0/+3 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Eluge, the Shoreless Sea": {
+  "cost": "1UUU",
+  "type": "Legendary Creature \u2014 Elemental Fish",
+  "text": "Eluge's power and toughness are each equal to the number of Islands you control. Whenever Eluge enters or attacks, put a flood counter on target land. It's an Island in addition to its other types for as long as it has a flood counter on it. The first instant or sorcery spell you cast each turn costs {U} (or {1}) less to cast for each land you control with a flood counter on it.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Enter the Enigma": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Target creature can't be blocked this turn. Draw a card.",
+  "pt": null
+ },
+ "Essence Flux": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Exile target creature you control, then return that card to the battlefield under its owner's control. If it's a Spirit, put a +1/+1 counter on it.",
+  "pt": null
+ },
+ "Fleeting Distraction": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature gets -1/-0 until end of turn. Draw a card.",
+  "pt": null
+ },
+ "Gale, Waterdeep Prodigy": {
+  "cost": "2U",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "Whenever you cast an instant or sorcery spell from your hand, you may cast up to one target card of the other type from your graveyard. If a spell cast from your graveyard this way would be put into your graveyard, exile it instead. Choose a Background (You can have a Background as a second commander.)",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Gigadrowse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Replicate {U} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.) Tap target permanent.",
+  "pt": null
+ },
+ "Haughty Djinn": {
+  "cost": "1UU",
+  "type": "Creature \u2014 Djinn",
+  "text": "Flying Haughty Djinn's power is equal to the number of instant and sorcery cards in your graveyard. Instant and sorcery spells you cast cost {1} less to cast.",
+  "pt": [
+   0,
+   4
+  ]
+ },
+ "Hidden Strings": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "You may tap or untap target permanent, then you may tap or untap another target permanent. Cipher (Then you may exile this spell card encoded on a creature you control. Whenever that creature deals combat damage to a player, its controller may cast a copy of the encoded card without paying its mana cost.)",
+  "pt": null
+ },
+ "High Tide": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Until end of turn, whenever a player taps an Island for mana, that player adds an additional {U}.",
+  "pt": null
+ },
+ "Hullbreaker Horror": {
+  "cost": "5UU",
+  "type": "Creature \u2014 Kraken Horror",
+  "text": "Flash This spell can't be countered. Whenever you cast a spell, choose up to one \u2014 \u2022 Return target spell you don't control to its owner's hand. \u2022 Return target nonland permanent to its owner's hand.",
+  "pt": [
+   7,
+   8
+  ]
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Isochron Scepter": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Imprint \u2014 When this artifact enters, you may exile an instant card with mana value 2 or less from your hand. {2}, {T}: You may copy the exiled card. If you do, you may cast the copy without paying its mana cost.",
+  "pt": null
+ },
+ "Magic Damper": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature you control gets +1/+1 and gains hexproof until end of turn. Untap it.",
+  "pt": null
+ },
+ "Mental Modulation": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "This spell costs {1} less to cast during your turn. Tap target artifact or creature. Draw a card.",
+  "pt": null
+ },
+ "Metamorphic Alteration": {
+  "cost": "1U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature As this Aura enters, choose a creature. Enchanted creature is a copy of the chosen creature.",
+  "pt": null
+ },
+ "Mind Flayer": {
+  "cost": "3UU",
+  "type": "Creature \u2014 Horror",
+  "text": "Dominate Monster \u2014 When this creature enters, gain control of target creature for as long as you control this creature.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Mizzium Skin": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature you control gets +0/+1 and gains hexproof until end of turn. Overload {1}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Moonlace": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target spell or permanent becomes colorless.",
+  "pt": null
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Orvar, the All-Form": {
+  "cost": "3U",
+  "type": "Legendary Creature \u2014 Shapeshifter",
+  "text": "Changeling Whenever you cast an instant or sorcery spell, if it targets one or more other permanents you control, create a token that's a copy of one of those permanents. When a spell or ability an opponent controls causes you to discard this card, create a token that's a copy of target permanent.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Peregrine Drake": {
+  "cost": "4U",
+  "type": "Creature \u2014 Drake",
+  "text": "Flying When this creature enters, untap up to five lands.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Propaganda": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
+  "pt": null
+ },
+ "Pym Particles": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Target creature gains vigilance until end of turn and can't be blocked this turn. Draw a card.",
+  "pt": null
+ },
+ "Quantum Misalignment": {
+  "cost": "4U",
+  "type": "Sorcery",
+  "text": "Create a token that's a copy of target creature you control, except it isn't legendary. Rebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "pt": null
+ },
+ "Reality Shift": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller manifests the top card of their library. (That player puts the top card of their library onto the battlefield face down as a 2/2 creature. If it's a creature card, it can be turned face up any time for its mana cost.)",
+  "pt": null
+ },
+ "Rhystic Study": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Whenever an opponent casts a spell, you may draw a card unless that player pays {1}.",
+  "pt": null
+ },
+ "Rite of Replication": {
+  "cost": "2UU",
+  "type": "Sorcery",
+  "text": "Kicker {5} (You may pay an additional {5} as you cast this spell.) Create a token that's a copy of target creature. If this spell was kicked, create five of those tokens instead.",
+  "pt": null
+ },
+ "Sakashima of a Thousand Faces": {
+  "cost": "3U",
+  "type": "Legendary Creature \u2014 Human Rogue",
+  "text": "You may have Sakashima enter as a copy of another creature you control, except it has Sakashima's other abilities. The \"legend rule\" doesn't apply to permanents you control. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Scourge of Fleets": {
+  "cost": "5UU",
+  "type": "Creature \u2014 Kraken",
+  "text": "When this creature enters, return each creature your opponents control with toughness X or less to its owner's hand, where X is the number of Islands you control.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Shipwreck Dowser": {
+  "cost": "3UU",
+  "type": "Creature \u2014 Merfolk Wizard",
+  "text": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.) When this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Shore Up": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature you control gets +1/+1 and gains hexproof until end of turn. Untap it. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Slip Out the Back": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Put a +1/+1 counter on target creature. It phases out. (Treat it and anything attached to it as though they don't exist until its controller's next turn.)",
+  "pt": null
+ },
+ "Snap": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Return target creature to its owner's hand. Untap up to two lands.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Solemn Simulacrum": {
+  "cost": "4",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle. When this creature dies, you may draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Sower of Temptation": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Faerie Wizard",
+  "text": "Flying When this creature enters, gain control of target creature for as long as this creature remains on the battlefield.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Spellseeker": {
+  "cost": "2U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "When this creature enters, you may search your library for an instant or sorcery card with mana value 2 or less, reveal it, put it into your hand, then shuffle.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Stolen Identity": {
+  "cost": "4UU",
+  "type": "Sorcery",
+  "text": "Create a token that's a copy of target artifact or creature. Cipher (Then you may exile this spell card encoded on a creature you control. Whenever that creature deals combat damage to a player, its controller may cast a copy of the encoded card without paying its mana cost.)",
+  "pt": null
+ },
+ "Talrand, Sky Summoner": {
+  "cost": "2UU",
+  "type": "Legendary Creature \u2014 Merfolk Wizard",
+  "text": "Whenever you cast an instant or sorcery spell, create a 2/2 blue Drake creature token with flying.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Teferi's Time Twist": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Exile target permanent you control. Return that card to the battlefield under its owner's control at the beginning of the next end step. If it enters as a creature, it enters with an additional +1/+1 counter on it.",
+  "pt": null
+ },
+ "Thassa's Oracle": {
+  "cost": "UU",
+  "type": "Creature \u2014 Merfolk Wizard",
+  "text": "When this creature enters, look at the top X cards of your library, where X is your devotion to blue. Put up to one of them on top of your library and the rest on the bottom of your library in a random order. If X is greater than or equal to the number of cards in your library, you win the game. (Each {U} in the mana costs of permanents you control counts toward your devotion to blue.)",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Thought Vessel": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "You have no maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Thunderclap Drake": {
+  "cost": "1U",
+  "type": "Creature \u2014 Drake",
+  "text": "Flying Instant and sorcery spells you cast cost {1} less to cast. {2}{U}, Sacrifice this creature: When you next cast an instant or sorcery spell this turn, copy it for each time you've cast your commander from the command zone this game. You may choose new targets for the copies.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Twisted Image": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Switch target creature's power and toughness until end of turn. Draw a card.",
+  "pt": null
+ },
+ "Unsummon": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Return target creature to its owner's hand.",
+  "pt": null
+ },
+ "Venser, Shaper Savant": {
+  "cost": "2UU",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "Flash (You may cast this spell any time you could cast an instant.) When Venser enters, return target spell or permanent to its owner's hand.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Vesuvan Duplimancy": {
+  "cost": "3U",
+  "type": "Enchantment",
+  "text": "Whenever you cast a spell that targets only a single artifact or creature you control, create a token that's a copy of that artifact or creature, except it's not legendary.",
+  "pt": null
+ },
+ "Whelming Wave": {
+  "cost": "2UU",
+  "type": "Sorcery",
+  "text": "Return all creatures to their owners' hands except for Krakens, Leviathans, Octopuses, and Serpents.",
+  "pt": null
+ }
+}

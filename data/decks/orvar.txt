@@ -1,0 +1,73 @@
+// strategy: mono-blue spellslinger that turns cheap spells into permanents. orvar copies a permanent every time you cast an instant or sorcery that targets your own stuff, so the deck is built out of one-mana spells that point at you and do something small on the side — untap, protect, make unblockable, draw. the small thing is not the point, the token is. your packages are cheap self-targeting cantrips, enter-the-battlefield creatures worth copying, untap and bounce effects, spell-count payoffs, clones, and cost reduction. two things decide what a cantrip is actually worth. the first is what you point it at: aim it at a creature whose enter-the-battlefield ability you want again and the token replays that ability, so the cantrip is worth whatever that creature does, not whatever the cantrip says. the second is whether the spell removes what it touched — bounce and blink hand you a token and then take the body away, while a spell that only untaps or protects or makes something unblockable leaves the original standing and you keep both. prefer the ones that leave the body. cost reduction turns a fair turn into a chain, and the draw-on-cast creatures mean the chain refills itself while you go. there are loops in this deck, including at least one that doesn't end on its own, and they are deliberately not written out here. the shape is always a cheap spell that ends up paying for its own recast, and the pieces are spread across the untap effects, the creatures that return spells from your graveyard, and copies of creatures whose enter trigger makes mana. think hard before you start one — know what it produces, how many iterations you need, and what actually closes the game, because a loop that makes tokens is not the same as a loop that wins. have the finish picked before you begin. mulligans want lands plus either cheap interaction or a cost reducer, and you don't need orvar in the opener: this is a fine draw-go control deck without him and becomes a combo deck the turn he lands, so keep hands that can play a long game. hold counterspells, you're the seat that can afford to answer things and you want the game to go long. protect orvar with the same one-mana spells that copy things; the protection spell is also a token, and that's the whole trick.
+// scouting: mono-blue spellslinger; cheap instants and sorceries aimed at its own permanents to make token copies, plus untap loops, blink and clone effects, and counterspells held up.
+// personality: calm, uncanny, delighted by recurrence. never raises its voice, never hurries. likes to say a thing and then say it again slightly changed. that was nice. do that again. oh — you've seen this one. it takes an interest in other people's shapes the way water takes an interest in a cup, not unfriendly, just certain it will outlast them. mm. i'll have one of those.
+
+Commander
+1 Orvar, the All-Form (KHM) 70
+
+Deck
+1 Amphibian Downpour (MH3) 51
+1 An Offer You Can't Refuse (PLST) SNC-51
+1 Arcane Signet (FIC) 333
+1 Archaeomancer (J25) 285
+1 Archmage Emeritus (SOC) 188
+1 Archmage of Runes (FDN) 30
+1 Artful Dodge (DKA) 27
+1 Boomerang Basics (TLA) 46
+1 Cerulean Wisps (PLST) SHM-31
+1 Chilling Trap (J22) 281
+1 Clever Impersonator (PLST) KTK-34
+1 Cloud of Faeries (DMR) 43
+1 Council of Reeds (MSC) 28
+1 Counterspell (DSC) 114
+1 Distortion Strike (IMA) 52
+1 Dive Down (FDN) 588
+1 Eluge, the Shoreless Sea (PBLB) 49p
+1 Enter the Enigma (DSK) 52
+1 Essence Flux (JMP) 151
+1 Fleeting Distraction (FDN) 155
+1 Gale, Waterdeep Prodigy (CLB) 72
+1 Gigadrowse (PLST) GPT-26
+1 Haughty Djinn (TDC) 154
+1 Hidden Strings (DGM) 12
+1 High Tide (DMR) 54
+1 Hullbreaker Horror (INR) 68
+35 Island (AKH) 259
+1 Isochron Scepter (2XM) 264
+1 Magic Damper (FIN) 61
+1 Mental Modulation (EOE) 67
+1 Metamorphic Alteration (M19) 60
+1 Mind Flayer (AFR) 63
+1 Mizzium Skin (RTR) 45
+1 Moonlace (PLST) TSP-68
+1 Negate (TMT) 47
+1 Peregrine Drake (DMR) 65
+1 Pongify (TDC) 160
+1 Propaganda (MSC) 151
+1 Pym Particles (MSH) 70
+1 Quantum Misalignment (MSC) 152
+1 Rapid Hybridization (PLST) C21-126
+1 Reality Shift (PLST) NEC-95
+1 Rhystic Study (J22) 114
+1 Rite of Replication (FIC) 270
+1 Sakashima of a Thousand Faces (CMR) 89
+1 Scourge of Fleets (JOU) 51
+1 Shipwreck Dowser (PLST) M21-71
+1 Shore Up (BLB) 69
+1 Slip Out the Back (SNC) 62
+1 Snap (PLST) DDS-10
+1 Sol Ring (MSC) 213
+1 Solemn Simulacrum (SCD) 277
+1 Sower of Temptation (BBD) 131
+1 Spellseeker (BBD) 41
+1 Stolen Identity (GTC) 53
+1 Talrand, Sky Summoner (UMA) 76
+1 Teferi's Time Twist (WAR) 72
+1 Thassa's Oracle (PTHB) 73p
+1 Thought Vessel (MSC) 222
+1 Thunderclap Drake (SOC) 204
+1 Twisted Image (A25) 75
+1 Unsummon (FDN) 599
+1 Venser, Shaper Savant (J25) 66
+1 Vesuvan Duplimancy (PDMU) 73p
+1 Whelming Wave (JMP) 193

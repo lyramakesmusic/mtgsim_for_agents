@@ -66,7 +66,8 @@ def _rebuild_library(decklist, ps):
 
 
 def restore_game(db, decks, agents, events_path, log_path, max_turns, rng,
-                 at=None, edits=None, judge_factory=None, console_private="all"):
+                 at=None, edits=None, judge_factory=None, console_private="all",
+                 max_actions=150):
     """Rebuild a live Game from an event. Returns (game, from_turn, from_seat).
     edits: {"P4": {"hand": [...], "life": 30, ...}} — merged onto the seat
     after restore; any Player field goes."""
@@ -75,7 +76,7 @@ def restore_game(db, decks, agents, events_path, log_path, max_turns, rng,
     state = events[idx]["state"]
     table = [e["line"] for e in events[:idx + 1] if not e.get("private")]
 
-    g = Game(db, decks, agents, 0, log_path, max_turns, rng,
+    g = Game(db, decks, agents, 0, log_path, max_turns, rng, max_actions=max_actions,
              judge_factory=judge_factory, console_private=console_private)
     g.turn = state["turn"]
     g.next_id = state.get("next_id") or 1

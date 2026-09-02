@@ -77,6 +77,7 @@ when exactly one other seat is alive.
 Knows nothing about how agents are implemented: it is handed objects with a
 single method  ask(prompt: str) -> str  (raw model text; engine parses JSON).
 """
+import collections
 import json
 import re
 import sys
@@ -221,6 +222,10 @@ nothing you don't:
    power, and only because you called it that
  {"draw":{"player":P,"n":N,"from":"top"|"bottom"}}   {"shuffle":{"player":P}}
  {"search":{"player":P,"card":name,"to":zone,"tapped":bool,"shuffle":bool}}  (engine verifies)
+   The shuffle happens after the card is placed, because that is the order you asked for.
+   A tutor whose card reads "reveal it, then shuffle and put that card on top" is three
+   atoms in that order: search it to hand with "shuffle":false, then {"shuffle":{...}},
+   then move it from hand to library_top. Sequence the atoms the way the card reads.
  {"look":{"player":P,"zone":"hand"|"library_top","n":N}} — a PRIVATE look, for Gitaxian Probe,
    Peek, Duress and anything worded "look at". The table is told only that you looked; the contents
    come back to you alone.
@@ -304,15 +309,18 @@ class Player:
         self.alive = True
         self.lands_played = 0
         self.drew_this_turn = 0
+        self.spells_this_turn = 0
 
 
 class Game:
     def __init__(self, db, decks, agents, seed, log_path, max_turns, rng, log_tail=60,
-                 judge_factory=None, console_private="all"):
+                 judge_factory=None, console_private="all", max_actions=150):
         """db: card-name -> {cost,type,text,pt}.
         decks: [(deckname, decklist, commanders)] for 2..4 seats.
         agents: objects with .ask(prompt)->str, index-aligned with decks."""
         assert 2 <= len(decks) <= 4, "pod size 2-4"
+        self.max_actions = max_actions          # sequential main-phase actions per turn
+        self.dead_calls = [0] * len(decks)      # consecutive calls a seat's brain gave up on
         self.db = db
         self.rng = rng
         self.p = [Player(f"P{n+1}", spec[0], spec[1], spec[2], rng,
@@ -327,7 +335,8 @@ class Game:
         self.log_tail = log_tail
         self.table = []           # public table log (every line ever logged)
         self.log_sent = [0] * len(decks)          # table index each seat has seen
-        self.oracle_shown = [set() for _ in decks]  # card names whose text each seat has
+        self.oracle_shown = [set(d[1]) | set(d[2]) for d in decks]   # own deck's text
+        # rides the opening brief; the digest adds only cards a seat meets later
         self.force_full = [True] * len(decks)     # full re-sync pending per seat
         self.board_full = [False] * len(decks)    # full board state due (own turn start)
         self.pending_talk = []                    # table_talk queued to land AFTER the play
@@ -367,6 +376,7 @@ class Game:
                 "hand": list(pl.hand), "graveyard": list(pl.graveyard), "exile": list(pl.exile),
                 "library": len(pl.library), "library_cards": list(pl.library),
                 "lands_played": pl.lands_played, "drew_this_turn": pl.drew_this_turn,
+                "spells_this_turn": pl.spells_this_turn,
                 "command_zone": dict(pl.command_zone),
                 "commanders": list(pl.commanders), "commander_tax": dict(pl.commander_tax),
                 "battlefield": [dict(x) for x in pl.battlefield],
@@ -595,7 +605,16 @@ class Game:
         me = self.p[i]
         to = mv.get("to")
         if to not in ZONES:
-            self.log(f"  !! move: bad destination {to!r}; skipped")
+            self.log(f"  !! move: {to!r} is not a zone — nothing moved; {me.name} asked "
+                     f"to redeclare it")
+            if getattr(self, "_depth", 0) < 1:
+                r = self.ask(i,
+                    f"PROTOCOL ERROR — you moved something to {to!r}, which is not a zone, so "
+                    f"nothing moved. The zones are: {', '.join(ZONES)}. Note that a library has "
+                    f"two ends: library_top and library_bottom. Redeclare the move, or reply "
+                    f"with an empty effects list if it should not happen.",
+                    schema_hint='{"effects":[...]}')
+                self.apply_effects(i, r.get("effects"), depth=1)
             return
         # battlefield permanent by id
         if "id" in mv:
@@ -877,10 +896,17 @@ class Game:
         if branch:
             self.apply_effects(i, branch)
 
-    def apply_effects(self, i, effects):
+    ATOMS = ("move", "life", "create", "set", "draw", "counter", "ask", "standing", "fight",
+             "dig", "search", "shuffle", "look", "reveal", "random", "eliminate", "note")
+
+    def apply_effects(self, i, effects, depth=0):
         """Apply agent-declared atoms. Each atom is armored: a malformed one
         (bad key, wrong type) logs a red skip instead of unwinding a whole
-        game — the bookkeeper errs loud and keeps going."""
+        game — the bookkeeper errs loud and keeps going. An atom whose shape the
+        engine doesn't recognise goes back to the seat once to be redeclared,
+        since a silently dropped consequence is a consequence that didn't
+        happen."""
+        self._depth = depth
         for e in effects or []:
             if not isinstance(e, dict):
                 continue
@@ -1140,16 +1166,18 @@ class Game:
                     self.log(f"  (search: {card!r} is a description, not a card — taking {hit})")
                     card = hit
             if card not in tgt.library:
-                self.log(f"  !! search: {card!r} is NOT in {tgt.name}'s library (VERIFICATION FAILED); "
-                         f"library shuffled anyway" if s.get("shuffle", True) else "")
-                if s.get("shuffle", True):
+                shuffles = s.get("shuffle", True)
+                self.log(f"  !! search: {card!r} is NOT in {tgt.name}'s library (VERIFICATION "
+                         f"FAILED); nothing found"
+                         + (", library shuffled anyway" if shuffles else ""))
+                if shuffles:
                     self.rng.shuffle(tgt.library)
                 return
             tgt.library.remove(card)
             to = s.get("to", "hand")
             self._zone_put(tgt, card, to, tapped=bool(s.get("tapped")))
-            if s.get("shuffle", True):
-                self.rng.shuffle(tgt.library)
+            if s.get("shuffle", True):      # literally "then shuffle" — a card that
+                self.rng.shuffle(tgt.library)   # shuffles first is three atoms, in order
             self.log(f"  ↳ {tgt.name} searches library: {card} → {to}" +
                      (" (shuffled)" if s.get("shuffle", True) else ""))
         elif "shuffle" in e:
@@ -1217,7 +1245,19 @@ class Game:
         elif "note" in e:
             self.log(f"  ↳ note ({me.handle}): {e['note']}")
         else:
-            self.log(f"  !! unknown effect atom {list(e.keys())}; skipped")
+            self.log(f"  !! unknown effect atom {list(e.keys())} — nothing applied; "
+                     f"{me.name} asked to redeclare it")
+            if getattr(self, "_depth", 0) < 1:
+                r = self.ask(i,
+                    f"PROTOCOL ERROR — you declared {json.dumps(e)[:400]}, which is not an effect "
+                    f"atom, so NONE of it happened. The engine reads only these atom names: "
+                    f"{', '.join(self.ATOMS)}. Redeclare exactly that consequence using them "
+                    f"(a player's experience/poison/energy counters are "
+                    f'{{"set":{{"player":P,"counters":{{"experience":1}}}}}}; moving a card between '
+                    f'zones is a "move"), or reply with an empty effects list if it should not '
+                    f"happen at all.",
+                    schema_hint='{"effects":[...]}')
+                self.apply_effects(i, r.get("effects"), depth=1)
 
 # ---------------- actions ----------------
 
@@ -1231,6 +1271,20 @@ class Game:
     ZONES_CASTABLE = {"hand": "hand", "graveyard": "graveyard", "exile": "exile",
                       "library": "library", "yard": "graveyard"}
 
+    @staticmethod
+    def face(name, zone):
+        """The card in `zone` that a declared name refers to, or None. A
+        double-faced card is stored under its full "Front // Back" name, and a
+        seat naming either face — Malakir Mire for the land, Malakir Rebirth for
+        the spell — means that card."""
+        if name in zone:
+            return name
+        want = str(name or "").strip().lower()
+        for card in zone:
+            if any(f.strip().lower() == want for f in card.split(" // ")):
+                return card
+        return None
+
     def _pay_spell(self, i, a):
         """Costs are paid at announcement. Returns from_cz, or None if illegal.
         A spell can be cast from wherever the card says it can: hand by default,
@@ -1239,6 +1293,7 @@ class Game:
         escape, the library for the likes of Etali."""
         me = self.p[i]
         c = a.get("card")
+        c = self.face(c, me.hand) or c
         from_cz = (me.command_zone.get(c, False) and c not in me.hand)
         frm = self.ZONES_CASTABLE.get(str(a.get("from") or "").lower())
         if not (c in me.hand or from_cz):
@@ -1365,6 +1420,8 @@ class Game:
                 return False
         else:
             src_perm = self._pay_ability(i, plan)
+        if kind == "spell":
+            me.spells_this_turn += 1
         self.stack_seq += 1
         tgts = [str(t) for t in (plan.get("targets") or [])]
         obj = {"id": f"stack#{self.stack_seq}", "caster": i, "kind": kind,
@@ -1525,8 +1582,9 @@ class Game:
         act = a.get("action")
         if act == "play_land":
             c = a.get("card")
-            if c in me.hand and me.lands_played < 2:  # Rites/etc: agent responsible; hard cap 2
-                me.hand.remove(c)
+            held = self.face(c, me.hand)
+            if held and me.lands_played < 2:   # Rites/etc: agent responsible; hard cap 2
+                me.hand.remove(held)
                 me.lands_played += 1
                 tapped = bool(a.get("tapped"))
                 self.perm(me, c, tapped=tapped, counters=a.get("counters"))
@@ -1585,6 +1643,33 @@ class Game:
             if len(agreed) == len(list(self.others(i))):
                 raise GameOver(None, a.get("how") or "table agreed the loop is compulsory")
         return None
+
+    DEAD_SEAT_CALLS = 5
+
+    def _watch_for_a_dead_seat(self, i):
+        """A brain that keeps failing turns the seat into a very passive opponent
+        and the game into fiction, so stop instead of playing it out."""
+        if getattr(self.agents[i], "gave_up", False):
+            self.dead_calls[i] += 1
+            if self.dead_calls[i] >= self.DEAD_SEAT_CALLS:
+                raise GameOver(None, f"{self.p[i].name}'s agent failed "
+                                     f"{self.dead_calls[i]} calls in a row")
+        else:
+            self.dead_calls[i] = 0
+
+    def _decklist_block(self, pl):
+        """The seat's own 99 with rules text — you built this deck and you know what
+        every card in it does, so tutoring and planning are not guesswork."""
+        counts = collections.Counter(pl.decklist)
+        lines = []
+        for name, n in sorted(counts.items()):
+            d = self.db.get(name, {})
+            pt = f" {d['pt'][0]}/{d['pt'][1]}" if d.get("pt") else ""
+            qty = f" x{n}" if n > 1 else ""
+            text = (d.get("text") or "").replace("\n", " ")
+            lines.append(f"  {name}{qty} — {d.get('cost') or 'Land'} — {d.get('type','')}{pt}"
+                         + (f" — {text}" if text else ""))
+        return "\n".join(lines)
 
     def digest(self, i, full_board=False):
         """Compact authoritative state: numbers and ids, no prose. Oracle text
@@ -1646,7 +1731,9 @@ class Game:
         return (f"TURN {self.turn}. Seats: {seats}\n"
                 f"YOUR HAND ({len(me.hand)}): {'; '.join(me.hand)}\n"
                 f"BATTLEFIELDS:\n{boards}\n"
-                f"Lands you've played this turn: {me.lands_played}.{stackline}{extra}{texts}")
+                f"Lands you've played this turn: {me.lands_played}. "
+                f"Spells cast this turn: {sum(pl.spells_this_turn for pl in self.p)} "
+                f"({me.handle} {me.spells_this_turn}).{stackline}{extra}{texts}")
 
     # -------- agent plumbing --------
     def ask(self, i, instruction, schema_hint=""):
@@ -1681,6 +1768,7 @@ class Game:
                          if me.personality else ""))
             self.log_sent[i] = len(self.table)
             raw = agent.ask(prompt)
+            self._watch_for_a_dead_seat(i)
             return self._parse_reply(i, raw)
         prompt = (f"You are playing Magic: The Gathering (Commander pod, {n_alive} players alive, 40 life "
                   f"start, free-for-all, last seat standing wins). You are an expert player and a table "
@@ -1697,6 +1785,9 @@ class Game:
                   f"you absorbs other people's attacks and blocks for you, and killing it early "
                   f"makes you the archenemy one opponent sooner. Spend your clock on whoever is "
                   f"closest to winning, not whoever is easiest to finish.\n"
+                  + f"\nYOUR DECKLIST — the 99 behind your commander, with rules text. You "
+                    f"built this deck and know every card in it. Anything not on this list is not "
+                    f"in your library, so never search for it:\n{self._decklist_block(me)}\n"
                   + (f"\nYOUR DECK'S GAMEPLAN: {me.strategy}\n" if me.strategy else "")
                   + (f"\nHOW YOU TALK: {me.personality} That is a sample of the register, never a "
                      f"script: its diction is yours to keep — the dialect, the punctuation, the "
@@ -1743,6 +1834,7 @@ class Game:
             n for n in self.p[i].hand + [x["name"] for pl in self.p for x in pl.battlefield]
             if n in self.db)
         raw = self.agents[i].ask(prompt)
+        self._watch_for_a_dead_seat(i)
         return self._parse_reply(i, raw)
 
     JSON_TRIES = 3          # an unreadable reply goes back to the seat, not to the floor
@@ -1901,9 +1993,11 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         self.board_full[i] = True                 # full board read at own turn start
         for pl in self.p:
             pl.drew_this_turn = 0
+            pl.spells_this_turn = 0
         for pl in self.p:                     # damage wears off at end of turn
             for x in pl.battlefield:
                 x["damage"] = 0
+        untapped = 0
         for x in me.battlefield:
             stun = _counters(x).get("stun", 0)
             skip = int(x.get("skip_untaps", 0))
@@ -1919,8 +2013,12 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 self.log(f"  ({x['id']} stays tapped — {why}"
                          + (f", {left} more" if left else "") + ")")
             else:
+                if x["tapped"]:
+                    untapped += 1
                 x["tapped"] = False
             x["sick"] = False
+        if untapped:
+            self.log(f"  ({me.name} untaps {untapped} permanent{'s' if untapped != 1 else ''}.)")
         self.narrated.clear()
         self.log(f"\n## Turn {self.turn} — {me.name} — life: " +
                  ", ".join(f"{pl.handle} {pl.life}" for pl in self.p if pl.alive))
@@ -1939,7 +2037,7 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             self.draw(me, 1)  # CR 103.8: only 2-player pods skip the first draw
             self.check_standing("draw", i, 1)
         # main phase: up to N sequential decisions
-        for _step in range(24):
+        for _step in range(self.max_actions):
             if not me.alive:
                 return
             plan = self.ask(i,
@@ -2020,8 +2118,10 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 continue
             self.do_action(i, plan)
         else:
-            self.log(f"  !! {me.name} hit the action cap ({24}/turn) — declare any unresolved "
-                     f"triggers at your end step or next window; the table should hold them to it.")
+            self.log(f"  !! {me.name} hit the action cap ({self.max_actions}/turn) — declare any "
+                     f"unresolved triggers at your end step or next window; the table should hold "
+                     f"them to it. A repeated activation belongs in one action with a count, not "
+                     f"one action per iteration.")
         # end step triggers the agent wants
         if me.alive:
             endstep = self.ask(i, "END STEP: declare any end-of-turn triggers you control (Meren of Clan "

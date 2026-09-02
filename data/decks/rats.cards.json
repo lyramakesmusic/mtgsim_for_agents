@@ -1,0 +1,278 @@
+{
+ "Altar of Dementia": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Target player mills cards equal to the sacrificed creature's power.",
+  "pt": null
+ },
+ "Ayara, First of Locthwain": {
+  "cost": "BBB",
+  "type": "Legendary Creature \u2014 Elf Noble",
+  "text": "Whenever Ayara or another black creature you control enters, each opponent loses 1 life and you gain 1 life. {T}, Sacrifice another black creature: Draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Blood Artist": {
+  "cost": "1B",
+  "type": "Creature \u2014 Vampire",
+  "text": "Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Bojuka Bog": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, exile target player's graveyard. {T}: Add {B}.",
+  "pt": null
+ },
+ "Bontu's Monument": {
+  "cost": "3",
+  "type": "Legendary Artifact",
+  "text": "Black creature spells you cast cost {1} less to cast. Whenever you cast a creature spell, each opponent loses 1 life and you gain 1 life.",
+  "pt": null
+ },
+ "Cabal Coffers": {
+  "cost": "",
+  "type": "Land",
+  "text": "{2}, {T}: Add {B} for each Swamp you control.",
+  "pt": null
+ },
+ "Crypt Ghast": {
+  "cost": "3B",
+  "type": "Creature \u2014 Spirit",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Whenever you tap a Swamp for mana, add an additional {B}.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Defile": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target creature gets -1/-1 until end of turn for each Swamp you control.",
+  "pt": null
+ },
+ "Dread Summons": {
+  "cost": "XBB",
+  "type": "Sorcery",
+  "text": "Each player mills X cards. For each creature card put into a graveyard this way, you create a tapped 2/2 black Zombie creature token. (To mill a card, a player puts the top card of their library into their graveyard.)",
+  "pt": null
+ },
+ "Echoing Return": {
+  "cost": "B",
+  "type": "Sorcery",
+  "text": "Return target creature card and all other cards with the same name as that card from your graveyard to your hand.",
+  "pt": null
+ },
+ "Fell": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Destroy target creature.",
+  "pt": null
+ },
+ "Foul-Tongue Shriek": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target opponent loses 1 life for each attacking creature you control. You gain that much life.",
+  "pt": null
+ },
+ "Golgari Thug": {
+  "cost": "1B",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "When this creature dies, put target creature card from your graveyard on top of your library. Dredge 4 (If you would draw a card, you may mill four cards instead. If you do, return this card from your graveyard to your hand.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Karumonix, the Rat King": {
+  "cost": "1BB",
+  "type": "Legendary Creature \u2014 Phyrexian Rat",
+  "text": "Toxic 1 (Players dealt combat damage by this creature also get a poison counter.) Other Rats you control have toxic 1. When Karumonix enters, look at the top five cards of your library. You may reveal any number of Rat cards from among them and put the revealed cards into your hand. Put the rest on the bottom of your library in a random order.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Kaya's Ghostform": {
+  "cost": "B",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature or planeswalker you control When enchanted permanent dies or is put into exile, return that card to the battlefield under your control.",
+  "pt": null
+ },
+ "Lightning Greaves": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
+  "pt": null
+ },
+ "Malakir Rebirth // Malakir Mire": {
+  "cost": "B",
+  "type": "Instant // Land",
+  "text": "Malakir Rebirth: Choose target creature. You lose 2 life. Until end of turn, that creature gains \"When this creature dies, return it to the battlefield tapped under its owner's control.\" // Malakir Mire: This land enters tapped. {T}: Add {B}.",
+  "pt": null
+ },
+ "Marrow-Gnawer": {
+  "cost": "3BB",
+  "type": "Legendary Creature \u2014 Rat Rogue",
+  "text": "All Rats have fear. {T}, Sacrifice a Rat: Create X 1/1 black Rat creature tokens, where X is the number of Rats you control.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Mesmeric Orb": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "Whenever a permanent becomes untapped, that permanent's controller mills a card.",
+  "pt": null
+ },
+ "Ogre Slumlord": {
+  "cost": "3BB",
+  "type": "Creature \u2014 Ogre Rogue",
+  "text": "Whenever another nontoken creature dies, you may create a 1/1 black Rat creature token. Rats you control have deathtouch.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Patriarch's Bidding": {
+  "cost": "3BB",
+  "type": "Sorcery",
+  "text": "Each player chooses a creature type. Each player returns all creature cards of a type chosen this way from their graveyard to the battlefield.",
+  "pt": null
+ },
+ "Perpetual Timepiece": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Mill two cards. (Put the top two cards of your library into your graveyard.) {2}, Exile this artifact: Shuffle any number of target cards from your graveyard into your library.",
+  "pt": null
+ },
+ "Pitiless Plunderer": {
+  "cost": "3B",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "Whenever another creature you control dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Rat Colony": {
+  "cost": "1B",
+  "type": "Creature \u2014 Rat",
+  "text": "This creature gets +1/+0 for each other Rat you control. A deck can have any number of cards named Rat Colony.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Rat King, Verminister": {
+  "cost": "1B",
+  "type": "Legendary Creature \u2014 Rat Avatar",
+  "text": "Disappear \u2014 At the beginning of your end step, if a permanent left the battlefield under your control this turn, create a 1/1 black Rat creature token and put a +1/+1 counter on Rat King. {T}, Sacrifice three Rats: Return target creature card and all other cards with the same name as that card from your graveyard to the battlefield tapped.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/-1. Whenever equipped creature dies, draw two cards. Equip {1}",
+  "pt": null
+ },
+ "Species Specialist": {
+  "cost": "2BB",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "As this creature enters, choose a creature type. Whenever a creature of the chosen type dies, you may draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Supernatural Stamina": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Until end of turn, target creature gets +2/+0 and gains \"When this creature dies, return it to the battlefield tapped under its owner's control.\"",
+  "pt": null
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land \u2014 Swamp",
+  "text": "({T}: Add {B}.)",
+  "pt": null
+ },
+ "Thornbite Staff": {
+  "cost": "2",
+  "type": "Kindred Artifact \u2014 Shaman Equipment",
+  "text": "Equipped creature has \"{2}, {T}: This creature deals 1 damage to any target\" and \"Whenever a creature dies, untap this creature.\" Whenever a Shaman creature enters, you may attach this Equipment to it. Equip {4}",
+  "pt": null
+ },
+ "Thrumming Stone": {
+  "cost": "5",
+  "type": "Legendary Artifact",
+  "text": "Spells you cast have ripple 4. (Whenever you cast a spell, you may reveal the top four cards of your library. You may cast spells with the same name as that spell from among the revealed cards without paying their mana costs. Put the rest on the bottom of your library.)",
+  "pt": null
+ },
+ "Tragic Slip": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target creature gets -1/-1 until end of turn. Morbid \u2014 That creature gets -13/-13 until end of turn instead if a creature died this turn.",
+  "pt": null
+ },
+ "Village Rites": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Draw two cards.",
+  "pt": null
+ },
+ "Agent Venom": {
+  "cost": "2B",
+  "type": "Legendary Creature \u2014 Symbiote Soldier Hero",
+  "text": "Flash Menace Whenever another nontoken creature you control dies, you draw a card and lose 1 life.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Grim Haruspex": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Morph {B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.) Whenever another nontoken creature you control dies, draw a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Midnight Reaper": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Knight",
+  "text": "Whenever a nontoken creature you control dies, this creature deals 1 damage to you and you draw a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Pact of the Serpent": {
+  "cost": "1BB",
+  "type": "Sorcery",
+  "text": "Choose a creature type. Target player draws X cards and loses X life, where X is the number of creatures they control of the chosen type.",
+  "pt": null
+ },
+ "Dark Ritual": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Add {B}{B}{B}.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ }
+}

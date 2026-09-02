@@ -1,0 +1,479 @@
+{
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Archmage Emeritus": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Ashling, Flame Dancer": {
+  "cost": "2RR",
+  "type": "Legendary Creature \u2014 Elemental Shaman",
+  "text": "You don't lose unspent red mana as steps and phases end. Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, discard a card, then draw a card. If this is the second time this ability has resolved this turn, Ashling deals 2 damage to each opponent and each creature they control. If it's the third time, add {R}{R}{R}{R}.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Brainstorm": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Draw three cards, then put two cards from your hand on top of your library in any order.",
+  "pt": null
+ },
+ "Cerulean Wisps": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature becomes blue until end of turn. Untap that creature. Draw a card.",
+  "pt": null
+ },
+ "Claim the Firstborn": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Gain control of target creature with mana value 3 or less until end of turn. Untap that creature. It gains haste until end of turn.",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Consider": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Surveil 1. (Look at the top card of your library. You may put it into your graveyard.) Draw a card.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Demand Answers": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact or discard a card. Draw two cards.",
+  "pt": null
+ },
+ "Dramatic Reversal": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Untap all nonland permanents you control.",
+  "pt": null
+ },
+ "Dream's Grip": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Tap target permanent. \u2022 Untap target permanent. Entwine {1} (Choose both if you pay the entwine cost.)",
+  "pt": null
+ },
+ "Expressive Iteration": {
+  "cost": "UR",
+  "type": "Sorcery",
+  "text": "Look at the top three cards of your library. Put one of them into your hand, put one of them on the bottom of your library, and exile one of them. You may play the exiled card this turn.",
+  "pt": null
+ },
+ "Faithless Looting": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "Draw two cards, then discard two cards. Flashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Flow State": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "Look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order. If there is an instant card and a sorcery card in your graveyard, instead put two of them into your hand and the rest on the bottom of your library in any order.",
+  "pt": null
+ },
+ "Frantic Search": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Draw two cards, then discard two cards. Untap up to three lands.",
+  "pt": null
+ },
+ "Gelectrode": {
+  "cost": "1UR",
+  "type": "Creature \u2014 Weird",
+  "text": "{T}: This creature deals 1 damage to any target. Whenever you cast an instant or sorcery spell, you may untap this creature.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Gitaxian Probe": {
+  "cost": "(U/P)",
+  "type": "Sorcery",
+  "text": "({U/P} can be paid with either {U} or 2 life.) Look at target player's hand. Draw a card.",
+  "pt": null
+ },
+ "Hawkeye's Bow": {
+  "cost": "R",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/+0 and has reach. Whenever equipped creature becomes tapped, it deals 1 damage to each opponent. Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Hexing Squelcher": {
+  "cost": "1R",
+  "type": "Creature \u2014 Goblin Sorcerer",
+  "text": "This spell can't be countered. Ward\u2014Pay 2 life. Spells you control can't be countered. Other creatures you control have \"Ward\u2014Pay 2 life.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Hidden Strings": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "You may tap or untap target permanent, then you may tap or untap another target permanent. Cipher (Then you may exile this spell card encoded on a creature you control. Whenever that creature deals combat damage to a player, its controller may cast a copy of the encoded card without paying its mana cost.)",
+  "pt": null
+ },
+ "Hijack": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Gain control of target artifact or creature until end of turn. Untap it. It gains haste until end of turn.",
+  "pt": null
+ },
+ "Ideas Unbound": {
+  "cost": "UU",
+  "type": "Sorcery \u2014 Arcane",
+  "text": "Draw three cards. Discard three cards at the beginning of the next end step.",
+  "pt": null
+ },
+ "Impulse": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Look at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Kari Zev's Expertise": {
+  "cost": "1RR",
+  "type": "Sorcery",
+  "text": "Gain control of target creature or Vehicle until end of turn. Untap it. It gains haste until end of turn. You may cast a spell with mana value 2 or less from your hand without paying its mana cost.",
+  "pt": null
+ },
+ "Krenko, Mob Boss": {
+  "cost": "2RR",
+  "type": "Legendary Creature \u2014 Goblin Warrior",
+  "text": "{T}: Create X 1/1 red Goblin creature tokens, where X is the number of Goblins you control.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Laboratory Maniac": {
+  "cost": "2U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "If you would draw a card while your library has no cards in it, you win the game instead.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Lightning Bolt": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Lightning Bolt deals 3 damage to any target.",
+  "pt": null
+ },
+ "Magmatic Insight": {
+  "cost": "R",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, discard a land card. Draw two cards.",
+  "pt": null
+ },
+ "Merchant Scroll": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "Search your library for a blue instant card, reveal that card, put it into your hand, then shuffle.",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Mystical Tutor": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Search your library for an instant or sorcery card, reveal it, then shuffle and put that card on top.",
+  "pt": null
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Opt": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Scry 1. (Look at the top card of your library. You may put that card on the bottom.) Draw a card.",
+  "pt": null
+ },
+ "Personal Tutor": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Search your library for a sorcery card, reveal it, then shuffle and put that card on top.",
+  "pt": null
+ },
+ "Ponder": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Look at the top three cards of your library, then put them back in any order. You may shuffle. Draw a card.",
+  "pt": null
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Portent": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Look at the top three cards of target player's library, then put them back in any order. You may have that player shuffle. Draw a card at the beginning of the next turn's upkeep.",
+  "pt": null
+ },
+ "Preordain": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Scry 2, then draw a card. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+  "pt": null
+ },
+ "Psychic Puppetry": {
+  "cost": "1U",
+  "type": "Instant \u2014 Arcane",
+  "text": "You may tap or untap target permanent. Splice onto Arcane {U} (As you cast an Arcane spell, you may reveal this card from your hand and pay its splice cost. If you do, add this card's effects to that spell.)",
+  "pt": null
+ },
+ "Ral, Storm Conduit": {
+  "cost": "2UR",
+  "type": "Legendary Planeswalker \u2014 Ral",
+  "text": "Whenever you cast or copy an instant or sorcery spell, Ral deals 1 damage to target opponent or planeswalker. +2: Scry 1. \u22122: When you next cast an instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy. [Loyalty 4 \u2014 track via counters+notes]",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "pt": null
+ },
+ "Refocus": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Untap target creature. Draw a card.",
+  "pt": null
+ },
+ "Rhystic Study": {
+  "cost": "2U",
+  "type": "Enchantment",
+  "text": "Whenever an opponent casts a spell, you may draw a card unless that player pays {1}.",
+  "pt": null
+ },
+ "Seize the Day": {
+  "cost": "3R",
+  "type": "Sorcery",
+  "text": "Untap target creature. After this main phase, there is an additional combat phase followed by an additional main phase. Flashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Serum Visions": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Draw a card. Scry 2.",
+  "pt": null
+ },
+ "Shivan Reef": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {U} or {R}. This land deals 1 damage to you.",
+  "pt": null
+ },
+ "Shore Up": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature you control gets +1/+1 and gains hexproof until end of turn. Untap it. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Sleight of Hand": {
+  "cost": "U",
+  "type": "Sorcery",
+  "text": "Look at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library.",
+  "pt": null
+ },
+ "Snap": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Return target creature to its owner's hand. Untap up to two lands.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spellseeker": {
+  "cost": "2U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "When this creature enters, you may search your library for an instant or sorcery card with mana value 2 or less, reveal it, put it into your hand, then shuffle.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Stella Lee, Wild Card": {
+  "cost": "1UR",
+  "type": "Legendary Creature \u2014 Human Rogue",
+  "text": "Whenever you cast your second spell each turn, exile the top card of your library. Until the end of your next turn, you may play that card. {T}: Copy target instant or sorcery spell you control. You may choose new targets for the copy. Activate only if you've cast three or more spells this turn.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Storm-Kiln Artist": {
+  "cost": "3R",
+  "type": "Creature \u2014 Dwarf Shaman",
+  "text": "This creature gets +1/+0 for each artifact you control. Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Strategic Planning": {
+  "cost": "1U",
+  "type": "Sorcery",
+  "text": "Look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.",
+  "pt": null
+ },
+ "Sulfur Falls": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control an Island or a Mountain. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Temple of Epiphany": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Thassa's Oracle": {
+  "cost": "UU",
+  "type": "Creature \u2014 Merfolk Wizard",
+  "text": "When this creature enters, look at the top X cards of your library, where X is your devotion to blue. Put up to one of them on top of your library and the rest on the bottom of your library in a random order. If X is greater than or equal to the number of cards in your library, you win the game. (Each {U} in the mana costs of permanents you control counts toward your devotion to blue.)",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Thermo-Alchemist": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "Defender {T}: This creature deals 1 damage to each opponent. Whenever you cast an instant or sorcery spell, untap this creature.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Thrill of Possibility": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, discard a card. Draw two cards.",
+  "pt": null
+ },
+ "Toils of Night and Day": {
+  "cost": "2U",
+  "type": "Instant \u2014 Arcane",
+  "text": "You may tap or untap target permanent, then you may tap or untap another target permanent.",
+  "pt": null
+ },
+ "Twiddle": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "You may tap or untap target artifact, creature, or land.",
+  "pt": null
+ },
+ "Twinning Staff": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "If you would copy a spell one or more times, instead copy it that many times plus an additional time. You may choose new targets for the additional copy. {7}, {T}: Copy target instant or sorcery spell you control. You may choose new targets for the copy.",
+  "pt": null
+ },
+ "Twitch": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "You may tap or untap target artifact, creature, or land. Draw a card.",
+  "pt": null
+ },
+ "Veyran, Voice of Duality": {
+  "cost": "1UR",
+  "type": "Legendary Creature \u2014 Efreet Wizard",
+  "text": "Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, Veyran gets +1/+1 until end of turn. If you casting or copying an instant or sorcery spell causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Windfall": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Each player discards their hand, then draws cards equal to the greatest number of cards a player discarded this way.",
+  "pt": null
+ },
+ "Goblin Fireslinger": {
+  "cost": "R",
+  "type": "Creature \u2014 Goblin Warrior",
+  "text": "{T}: This creature deals 1 damage to target player or planeswalker.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Act of Treason": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. (It can attack and {T} this turn.)",
+  "pt": null
+ },
+ "Codex Shredder": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Target player mills a card. (They put the top card of their library into their graveyard.) {5}, {T}, Sacrifice this artifact: Return target card from your graveyard to your hand.",
+  "pt": null
+ },
+ "Cunning Sparkmage": {
+  "cost": "2R",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "Haste {T}: This creature deals 1 damage to any target.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Prodigal Pyromancer": {
+  "cost": "2R",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "{T}: This creature deals 1 damage to any target.",
+  "pt": [
+   1,
+   1
+  ]
+ }
+}

@@ -25,6 +25,9 @@ if __name__ == "__main__":
                     help="repeatable; games cycle through the given pods (vary the opposition)")
     ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--max-turns", type=int, default=20)
+    ap.add_argument("--max-actions", type=int, default=150,
+                    help="sequential main-phase actions per turn "
+                         "(storm turns are long)")
     ap.add_argument("--seed", type=int, default=None, help="base seed; game k uses seed+k")
     ap.add_argument("--codex-tier", default=None, choices=["fast", "priority", "flex"])
     ap.add_argument("--codex-effort", default=None, choices=["minimal", "low", "medium", "high"])
@@ -46,6 +49,7 @@ if __name__ == "__main__":
         log = gdir / f"g{k+1:02d}.md"
         cmd = [sys.executable, str(ROOT / "play.py"), "--pod", pod,
                "--seed", str(base + k), "--max-turns", str(args.max_turns),
+               "--max-actions", str(args.max_actions),
                "--log", str(log), "--transcripts", str(ROOT / "logs" / f"tourney_{stamp}" / f"g{k+1:02d}")]
         for flag in ("codex_tier", "codex_effort", "claude_model", "codex_model"):
             v = getattr(args, flag)

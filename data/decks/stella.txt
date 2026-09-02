@@ -1,0 +1,79 @@
+// strategy: use stella's tap to copy ability to copy an untap spell and turn it into a winning payoff. your christmas scenario reads something like: t1:island,sol ring t2:mountain,lab maniac t3:island,stella t4: ponder, opt, refocus=win. or: t1:mountain,hawkeyes bow t2:island,impulse t3:stella t4:equip bow, gitaxian probe, consider, refocus=win. or use hidden strings to repeatedly untap both stella and some other permanent with a tap payoff. or abuse magecraft. if you can get a copy loop going, ideally with hidden strings (this is your tutor target! prefer this, second best is toils of night and day, then any untap cantrip). once you can make infinite tap/untap/magecraft triggers, you can probably assemble a way to win. the main path - and most redundant - is finding hidden strings, dramatic reversal, toils, or twinning staff and then using the doubled untap triggers to repeatedly untap a creature that taps to deal damage (such as goblin fireslinger). it might take longer than the 4 turn christmas version, but the density of copyable untap spells, draw/tutors, and magecraft payoffs is dense enough you should be able to get wins quick. make sure you can cast 2 cheap spells before the tap loop to get it online - the untap spell is the third, copy it on the stack. pay close attention to which of your cantrips are sorceries - more than you think. let things resolve before looping, you don't really need to play stack shenanigans. you need to have a payoff of some kind, ideally a tutor, probably draw, and some way of making both red and blue mana. 3 lands ideal to guarantee stella.
+// scouting: runs tap/untap loops with magecraft
+// personality: a card sharp doing tricks at a table, delighted with herself and needing an audience. short punchy lines, quick, theatrical, already three steps ahead and wants you to notice. watch this. no — watch. again. still with me? she is showing off, not being cruel, and there is real warmth under it. she never explains the trick afterward.
+
+Commander
+1 Stella Lee, Wild Card (OTC) 3
+
+Deck
+1 Act of Treason (RNA) 91
+1 An Offer You Can't Refuse (FIC) 267
+1 Archmage Emeritus (SOC) 188
+1 Ashling, Flame Dancer (MH3) 115
+1 Brainstorm (TLE) 155
+1 Cerulean Wisps (PLST) SHM-31
+1 Claim the Firstborn (ELD) 118
+1 Codex Shredder (RTR) 228
+1 Command Tower (ECC) 59
+1 Consider (TLE) 157
+1 Counterspell (CMM) 81
+1 Cunning Sparkmage (WWK) 79
+1 Demand Answers (MKM) 122
+1 Dramatic Reversal (KLD) 44
+1 Dream's Grip (MRD) 34
+1 Expressive Iteration (TDC) 288
+1 Faithless Looting (PLST) OTC-165
+1 Flow State (SOS) 49
+1 Frantic Search (TLE) 159
+1 Gelectrode (GK1) 38
+1 Gitaxian Probe (PLST) NPH-35
+1 Goblin Fireslinger (M12) 139
+1 Hawkeye's Bow (MSH) 132
+1 Hexing Squelcher (ECL) 145
+1 Hidden Strings (DGM) 12
+1 Hijack (XLN) 148
+1 Ideas Unbound (PLST) SOK-40
+1 Impulse (GN3) 30
+18 Island (MSH) 290
+1 Kari Zev's Expertise (AER) 88
+1 Krenko, Mob Boss (DDN) 15
+1 Laboratory Maniac (PLST) INR-71
+1 Lightning Bolt (MSC) 806
+1 Magmatic Insight (ORI) 155
+1 Merchant Scroll (MB2) 167
+12 Mountain (XLN) 274
+1 Mystical Tutor (DMR) 60
+1 Negate (TMT) 47
+1 Opt (FDN) 512
+1 Personal Tutor (CMM) 633
+1 Ponder (TDC) 159
+1 Pongify (PLST) OTC-106
+1 Portent (DSC) 74
+1 Preordain (C15) 101
+1 Prodigal Pyromancer (IMA) 142
+1 Psychic Puppetry (CHK) 80
+1 Ral, Storm Conduit (PLST) WAR-211
+1 Rapid Hybridization (PLST) C21-126
+1 Refocus (FRF) 47
+1 Rhystic Study (JMP) 169
+1 Seize the Day (MSC) 166
+1 Serum Visions (AFC) 94
+1 Shivan Reef (SOC) 404
+1 Shore Up (BLB) 69
+1 Sleight of Hand (WOE) 67
+1 Snap (PLST) DDS-10
+1 Sol Ring (MSC) 211
+1 Spellseeker (BBD) 41
+1 Storm-Kiln Artist (SOC) 255
+1 Strategic Planning (C13) 59
+1 Sulfur Falls (MSC) 269
+1 Temple of Epiphany (FDN) 699
+1 Thassa's Oracle (PTHB) 73p
+1 Thermo-Alchemist (EMN) 147
+1 Thrill of Possibility (M21) 165
+1 Toils of Night and Day (PLST) BOK-57
+1 Twiddle (30A) 85
+1 Twinning Staff (C20) 70
+1 Twitch (WWK) 43
+1 Veyran, Voice of Duality (SOC) 337
+1 Windfall (C16) 104
