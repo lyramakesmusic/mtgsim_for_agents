@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Agent postmortems for finished games — deck performance, not plot summary.
+"""Agent postmortems for finished games — what happened, not what to do about it.
 
   uv run scripts/postmortem.py games/20260804_000350.md            # one game
   uv run scripts/postmortem.py games/tourney_20260805_*/           # a whole tourney dir
@@ -59,7 +59,7 @@ Turn-stamped moments where the win actually moved. For each: what resolved, what
 - interaction ledger: answers faced / answers held / answers actually spent. Removal aimed at this deck vs. protection it presented in response.
 - threat clock: the turn the table collectively decided this deck was the problem, and what triggered it (cite thinking lines).
 - politics: deals made/broken; whether the social game moved the outcome more than the cards did.
-- one change: exactly one sentence — the single edit (card swap, memo line, or play choice) most likely to flip this deck's result (or, for the winner, hedge its closest brush).
+- what was missing: exactly one sentence — the thing this deck needed in THIS game and did not have (a card, a turn, a piece, an answer). Describe the gap, not a deck edit; the reader decides what to do about it.
 
 ## Sim health (separate channel — never mixed into deck audits)
 Rules errors, judge interventions, bookkeeping failures, disputed plays, any crash: what happened mechanically, roughly what each cost in table-time, engine bug vs agent error.
@@ -68,32 +68,50 @@ Rules errors, judge interventions, bookkeeping failures, disputed plays, any cra
 A fenced json block exactly of this shape:
 {{"winner": str|null, "win_how": str, "turns": int, "crashed": bool,
  "eliminations": [{{"seat","deck","turn","proximate","root"}}],
- "decks": {{seat: {{"deck","wincon_attempted","wincon_fired": bool,"memo_violations": [str],"mvp": [str],"dead": [str],"never_surfaced": [str],"threat_clock_turn": int,"one_change": str}}}},
+ "decks": {{seat: {{"deck","wincon_attempted","wincon_fired": bool,"memo_violations": [str],"mvp": [str],"dead": [str],"never_surfaced": [str],"threat_clock_turn": int,"missing": str}}}},
  "sim_health": {{"judge_calls": int, "atom_errors": int, "disputes": [str]}}}}
 
 Constraints: be concrete — name cards, turn-stamp everything, quote table talk sparingly but lethally. No plot summary; every sentence must carry a decision-relevant fact someone could act on (a deck edit, a memo edit, or an engine fix). If the log contradicts a deck memo's theory of the deck, say so bluntly. Your final answer must be the complete markdown report and nothing else."""
 
-COMBINE = """You are synthesizing {n} single-game Magic deck-performance postmortems into one tournament report. Below are the per-game JSON summaries (same pod each game). Produce a markdown report:
+COMBINE = """You are summarizing {n} single-game Magic postmortems from one pod into a record of what
+happened across those games. Below are the per-game JSON summaries.
 
-## Standings
-Win counts by deck (crashed games: note who held the winning position), median game length, elimination-order tendencies.
+You are reporting observations, not verdicts. The reader wants to know what these games contained —
+which lines were used, what never showed up, what the table did — and will draw their own conclusions
+about the decks. Write the kind of fact that is interesting because it happened: "squirrels won with
+the scurry oak line, not the infinite the memo leads with", "orvar copied three permanents all
+tournament", "two counterspells were cast in the whole pod and every commander still died twice".
 
-## Wincon reality check
-Per deck: how often the memo's win line actually fired vs. improvised lines vs. nothing. Combo pieces that repeatedly surfaced without assembling.
+Rules, non-negotiable:
+- Every number carries its denominator: "2 of 4 games", "once", "3 of 12 casts". Never a bare count
+  that reads like a rate.
+- Something that happened once is reported as having happened once. Do not promote it to a pattern,
+  a confirmation, or a property of the deck.
+- Banned words: confirmed, proven, always, never (as a deck property), cut, keep, must. You are not
+  ranking cards or prescribing edits.
+- Distinguish "drawn and unused" from "never surfaced" every time — they are different facts about a
+  game and the per-game JSON already separates them.
+- A deck that lost three games while assembling nothing tells you about those three shuffles, not
+  about the deck. Say which it was.
 
-## Recurring failure modes
-Ranked by frequency across games. Root causes, not proximate ones. Which one_change suggestions recur — those are the real signal.
+## Results
+Per game: winner, turn, and the line that actually killed — one line each.
 
-## Card verdicts
-Cards appearing in multiple MVP lists; cards appearing in multiple dead lists (cut candidates); suites that repeatedly never surfaced (density questions).
+## What each deck did
+Per deck, across the {n} games: which win line it went for and how far it got each time; which pieces
+it held without assembling; which parts of the deck never appeared at all. Name turns.
 
-## Proposed memo diffs
-For each deck with recurring doctrine violations or misfires: concrete replacement sentences for its strategy memo. Quote current phrase -> proposed phrase.
+## What the table did
+Interaction actually cast (count it), commanders killed and by what, who the table attacked and when,
+deals made or refused. The point is the shape of the pod, not a verdict on anyone.
 
-## Engine watchlist
-Sim-health issues appearing in 2+ games.
+## Worth knowing
+Up to five specific things that happened that a reader would want to know — an unusual line, a
+misplay with a visible cost, a card doing something its deck did not intend, a seat reasoning its way
+somewhere surprising. Turn-stamp each and say plainly if it happened once.
 
-Be terse and decision-dense. Every line should change a deck, a memo, or the engine.
+## Sim health
+Mechanical problems appearing in 2+ games, with counts. Keep engine bugs and agent errors separate.
 
 === PER-GAME JSON ===
 {blobs}"""

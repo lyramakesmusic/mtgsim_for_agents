@@ -168,6 +168,9 @@ ACTIONS: {"action":"play_land","card":...,"tapped":bool} | {"action":"cast","car
   places what you looked at: top and bottom reorder the library, take pulls cards out of
   it into another zone (Lead the Stampede, hideaway, "look at N, put some in hand").
 {"action":"correct","effects":[...],"narration":"what was wrong"} |
+claim_win takes an optional "player": name another seat to say THEY have already won —
+  the table votes on it the same way, and you can do this on any turn, including one
+  where the win happened and nobody declared it.
 {"action":"pass"}
 correct = bookkeeping repair, not a game action: fixing your own earlier error, applying a
 judge ruling, honoring a correction the table agreed on. It applies its atoms directly — no
@@ -207,6 +210,10 @@ nothing you don't:
  {"move":{"player":P,"from":zone,"card":name|"n":N|"all":true,"to":zone,"tapped":bool}}
    (verified against real zone contents; "all" empties the zone — wheels, mass discard;
    mill is from "library_top" with "n": {"move":{"player":"P2","from":"library_top","n":2,"to":"graveyard"}})
+   A move from library_top or library_bottom is POSITIONAL: it takes that many cards off
+   that end, and a "card" name there is refused rather than guessed at. After a look at
+   your top few, take a specific one by first moving the ones above it to library_bottom,
+   then taking the top card — that is Brainstorm, Ponder, Impulse and Sleight of Hand.
  {"life":{"player":P,"delta":±N}}
  {"create":{"player":P,"name":...,"n":N,"pt":[p,t],"tapped":bool}}
  {"set":{"id":perm_id,"tapped":bool,"sick":bool,"counters":±delta,"pt":[p,t],"skip_untaps":N}}
@@ -334,6 +341,7 @@ class Game:
         assert 2 <= len(decks) <= 4, "pod size 2-4"
         self.max_actions = max_actions          # sequential main-phase actions per turn
         self.dead_calls = [0] * len(decks)      # consecutive calls a seat's brain gave up on
+        self.idle_corrections = [0] * len(decks)  # corrections in a row that changed nothing
         self.db = db
         self.rng = rng
         self.p = [Player(f"P{n+1}", spec[0], spec[1], spec[2], rng,
@@ -1662,16 +1670,32 @@ class Game:
             self._resolve_ability(i, a, perm)
         elif act == "correct":
             # bookkeeping repair: atoms apply directly, no stack, no windows
+            effects = a.get("effects") or []
+            changes = [e for e in effects if isinstance(e, dict) and set(e) != {"note"}]
+            self.idle_corrections[i] = 0 if changes else self.idle_corrections[i] + 1
             self.log(f"{me.name} corrects the board — {a.get('narration') or '(no explanation given)'}")
-            self.apply_effects(i, a.get("effects"))
+            self.apply_effects(i, effects)
+            if self.idle_corrections[i] >= self.IDLE_CORRECTIONS:
+                self.idle_corrections[i] = 0
+                self.log(f"  !! {me.name} has corrected the board {self.IDLE_CORRECTIONS} times "
+                         f"running without changing anything. If you believe the game has already "
+                         f"ended, say so once and pass; the table and the judge decide, not "
+                         f"repetition. Treating this as a pass.")
+                return "pass"
         elif act == "pass":
             pass
         elif act == "claim_win":
-            self.log(f"**{me.name} claims they WIN THE GAME: {a.get('how')}"
-                     + (f" — loop: {a.get('loop')}" if a.get("loop") else "") + "**")
-            for pl in list(self.others(i)):
+            winner = self.resolve_player(i, a.get("player", "self")) or me
+            if winner is me:
+                self.log(f"**{me.name} claims they WIN THE GAME: {a.get('how')}"
+                         + (f" — loop: {a.get('loop')}" if a.get("loop") else "") + "**")
+            else:
+                self.log(f"**{me.name} says {winner.name} HAS ALREADY WON: {a.get('how')}"
+                         + (f" — loop: {a.get('loop')}" if a.get("loop") else "") + "**")
+            for pl in [x for x in self.p if x.alive and x is not me and x is not winner]:
                 verdict = self.ask(self.p.index(pl),
-                    f"{me.name} claims a rules-based win (see table log). "
+                    f"{me.name} claims a rules-based win for "
+                    f"{'themselves' if winner is me else winner.name} (see table log). "
                     "Reply JSON {\"concede\": true/false, \"reason\": \"...\"}. Concede only if the claim is "
                     "genuinely sound and you have no answer available.",
                     schema_hint='{"concede": bool, "reason": str}')
@@ -1680,6 +1704,13 @@ class Game:
                     self.eliminate(pl, "conceded to claimed win")
                 else:
                     self.log(f"  ↳ {pl.name} DISPUTES: {verdict.get('reason')} — play continues")
+            if winner is not me:
+                # naming someone else the winner concedes on your own behalf too
+                left = [x for x in self.p if x.alive and x is not winner and x is not me]
+                if not left:
+                    self.log(f"  ↳ {me.name} concedes as well — {winner.name} has won.")
+                    raise GameOver(self.p.index(winner),
+                                   a.get("how") or "the table agreed they had already won")
         elif act == "claim_draw":
             self.log(f"**{me.name} claims the game is a DRAW: {a.get('how')}"
                      + (f" — loop: {a.get('loop')}" if a.get("loop") else "") + "**")
@@ -1702,6 +1733,7 @@ class Game:
         return None
 
     DEAD_SEAT_CALLS = 5
+    IDLE_CORRECTIONS = 3
 
     def _watch_for_a_dead_seat(self, i):
         """A brain that keeps failing turns the seat into a very passive opponent
@@ -2187,7 +2219,8 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             if act == "cast":
                 self.resolve_on_stack(i, plan, kind="spell")
                 continue
-            self.do_action(i, plan)
+            if self.do_action(i, plan) == "pass":
+                break
         else:
             self.log(f"  !! {me.name} hit the action cap ({self.max_actions}/turn) — declare any "
                      f"unresolved triggers at your end step or next window; the table should hold "

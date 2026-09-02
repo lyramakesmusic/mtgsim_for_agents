@@ -383,3 +383,30 @@ def test_an_untagged_export_has_no_groups():
     from mtgsim.cards import tags_from_text
 
     assert tags_from_text("Deck\n1 Island\n1 Mountain\n") == {}
+
+
+def test_a_seat_can_say_someone_else_has_already_won(make_game):
+    """A seat worked out that an opponent had won, had no vocabulary for it, and
+    corrected the board eighteen times instead. You can declare a loss for someone
+    else; you should be able to declare a win for them too."""
+    import json as _json
+    import pytest
+    from mtgsim.engine import GameOver
+    from conftest import StubAgent
+
+    seen = []
+
+    def concede(prompt):
+        seen.append(prompt)
+        return _json.dumps({"concede": True, "reason": "the trigger resolved, it is over"})
+
+    g = make_game()
+    g.agents = [StubAgent(concede) for _ in g.p]
+
+    with pytest.raises(GameOver) as caught:
+        g.do_action(1, {"action": "claim_win", "player": "P3",
+                        "how": "Thassa's Oracle with an empty library"})
+    assert caught.value.winner == 2, caught.value.winner
+    assert any("HAS ALREADY WON" in line for line in g.table)
+    assert seen and "P3(squirrels)" in seen[0], seen[0][:160]
+    assert "claims a rules-based win for P3(squirrels)" in seen[0]

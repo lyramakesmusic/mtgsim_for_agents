@@ -514,3 +514,31 @@ def test_a_recovered_seat_does_not_count_toward_the_limit(make_game):
     for _ in range(g.DEAD_SEAT_CALLS * 3):
         g.ask(0, "anything")
     assert g.dead_calls[0] == 0
+
+
+def test_a_seat_correcting_nothing_over_and_over_is_moved_along(make_game):
+    """A seat that believes the game already ended corrected the board eighteen
+    times in a row and would not act; the game could not proceed and could not
+    conclude. Saying it once is enough."""
+    g = make_game()
+    me = g.p[0]
+
+    for _ in range(g.IDLE_CORRECTIONS - 1):
+        out = g.do_action(0, {"action": "correct", "narration": "the match is over",
+                              "effects": [{"note": "game over"}]})
+        assert out != "pass"
+
+    out = g.do_action(0, {"action": "correct", "narration": "the match is over",
+                          "effects": [{"note": "game over"}]})
+    assert out == "pass"
+    assert any("without changing anything" in line for line in g.table)
+
+
+def test_a_correction_that_changes_something_resets_the_count(make_game):
+    g = make_game()
+    me = g.p[0]
+    me.hand.append("Swamp")
+    for _ in range(g.IDLE_CORRECTIONS + 2):
+        g.do_action(0, {"action": "correct", "narration": "fixing a real thing",
+                        "effects": [{"life": {"player": "self", "delta": -1}}]})
+    assert g.idle_corrections[0] == 0
