@@ -1,0 +1,82 @@
+{
+ "vestments": [
+  "All That Glitters",
+  "Ancestral Mask",
+  "Armadillo Cloak",
+  "Bear Umbra",
+  "Blackblade Reforged",
+  "Daybreak Coronet",
+  "Ethereal Armor",
+  "Loxodon Warhammer",
+  "Rancor",
+  "Shield of the Oversoul",
+  "Snake Umbra",
+  "Unflinching Courage"
+ ],
+ "the path clears": [
+  "Battle Mastery",
+  "Duelist's Heritage",
+  "Spirit Mantle"
+ ],
+ "she cannot be touched": [
+  "Akroma's Will",
+  "Bastion Protector",
+  "Flawless Maneuver",
+  "Gift of Immortality",
+  "Grand Abolisher",
+  "Heroic Intervention",
+  "Hyena Umbra",
+  "Shalai, Voice of Plenty",
+  "Shielded by Faith",
+  "Swiftfoot Boots",
+  "Tamiyo's Safekeeping",
+  "Timely Ward"
+ ],
+ "the choir": [
+  "Eidolon of Blossoms",
+  "Enchantress's Presence",
+  "Kor Spiritdancer",
+  "Mesa Enchantress",
+  "Satyr Enchanter",
+  "Season of Growth",
+  "Setessan Champion",
+  "Sram, Senior Edificer",
+  "Sylvan Library"
+ ],
+ "seek the raiment": [
+  "Heliod's Pilgrim",
+  "Open the Armory"
+ ],
+ "resurrection": [
+  "Eternal Witness",
+  "Retether",
+  "Sun Titan"
+ ],
+ "the mundane answer": [
+  "Aura Shards",
+  "Beast Within",
+  "Generous Gift",
+  "Krosan Grip",
+  "Path to Exile",
+  "Return to Dust",
+  "Stroke of Midnight",
+  "Swords to Plowshares"
+ ],
+ "cleanse it": [
+  "Winds of Rath",
+  "Wrath of God"
+ ],
+ "the grove": [
+  "Arbor Elf",
+  "Arcane Signet",
+  "Avacyn's Pilgrim",
+  "Birds of Paradise",
+  "Fyndhorn Elves",
+  "Llanowar Elves",
+  "Nature's Lore",
+  "Rampant Growth",
+  "Sakura-Tribe Elder",
+  "Selesnya Signet",
+  "Sol Ring"
+ ]
+}

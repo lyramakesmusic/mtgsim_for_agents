@@ -1,0 +1,84 @@
+{
+ "contempt of court": [
+  "Authority of the Consuls",
+  "Fog Bank",
+  "Ghostly Prison",
+  "Norn's Annex",
+  "Propaganda",
+  "Sphere of Safety",
+  "Windborn Muse"
+ ],
+ "the bailiff": [
+  "Aetherize",
+  "Aetherspouts",
+  "Condemn",
+  "Settle the Wreckage"
+ ],
+ "objection": [
+  "Absorb",
+  "An Offer You Can't Refuse",
+  "Arcane Denial",
+  "Counterspell",
+  "Dovin's Veto",
+  "Judge's Familiar",
+  "Negate",
+  "Render Silent",
+  "Swan Song"
+ ],
+ "mistrial": [
+  "Austere Command",
+  "Evacuation",
+  "Farewell",
+  "Supreme Verdict",
+  "Time Wipe",
+  "Wrath of God"
+ ],
+ "sentencing": [
+  "Banishing Light",
+  "Darksteel Mutation",
+  "Detention Sphere",
+  "Path to Exile",
+  "Swords to Plowshares"
+ ],
+ "the sphinxes rule": [
+  "Cloudblazer",
+  "Dream Trawler",
+  "Medomai the Ageless",
+  "Mulldrifter",
+  "Sphinx of Magosi",
+  "Storm Herd",
+  "Windreader Sphinx"
+ ],
+ "discovery": [
+  "Azorius Charm",
+  "Brainstorm",
+  "Fact or Fiction",
+  "Ponder",
+  "Preordain",
+  "Reconnaissance Mission",
+  "Sphinx's Revelation",
+  "Staggering Insight",
+  "Winged Words"
+ ],
+ "why is this a wincon": [
+  "Approach of the Second Sun",
+  "Azor's Elocutors"
+ ],
+ "court fees": [
+  "Court of Grace",
+  "Cursed Totem",
+  "Land Tax",
+  "Mystic Remora",
+  "Selfless Spirit",
+  "Smothering Tithe"
+ ],
+ "the treasury": [
+  "Arcane Signet",
+  "Azorius Signet",
+  "Mind Stone",
+  "Sky Diamond",
+  "Sol Ring",
+  "Solemn Simulacrum",
+  "Talisman of Progress"
+ ]
+}

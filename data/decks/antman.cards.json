@@ -1,0 +1,473 @@
+{
+ "Abundant Growth": {
+  "cost": "G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant land When this Aura enters, draw a card. Enchanted land has \"{T}: Add one mana of any color.\"",
+  "pt": null
+ },
+ "Aeve, Progenitor Ooze": {
+  "cost": "2GGG",
+  "type": "Legendary Creature \u2014 Ooze",
+  "text": "Storm (When you cast this spell, copy it for each spell cast before it this turn. Copies become tokens.) Aeve isn't legendary if it's a token. Aeve enters with a +1/+1 counter on it for each other Ooze you control.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Amphibian Downpour": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Flash Storm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies. Copies become tokens.) Enchant creature Enchanted creature loses all abilities and is a blue Frog creature with base power and toughness 1/1.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Ant-Man, Reformed Rogue": {
+  "cost": "2(G/U)",
+  "type": "Legendary Creature \u2014 Human Rogue Hero",
+  "text": "Whenever you cast a green spell, Ant-Man gets +1/+0 and gains trample until end of turn. Whenever you cast a blue spell, Ant-Man gets -1/-0 until end of turn and can't be blocked this turn. Whenever Ant-Man deals combat damage to a player, draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Archmage Emeritus": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, draw a card.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Aspect of Hydra": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+  "pt": null
+ },
+ "Audacity": {
+  "cost": "G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+0 and has trample. (It can deal excess combat damage to the player or planeswalker it's attacking.) When this Aura is put into a graveyard from the battlefield, draw a card.",
+  "pt": null
+ },
+ "Battlegrowth": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Put a +1/+1 counter on target creature.",
+  "pt": null
+ },
+ "Bear Umbra": {
+  "cost": "2GG",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+2 and has \"Whenever this creature attacks, untap all lands you control.\" Umbra armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",
+  "pt": null
+ },
+ "Beast Within": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "pt": null
+ },
+ "Birds of Paradise": {
+  "cost": "G",
+  "type": "Creature \u2014 Bird",
+  "text": "Flying {T}: Add one mana of any color.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Blossoming Defense": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature you control gets +2/+2 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Case of the Ransacked Lab": {
+  "cost": "2U",
+  "type": "Enchantment \u2014 Case",
+  "text": "Instant and sorcery spells you cast cost {1} less to cast. To solve \u2014 You've cast four or more instant and sorcery spells this turn. (If unsolved, solve at the beginning of your end step.) Solved \u2014 Whenever you cast an instant or sorcery spell, draw a card.",
+  "pt": null
+ },
+ "Chatterstorm": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Create a 1/1 green Squirrel creature token. Storm (When you cast this spell, copy it for each spell cast before it this turn.)",
+  "pt": null
+ },
+ "Coiling Oracle": {
+  "cost": "GU",
+  "type": "Creature \u2014 Snake Elf Druid",
+  "text": "When this creature enters, reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put that card into your hand.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Collective Resistance": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Escalate {G} (Pay this cost for each mode chosen beyond the first.) Choose one or more \u2014 \u2022 Destroy target artifact. \u2022 Destroy target enchantment. \u2022 Target creature gains hexproof and indestructible until end of turn.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Curiosity": {
+  "cost": "U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Whenever enchanted creature deals damage to an opponent, you may draw a card.",
+  "pt": null
+ },
+ "Dictate of Kruphix": {
+  "cost": "1UU",
+  "type": "Enchantment",
+  "text": "Flash (You may cast this spell any time you could cast an instant.) At the beginning of each player's draw step, that player draws an additional card.",
+  "pt": null
+ },
+ "Dreamroot Cascade": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or more other lands. {T}: Add {G} or {U}.",
+  "pt": null
+ },
+ "Elvish Mystic": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Explore": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "You may play an additional land this turn. Draw a card.",
+  "pt": null
+ },
+ "Exponential Growth": {
+  "cost": "XXGG",
+  "type": "Sorcery",
+  "text": "Until end of turn, double target creature's power X times.",
+  "pt": null
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land \u2014 Forest",
+  "text": "({T}: Add {G}.)",
+  "pt": null
+ },
+ "Forgotten Ancient": {
+  "cost": "3G",
+  "type": "Creature \u2014 Elemental",
+  "text": "Whenever a player casts a spell, you may put a +1/+1 counter on this creature. At the beginning of your upkeep, you may move any number of +1/+1 counters from this creature onto other creatures.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Giant Adephage": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Insect",
+  "text": "Trample Whenever this creature deals combat damage to a player, create a token that's a copy of this creature.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Giant Growth": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature gets +3/+3 until end of turn.",
+  "pt": null
+ },
+ "Gitaxian Probe": {
+  "cost": "(U/P)",
+  "type": "Sorcery",
+  "text": "({U/P} can be paid with either {U} or 2 life.) Look at target player's hand. Draw a card.",
+  "pt": null
+ },
+ "Growth Curve": {
+  "cost": "GU",
+  "type": "Sorcery",
+  "text": "Put a +1/+1 counter on target creature you control, then double the number of +1/+1 counters on that creature.",
+  "pt": null
+ },
+ "Growth Spiral": {
+  "cost": "GU",
+  "type": "Instant",
+  "text": "Draw a card. You may put a land card from your hand onto the battlefield.",
+  "pt": null
+ },
+ "Hardened Scales": {
+  "cost": "G",
+  "type": "Enchantment",
+  "text": "If one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.",
+  "pt": null
+ },
+ "Herald of Secret Streams": {
+  "cost": "3U",
+  "type": "Creature \u2014 Merfolk Warrior",
+  "text": "Creatures you control with +1/+1 counters on them can't be blocked.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Hinterland Harbor": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control a Forest or an Island. {T}: Add {G} or {U}.",
+  "pt": null
+ },
+ "Howling Mine": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "At the beginning of each player's draw step, if this artifact is untapped, that player draws an additional card.",
+  "pt": null
+ },
+ "Invigorate": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "If you control a Forest, rather than pay this spell's mana cost, you may have an opponent gain 3 life. Target creature gets +4/+4 until end of turn.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Ivy Lane Denizen": {
+  "cost": "3G",
+  "type": "Creature \u2014 Elf Warrior",
+  "text": "Whenever another green creature you control enters, put a +1/+1 counter on target creature.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Kami of Whispered Hopes": {
+  "cost": "2G",
+  "type": "Creature \u2014 Spirit",
+  "text": "If one or more +1/+1 counters would be put on a permanent you control, that many plus one +1/+1 counters are put on that permanent instead. {T}: Add X mana of any one color, where X is this creature's power.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Karametra's Acolyte": {
+  "cost": "3G",
+  "type": "Creature \u2014 Human Druid",
+  "text": "{T}: Add an amount of {G} equal to your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Keen Sense": {
+  "cost": "G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Whenever enchanted creature deals damage to an opponent, you may draw a card.",
+  "pt": null
+ },
+ "Kona, Rescue Beastie": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Beast Survivor",
+  "text": "Survival \u2014 At the beginning of your second main phase, if Kona is tapped, you may put a permanent card from your hand onto the battlefield.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Lessons from Life": {
+  "cost": "2GU",
+  "type": "Sorcery",
+  "text": "Draw three cards. You may put a land card from your hand onto the battlefield tapped.",
+  "pt": null
+ },
+ "Llanowar Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Mind's Desire": {
+  "cost": "4UU",
+  "type": "Sorcery",
+  "text": "Shuffle your library. Then exile the top card of your library. Until end of turn, you may play that card without paying its mana cost. Storm (When you cast this spell, copy it for each spell cast before it this turn.)",
+  "pt": null
+ },
+ "Mutagenic Growth": {
+  "cost": "(G/P)",
+  "type": "Instant",
+  "text": "({G/P} can be paid with either {G} or 2 life.) Target creature gets +2/+2 until end of turn.",
+  "pt": null
+ },
+ "Noxious Newt": {
+  "cost": "1G",
+  "type": "Creature \u2014 Salamander",
+  "text": "Deathtouch {T}: Add {G}.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Omniscience": {
+  "cost": "7UUU",
+  "type": "Enchantment",
+  "text": "You may cast spells from your hand without paying their mana costs.",
+  "pt": null
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Rancor": {
+  "cost": "G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature gets +2/+0 and has trample. When this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "pt": null
+ },
+ "Reliquary Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "You have no maximum hand size. {T}: Add {C}.",
+  "pt": null
+ },
+ "Rishkar, Peema Renegade": {
+  "cost": "2G",
+  "type": "Legendary Creature \u2014 Elf Druid",
+  "text": "When Rishkar enters, put a +1/+1 counter on each of up to two target creatures. Each creature you control with a counter on it has \"{T}: Add {G}.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Rites of Flourishing": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "At the beginning of each player's draw step, that player draws an additional card. Each player may play an additional land on each of their turns.",
+  "pt": null
+ },
+ "Sakura-Tribe Elder": {
+  "cost": "1G",
+  "type": "Creature \u2014 Snake Shaman",
+  "text": "Sacrifice this creature: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Scale Up": {
+  "cost": "G",
+  "type": "Sorcery",
+  "text": "Until end of turn, target creature you control becomes a green Wurm with base power and toughness 6/4. Overload {4}{G}{G} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
+ },
+ "Season of Growth": {
+  "cost": "1G",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) Whenever you cast a spell that targets a creature you control, draw a card.",
+  "pt": null
+ },
+ "Simic Ascendancy": {
+  "cost": "GU",
+  "type": "Enchantment",
+  "text": "{1}{G}{U}: Put a +1/+1 counter on target creature you control. Whenever one or more +1/+1 counters are put on a creature you control, put that many growth counters on this enchantment. At the beginning of your upkeep, if this enchantment has twenty or more growth counters on it, you win the game.",
+  "pt": null
+ },
+ "Simic Growth Chamber": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {G}{U}.",
+  "pt": null
+ },
+ "Snakeskin Veil": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Put a +1/+1 counter on target creature you control. It gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+  "pt": null
+ },
+ "Spell Pierce": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell unless its controller pays {2}.",
+  "pt": null
+ },
+ "Sprouting Vines": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Search your library for a basic land card, reveal that card, put it into your hand, then shuffle. Storm (When you cast this spell, copy it for each spell cast before it this turn.)",
+  "pt": null
+ },
+ "Super Intelligence": {
+  "cost": "U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature At the beginning of the upkeep of enchanted creature's controller, that player draws a card.",
+  "pt": null
+ },
+ "Swiftfoot Boots": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.) Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Tamiyo's Safekeeping": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target permanent you control gains hexproof and indestructible until end of turn. You gain 2 life. (A permanent with hexproof and indestructible can't be the target of spells or abilities your opponents control. Damage and effects that say \"destroy\" don't destroy it.)",
+  "pt": null
+ },
+ "Temple Bell": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Each player draws a card.",
+  "pt": null
+ },
+ "Temple of Mystery": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {G} or {U}.",
+  "pt": null
+ },
+ "Tyvar's Stand": {
+  "cost": "XG",
+  "type": "Instant",
+  "text": "Target creature you control gets +X/+X and gains hexproof and indestructible until end of turn. (It can't be the target of spells or abilities your opponents control. Damage and effects that say \"destroy\" don't destroy it.)",
+  "pt": null
+ },
+ "Viridescent Wisps": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Target creature becomes green and gets +1/+0 until end of turn. Draw a card.",
+  "pt": null
+ },
+ "Weather the Storm": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "You gain 3 life. Storm (When you cast this spell, copy it for each spell cast before it this turn.)",
+  "pt": null
+ }
+}

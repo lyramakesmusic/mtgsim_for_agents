@@ -1,0 +1,82 @@
+{
+ "the heavens never rest": [
+  "Aggravated Assault",
+  "Combat Celebrant",
+  "Helm of the Host",
+  "Karlach, Fury of Avernus"
+ ],
+ "smite them twice": [
+  "Blade Historian",
+  "Embercleave",
+  "Fireshrieker",
+  "Gisela, Blade of Goldnight",
+  "Iroas, God of Victory",
+  "Odric, Lunarch Marshal",
+  "True Conviction"
+ ],
+ "the host": [
+  "Angel of Finality",
+  "Archangel of Thune",
+  "Baneslayer Angel",
+  "Giada, Font of Hope",
+  "Inspiring Overseer",
+  "Lyra Dawnbringer",
+  "Resplendent Angel",
+  "Righteous Valkyrie",
+  "Sephara, Sky's Blade"
+ ],
+ "evangelicism": [
+  "Cathars' Crusade",
+  "Frontline Medic",
+  "Impact Tremors",
+  "Luminarch Ascension",
+  "Mentor of the Meek"
+ ],
+ "mandate of heaven": [
+  "Akroma's Will",
+  "Deflecting Palm",
+  "Flawless Maneuver",
+  "Master Warcraft",
+  "Teferi's Protection",
+  "Unbreakable Formation"
+ ],
+ "excommunicate": [
+  "Aurelia's Fury",
+  "Boros Charm",
+  "Chaos Warp",
+  "Disenchant",
+  "Justice Strike",
+  "Lightning Helix",
+  "Path to Exile",
+  "Return to Dust",
+  "Swords to Plowshares"
+ ],
+ "divine justice": [
+  "Blasphemous Act",
+  "Cleansing Nova",
+  "Sunfall",
+  "Wrath of God"
+ ],
+ "scripture": [
+  "Demand Answers",
+  "Faithless Looting",
+  "Herald's Horn",
+  "Mask of Memory",
+  "Skullclamp",
+  "Smothering Tithe",
+  "Sunforger",
+  "Thrill of Possibility"
+ ],
+ "holy artifacts": [
+  "Arcane Signet",
+  "Boros Signet",
+  "Emeria Shepherd",
+  "Fellwar Stone",
+  "Knight of the White Orchid",
+  "Mind Stone",
+  "Sol Ring",
+  "Sun Titan",
+  "Talisman of Conviction",
+  "Wayfarer's Bauble"
+ ]
+}

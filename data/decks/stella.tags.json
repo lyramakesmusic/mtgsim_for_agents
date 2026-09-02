@@ -1,0 +1,9 @@
+{
+  "untap loopers": ["Cerulean Wisps", "Claim the Firstborn", "Dramatic Reversal", "Dream's Grip", "Hidden Strings", "Hijack", "Kari Zev's Expertise", "Psychic Puppetry", "Refocus", "Seize the Day", "Shore Up", "Toils of Night and Day", "Twiddle", "Twinning Staff", "Twitch"],
+  "untap payoffs": ["Codex Shredder", "Cunning Sparkmage", "Gelectrode", "Goblin Fireslinger", "Hawkeye's Bow", "Krenko, Mob Boss", "Prodigal Pyromancer", "Thermo-Alchemist"],
+  "magecraft payoffs": ["Ashling, Flame Dancer", "Ral, Storm Conduit", "Storm-Kiln Artist", "Veyran, Voice of Duality"],
+  "thoracle payoffs": ["Archmage Emeritus", "Laboratory Maniac", "Thassa's Oracle"],
+  "give me a looper": ["Merchant Scroll", "Mystical Tutor", "Personal Tutor", "Spellseeker"],
+  "let me see my whole deck": ["Brainstorm", "Consider", "Demand Answers", "Expressive Iteration", "Faithless Looting", "Flow State", "Frantic Search", "Gitaxian Probe", "Ideas Unbound", "Impulse", "Magmatic Insight", "Opt", "Ponder", "Portent", "Preordain", "Rhystic Study", "Serum Visions", "Sleight of Hand", "Strategic Planning", "Thrill of Possibility", "Windfall"],
+  "gotta run these": ["An Offer You Can't Refuse", "Counterspell", "Hexing Squelcher", "Lightning Bolt", "Mizzium Skin", "Negate", "Pongify", "Rapid Hybridization", "Snap", "Sol Ring"]
+}

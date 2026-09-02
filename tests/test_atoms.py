@@ -945,3 +945,72 @@ def test_a_bad_zone_goes_back_to_the_seat(make_game):
     assert any("not a zone" in line for line in g.table)
     assert any("library_top" in p for p in seen), "the seat was not told the zone names"
     assert g.p[0].library[-1] == "Forest"
+
+
+def test_naming_a_card_in_a_positional_move_is_refused(make_game):
+    """A move from library_top takes the top card by position. Silently taking a
+    different card than the one named is worse than moving nothing."""
+    import json as _json
+    from conftest import StubAgent
+
+    seen = []
+
+    def scribe(prompt):
+        seen.append(prompt)
+        return _json.dumps({"effects": [
+            {"move": {"player": "self", "from": "library_top", "n": 1, "to": "library_bottom"}},
+            {"move": {"player": "self", "from": "library_top", "n": 1, "to": "hand"}},
+        ]})
+
+    g = make_game()
+    g.agents = [StubAgent(scribe) for _ in g.p]
+    me = g.p[0]
+    me.library = ["Mountain", "Rhystic Study"] + ["Filler"] * 20
+    me.hand = []
+
+    g.apply_effects(0, [{"move": {"player": "self", "from": "library_top",
+                                  "card": "Rhystic Study", "to": "hand"}}])
+    assert any("positional" in line for line in g.table)
+    assert me.hand == ["Rhystic Study"], f"hand is {me.hand}"
+
+
+def test_copy_needs_a_spell_still_on_the_stack(make_game):
+    """Stella Lee copies a spell that is still on the stack, so the original is
+    there to copy again — the engine verifies it is really there and counts it."""
+    g = make_game()
+    g.stack.append({"id": "stack#1", "caster": 0, "kind": "spell",
+                    "name": "Refocus", "countered": False, "targets": []})
+
+    g.apply_effects(0, [{"copy": {"target": "stack#1", "n": 3,
+                                  "targets": ["Stella Lee, Wild Card#7"]}}])
+    assert g.p[0].copies_this_turn == 3
+    assert any("copies Refocus" in line and "x3" in line for line in g.table)
+    assert "copies you have made 3" in g.digest(0)
+
+
+def test_copying_something_not_on_the_stack_is_refused(make_game):
+    g = make_game()
+    g.apply_effects(0, [{"copy": {"target": "stack#99", "n": 1}}])
+    assert any("neither on the stack nor a permanent" in line for line in g.table)
+    assert g.p[0].copies_this_turn == 0
+
+
+
+def test_copy_makes_token_copies_of_a_permanent(make_game):
+    """Orvar's whole deck is 'create a token that's a copy of a permanent', so
+    copy has to reach the battlefield as well as the stack."""
+    g = make_game()
+    me = g.p[0]
+    src = g.perm(me, "Island")
+
+    g.apply_effects(0, [{"copy": {"target": src["id"], "n": 2}}])
+    islands = [x for x in me.battlefield if x["name"] == "Island"]
+    assert len(islands) == 3, [x["id"] for x in islands]
+    assert sum(1 for x in islands if x["token"]) == 2
+    assert me.copies_this_turn == 2
+
+
+def test_copying_something_that_is_neither_is_refused(make_game):
+    g = make_game()
+    g.apply_effects(0, [{"copy": {"target": "Nonexistent#404", "n": 1}}])
+    assert any("neither on the stack nor a permanent" in line for line in g.table)

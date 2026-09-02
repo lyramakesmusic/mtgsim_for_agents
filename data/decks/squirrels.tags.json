@@ -1,0 +1,12 @@
+{
+  "combo piece": ["Citanul Hierophants", "Concordant Crossroads", "Crashing Drawbridge", "Cryptolith Rite", "Jaheira, Friend of the Forest", "Shang-Chi, Master of Kung Fu", "Song of Freyalise", "Supportive Parents", "Thousand-Year Elixir", "Vitalize"],
+  "different combo piece": ["Herd Baloth", "Ivy Lane Denizen", "Karametra's Acolyte", "Scurry Oak", "Staff of Domination"],
+  "yay squirrels!": ["Chatter of the Squirrel", "Chatterstorm", "Rootcast Apprenticeship", "Squirrel Nest", "Verdant Command"],
+  "token etb abuse": ["Altar of the Brood", "Champion of Lambholt", "Honored Dreyleader", "Prosperous Innkeeper", "Throne of the God-Pharaoh", "Woodland Champion"],
+  "target me not squirrel girl": ["Bloodroot Apothecary", "Forgotten Ancient"],
+  "diet tutors": ["Adventure Awaits", "Elven Farsight", "Eternal Witness", "Evolutionary Leap", "Lead the Stampede", "Time of Need", "Traverse the Ulvenwald"],
+  "draw": ["Harmonize", "Idol of Oblivion", "Inspiring Call", "Lifecrafter's Bestiary", "Season of Growth", "Shamanic Revelation", "Skullclamp", "Symmetry Matrix", "Toski, Bearer of Secrets"],
+  "basic ramp": ["Elvish Mystic", "Fyndhorn Elves", "Llanowar Elves", "Sol Ring", "Tender Wildguide", "Thornvault Forager"],
+  "janky interaction": ["Beast Within", "Bite Down", "Bushwhack", "Collective Resistance", "Kenrith's Transformation", "Nature's Claim", "Prey Upon", "Prizefight", "Return to Nature", "Scrapshooter"],
+  "stay alive": ["Druid's Deliverance", "Fog", "Lightning Greaves", "Overprotect", "Spore Frog"]
+}

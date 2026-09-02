@@ -1,0 +1,9 @@
+{
+  "targeting cantrips": ["Artful Dodge", "Boomerang Basics", "Cerulean Wisps", "Chilling Trap", "Distortion Strike", "Dive Down", "Enter the Enigma", "Essence Flux", "Fleeting Distraction", "Gigadrowse", "Hidden Strings", "Magic Damper", "Mental Modulation", "Mizzium Skin", "Moonlace", "Pym Particles", "Shore Up", "Slip Out the Back", "Snap", "Teferi's Time Twist", "Twisted Image", "Unsummon"],
+  "clone etb abuse": ["Archaeomancer", "Cloud of Faeries", "Hullbreaker Horror", "Mind Flayer", "Peregrine Drake", "Scourge of Fleets", "Shipwreck Dowser", "Solemn Simulacrum", "Sower of Temptation", "Spellseeker", "Talrand, Sky Summoner", "Thassa's Oracle", "Venser, Shaper Savant"],
+  "more clone": ["Clever Impersonator", "Council of Reeds", "Metamorphic Alteration", "Quantum Misalignment", "Rite of Replication", "Sakashima of a Thousand Faces", "Stolen Identity", "Vesuvan Duplimancy"],
+  "spellslinger love": ["Archmage Emeritus", "Archmage of Runes", "Eluge, the Shoreless Sea", "Gale, Waterdeep Prodigy", "Haughty Djinn", "Isochron Scepter", "Thunderclap Drake"],
+  "protection and interaction": ["Amphibian Downpour", "An Offer You Can't Refuse", "Counterspell", "Negate", "Pongify", "Propaganda", "Rapid Hybridization", "Reality Shift", "Whelming Wave"],
+  "mana stuff": ["Arcane Signet", "High Tide", "Sol Ring", "Thought Vessel"],
+  "rhystic study lol": ["Rhystic Study"]
+}

@@ -84,7 +84,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from mtgsim.cards import mana_value
+from mtgsim.cards import deck_tags, mana_value
 
 # the only tokens the if_yes/if_no shortcut matches; every other answer is
 # relayed verbatim for the asking seat to resolve
@@ -232,6 +232,18 @@ nothing you don't:
  {"reveal":{"player":P,"zone":"hand"|"library_top","n":N}} — a PUBLIC reveal, for cards that actually
    say "reveals". Everyone sees the names.
  {"random":{"coin":true}|{"die":N}}   (engine rolls — never claim your own randomness)
+ {"copy":{"target":"stack#N","n":K,"targets":[...]}} — copy a spell that is still on the
+   stack, K times, optionally choosing new targets. The engine checks it is really there and
+   records the copies; you then declare what they do (the untap, the damage, the draws) with
+   ordinary atoms, since the copies resolve before the original and the original stays on the
+   stack.
+ {"copy":{"target":perm_id,"n":K,"player":P,"tapped":bool}} — copy a permanent instead, which
+   makes K token copies of it under P (yourself by default). A copy has the printed card's
+   characteristics, so counters, auras and equipment on the original do not come along; if the
+   card making the copy changes something ("except it's not legendary", "except it's a 4/4"),
+   say so in narration and set it with a set atom. The legend rule is yours to apply.
+   Cast-triggers do not fire for copies — a copy is not cast — but magecraft, worded
+   "cast or copy", does, and so does anything else that says copy.
  {"ask":{"player":P,"question":"...","if_yes":[atoms],"if_no":[atoms]}} — a one-off decision
    that belongs to another seat, made at resolution time: punisher modes, "may" abilities,
    votes, splitting piles, naming a card or color. The question is yours to frame and the
@@ -310,6 +322,7 @@ class Player:
         self.lands_played = 0
         self.drew_this_turn = 0
         self.spells_this_turn = 0
+        self.copies_this_turn = 0
 
 
 class Game:
@@ -377,6 +390,7 @@ class Game:
                 "library": len(pl.library), "library_cards": list(pl.library),
                 "lands_played": pl.lands_played, "drew_this_turn": pl.drew_this_turn,
                 "spells_this_turn": pl.spells_this_turn,
+                "copies_this_turn": pl.copies_this_turn,
                 "command_zone": dict(pl.command_zone),
                 "commanders": list(pl.commanders), "commander_tax": dict(pl.commander_tax),
                 "battlefield": [dict(x) for x in pl.battlefield],
@@ -705,6 +719,24 @@ class Game:
             self.log(f"  ↳ {pl.name}: {want} from library → {to} (no shuffle)")
             return
         if frm == "library_top":
+            if mv.get("card"):
+                # a positional move takes the top card; naming one and getting a
+                # different one is worse than doing nothing, so ask instead
+                self.log(f"  !! move: a move from library_top is positional and takes the top "
+                         f"card, so naming {mv['card']!r} does nothing — {pl.name} asked to "
+                         f"redeclare it")
+                if getattr(self, "_depth", 0) < 1:
+                    r = self.ask(i,
+                        f"PROTOCOL ERROR — you moved {mv['card']!r} from library_top, but that "
+                        f"move takes whatever is on top by position and ignores the name, so "
+                        f"nothing was moved. To take a specific card you have looked at, first "
+                        f'reorder the library so it is on top ({{"move":{{"from":"library_top",'
+                        f'"n":N,"to":"library_bottom"}}}} moves the ones above it), then take the '
+                        f"top card. To fetch a card you have not seen, use a search atom instead "
+                        f"— it is verified and public. Redeclare it.",
+                        schema_hint='{"effects":[...]}')
+                    self.apply_effects(i, r.get("effects"), depth=1)
+                return
             n = int(mv.get("n", 1))
             names = [pl.library.pop(0) for _ in range(min(n, len(pl.library)))]
             for name in names:
@@ -896,7 +928,7 @@ class Game:
         if branch:
             self.apply_effects(i, branch)
 
-    ATOMS = ("move", "life", "create", "set", "draw", "counter", "ask", "standing", "fight",
+    ATOMS = ("move", "life", "create", "set", "draw", "copy", "counter", "ask", "standing", "fight",
              "dig", "search", "shuffle", "look", "reveal", "random", "eliminate", "note")
 
     def apply_effects(self, i, effects, depth=0):
@@ -1025,6 +1057,31 @@ class Game:
             if got:
                 self.log_private(f"  ({tgt.handle} drew: {', '.join(got)})", seat=tgt.handle)
                 self.check_standing("draw", self.p.index(tgt), len(got))
+        elif "copy" in e:
+            c = e["copy"] or {}
+            tid = str(c.get("target", ""))
+            tgt = next((o for o in self.stack if o["id"] == tid or o["name"] == tid), None)
+            n = max(1, int(c.get("n", 1)))
+            if not tgt:                       # not a spell — a permanent, copied as a token
+                owner, perm = self.find(tid)
+                if not perm:
+                    self.log(f"  !! copy: {tid!r} is neither on the stack nor a permanent; "
+                             f"nothing copied")
+                    return
+                who = self.resolve_player(i, c.get("player", "self")) or me
+                made = [self.perm(who, perm["name"], token=True,
+                                  tapped=bool(c.get("tapped")),
+                                  pt=c.get("pt") or perm["pt"]) for _ in range(n)]
+                me.copies_this_turn += n
+                self.log(f"  ↳ {me.name} copies {perm['id']} as {n} token"
+                         f"{'s' if n != 1 else ''} under {who.name}: "
+                         f"{', '.join(x['id'] for x in made)}")
+                return
+            aim = c.get("targets")
+            me.copies_this_turn += n
+            self.log(f"  ↳ {me.name} copies {tgt['name']} ({tgt['id']}) x{n}"
+                     + (f", new targets: {', '.join(str(t) for t in aim)}" if aim else "")
+                     + f" — the copies resolve before {tgt['id']} does; declare what they do")
         elif "counter" in e:
             # honored anywhere (responses, corrections): counter a live stack object
             tid = str((e["counter"] or {}).get("target", ""))
@@ -1657,19 +1714,27 @@ class Game:
         else:
             self.dead_calls[i] = 0
 
+    def _card_line(self, name, n):
+        d = self.db.get(name, {})
+        pt = f" {d['pt'][0]}/{d['pt'][1]}" if d.get("pt") else ""
+        text = (d.get("text") or "").replace("\n", " ")
+        return (f"  {name}{f' x{n}' if n > 1 else ''} — {d.get('cost') or 'Land'} — "
+                f"{d.get('type','')}{pt}" + (f" — {text}" if text else ""))
+
     def _decklist_block(self, pl):
         """The seat's own 99 with rules text — you built this deck and you know what
-        every card in it does, so tutoring and planning are not guesswork."""
+        every card in it does, so tutoring and planning are not guesswork. Grouped by
+        the builder's own tags when the decklist carries them, since the groups are
+        what the deck is for."""
+        tags = deck_tags(pl.deckname)
+        if tags:
+            out = []
+            for tag, cards in tags.items():
+                out.append(f"[{tag}]")
+                out += [self._card_line(c, n) for c, n in cards]
+            return "\n".join(out)
         counts = collections.Counter(pl.decklist)
-        lines = []
-        for name, n in sorted(counts.items()):
-            d = self.db.get(name, {})
-            pt = f" {d['pt'][0]}/{d['pt'][1]}" if d.get("pt") else ""
-            qty = f" x{n}" if n > 1 else ""
-            text = (d.get("text") or "").replace("\n", " ")
-            lines.append(f"  {name}{qty} — {d.get('cost') or 'Land'} — {d.get('type','')}{pt}"
-                         + (f" — {text}" if text else ""))
-        return "\n".join(lines)
+        return "\n".join(self._card_line(n, c) for n, c in sorted(counts.items()))
 
     def digest(self, i, full_board=False):
         """Compact authoritative state: numbers and ids, no prose. Oracle text
@@ -1733,7 +1798,8 @@ class Game:
                 f"BATTLEFIELDS:\n{boards}\n"
                 f"Lands you've played this turn: {me.lands_played}. "
                 f"Spells cast this turn: {sum(pl.spells_this_turn for pl in self.p)} "
-                f"({me.handle} {me.spells_this_turn}).{stackline}{extra}{texts}")
+                f"({me.handle} {me.spells_this_turn}; copies you have made "
+                f"{me.copies_this_turn}).{stackline}{extra}{texts}")
 
     # -------- agent plumbing --------
     def ask(self, i, instruction, schema_hint=""):
@@ -1784,7 +1850,11 @@ class Game:
                   f"Eliminating someone is not automatically progress: a seat that can't threaten "
                   f"you absorbs other people's attacks and blocks for you, and killing it early "
                   f"makes you the archenemy one opponent sooner. Spend your clock on whoever is "
-                  f"closest to winning, not whoever is easiest to finish.\n"
+                  f"closest to winning, not whoever is easiest to finish. You are not obliged to "
+                  f"be the one who answers it, though: three seats spending their turns on the "
+                  f"same problem is three seats not developing, and whoever spent least is usually "
+                  f"best placed afterward. Weigh what an answer costs you against what it buys "
+                  f"everyone else.\n"
                   + f"\nYOUR DECKLIST — the 99 behind your commander, with rules text. You "
                     f"built this deck and know every card in it. Anything not on this list is not "
                     f"in your library, so never search for it:\n{self._decklist_block(me)}\n"
@@ -1994,6 +2064,7 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         for pl in self.p:
             pl.drew_this_turn = 0
             pl.spells_this_turn = 0
+            pl.copies_this_turn = 0
         for pl in self.p:                     # damage wears off at end of turn
             for x in pl.battlefield:
                 x["damage"] = 0

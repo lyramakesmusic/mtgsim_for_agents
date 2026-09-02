@@ -1,0 +1,92 @@
+{
+ "somethin's gotta go": [
+  "Altar of Dementia",
+  "Ashnod's Altar",
+  "Carrion Feeder",
+  "Deadly Dispute",
+  "Phyrexian Altar",
+  "Village Rites",
+  "Viscera Seer",
+  "Yawgmoth, Thran Physician"
+ ],
+ "everybody gives somethin": [
+  "Butcher of Malakir",
+  "Dictate of Erebos",
+  "Fleshbag Marauder",
+  "Grave Pact",
+  "Merciless Executioner",
+  "Plaguecrafter"
+ ],
+ "somebody always pays": [
+  "Ayara, First of Locthwain",
+  "Blood Artist",
+  "Deathreap Ritual",
+  "Grim Haruspex",
+  "Kokusho, the Evening Star",
+  "Midnight Reaper",
+  "Skullclamp",
+  "Zulaport Cutthroat"
+ ],
+ "it aint dead": [
+  "Butcher Ghoul",
+  "Mikaeus, the Unhallowed",
+  "Ophiomancer",
+  "Reassembling Skeleton",
+  "Young Wolf"
+ ],
+ "gets em in the ground faster": [
+  "Buried Alive",
+  "Entomb",
+  "Grisly Salvage",
+  "Satyr Wayfinder",
+  "Stitcher's Supplier"
+ ],
+ "up you get": [
+  "Animate Dead",
+  "Eternal Witness",
+  "Golgari Findbroker",
+  "Living Death",
+  "Reanimate",
+  "Victimize"
+ ],
+ "worth diggin up": [
+  "Grave Titan",
+  "Massacre Wurm",
+  "Mycoloth",
+  "Triskelion"
+ ],
+ "that one's done": [
+  "Beast Within",
+  "Casualties of War",
+  "Caustic Caterpillar",
+  "Deadly Rollick",
+  "Putrefy",
+  "Toxic Deluge"
+ ],
+ "not yet": [
+  "Spore Frog"
+ ],
+ "i been at this a while": [
+  "Phyrexian Arena"
+ ],
+ "the soil": [
+  "Arcane Signet",
+  "Birds of Paradise",
+  "Cultivate",
+  "Elves of Deep Shadow",
+  "Golgari Signet",
+  "Kodama's Reach",
+  "Nature's Lore",
+  "Sakura-Tribe Elder",
+  "Sol Ring",
+  "Wayfarer's Bauble"
+ ],
+ "combo - mikaeus + triskelion + a free sac outlet": [
+  "Mikaeus, the Unhallowed",
+  "Triskelion",
+  "Ashnod's Altar",
+  "Phyrexian Altar",
+  "Carrion Feeder",
+  "Viscera Seer"
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "buff storm": ["Aspect of Hydra", "Audacity", "Battlegrowth", "Chatterstorm", "Exponential Growth", "Giant Growth", "Invigorate", "Mutagenic Growth", "Rancor", "Scale Up", "Viridescent Wisps", "Weather the Storm"],
+  "counters shenanigans": ["Forgotten Ancient", "Growth Curve", "Hardened Scales", "Herald of Secret Streams", "Ivy Lane Denizen", "Kami of Whispered Hopes", "Rishkar, Peema Renegade"],
+  "alt wincons": ["Aeve, Progenitor Ooze", "Giant Adephage", "Omniscience", "Simic Ascendancy"],
+  "draw": ["Archmage Emeritus", "Case of the Ransacked Lab", "Coiling Oracle", "Curiosity", "Gitaxian Probe", "Keen Sense", "Lessons from Life", "Mind's Desire", "Season of Growth", "Super Intelligence"],
+  "ramp": ["Abundant Growth", "Bear Umbra", "Birds of Paradise", "Elvish Mystic", "Explore", "Growth Spiral", "Karametra's Acolyte", "Kona, Rescue Beastie", "Llanowar Elves", "Noxious Newt", "Sakura-Tribe Elder", "Sprouting Vines"],
+  "interaction": ["Amphibian Downpour", "An Offer You Can't Refuse", "Beast Within", "Collective Resistance", "Counterspell", "Pongify", "Rapid Hybridization", "Spell Pierce"],
+  "protection": ["Blossoming Defense", "Snakeskin Veil", "Swiftfoot Boots", "Tamiyo's Safekeeping", "Tyvar's Stand"],
+  "hug": ["Dictate of Kruphix", "Howling Mine", "Rites of Flourishing", "Temple Bell"]
+}

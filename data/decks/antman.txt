@@ -1,0 +1,76 @@
+// strategy: voltron storm. green spells pump ant-man, blue spells make him unblockable but hurt his power. cast green in bursts as a buff - spending one green spell on +1/+0 is pointless. save for when you can get antman to +15/+0 or something. blue is for unblockable and storm count, it actively hurts your buff storm. use ramp to cast X spells. group draw is a politics piece to buy time for storm. omniscience and simic ascendancy are the haha funny wincons. this deck is deliberately weak, but don't underestimate it since if it storms off it can hit for unblockable lethal voltron. hide your storm power until you can go off. you live or die on politics - play the "im just a little guy" card heavily.
+// scouting: voltron storm. spams one mana pump spells to buff ant man and then swings for commander damage.
+// personality: meek and apologetic, and lying about it. hey im just a little guy im not doing anything here... just let me draw
+Commander
+1 Ant-Man, Reformed Rogue (MSC) 739
+
+Deck
+1 Abundant Growth (EMA) 156
+1 Aeve, Progenitor Ooze (MH2) 459
+1 Amphibian Downpour (MH3) 51
+1 An Offer You Can't Refuse (FDN) 160
+1 Archmage Emeritus (FIC) 261
+1 Aspect of Hydra (BNG) 117
+1 Audacity (BRO) 169
+1 Battlegrowth (MRD) 113
+1 Bear Umbra (C18) 131
+1 Beast Within (TDC) 249
+1 Birds of Paradise (MSC) 377
+1 Blossoming Defense (SCD) 173
+1 Case of the Ransacked Lab (MKM) 45
+1 Chatterstorm (BLC) 210
+1 Coiling Oracle (DDO) 51
+1 Collective Resistance (MH3) 147
+1 Counterspell (DSC) 114
+1 Curiosity (PLST) A25-52
+1 Dictate of Kruphix (FDN) 587
+1 Dreamroot Cascade (M3C) 338
+1 Elvish Mystic (C14) 191
+1 Explore (C18) 143
+1 Exponential Growth (STX) 130
+20 Forest (TRK) 325
+1 Forgotten Ancient (SOC) 267
+1 Giant Adephage (CLU) 164
+1 Giant Growth (DPA) 66
+1 Gitaxian Probe (NPH) 35
+1 Growth Curve (SOS) 193
+1 Growth Spiral (CMR) 446
+1 Hardened Scales (FIC) 307
+1 Herald of Secret Streams (XLN) 59
+1 Hinterland Harbor (MSC) 250
+1 Howling Mine (SLD) 177
+1 Invigorate (PLST) A25-173
+12 Island (TRK) 319
+1 Ivy Lane Denizen (GTC) 125
+1 Kami of Whispered Hopes (MOM) 196
+1 Karametra's Acolyte (THS) 160
+1 Keen Sense (TSR) 213
+1 Kona, Rescue Beastie (DSK) 187
+1 Lessons from Life (TMT) 155
+1 Llanowar Elves (DD1) 9
+1 Mind's Desire (DDS) 4
+1 Mutagenic Growth (PLST) NPH-116
+1 Noxious Newt (SOS) 155
+1 Omniscience (FDN) 161
+1 Pongify (TDC) 160
+1 Rancor (GVL) 15
+1 Rapid Hybridization (LCC) 166
+1 Reliquary Tower (LCC) 348
+1 Rishkar, Peema Renegade (SCD) 207
+1 Rites of Flourishing (BLC) 122
+1 Sakura-Tribe Elder (DSC) 194
+1 Scale Up (PLST) MH1-179
+1 Season of Growth (PLST) M20-191
+1 Simic Ascendancy (LCC) 288
+1 Simic Growth Chamber (IMA) 249
+1 Snakeskin Veil (CMM) 323
+1 Spell Pierce (MM3) 51
+1 Sprouting Vines (C13) 173
+1 Super Intelligence (MSH) 77
+1 Swiftfoot Boots (PLST) BLC-286
+1 Tamiyo's Safekeeping (NEO) 211
+1 Temple Bell (C13) 265
+1 Temple of Mystery (FDN) 702
+1 Tyvar's Stand (PLST) ONE-190
+1 Viridescent Wisps (SHM) 132
+1 Weather the Storm (MH1) 191

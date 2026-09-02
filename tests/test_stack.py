@@ -480,7 +480,7 @@ def test_spells_cast_this_turn_is_counted(make_game):
     g.resolve_on_stack(0, {"card": "Counterspell", "targets": []})
     g.resolve_on_stack(1, {"card": "Counterspell", "targets": []})
     assert (me.spells_this_turn, g.p[1].spells_this_turn) == (1, 1)
-    assert "Spells cast this turn: 2 (P1 1)" in g.digest(0)
+    assert "Spells cast this turn: 2 (P1 1; copies you have made 0)" in g.digest(0)
 
 
 

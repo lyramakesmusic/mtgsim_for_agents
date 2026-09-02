@@ -24,6 +24,7 @@ fails loudly with the full missing list, so a typo'd card never silently
 becomes a blank.
 """
 import json
+import collections
 import re
 from pathlib import Path
 
@@ -61,6 +62,48 @@ def deck_names():
     return sorted(p.stem for p in DECK_DIR.glob("*.txt"))
 
 
+_TAG_HEADER = re.compile(r"^([A-Za-z][A-Za-z0-9 ,'’&/+-]{2,40})\s*\(\d+\)\s*$")
+
+
+def deck_tags(name):
+    """The builder's own grouping of the deck — 'untap loopers', 'protect the king!!'
+    — as {tag: [(card, qty)]}. Read from a <deck>.tags.json sidecar when there is
+    one, otherwise from group headers in a tag-grouped decklist. Empty when the deck
+    is untagged, and the deck plays the same either way."""
+    side = DECK_DIR / f"{name}.tags.json"
+    if side.exists():
+        main, _ = parse_decklist((DECK_DIR / f"{name}.txt").read_text())
+        counts = collections.Counter(main)
+        groups = {}
+        for tag, cards in json.loads(side.read_text()).items():
+            got = [(c, counts.get(c, 1)) for c in cards]
+            if got:
+                groups[tag] = got
+        return groups
+    path = DECK_DIR / f"{name}.txt"
+    return tags_from_text(path.read_text()) if path.exists() else {}
+
+
+def tags_from_text(text):
+    """The tag groups in a decklist, in listed order."""
+    groups, current = {}, None
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line or line.startswith(("//", "#")):
+            continue
+        h = _TAG_HEADER.match(line)
+        if h and not _LINE.match(line):
+            current = h.group(1).strip()
+            groups.setdefault(current, [])
+            continue
+        m = _LINE.match(line)
+        if m and current:
+            n, card = int(m.group(1)), _SLASH.sub(" // ", _SETCODE.sub("", m.group(2)).strip())
+            card = card[: -len("*CMDR*")].strip() if card.endswith("*CMDR*") else card
+            groups[current].append((card, n))
+    return {k: v for k, v in groups.items() if v}    # {tag: [(card, qty)]}
+
+
 def parse_decklist(text):
     """-> (main: [name]*N in listed order, commanders: [name])"""
     section, commanders, main = "main", [], []
@@ -79,9 +122,13 @@ def parse_decklist(text):
             continue
         if line.startswith("#"):
             continue
-        header = _SECTIONS.get(line.rstrip(":").lower())
+        bare = re.sub(r"\s*\(\d+\)\s*$", "", line).rstrip(":").lower()
+        header = _SECTIONS.get(bare)
         if header:
             section = header
+            continue
+        if _TAG_HEADER.match(line) and not _LINE.match(line):
+            section = "main"          # a moxfield tag group: everything under it is deck
             continue
         m = _LINE.match(line)
         if not m:

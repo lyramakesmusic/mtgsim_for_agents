@@ -446,12 +446,6 @@
    1
   ]
  },
- "Act of Treason": {
-  "cost": "2R",
-  "type": "Sorcery",
-  "text": "Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. (It can attack and {T} this turn.)",
-  "pt": null
- },
  "Codex Shredder": {
   "cost": "1",
   "type": "Artifact",
@@ -475,5 +469,11 @@
    1,
    1
   ]
+ },
+ "Mizzium Skin": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature you control gets +0/+1 and gains hexproof until end of turn. Overload {1}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "pt": null
  }
 }

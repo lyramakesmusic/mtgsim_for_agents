@@ -1,0 +1,85 @@
+{
+ "diet talrand": [
+  "Docent of Perfection",
+  "Metallurgic Summonings",
+  "Murmuring Mystic",
+  "Nadir Kraken",
+  "Shark Typhoon",
+  "Talrand's Invocation"
+ ],
+ "the tide says no": [
+  "An Offer You Can't Refuse",
+  "Arcane Denial",
+  "Counterspell",
+  "Dispel",
+  "Essence Scatter",
+  "Exclude",
+  "Mana Leak",
+  "Memory Lapse",
+  "Negate",
+  "Rewind",
+  "Spell Pierce",
+  "Swan Song"
+ ],
+ "back to the sea": [
+  "AEtherize",
+  "Blink of an Eye",
+  "Capsize",
+  "Engulf the Shore",
+  "Evacuation",
+  "Into the Roil",
+  "Peel from Reality",
+  "River's Rebuke",
+  "Snap",
+  "Unsummon",
+  "Vapor Snag"
+ ],
+ "read the currents": [
+  "Blue Sun's Zenith",
+  "Brainstorm",
+  "Chart a Course",
+  "Consider",
+  "Distant Melody",
+  "Fact or Fiction",
+  "Impulse",
+  "Opt",
+  "Ponder",
+  "Preordain",
+  "Pull from Tomorrow",
+  "Serum Visions",
+  "Stroke of Genius",
+  "Treasure Cruise",
+  "Windfall"
+ ],
+ "feed it to something": [
+  "Curse of the Swine",
+  "Pongify",
+  "Rapid Hybridization"
+ ],
+ "wind under wings": [
+  "Aether Tunnel",
+  "Curiosity",
+  "Favorable Winds",
+  "Gravitational Shift"
+ ],
+ "storm shelter": [
+  "Dive Down",
+  "Lazotep Plating"
+ ],
+ "washed ashore": [
+  "Archaeomancer",
+  "Mystic Retrieval"
+ ],
+ "why is this a wincon": [
+  "Laboratory Maniac",
+  "Thassa's Oracle"
+ ],
+ "deep water": [
+  "Arcane Signet",
+  "Frantic Search",
+  "Mind Stone",
+  "Sapphire Medallion",
+  "Sol Ring",
+  "Thought Vessel"
+ ]
+}

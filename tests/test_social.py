@@ -323,23 +323,63 @@ def test_the_turn_has_an_upkeep_phase(make_game):
     assert len(ups) == 1, "once a turn"
 
 
-def test_a_seat_is_shown_its_own_decklist_with_text(make_game):
+def test_a_seat_is_shown_its_own_deck_with_text_and_groups(make_game):
     """A player knows their own 99 and what each card does. Tutoring is the most
     information-hungry action in the game and seats were doing it blind."""
-    g = make_game(decknames=("stella", "rats", "orvar", "meren"))
+    g = make_game(decknames=("rats", "orvar", "meren", "stella"))
     block = g._decklist_block(g.p[0])
 
-    assert "Hidden Strings" in block
-    assert "tap or untap target permanent" in block, "rules text has to be there"
-    assert "Island x18" in block, "duplicates are counted, not repeated"
-    assert "Rat Colony" not in block, "a seat must not see another seat's list"
+    assert "[protect the king!!]" in block, "the builder's own grouping"
+    assert "Rat Colony x32" in block, "duplicates are counted, not repeated"
+    assert "gets +1/+0 for each other Rat" in block, "rules text has to be there"
+    assert "Hidden Strings" not in block, "a seat must not see another seat's list"
 
 
-def test_own_deck_text_is_not_repeated_in_the_digest(make_game):
-    """It rode the opening brief, so the digest spends its lines on cards the seat
-    meets for the first time across the table."""
-    g = make_game(decknames=("stella", "rats", "orvar", "meren"))
-    me = g.p[0]
-    me.hand = ["Hidden Strings", "Ponder"]
-    assert "ORACLE TEXT" not in g.digest(0)
+def test_a_deck_without_tags_lists_alphabetically(make_game, monkeypatch):
+    """Tags are optional; an untagged deck reads as a plain sorted list."""
+    import mtgsim.engine as engine
 
+    monkeypatch.setattr(engine, "deck_tags", lambda name: {})
+    g = make_game(decknames=("rats", "orvar", "meren", "stella"))
+    block = g._decklist_block(g.p[0])
+    assert not block.lstrip().startswith("[")
+    assert "Rat Colony x32" in block
+
+
+TAGGED = """Commander (1)
+1 Stella Lee, Wild Card
+
+untap loopers (3)
+1 Hidden Strings
+1 Refocus
+1 Twiddle
+
+magecraft payoffs (2)
+1 Storm-Kiln Artist
+1 Ashling, Flame Dancer
+
+Untagged Lands (4)
+3 Island
+1 Mountain
+"""
+
+
+def test_a_tag_grouped_export_keeps_its_groups():
+    """A moxfield export grouped by tag carries the builder's own taxonomy, and the
+    groups say what the deck is for better than an alphabetical list does."""
+    from mtgsim.cards import tags_from_text, parse_decklist
+
+    tags = tags_from_text(TAGGED)
+    assert list(tags) == ["Commander", "untap loopers", "magecraft payoffs",
+                          "Untagged Lands"]
+    assert sum(n for v in tags.values() for _, n in v) == 10
+
+    main, cmd = parse_decklist(TAGGED)
+    assert cmd == ["Stella Lee, Wild Card"], cmd
+    assert len(main) == 9, "tag headers must not swallow cards into the commander"
+
+
+def test_an_untagged_export_has_no_groups():
+    from mtgsim.cards import tags_from_text
+
+    assert tags_from_text("Deck\n1 Island\n1 Mountain\n") == {}

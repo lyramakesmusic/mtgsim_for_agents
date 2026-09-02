@@ -1,0 +1,9 @@
+{
+  "deathtouch dorks": ["Ambush Viper", "Ankle Biter", "Attercop", "Deadly Recluse", "Dragon Sniper", "Glistener Elf", "Gnarlwood Dryad", "Gran Pulse Ochu", "Ichorspit Basilisk", "Moss Viper", "Narnam Renegade", "Sedge Scorpion", "Tajuru Blightblade", "Thornweald Archer", "Wasteland Viper"],
+  "more poison": ["Bloated Contaminator", "Bloodroot Apothecary", "Contaminant Grafter", "Courage in Crisis", "Evolution Sage", "Pollenbright Druid", "Smell Fear", "Thirsting Roots", "Urban Daggertooth", "Venerated Rotpriest", "Venomous Brutalizer"],
+  "overrun": ["Bellowing Tanglewurm", "Champion of Lambholt", "Overprotect", "Overrun", "Return of the Wildspeaker", "Triumph of the Hordes", "Tyrranax Rex"],
+  "delete their creatures": ["Beast Within", "Cosmic Hunger", "Infectious Bite", "Kenrith's Transformation", "Master's Rebuke", "Prey Upon", "Prizefight", "Quarrel", "Ram Through", "Return to Nature"],
+  "draw and value": ["Genesis Wave", "Hornet Nest", "Hornet Queen", "Lifecrafter's Bestiary", "Oakhame Adversary", "Ohran Frostfang", "Skullclamp", "Toski, Bearer of Secrets"],
+  "protection": ["Blossoming Defense", "Fog", "Lightning Greaves", "Ranger's Guile", "Snakeskin Veil", "Spore Frog", "Tamiyo's Safekeeping"],
+  "mana dorks": ["Birds of Paradise", "Elvish Mystic", "Karametra's Acolyte", "Llanowar Elves", "Nightshade Dryad"]
+}
