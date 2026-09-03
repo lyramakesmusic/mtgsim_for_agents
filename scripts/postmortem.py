@@ -98,8 +98,14 @@ Rules, non-negotiable:
 Per game: winner, turn, and the line that actually killed — one line each.
 
 ## What each deck did
-Per deck, across the {n} games: which win line it went for and how far it got each time; which pieces
-it held without assembling; which parts of the deck never appeared at all. Name turns.
+Per deck, across the {n} games: which win line it went for and how far it got each time, and what
+stopped it when something did. Name turns.
+
+Do not report which cards never appeared. Seeing ~18 of 100 cards a game means roughly 45 of a
+deck's 99 cards are absent from a four-game sample by construction, and the cards you did not see
+are the games you did not play, not slots to reclaim. Density and consistency are measured by
+simulating draws, not by watching games — leave those questions alone entirely. What games uniquely
+show is interaction, politics and how the table responded, so spend your words there.
 
 ## What the table did
 Interaction actually cast (count it), commanders killed and by what, who the table attacked and when,
