@@ -13,6 +13,7 @@ import argparse
 import json
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -62,9 +63,16 @@ def fetch(names):
         # the endpoint matches front-face names ("Dread Linnorm") and answers with
         # full ones ("Dread Linnorm // Scale Deflection") — index both to match back
         body = json.dumps({"identifiers": [{"name": n.split(" // ")[0]} for n in batch]}).encode()
-        req = urllib.request.Request(API, data=body, headers=HEADERS, method="POST")
-        with urllib.request.urlopen(req, timeout=30) as r:
-            resp = json.load(r)
+        for k in range(6):                      # back off on 429, Scryfall's rate limit: 1s, 2s, 4s...
+            try:
+                req = urllib.request.Request(API, data=body, headers=HEADERS, method="POST")
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    resp = json.load(r)
+                break
+            except urllib.error.HTTPError as e:
+                if e.code != 429 or k == 5:
+                    raise
+                time.sleep(2 ** k)
         for card in resp.get("data", []):
             got[card["name"]] = card
             got.setdefault(card["name"].split(" // ")[0], card)

@@ -1,0 +1,530 @@
+{
+ "Animate Dead": {
+  "cost": "1B",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature card in a graveyard When this Aura enters, if it's on the battlefield, it loses \"enchant creature card in a graveyard\" and gains \"enchant creature put onto the battlefield with this Aura.\" Return enchanted creature card to the battlefield under your control and attach this Aura to it. When this Aura leaves the battlefield, that creature's controller sacrifices it. Enchanted creature gets -1/-0.",
+  "pt": null
+ },
+ "Apprentice Necromancer": {
+  "cost": "1B",
+  "type": "Creature \u2014 Zombie Wizard",
+  "text": "{B}, {T}, Sacrifice this creature: Return target creature card from your graveyard to the battlefield. That creature gains haste. At the beginning of the next end step, sacrifice it.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Archon of Cruelty": {
+  "cost": "6BB",
+  "type": "Creature \u2014 Archon",
+  "text": "Flying Whenever this creature enters or attacks, target opponent sacrifices a creature or planeswalker of their choice, discards a card, and loses 3 life. You draw a card and gain 3 life.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Armaggon, Future Shark": {
+  "cost": "6BB",
+  "type": "Legendary Creature \u2014 Shark Horror Mutant",
+  "text": "Flash When Armaggon enters, destroy up to three target creatures.",
+  "pt": [
+   9,
+   6
+  ]
+ },
+ "Artisan of Kozilek": {
+  "cost": "9",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, you may return target creature card from your graveyard to the battlefield. Annihilator 2 (Whenever this creature attacks, defending player sacrifices two permanents of their choice.)",
+  "pt": [
+   10,
+   9
+  ]
+ },
+ "Ashnod's Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add {C}{C}.",
+  "pt": null
+ },
+ "Avatar of Woe": {
+  "cost": "6BB",
+  "type": "Creature \u2014 Avatar",
+  "text": "If there are ten or more creature cards total in all graveyards, this spell costs {6} less to cast. Fear (This creature can't be blocked except by artifact creatures and/or black creatures.) {T}: Destroy target creature. It can't be regenerated.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Ayara, First of Locthwain": {
+  "cost": "BBB",
+  "type": "Legendary Creature \u2014 Elf Noble",
+  "text": "Whenever Ayara or another black creature you control enters, each opponent loses 1 life and you gain 1 life. {T}, Sacrifice another black creature: Draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Black Market Connections": {
+  "cost": "2B",
+  "type": "Enchantment",
+  "text": "At the beginning of your first main phase, choose one or more \u2014 \u2022 Sell Contraband \u2014 Create a Treasure token. You lose 1 life. \u2022 Buy Information \u2014 Draw a card. You lose 2 life. \u2022 Hire a Mercenary \u2014 Create a 3/2 colorless Shapeshifter creature token with changeling. You lose 3 life. (It is every creature type.)",
+  "pt": null
+ },
+ "Blood Artist": {
+  "cost": "1B",
+  "type": "Creature \u2014 Vampire",
+  "text": "Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Bloodghast": {
+  "cost": "BB",
+  "type": "Creature \u2014 Vampire Spirit",
+  "text": "This creature can't block. This creature has haste as long as an opponent has 10 or less life. Landfall \u2014 Whenever a land you control enters, you may return this card from your graveyard to the battlefield.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Bojuka Bog": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, exile target player's graveyard. {T}: Add {B}.",
+  "pt": null
+ },
+ "Carrion Feeder": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "This creature can't block. Sacrifice a creature: Put a +1/+1 counter on this creature.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Charcoal Diamond": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {B}.",
+  "pt": null
+ },
+ "Crypt Ghast": {
+  "cost": "3B",
+  "type": "Creature \u2014 Spirit",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Whenever you tap a Swamp for mana, add an additional {B}.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Crypt of Agadeem": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {B}. {2}, {T}: Add {B} for each black creature card in your graveyard.",
+  "pt": null
+ },
+ "Dark Matter Manipulator": {
+  "cost": "B",
+  "type": "Creature \u2014 Human Warlock",
+  "text": "When this creature enters, mill three cards. This creature gets +2/+0 for every seven cards in your graveyard.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Dark Ritual": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Add {B}{B}{B}.",
+  "pt": null
+ },
+ "Deadly Dispute": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact or creature. Draw two cards and create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Defile": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target creature gets -1/-1 until end of turn for each Swamp you control.",
+  "pt": null
+ },
+ "Dismember": {
+  "cost": "1(B/P)(B/P)",
+  "type": "Instant",
+  "text": "({B/P} can be paid with either {B} or 2 life.) Target creature gets -5/-5 until end of turn.",
+  "pt": null
+ },
+ "Doomed Necromancer": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Cleric Mercenary",
+  "text": "{B}, {T}, Sacrifice this creature: Return target creature card from your graveyard to the battlefield.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Dread Return": {
+  "cost": "2BB",
+  "type": "Sorcery",
+  "text": "Return target creature card from your graveyard to the battlefield. Flashback\u2014Sacrifice three creatures. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Dreadhound": {
+  "cost": "4BB",
+  "type": "Creature \u2014 Demon Dog",
+  "text": "When this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.) Whenever a creature dies or a creature card is put into a graveyard from a library, each opponent loses 1 life.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Emrakul, the Exigent Doom": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, untap all lands you control. Flying, trample Ward\u2014Sacrifice three permanents. {3}, Exile this card from your hand: Target land gains \"{T}: Add {C}{C}\" until this card is cast from exile. You may cast this card for as long as it remains exiled.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Exhume": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Each player puts a creature card from their graveyard onto the battlefield.",
+  "pt": null
+ },
+ "Feed the Swarm": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+  "pt": null
+ },
+ "Flayer of Loyalties": {
+  "cost": "8CC",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, gain control of target creature until end of turn. Untap that creature. Until end of turn, it has base power and toughness 10/10 and gains trample, annihilator 2, and haste. Annihilator 2 (Whenever this creature attacks, defending player sacrifices two permanents of their choice.) Trample",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Galactus, Devourer of Worlds": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Elder Alien",
+  "text": "Flying, trample, indestructible When Galactus enters, exile target permanent. Insatiable Hunger \u2014 Galactus attacks an opponent with the most life among your opponents each combat if able unless you control a creature named Silver Surfer, Galactus's Herald.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Go for the Throat": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Destroy target nonartifact creature.",
+  "pt": null
+ },
+ "Grave Researcher // Reanimate": {
+  "cost": "2B",
+  "type": "Creature \u2014 Troll Warlock // Sorcery",
+  "text": "Grave Researcher: At the beginning of your upkeep, surveil 1. Then if there are three or more creature cards in your graveyard, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.) // Reanimate: Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Gravecrawler": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "This creature can't block. You may cast this card from your graveyard as long as you control a Zombie.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Gray Merchant of Asphodel": {
+  "cost": "3BB",
+  "type": "Creature \u2014 Zombie",
+  "text": "When this creature enters, each opponent loses X life, where X is your devotion to black. You gain life equal to the life lost this way. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Grim Hireling": {
+  "cost": "3B",
+  "type": "Creature \u2014 Tiefling Rogue",
+  "text": "Whenever one or more creatures you control deal combat damage to a player, create two Treasure tokens. {B}, Sacrifice X Treasures: Target creature gets -X/-X until end of turn. Activate only as a sorcery.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Hoarding Broodlord": {
+  "cost": "5BBB",
+  "type": "Creature \u2014 Dragon",
+  "text": "Convoke Flying When this creature enters, search your library for a card, exile it face down, then shuffle. For as long as that card remains exiled, you may play it. Spells you cast from exile have convoke.",
+  "pt": [
+   7,
+   6
+  ]
+ },
+ "K'rrik, Son of Yawgmoth": {
+  "cost": "4(B/P)(B/P)(B/P)",
+  "type": "Legendary Creature \u2014 Phyrexian Horror Minion",
+  "text": "({B/P} can be paid with either {B} or 2 life.) Lifelink For each {B} in a cost, you may pay 2 life rather than pay that mana. Whenever you cast a black spell, put a +1/+1 counter on K'rrik.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Liliana the Repentant": {
+  "cost": "1B",
+  "type": "Legendary Creature \u2014 Human Warlock",
+  "text": "Whenever another creature or planeswalker you control enters, mill two cards. Exhaust \u2014 {5}{B}: Return target creature or planeswalker card from your graveyard to the battlefield. Put a +1/+1 counter on Liliana. Activate only as a sorcery. (Activate each exhaust ability only once.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Liliana's Elite": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie",
+  "text": "This creature gets +1/+1 for each creature card in your graveyard.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Lim-D\u00fbl the Necromancer": {
+  "cost": "5BB",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "Whenever a creature an opponent controls dies, you may pay {1}{B}. If you do, return that card to the battlefield under your control. If it's a creature, it's a Zombie in addition to its other creature types. {1}{B}: Regenerate target Zombie.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Living Death": {
+  "cost": "3BB",
+  "type": "Sorcery",
+  "text": "Each player exiles all creature cards from their graveyard, then sacrifices all creatures they control, then puts all cards they exiled this way onto the battlefield.",
+  "pt": null
+ },
+ "Millikin": {
+  "cost": "2",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "{T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Mire Triton": {
+  "cost": "1B",
+  "type": "Creature \u2014 Zombie Merfolk",
+  "text": "Deathtouch When this creature enters, mill two cards and you gain 2 life. (To mill two cards, put the top two cards of your library into your graveyard.)",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Multiply by Zero": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Target creature has base power and toughness 0/0 until end of turn.",
+  "pt": null
+ },
+ "Necromancy": {
+  "cost": "2B",
+  "type": "Enchantment",
+  "text": "You may cast this spell as though it had flash. If you cast it any time a sorcery couldn't have been cast, the controller of the permanent it becomes sacrifices it at the beginning of the next cleanup step. When this enchantment enters, if it's on the battlefield, it becomes an Aura with \"enchant creature put onto the battlefield with Necromancy.\" Put target creature card from a graveyard onto the battlefield under your control and attach this enchantment to it. When this enchantment leaves the battlefield, that creature's controller sacrifices it.",
+  "pt": null
+ },
+ "Nether Traitor": {
+  "cost": "BB",
+  "type": "Creature \u2014 Spirit",
+  "text": "Haste Shadow (This creature can block or be blocked by only creatures with shadow.) Whenever another creature is put into your graveyard from the battlefield, you may pay {B}. If you do, return this card from your graveyard to the battlefield.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Pathrazer of Ulamog": {
+  "cost": "(11)",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "Annihilator 3 (Whenever this creature attacks, defending player sacrifices three permanents of their choice.) This creature can't be blocked except by three or more creatures.",
+  "pt": [
+   9,
+   9
+  ]
+ },
+ "Peer into the Abyss": {
+  "cost": "4BBB",
+  "type": "Sorcery",
+  "text": "Target player draws cards equal to half the number of cards in their library and loses half their life. Round up each time.",
+  "pt": null
+ },
+ "Persist": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Return target nonlegendary creature card from your graveyard to the battlefield with a -1/-1 counter on it.",
+  "pt": null
+ },
+ "Pitiless Plunderer": {
+  "cost": "3B",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "Whenever another creature you control dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Rise of the Dark Realms": {
+  "cost": "7BB",
+  "type": "Sorcery",
+  "text": "Put all creature cards from all graveyards onto the battlefield under your control.",
+  "pt": null
+ },
+ "Ruthless Technomancer": {
+  "cost": "3B",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "When this creature enters, you may sacrifice another creature you control. If you do, create a number of Treasure tokens equal to that creature's power. {2}{B}, Sacrifice X artifacts: Return target creature card with power X or less from your graveyard to the battlefield. X can't be 0.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Sacrifice": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Add an amount of {B} equal to the sacrificed creature's mana value.",
+  "pt": null
+ },
+ "Saw in Half": {
+  "cost": "2B",
+  "type": "Instant",
+  "text": "Destroy target creature. If that creature dies this way, its controller creates two tokens that are copies of that creature, except their power is half that creature's power and their toughness is half that creature's toughness. Round up each time.",
+  "pt": null
+ },
+ "Sheoldred, Whispering One": {
+  "cost": "5BB",
+  "type": "Legendary Creature \u2014 Phyrexian Praetor",
+  "text": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.) At the beginning of your upkeep, return target creature card from your graveyard to the battlefield. At the beginning of each opponent's upkeep, that player sacrifices a creature of their choice.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Songs of the Damned": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Add {B} for each creature card in your graveyard.",
+  "pt": null
+ },
+ "Stitch Together": {
+  "cost": "BB",
+  "type": "Sorcery",
+  "text": "Return target creature card from your graveyard to your hand. Threshold \u2014 Return that card from your graveyard to the battlefield instead if there are seven or more cards in your graveyard.",
+  "pt": null
+ },
+ "Stitcher's Supplier": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "When this creature enters or dies, mill three cards. (Put the top three cards of your library into your graveyard.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land \u2014 Swamp",
+  "text": "({T}: Add {B}.)",
+  "pt": null
+ },
+ "Tormod, the Desecrator": {
+  "cost": "3B",
+  "type": "Legendary Creature \u2014 Zombie Wizard",
+  "text": "Whenever one or more cards leave your graveyard, create a tapped 2/2 black Zombie creature token. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   4,
+   2
+  ]
+ },
+ "Tragic Slip": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target creature gets -1/-1 until end of turn. Morbid \u2014 That creature gets -13/-13 until end of turn instead if a creature died this turn.",
+  "pt": null
+ },
+ "Twilight Diviner": {
+  "cost": "2B",
+  "type": "Creature \u2014 Elf Cleric",
+  "text": "When this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) Whenever one or more other creatures you control enter, if they entered or were cast from a graveyard, create a token that's a copy of one of them. This ability triggers only once each turn.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Undead Butler": {
+  "cost": "1B",
+  "type": "Creature \u2014 Zombie",
+  "text": "When this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.) When this creature dies, you may exile it. When you do, return target creature card from your graveyard to your hand.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Victimize": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Choose two target creature cards in your graveyard. Sacrifice a creature. If you do, return the chosen cards to the battlefield tapped.",
+  "pt": null
+ },
+ "Warren Soultrader": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Goblin Wizard",
+  "text": "Pay 1 life, Sacrifice another creature: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Withering Torment": {
+  "cost": "2B",
+  "type": "Instant",
+  "text": "Destroy target creature or enchantment. You lose 2 life.",
+  "pt": null
+ },
+ "Evin, Waterdeep Opportunist": {
+  "cost": "3B",
+  "type": "Legendary Creature \u2014 Human Rogue",
+  "text": "Menace Ward\u2014Sacrifice a creature. Evin gets +2/+0 for each Treasure you control. Whenever one or more players sacrifice one or more creatures, you create a tapped Treasure token. This ability triggers only once each turn.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Reanimate": {
+  "cost": "B",
+  "type": "Sorcery",
+  "text": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+  "pt": null
+ }
+}

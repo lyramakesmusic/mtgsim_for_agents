@@ -1,0 +1,80 @@
+{
+ "clone shenanigans": [
+  "Biovisionary",
+  "Bramble Sovereign",
+  "Clever Impersonator",
+  "Copycrook",
+  "Double Major",
+  "Gigantoplasm",
+  "Mirror Image",
+  "Naga Fleshcrafter",
+  "Phyrexian Metamorph",
+  "Progenitor Mimic",
+  "Relm's Sketching",
+  "Sakashima's Protege",
+  "Spark Double",
+  "Vizier of Many Faces"
+ ],
+ "etb shenanigans": [
+  "Beast Whisperer",
+  "Cloud of Faeries",
+  "Coiling Oracle",
+  "Dream Stalker",
+  "Elemental Bond",
+  "Elvish Visionary",
+  "Eternal Witness",
+  "Garruk's Uprising",
+  "Guardian Project",
+  "Imoti, Celebrant of Bounty",
+  "Mulldrifter",
+  "Peregrine Drake",
+  "Reclamation Sage",
+  "Shrieking Drake",
+  "Soul of the Harvest",
+  "Temur Sabertooth",
+  "Topiary Stomper"
+ ],
+ "fun stuff": [
+  "Champion of Rhonas",
+  "Oviya, Automech Artisan",
+  "Quandrix, the Proof",
+  "Scute Swarm"
+ ],
+ "land flicker loop": [
+  "Arid Archway",
+  "Cloudstone Curio",
+  "Coral Atoll",
+  "Crop Rotation",
+  "Guildless Commons",
+  "Jungle Basin",
+  "Meloku the Clouded Mirror",
+  "Oboro, Palace in the Clouds",
+  "Quirion Ranger",
+  "Simic Growth Chamber",
+  "Sunscorched Desert",
+  "Sylvan Scrying"
+ ],
+ "landfall shenanigans": [
+  "Aesi, Tyrant of Gyre Strait",
+  "Altar of the Brood",
+  "Lotus Cobra",
+  "Rampaging Baloths",
+  "Tatyova, Benthic Druid",
+  "Tireless Provisioner",
+  "Tireless Tracker"
+ ],
+ "ramp and interaction": [
+  "An Offer You Can't Refuse",
+  "Counterspell",
+  "Elvish Mystic",
+  "Gwenna, Eyes of Gaea",
+  "Heroic Intervention",
+  "Llanowar Elves",
+  "Narset's Reversal",
+  "Naturalize",
+  "Negate",
+  "Pongify",
+  "Reality Shift",
+  "Somberwald Sage"
+ ]
+}

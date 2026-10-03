@@ -59,12 +59,20 @@ if __name__ == "__main__":
     ap.add_argument("--hold", action="store_true",
                     help="after mind-cloning, print the session file paths and wait — your "
                          "window to edit memories before play resumes")
+    ap.add_argument("--continue", dest="cont", action="store_true",
+                    help="with --resume: continue the same game in its own log files instead of "
+                         "starting a branch (resumes from the log's final event)")
     ap.add_argument("--dump-state", action="store_true",
                     help="print the chosen event's state as JSON and exit (edit it, then --edit @file)")
     args = ap.parse_args()
     from datetime import datetime
     from pathlib import Path
     stamp = f"{datetime.now():%Y%m%d_%H%M%S}"
+    if args.cont:
+        if not args.resume:
+            raise SystemExit("--continue needs --resume")
+        args.log = args.resume[: -len(".events.jsonl")] if args.resume.endswith(".jsonl") else args.resume
+        args.at = None
     if not args.log:
         Path("games").mkdir(exist_ok=True)
         args.log = f"games/{stamp}.md"
@@ -168,7 +176,7 @@ if __name__ == "__main__":
             db, decks, agents, ev_path, args.log, args.max_turns, rng,
             max_actions=args.max_actions,
             at=idx, edits=edits, judge_factory=None if args.mock else judge_factory,
-            console_private=console_private)
+            console_private=console_private, append=args.cont)
     else:
         game = Game(db, decks, agents, seed, args.log, args.max_turns, rng,
                     max_actions=args.max_actions,

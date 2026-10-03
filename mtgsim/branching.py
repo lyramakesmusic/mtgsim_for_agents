@@ -67,7 +67,7 @@ def _rebuild_library(decklist, ps):
 
 def restore_game(db, decks, agents, events_path, log_path, max_turns, rng,
                  at=None, edits=None, judge_factory=None, console_private="all",
-                 max_actions=150):
+                 max_actions=150, append=False):
     """Rebuild a live Game from an event. Returns (game, from_turn, from_seat).
     edits: {"P4": {"hand": [...], "life": 30, ...}} — merged onto the seat
     after restore; any Player field goes."""
@@ -77,7 +77,7 @@ def restore_game(db, decks, agents, events_path, log_path, max_turns, rng,
     table = [e["line"] for e in events[:idx + 1] if not e.get("private")]
 
     g = Game(db, decks, agents, 0, log_path, max_turns, rng, max_actions=max_actions,
-             judge_factory=judge_factory, console_private=console_private)
+             judge_factory=judge_factory, console_private=console_private, append=append)
     g.turn = state["turn"]
     g.next_id = state.get("next_id") or 1
     g.stack_seq = state.get("stack_seq") or 0
@@ -92,6 +92,7 @@ def restore_game(db, decks, agents, events_path, log_path, max_turns, rng,
         pl.commander_tax = dict(ps["commander_tax"])
         pl.lands_played = ps.get("lands_played", 0)
         pl.drew_this_turn = ps.get("drew_this_turn", 0)
+        pl.counters = dict(ps.get("counters") or {})
         pl.battlefield = copy.deepcopy(ps["battlefield"])
         pl.library = list(ps.get("library_cards")
                           if ps.get("library_cards") is not None
@@ -111,8 +112,11 @@ def restore_game(db, decks, agents, events_path, log_path, max_turns, rng,
     g.log_sent = [0] * len(g.p)
     g.force_full = [True] * len(g.p)
     from_turn, from_seat = resume_point(table)
-    g.log(f"(branched from {Path(str(events_path)).name} at event {idx}, "
-          f"turn {state['turn']} — play resumes)")
+    if append:
+        g.log(f"(engine restarted at event {idx}, turn {state['turn']} — play continues)")
+    else:
+        g.log(f"(branched from {Path(str(events_path)).name} at event {idx}, "
+              f"turn {state['turn']} — play resumes)")
     return g, from_turn, from_seat
 
 

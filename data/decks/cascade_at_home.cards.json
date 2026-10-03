@@ -1,0 +1,554 @@
+{
+ "Aesi, Tyrant of Gyre Strait": {
+  "cost": "4GU",
+  "type": "Legendary Creature \u2014 Serpent",
+  "text": "You may play an additional land on each of your turns. Landfall \u2014 Whenever a land you control enters, you may draw a card.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Altar of the Brood": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "Whenever another permanent you control enters, each opponent mills a card.",
+  "pt": null
+ },
+ "An Offer You Can't Refuse": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Arid Archway": {
+  "cost": "",
+  "type": "Land \u2014 Desert",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. If another Desert was returned this way, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) {T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Beast Whisperer": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "Whenever you cast a creature spell, draw a card.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Biovisionary": {
+  "cost": "1GU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "At the beginning of the end step, if you control four or more creatures named Biovisionary, you win the game.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Bramble Sovereign": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Dryad",
+  "text": "Whenever another nontoken creature enters, you may pay {1}{G}. If you do, that creature's controller creates a token that's a copy of that creature.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Champion of Rhonas": {
+  "cost": "3G",
+  "type": "Creature \u2014 Jackal Warrior",
+  "text": "You may exert this creature as it attacks. When you do, you may put a creature card from your hand onto the battlefield. (An exerted creature won't untap during your next untap step.)",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Clever Impersonator": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of any nonland permanent on the battlefield.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Cloud of Faeries": {
+  "cost": "1U",
+  "type": "Creature \u2014 Faerie",
+  "text": "Flying When this creature enters, untap up to two lands. Cycling {2} ({2}, Discard this card: Draw a card.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Cloudstone Curio": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Whenever a nonartifact permanent you control enters, you may return another permanent you control that shares a permanent type with it to its owner's hand.",
+  "pt": null
+ },
+ "Coiling Oracle": {
+  "cost": "GU",
+  "type": "Creature \u2014 Snake Elf Druid",
+  "text": "When this creature enters, reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put that card into your hand.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Copycrook": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Shapeshifter Rogue",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield, except it has \"Whenever this creature attacks, it connives.\" (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Coral Atoll": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, sacrifice it unless you return an untapped Island you control to its owner's hand. {T}: Add {C}{U}.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Crop Rotation": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a land. Search your library for a land card, put that card onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Double Major": {
+  "cost": "GU",
+  "type": "Instant",
+  "text": "Copy target creature spell you control, except it isn't legendary if the spell is legendary. (A copy of a creature spell becomes a token.)",
+  "pt": null
+ },
+ "Dream Stalker": {
+  "cost": "1U",
+  "type": "Creature \u2014 Illusion",
+  "text": "When this creature enters, return a permanent you control to its owner's hand.",
+  "pt": [
+   1,
+   5
+  ]
+ },
+ "Elemental Bond": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control with power 3 or greater enters, draw a card.",
+  "pt": null
+ },
+ "Elvish Mystic": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Elvish Visionary": {
+  "cost": "1G",
+  "type": "Creature \u2014 Elf Shaman",
+  "text": "When this creature enters, draw a card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Eternal Witness": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "When this creature enters, you may return target card from your graveyard to your hand.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land \u2014 Forest",
+  "text": "({T}: Add {G}.)",
+  "pt": null
+ },
+ "Garruk's Uprising": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, if you control a creature with power 4 or greater, draw a card. Creatures you control have trample. (Each of those creatures can deal excess combat damage to the player or planeswalker it's attacking.) Whenever a creature you control with power 4 or greater enters, draw a card.",
+  "pt": null
+ },
+ "Gigantoplasm": {
+  "cost": "3U",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield, except it has \"{X}: This creature has base power and toughness X/X.\"",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Guardian Project": {
+  "cost": "3G",
+  "type": "Enchantment",
+  "text": "Whenever a nontoken creature you control enters, if it doesn't have the same name as another creature you control or a creature card in your graveyard, draw a card.",
+  "pt": null
+ },
+ "Guildless Commons": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Gwenna, Eyes of Gaea": {
+  "cost": "2G",
+  "type": "Legendary Creature \u2014 Elf Druid Scout",
+  "text": "{T}: Add two mana in any combination of colors. Spend this mana only to cast creature spells or activate abilities of creature sources. Whenever you cast a creature spell with power 5 or greater, put a +1/+1 counter on Gwenna and untap it.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Heroic Intervention": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Permanents you control gain hexproof and indestructible until end of turn.",
+  "pt": null
+ },
+ "Imoti, Celebrant of Bounty": {
+  "cost": "3GU",
+  "type": "Legendary Creature \u2014 Snake Druid",
+  "text": "Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.) Spells you cast with mana value 6 or greater have cascade.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Jungle Basin": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, sacrifice it unless you return an untapped Forest you control to its owner's hand. {T}: Add {C}{G}.",
+  "pt": null
+ },
+ "Kodama of the East Tree": {
+  "cost": "4GG",
+  "type": "Legendary Creature \u2014 Spirit",
+  "text": "Reach Whenever another permanent you control enters, if it wasn't put onto the battlefield with this ability, you may put a permanent card with equal or lesser mana value from your hand onto the battlefield. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Llanowar Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Lotus Cobra": {
+  "cost": "1G",
+  "type": "Creature \u2014 Snake",
+  "text": "Landfall \u2014 Whenever a land you control enters, add one mana of any color.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Meloku the Clouded Mirror": {
+  "cost": "4U",
+  "type": "Legendary Creature \u2014 Moonfolk Wizard",
+  "text": "Flying {1}, Return a land you control to its owner's hand: Create a 1/1 blue Illusion creature token with flying.",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Mirror Image": {
+  "cost": "2U",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of a creature you control.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Mulldrifter": {
+  "cost": "4U",
+  "type": "Creature \u2014 Elemental",
+  "text": "Flying When this creature enters, draw two cards. Evoke {2}{U} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Naga Fleshcrafter": {
+  "cost": "3U",
+  "type": "Creature \u2014 Snake Shapeshifter",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield. Renew \u2014 {2}{U}, Exile this card from your graveyard: Put a +1/+1 counter on target nonlegendary creature you control. Each other creature you control becomes a copy of that creature until end of turn. Activate only as a sorcery.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Narset's Reversal": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Copy target instant or sorcery spell, then return it to its owner's hand. You may choose new targets for the copy.",
+  "pt": null
+ },
+ "Naturalize": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Destroy target artifact or enchantment.",
+  "pt": null
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Oboro, Palace in the Clouds": {
+  "cost": "",
+  "type": "Legendary Land",
+  "text": "{T}: Add {U}. {1}: Return Oboro to its owner's hand.",
+  "pt": null
+ },
+ "Oviya, Automech Artisan": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Human Artificer",
+  "text": "Each creature that's attacking one of your opponents has trample. {G}, {T}: You may put a creature or Vehicle card from your hand onto the battlefield. If you put an artifact onto the battlefield this way, put two +1/+1 counters on it.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Peregrine Drake": {
+  "cost": "4U",
+  "type": "Creature \u2014 Drake",
+  "text": "Flying When this creature enters, untap up to five lands.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Phyrexian Metamorph": {
+  "cost": "3(U/P)",
+  "type": "Artifact Creature \u2014 Phyrexian Shapeshifter",
+  "text": "({U/P} can be paid with either {U} or 2 life.) You may have this creature enter as a copy of any artifact or creature on the battlefield, except it's an artifact in addition to its other types.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Progenitor Mimic": {
+  "cost": "4GU",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield, except it has \"At the beginning of your upkeep, if this creature isn't a token, create a token that's a copy of this creature.\"",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Quandrix, the Proof": {
+  "cost": "4GU",
+  "type": "Legendary Creature \u2014 Elder Dragon",
+  "text": "Flying, trample Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.) Instant and sorcery spells you cast from your hand have cascade.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Quirion Ranger": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Ranger",
+  "text": "Return a Forest you control to its owner's hand: Untap target creature. Activate only once each turn.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Rampaging Baloths": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Beast",
+  "text": "Trample Landfall \u2014 Whenever a land you control enters, create a 4/4 green Beast creature token.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Reality Shift": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller manifests the top card of their library. (That player puts the top card of their library onto the battlefield face down as a 2/2 creature. If it's a creature card, it can be turned face up any time for its mana cost.)",
+  "pt": null
+ },
+ "Reclamation Sage": {
+  "cost": "2G",
+  "type": "Creature \u2014 Elf Shaman",
+  "text": "When this creature enters, you may destroy target artifact or enchantment.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Relm's Sketching": {
+  "cost": "2UU",
+  "type": "Sorcery",
+  "text": "Create a token that's a copy of target artifact, creature, or land.",
+  "pt": null
+ },
+ "Sakashima of a Thousand Faces": {
+  "cost": "3U",
+  "type": "Legendary Creature \u2014 Human Rogue",
+  "text": "You may have Sakashima enter as a copy of another creature you control, except it has Sakashima's other abilities. The \"legend rule\" doesn't apply to permanents you control. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Sakashima's Protege": {
+  "cost": "4UU",
+  "type": "Creature \u2014 Shapeshifter",
+  "text": "Flash Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.) You may have this creature enter as a copy of any permanent that entered this turn.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Scute Swarm": {
+  "cost": "2G",
+  "type": "Creature \u2014 Insect",
+  "text": "Landfall \u2014 Whenever a land you control enters, create a 1/1 green Insect creature token. If you control six or more lands, create a token that's a copy of this creature instead.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Shrieking Drake": {
+  "cost": "U",
+  "type": "Creature \u2014 Drake",
+  "text": "Flying When this creature enters, return a creature you control to its owner's hand.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Simic Growth Chamber": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, return a land you control to its owner's hand. {T}: Add {G}{U}.",
+  "pt": null
+ },
+ "Somberwald Sage": {
+  "cost": "2G",
+  "type": "Creature \u2014 Human Druid",
+  "text": "{T}: Add three mana of any one color. Spend this mana only to cast creature spells.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Soul of the Harvest": {
+  "cost": "4GG",
+  "type": "Creature \u2014 Elemental",
+  "text": "Trample Whenever another nontoken creature you control enters, you may draw a card.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Spark Double": {
+  "cost": "3U",
+  "type": "Creature \u2014 Illusion",
+  "text": "You may have this creature enter as a copy of a creature or planeswalker you control, except it enters with an additional +1/+1 counter on it if it's a creature, it enters with an additional loyalty counter on it if it's a planeswalker, and it isn't legendary.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Sunscorched Desert": {
+  "cost": "",
+  "type": "Land \u2014 Desert",
+  "text": "When this land enters, it deals 1 damage to target player or planeswalker. {T}: Add {C}.",
+  "pt": null
+ },
+ "Sylvan Scrying": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a land card, reveal it, put it into your hand, then shuffle.",
+  "pt": null
+ },
+ "Tatyova, Benthic Druid": {
+  "cost": "3GU",
+  "type": "Legendary Creature \u2014 Merfolk Druid",
+  "text": "Landfall \u2014 Whenever a land you control enters, you gain 1 life and draw a card.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Temur Sabertooth": {
+  "cost": "2GG",
+  "type": "Creature \u2014 Cat",
+  "text": "{1}{G}: You may return another creature you control to its owner's hand. If you do, this creature gains indestructible until end of turn.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Tireless Provisioner": {
+  "cost": "2G",
+  "type": "Creature \u2014 Elf Scout",
+  "text": "Landfall \u2014 Whenever a land you control enters, create a Food token or a Treasure token. (Food is an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\" Treasure is an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Tireless Tracker": {
+  "cost": "2G",
+  "type": "Creature \u2014 Human Scout",
+  "text": "Landfall \u2014 Whenever a land you control enters, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\") Whenever you sacrifice a Clue, put a +1/+1 counter on this creature.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Topiary Stomper": {
+  "cost": "1GG",
+  "type": "Creature \u2014 Plant Dinosaur",
+  "text": "Vigilance (Attacking doesn't cause this creature to tap.) When this creature enters, search your library for a basic land card, put it onto the battlefield tapped, then shuffle. This creature can't attack or block unless you control seven or more lands.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Vizier of Many Faces": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Shapeshifter Cleric",
+  "text": "You may have this creature enter as a copy of any creature on the battlefield, except if this creature was embalmed, the token has no mana cost, it's white, and it's a Zombie in addition to its other types. Embalm {3}{U}{U}",
+  "pt": [
+   0,
+   0
+  ]
+ }
+}

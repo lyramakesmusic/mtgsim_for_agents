@@ -230,12 +230,6 @@
   "text": "Target creature you control gets +0/+1 and gains hexproof until end of turn. Overload {1}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
   "pt": null
  },
- "Moonlace": {
-  "cost": "U",
-  "type": "Instant",
-  "text": "Target spell or permanent becomes colorless.",
-  "pt": null
- },
  "Negate": {
   "cost": "1U",
   "type": "Instant",
@@ -462,6 +456,12 @@
   "cost": "2UU",
   "type": "Sorcery",
   "text": "Return all creatures to their owners' hands except for Krakens, Leviathans, Octopuses, and Serpents.",
+  "pt": null
+ },
+ "Ghostly Flicker": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Exile two target artifacts, creatures, and/or lands you control, then return those cards to the battlefield under your control.",
   "pt": null
  }
 }

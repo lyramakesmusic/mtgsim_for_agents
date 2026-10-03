@@ -5,6 +5,7 @@ import json
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -19,18 +20,26 @@ def slug(name):
     return re.sub(r"[^\w]+", "_", name).strip("_").lower()
 
 
+def get(url, tries=6):
+    """GET with backoff on 429 (Scryfall's rate limit): 1s, 2s, 4s..."""
+    for k in range(tries):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=30) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or k == tries - 1:
+                raise
+            time.sleep(2 ** k)
+
+
 def fetch_one(name):
     url = "https://api.scryfall.com/cards/named?exact=" + urllib.parse.quote(name)
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        card = json.load(r)
+    card = json.loads(get(url))
     uris = card.get("image_uris") or (card.get("card_faces") or [{}])[0].get("image_uris") or {}
     img_url = uris.get("normal") or uris.get("large")
     if not img_url:
         return False
-    req = urllib.request.Request(img_url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        (ART / f"{slug(name)}.jpg").write_bytes(r.read())
+    (ART / f"{slug(name)}.jpg").write_bytes(get(img_url))
     return True
 
 

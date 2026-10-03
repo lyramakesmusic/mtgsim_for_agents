@@ -49,6 +49,23 @@ a reminder fires when the game needs you, so you can alt-tab while the agents th
 
 the agents don't know which seat is human. they will politick you, cut deals with you, and betray you on schedule.
 
+## web gui
+
+```bash
+uv run web/server.py --open
+```
+
+a browser front end for the same games: set up a pod, watch it play out live as an animated table, rewatch and analyze any saved game. it runs `play.py` underneath and reads the same `games/` files, so every game the cli has ever played is a replay here too.
+
+- **games**: the pod you'll play next sits at the top as a banner of seats. click a seat's art to swap its deck, pick its agent and model right on it, hit start. below it, every saved game, searchable, with live ones first.
+- **watching**: cards move between zones as the agents move them, the stack spotlights whatever's being cast with arrows to its targets, attackers lunge at who they're hitting, and life totals tick. auras and equipment sit tucked under whatever they're attached to, read from the casts, equips, and the agents' own notes. table talk shows up in a band across the middle of the table, private thinking too if you want it. the log on the right follows along and you can click any line to jump there. the timeline under the table draws everyone's life over the whole game; scrub it, or step by event or by turn. space plays and pauses.
+- **live games**: you can stop them, speak to the table as the judge, or summon a codex ruling. a thinking mark shows who the table is waiting on.
+- **playing**: pick `human` for a seat and you play from a console under the log: your prompt, one-click answers for the moment (keep, pass, end turn, resolve…), and the scribe's replies. click your own cards to drop their names into what you're typing. other seats' hands and thoughts stay hidden unless you flip on show hidden.
+- **analyze**: life and board charts, per-seat stats, key moments that jump back into the replay, the codex postmortem, and an ask box where you can question an agent about the game ("how many land drops did meren miss", "why did aurelia's commander cost 8"). it reads the logs, counts, and cites turns you can click.
+- **branch**: from any moment in a replay, restart the game from there with fresh or cloned minds.
+- **decks**: every deck with its record, curve, colors, and your tag groups as a card grid. drop a moxfield / archidekt link into the new deck banner (tags come with the link) or paste a list from the clipboard button, then name it on its page. drop screenshots of your tags on a deck and claude reads them in.
+- **settings**: default agents and models, codex effort and tier, turn caps, and viewer preferences.
+
 ## running a lot of games
 
 ```bash

@@ -1,0 +1,84 @@
+Commander
+1 Jhoira, Weatherlight Captain
+
+Deck
+1 Abrade
+1 Accorder's Shield
+1 Aetherflux Reservoir
+1 Altar of the Brood
+1 Artificer's Assistant
+1 Baral's Expertise
+1 Bone Saw
+1 Boomerang Basics
+1 Cathar's Shield
+1 Chaos Warp
+1 Codex Shredder
+1 Colossus Hammer
+1 Command Tower
+1 Counterspell
+1 Darksteel Relic
+1 Displacement Wave
+1 Echo of Eons
+1 Elixir of Immortality
+1 Enthusiastic Mechanaut
+1 Etherium Sculptor
+1 Evacuation
+1 Everflowing Chalice
+1 Fabricate
+1 Fading Hope
+1 Familiar's Ruse
+1 Feldon's Cane
+1 Filter Out
+1 Flusterstorm
+1 Foundry Inspector
+1 Fountain of Youth
+1 Grafdigger's Cage
+1 Grapeshot
+1 Herbal Poultice
+1 Hurkyl's Recall
+1 Infiltration Lens
+1 Inventors' Fair
+20 Island
+1 Jhoira's Familiar
+1 Kite Shield
+1 Memnite
+1 Mishra's Bauble
+1 Mists of Lórien
+5 Mountain
+1 Mystic Forge
+1 Negate
+1 Ornithopter
+1 Padeem, Consul of Innovation
+1 Paradise Mantle
+1 Paradoxical Outcome
+1 Pongify
+1 Rapid Hybridization
+1 Rebuild
+1 Reckless Fireweaver
+1 Reshape
+1 Retract
+1 Reverse Engineer
+1 Shadowspear
+1 Shivan Reef
+1 Silverbluff Bridge
+1 Snap
+1 Sol Ring
+1 Spellbook
+1 Spidersilk Net
+1 Stormcarved Coast
+1 Sulfur Falls
+1 Teferi's Ageless Insight
+1 Temple of Epiphany
+1 The Reality Chip
+1 Tormod's Crypt
+1 Vedalken Archmage
+1 Wayfarer's Bauble
+1 Welding Jar
+1 Whir of Invention
+1 Windfall
+1 Witness Protection
+1 Zuran Orb
+
+//strategy: this whole deck is about casting a flood of 0 cost artifacts, using your commander to cantrip off each one. the turn goes: throw out every egg you can and draw off each one, bounce your whole board back to hand, throw them all out again - more this time, because you drew more - then bounce again if you can. you have no need to cast eggs until you can get value off them - their value is all in the cast trigger. it doesn't need to go infinite, each pass just needs to be bigger than the last. you NEED aetherflux reservoir: it gains you a life for every spell you've already cast that turn, so a chain of ten-ish spells clears the 50 to kill someone. find it as fast as you can with card draw or tutors, then use interaction to protect it. cost reducers are what make the bounce free - once eggs cost 0 every pass pays for itself - and you have a lot of 1drops that can be reduced to zero, don't sleep on those. vedalken archmage is a second jhoira nobody respects. no aetherflux? reckless fireweaver and altar of the brood can finish instead. count the damage before you start: a big chain that doesn't kill anyone just hands the turn to whoever untaps next. jhoira eats every removal spell at the table the second someone figures her out, so expect to recast her and keep something in hand for it instead of dumping everything the turn she lands. mulligan for lands plus a reducer or a bounce spell; a hand full of eggs with nothing to draw off them isn't a hand. use the eggs if you can, but casting them is the real point.
+//personality: you love throwing eggs
+//scouting: zero-cost artifact nondeterministic storm

@@ -1,0 +1,78 @@
+Commander
+1 Yume, Chronicler of Valor
+
+Deck
+1 Aerial Extortionist
+1 Angel of Serenity
+1 Angel of the Ruins
+1 Arcane Signet
+1 Austere Command
+1 Benevolent Offering
+1 Bilbo's Gambit
+1 Canoptek Scarab Swarm
+1 Captain Marvel, Shooting Star
+1 Cityscape Leveler
+1 Cleansing Nova
+1 Clever Concealment
+1 Curious Colossus
+1 Cut a Deal
+1 Darksteel Mutation
+1 Dawn's Truce
+1 Dismantling Wave
+1 Elesh Norn, Grand Cenobite
+1 Elspeth Conquers Death
+1 Emeria Shepherd
+1 Emrakul, the Promised End
+1 Erode
+1 Everybody Lives!
+1 Excavation Technique
+1 Expel the Interlopers
+1 Fall of the First Civilization
+1 Farewell
+1 Final Showdown
+1 Firemane Commando
+1 Generous Gift
+1 Gleaming Splendor
+1 Heliod's Intervention
+1 Immortal Obligation
+1 Jailbreak
+1 Land Tax
+1 Lightning Greaves
+1 Loran of the Third Path
+1 Love Song of Night and Day
+1 Meteor Golem
+1 Mother of Runes
+1 Ondu Inversion // Ondu Skyruins
+1 Overwhelming Splendor
+1 Path to Exile
+1 Pendant of Prosperity
+1 Perch Protection
+30 Plains
+1 Progenitor's Icon
+1 Reverse the Sands
+1 Rise of the Eldrazi
+1 Secret Rendezvous
+1 Sejiri Shelter // Sejiri Glacier
+1 Sol Ring
+1 Starfall Invocation
+1 Strip Mine
+1 Summon: Bahamut
+1 Summon: Yojimbo
+1 Swiftfoot Boots
+1 Swords to Plowshares
+1 Tataru Taru
+1 The Legend of Yangchen // Avatar Yangchen
+1 The Sentry, Golden Guardian
+1 Thespian's Stage
+1 Throne of Eldraine
+1 Unwanted Remake
+1 Vesuva
+1 Victory Chimes
+1 Wandering Archaic // Explore the Vastlands
+1 Wave of Reckoning
+1 Witch Enchanter // Witch-Blessed Meadow
+1 Worn Powerstone
+
+//strategy: you run a gift shop. other players bid on your spells, in exchange you give them some of the effects and/or direct them how they want. make sure you always keep some value for yourself, and don't gift lasting effects. play with your hand revealed, so your opponents know what you have. for example, you might let a player bid 4 mana towards a saga who's first chapter gets rid of something they have a problem with, but you control the last chapter. or they pay for a boardwipe angel, and you keep the body. play enough interaction to keep yourself safe. you live and die to politics - make sure to keep a tit for tat policy. in a pinch, you can choose a lesser bid to help yourself out, but use this sparingly as it can hurt goodwill. you're impartial - you don't hold grudges, but you don't let opponents get away with bullshit either. if they hit you, you sell to someone else. at the end of the day, when you have accumulated enough finances, take over the game. your shop is always open, and you make sure everyone needs it.
+//personality: shopkeeper. fair, impartial, open for business, matter of fact.
+//scouting: yume's gift shop is open for business! buy big spells to help you with your opponents' problematic things.

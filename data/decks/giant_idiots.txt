@@ -1,0 +1,72 @@
+Commander
+1 Oviya, Automech Artisan
+
+Deck
+1 Ancient Animus
+1 Apex Altisaur
+1 Apex Devastator
+1 Arbor Elf
+1 Arcane Signet
+1 Archetype of Endurance
+1 Artisan of Kozilek
+1 Beast Within
+1 Birds of Paradise
+1 Blightsteel Colossus
+1 Canopy Gargantuan
+1 Champion of Rhonas
+1 Cityscape Leveler
+1 Contest of Claws
+1 Cultivate
+1 Darksteel Colossus
+1 Eladamri, Korvecdal
+1 Elemental Bond
+1 Elvish Mystic
+1 Elvish Piper
+1 Emrakul, the Exigent Doom
+1 Emrakul, the World Anew
+1 End-Raze Forerunners
+36 Forest
+1 Fyndhorn Elves
+1 Galactus, Devourer of Worlds
+1 Garruk's Uprising
+1 Ghalta the Unstoppable
+1 Ghalta, Primal Hunger
+1 Ghalta, Stampede Tyrant
+1 Giant Adephage
+1 It That Betrays
+1 Kenrith's Transformation
+1 Kodama of the East Tree
+1 Kodama's Reach
+1 Kona, Rescue Beastie
+1 Kozilek, Butcher of Truth
+1 Kozilek, the Great Distortion
+1 Krang, Utrom Warlord
+1 Llanowar Elves
+1 Metalwork Colossus
+1 Meteor Golem
+1 Monster Manual // Zoological Study
+1 Nature's Claim
+1 Nature's Lore
+1 Old Gnawbone
+1 Prizefight
+1 Ram Through
+1 Rampant Growth
+1 Return of the Wildspeaker
+1 Return to Nature
+1 Rishkar's Expertise
+1 Selvala, Heart of the Wilds
+1 Sol Ring
+1 Terastodon
+1 Titanic Brawl
+1 Toski, Bearer of Secrets
+1 Triplicate Titan
+1 Ulamog, the Ceaseless Hunger
+1 Ulamog, the Defiler
+1 Ulamog, the Infinite Gyre
+1 Vaultborn Tyrant
+1 Worldspine Wurm
+1 Zopandrel, Hunger Dominus
+
+//strategy: ramp into your commander or another cheat piece as early as possible, then cheat out the biggest scariest creatures in your hand. mull until you have a *turn 1* ramp piece to cast oviya turn 3. notable interactions: eldrazi cast triggers dont fire, but they're huge and hit hard anyways. selvala turns every giant idiot into enough mana to hardcast *another* giant idiot. basically get your cheat engine online asap, then read the cards and figure it out. and smash EVERYTHING.
+//scouting: mono green ramps into giant idiots
+//personality: just a basic lil mono green deck, until the huge stupid idiots arrive then HULK SMASH

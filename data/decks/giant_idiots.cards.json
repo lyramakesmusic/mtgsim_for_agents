@@ -1,0 +1,524 @@
+{
+ "Ancient Animus": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Put a +1/+1 counter on target creature you control if it's legendary. Then it fights target creature an opponent controls. (Each deals damage equal to its power to the other.)",
+  "pt": null
+ },
+ "Apex Altisaur": {
+  "cost": "7GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "When this creature enters, it fights up to one target creature you don't control. Enrage \u2014 Whenever this creature is dealt damage, it fights up to one target creature you don't control.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Apex Devastator": {
+  "cost": "8GG",
+  "type": "Creature \u2014 Chimera Hydra",
+  "text": "Cascade, cascade, cascade, cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order. Multiple instances of cascade each trigger separately.)",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Arbor Elf": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Untap target Forest.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Archetype of Endurance": {
+  "cost": "6GG",
+  "type": "Enchantment Creature \u2014 Boar",
+  "text": "Creatures you control have hexproof. Creatures your opponents control lose hexproof and can't have or gain hexproof.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Artisan of Kozilek": {
+  "cost": "9",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, you may return target creature card from your graveyard to the battlefield. Annihilator 2 (Whenever this creature attacks, defending player sacrifices two permanents of their choice.)",
+  "pt": [
+   10,
+   9
+  ]
+ },
+ "Beast Within": {
+  "cost": "2G",
+  "type": "Instant",
+  "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "pt": null
+ },
+ "Birds of Paradise": {
+  "cost": "G",
+  "type": "Creature \u2014 Bird",
+  "text": "Flying {T}: Add one mana of any color.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Blightsteel Colossus": {
+  "cost": "(12)",
+  "type": "Artifact Creature \u2014 Phyrexian Golem",
+  "text": "Trample, infect, indestructible If Blightsteel Colossus would be put into a graveyard from anywhere, reveal Blightsteel Colossus and shuffle it into its owner's library instead.",
+  "pt": [
+   11,
+   11
+  ]
+ },
+ "Canopy Gargantuan": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying, ward {2} At the beginning of your upkeep, put a number of +1/+1 counters on each other creature you control equal to that creature's toughness.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Champion of Rhonas": {
+  "cost": "3G",
+  "type": "Creature \u2014 Jackal Warrior",
+  "text": "You may exert this creature as it attacks. When you do, you may put a creature card from your hand onto the battlefield. (An exerted creature won't untap during your next untap step.)",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Cityscape Leveler": {
+  "cost": "8",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "Trample When you cast this spell and whenever this creature attacks, destroy up to one target nonland permanent. Its controller creates a tapped Powerstone token. Unearth {8}",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Contest of Claws": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Target creature you control deals damage equal to its power to another target creature. If excess damage was dealt this way, discover X, where X is that excess damage. (Exile cards from the top of your library until you exile a nonland card with that mana value or less. Cast it without paying its mana cost or put it into your hand. Put the rest on the bottom in a random order.)",
+  "pt": null
+ },
+ "Cultivate": {
+  "cost": "2G",
+  "type": "Sorcery",
+  "text": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+  "pt": null
+ },
+ "Darksteel Colossus": {
+  "cost": "(11)",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.) Indestructible (Damage and effects that say \"destroy\" don't destroy this creature.) If Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.",
+  "pt": [
+   11,
+   11
+  ]
+ },
+ "Eladamri, Korvecdal": {
+  "cost": "1GG",
+  "type": "Legendary Creature \u2014 Elf Warrior",
+  "text": "You may look at the top card of your library any time. You may cast creature spells from the top of your library. {G}, {T}, Tap two untapped creatures you control: Reveal a card from your hand or the top card of your library. If you reveal a creature card this way, put it onto the battlefield. Activate only during your turn.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Elemental Bond": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "Whenever a creature you control with power 3 or greater enters, draw a card.",
+  "pt": null
+ },
+ "Elvish Mystic": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Elvish Piper": {
+  "cost": "3G",
+  "type": "Creature \u2014 Elf Shaman",
+  "text": "{G}, {T}: You may put a creature card from your hand onto the battlefield.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Emrakul, the Exigent Doom": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, untap all lands you control. Flying, trample Ward\u2014Sacrifice three permanents. {3}, Exile this card from your hand: Target land gains \"{T}: Add {C}{C}\" until this card is cast from exile. You may cast this card for as long as it remains exiled.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Emrakul, the World Anew": {
+  "cost": "(12)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, gain control of all creatures target player controls. Flying, protection from spells and from permanents that were cast this turn When Emrakul leaves the battlefield, sacrifice all creatures you control. Madness\u2014Pay six {C}.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "End-Raze Forerunners": {
+  "cost": "5GGG",
+  "type": "Creature \u2014 Boar",
+  "text": "Vigilance, trample, haste When this creature enters, other creatures you control get +2/+2 and gain vigilance and trample until end of turn.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Forest": {
+  "cost": "",
+  "type": "Basic Land \u2014 Forest",
+  "text": "({T}: Add {G}.)",
+  "pt": null
+ },
+ "Fyndhorn Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Galactus, Devourer of Worlds": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Elder Alien",
+  "text": "Flying, trample, indestructible When Galactus enters, exile target permanent. Insatiable Hunger \u2014 Galactus attacks an opponent with the most life among your opponents each combat if able unless you control a creature named Silver Surfer, Galactus's Herald.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Garruk's Uprising": {
+  "cost": "2G",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, if you control a creature with power 4 or greater, draw a card. Creatures you control have trample. (Each of those creatures can deal excess combat damage to the player or planeswalker it's attacking.) Whenever a creature you control with power 4 or greater enters, draw a card.",
+  "pt": null
+ },
+ "Ghalta the Unstoppable": {
+  "cost": "8G",
+  "type": "Legendary Creature \u2014 Elder Dinosaur",
+  "text": "This spell costs {X} less to cast, where X is the greatest power among creatures you control. Trample Other creatures you control have trample.",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Ghalta, Primal Hunger": {
+  "cost": "(10)GG",
+  "type": "Legendary Creature \u2014 Elder Dinosaur",
+  "text": "This spell costs {X} less to cast, where X is the total power of creatures you control. Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Ghalta, Stampede Tyrant": {
+  "cost": "5GGG",
+  "type": "Legendary Creature \u2014 Elder Dinosaur",
+  "text": "Trample When Ghalta enters, put any number of creature cards from your hand onto the battlefield.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Giant Adephage": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Insect",
+  "text": "Trample Whenever this creature deals combat damage to a player, create a token that's a copy of this creature.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "It That Betrays": {
+  "cost": "(12)",
+  "type": "Creature \u2014 Eldrazi",
+  "text": "Annihilator 2 (Whenever this creature attacks, defending player sacrifices two permanents of their choice.) Whenever an opponent sacrifices a nontoken permanent, put that card onto the battlefield under your control.",
+  "pt": [
+   11,
+   11
+  ]
+ },
+ "Kenrith's Transformation": {
+  "cost": "1G",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature When this Aura enters, draw a card. Enchanted creature loses all abilities and is a green Elk creature with base power and toughness 3/3. (It loses all other card types and creature types.)",
+  "pt": null
+ },
+ "Kodama of the East Tree": {
+  "cost": "4GG",
+  "type": "Legendary Creature \u2014 Spirit",
+  "text": "Reach Whenever another permanent you control enters, if it wasn't put onto the battlefield with this ability, you may put a permanent card with equal or lesser mana value from your hand onto the battlefield. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Kodama's Reach": {
+  "cost": "2G",
+  "type": "Sorcery \u2014 Arcane",
+  "text": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+  "pt": null
+ },
+ "Kona, Rescue Beastie": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Beast Survivor",
+  "text": "Survival \u2014 At the beginning of your second main phase, if Kona is tapped, you may put a permanent card from your hand onto the battlefield.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Kozilek, Butcher of Truth": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, draw four cards. Annihilator 4 (Whenever this creature attacks, defending player sacrifices four permanents of their choice.) When Kozilek is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Kozilek, the Great Distortion": {
+  "cost": "8CC",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, if you have fewer than seven cards in hand, draw cards equal to the difference. Menace Discard a card with mana value X: Counter target spell with mana value X.",
+  "pt": [
+   12,
+   12
+  ]
+ },
+ "Krang, Utrom Warlord": {
+  "cost": "9",
+  "type": "Legendary Artifact Creature \u2014 Utrom Robot",
+  "text": "Flying, trample, indestructible, haste Other artifact creatures you control have flying, trample, indestructible, and haste.",
+  "pt": [
+   9,
+   9
+  ]
+ },
+ "Llanowar Elves": {
+  "cost": "G",
+  "type": "Creature \u2014 Elf Druid",
+  "text": "{T}: Add {G}.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Metalwork Colossus": {
+  "cost": "(11)",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "This spell costs {X} less to cast, where X is the total mana value of noncreature artifacts you control. Sacrifice two artifacts: Return this card from your graveyard to your hand.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Meteor Golem": {
+  "cost": "7",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "When this creature enters, destroy target nonland permanent an opponent controls.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Monster Manual // Zoological Study": {
+  "cost": "3G",
+  "type": "Artifact \u2014 Book // Sorcery \u2014 Adventure",
+  "text": "Monster Manual: {1}{G}, {T}: You may put a creature card from your hand onto the battlefield. // Zoological Study: Mill five cards, then return a creature card milled this way to your hand. (Then exile this card. You may cast the artifact later from exile.)",
+  "pt": null
+ },
+ "Nature's Claim": {
+  "cost": "G",
+  "type": "Instant",
+  "text": "Destroy target artifact or enchantment. Its controller gains 4 life.",
+  "pt": null
+ },
+ "Nature's Lore": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Old Gnawbone": {
+  "cost": "5GG",
+  "type": "Legendary Creature \u2014 Dragon",
+  "text": "Flying Whenever a creature you control deals combat damage to a player, create that many Treasure tokens.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Oviya, Automech Artisan": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Human Artificer",
+  "text": "Each creature that's attacking one of your opponents has trample. {G}, {T}: You may put a creature or Vehicle card from your hand onto the battlefield. If you put an artifact onto the battlefield this way, put two +1/+1 counters on it.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Prizefight": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.) Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Ram Through": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Target creature you control deals damage equal to its power to target creature you don't control. If the creature you control has trample, excess damage is dealt to that creature's controller instead.",
+  "pt": null
+ },
+ "Rampant Growth": {
+  "cost": "1G",
+  "type": "Sorcery",
+  "text": "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Return of the Wildspeaker": {
+  "cost": "4G",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Draw cards equal to the greatest power among non-Human creatures you control. \u2022 Non-Human creatures you control get +3/+3 until end of turn.",
+  "pt": null
+ },
+ "Return to Nature": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Destroy target artifact. \u2022 Destroy target enchantment. \u2022 Exile target card from a graveyard.",
+  "pt": null
+ },
+ "Rishkar's Expertise": {
+  "cost": "4GG",
+  "type": "Sorcery",
+  "text": "Draw cards equal to the greatest power among creatures you control. You may cast a spell with mana value 5 or less from your hand without paying its mana cost.",
+  "pt": null
+ },
+ "Selvala, Heart of the Wilds": {
+  "cost": "1GG",
+  "type": "Legendary Creature \u2014 Elf Scout",
+  "text": "Whenever another creature enters, its controller may draw a card if its power is greater than each other creature's power. {G}, {T}: Add X mana in any combination of colors, where X is the greatest power among creatures you control.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Terastodon": {
+  "cost": "6GG",
+  "type": "Creature \u2014 Elephant",
+  "text": "When this creature enters, you may destroy up to three target noncreature permanents. For each permanent put into a graveyard this way, its controller creates a 3/3 green Elephant creature token.",
+  "pt": [
+   9,
+   9
+  ]
+ },
+ "Titanic Brawl": {
+  "cost": "1G",
+  "type": "Instant",
+  "text": "This spell costs {1} less to cast if it targets a creature you control with a +1/+1 counter on it. Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+  "pt": null
+ },
+ "Toski, Bearer of Secrets": {
+  "cost": "3G",
+  "type": "Legendary Creature \u2014 Squirrel",
+  "text": "This spell can't be countered. Indestructible Toski attacks each combat if able. Whenever a creature you control deals combat damage to a player, draw a card.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Triplicate Titan": {
+  "cost": "9",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "Flying, vigilance, trample When this creature dies, create a 3/3 colorless Golem artifact creature token with flying, a 3/3 colorless Golem artifact creature token with vigilance, and a 3/3 colorless Golem artifact creature token with trample.",
+  "pt": [
+   9,
+   9
+  ]
+ },
+ "Ulamog, the Ceaseless Hunger": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, exile two target permanents. Indestructible Whenever Ulamog attacks, defending player exiles the top twenty cards of their library.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Ulamog, the Defiler": {
+  "cost": "(10)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, target opponent exiles the top half of their library, rounded up. Ward\u2014Sacrifice two permanents. Ulamog enters with a number of +1/+1 counters on it equal to the greatest mana value among cards in exile. Ulamog has annihilator X, where X is the number of +1/+1 counters on it.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Ulamog, the Infinite Gyre": {
+  "cost": "(11)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "When you cast this spell, destroy target permanent. Indestructible Annihilator 4 (Whenever this creature attacks, defending player sacrifices four permanents of their choice.) When Ulamog is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.",
+  "pt": [
+   10,
+   10
+  ]
+ },
+ "Vaultborn Tyrant": {
+  "cost": "5GG",
+  "type": "Creature \u2014 Dinosaur",
+  "text": "Trample Whenever this creature or another creature you control with power 4 or greater enters, you gain 3 life and draw a card. When this creature dies, if it's not a token, create a token that's a copy of it, except it's an artifact in addition to its other types.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Worldspine Wurm": {
+  "cost": "8GGG",
+  "type": "Creature \u2014 Wurm",
+  "text": "Trample When this creature dies, create three 5/5 green Wurm creature tokens with trample. When Worldspine Wurm is put into a graveyard from anywhere, shuffle it into its owner's library.",
+  "pt": [
+   15,
+   15
+  ]
+ },
+ "Zopandrel, Hunger Dominus": {
+  "cost": "5GG",
+  "type": "Legendary Creature \u2014 Phyrexian Horror",
+  "text": "Reach At the beginning of each combat, double the power and toughness of each creature you control until end of turn. {G/P}{G/P}, Sacrifice two other creatures: Put an indestructible counter on Zopandrel. ({G/P} can be paid with either {G} or 2 life.)",
+  "pt": [
+   4,
+   6
+  ]
+ }
+}

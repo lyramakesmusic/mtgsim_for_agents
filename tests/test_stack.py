@@ -542,3 +542,76 @@ def test_a_correction_that_changes_something_resets_the_count(make_game):
         g.do_action(0, {"action": "correct", "narration": "fixing a real thing",
                         "effects": [{"life": {"player": "self", "delta": -1}}]})
     assert g.idle_corrections[0] == 0
+
+
+def test_a_combo_can_respond_many_times_before_removal_resolves(make_game):
+    """Squirrel Girl answers Dismember with activation after activation; each one resolves
+    and the removal waits. Ten rounds of responses all land before Dismember does."""
+    class Remover(StubAgent):
+        def __init__(self, cast=False):
+            super().__init__()
+            self.cast = cast
+        def ask(self, prompt):
+            if self.cast and "MAIN PHASE" in prompt:
+                self.cast = False
+                return ('{"action":"cast","card":"Lightning Bolt","targets":["P2"],'
+                        '"effects":[{"life":{"player":"P2","delta":-3}}]}')
+            if "final resolution" in prompt:
+                return '{"action":"cast"}'
+            return '{"action":"pass"}'
+
+    class Combo(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.n = 0
+        def ask(self, prompt):
+            if "RESPONSE WINDOW" in prompt and "casting Lightning Bolt" in prompt and self.n < 10:
+                self.n += 1
+                return ('{"action":"activate","source":"Engine#900","effects":'
+                        '[{"create":{"player":"self","name":"Squirrel","n":1,"pt":[1,1]}}]}')
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.agents = [Remover(cast=True), Combo(), Remover(), Remover()]
+    g.p[1].battlefield.append({"id": "Engine#900", "name": "Goblin Bombardment", "tapped": False,
+                               "sick": False, "counters": {}, "token": False, "pt": None, "owner": "P2"})
+    g.p[0].hand.append("Lightning Bolt")
+    g.turn = 2
+    g.half_turn(0)
+    squirrels = [x for x in g.p[1].battlefield if x["name"] == "Squirrel"]
+    assert len(squirrels) == 10
+    assert not any("rounds of responses" in l for l in g.table)
+    assert g.p[1].life == 37
+
+
+def test_countering_a_spell_is_not_a_runaway_loop(make_game):
+    """A counterspell ends the priority loop for the object it counters; that's a normal end,
+    not the backstop, so no warning is logged."""
+    class Counterer(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.fired = False
+        def ask(self, prompt):
+            if "RESPONSE WINDOW" in prompt and "casting Harmonize" in prompt and not self.fired:
+                self.fired = True
+                return '{"action":"cast","card":"Counterspell","effects":[{"counter":{"target":"stack#1"}}]}'
+            return '{"action":"pass"}'
+
+    class Caster(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.cast = False
+        def ask(self, prompt):
+            if "MAIN PHASE" in prompt and not self.cast:
+                self.cast = True
+                return '{"action":"cast","card":"Harmonize","effects":[{"draw":{"player":"self","n":3}}]}'
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.agents[0], g.agents[1] = Caster(), Counterer()
+    g.p[0].hand = ["Harmonize"]
+    g.p[1].hand = ["Counterspell"]
+    g.turn = 2
+    g.half_turn(0)
+    assert any("Harmonize is COUNTERED" in l for l in g.table)
+    assert not any("rounds of responses" in l for l in g.table)

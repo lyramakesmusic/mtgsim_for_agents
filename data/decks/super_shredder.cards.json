@@ -1,0 +1,494 @@
+{
+ "Access Tunnel": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {3}, {T}: Target creature with power 3 or less can't be blocked this turn.",
+  "pt": null
+ },
+ "Accursed Marauder": {
+  "cost": "1B",
+  "type": "Creature \u2014 Zombie Warrior",
+  "text": "When this creature enters, each player sacrifices a nontoken creature of their choice.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Archfiend of Depravity": {
+  "cost": "3BB",
+  "type": "Creature \u2014 Demon",
+  "text": "Flying At the beginning of each opponent's end step, that player chooses up to two creatures they control, then sacrifices the rest.",
+  "pt": [
+   5,
+   4
+  ]
+ },
+ "Ashnod's Altar": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Sacrifice a creature: Add {C}{C}.",
+  "pt": null
+ },
+ "Bastion of Remembrance": {
+  "cost": "2B",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, create a 1/1 white Human Soldier creature token. Whenever a creature you control dies, each opponent loses 1 life and you gain 1 life.",
+  "pt": null
+ },
+ "Bitter Triumph": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, discard a card or pay 3 life. Destroy target creature or planeswalker.",
+  "pt": null
+ },
+ "Black Market": {
+  "cost": "3BB",
+  "type": "Enchantment",
+  "text": "Whenever a creature dies, put a charge counter on this enchantment. At the beginning of your first main phase, add {B} for each charge counter on this enchantment.",
+  "pt": null
+ },
+ "Black Market Connections": {
+  "cost": "2B",
+  "type": "Enchantment",
+  "text": "At the beginning of your first main phase, choose one or more \u2014 \u2022 Sell Contraband \u2014 Create a Treasure token. You lose 1 life. \u2022 Buy Information \u2014 Draw a card. You lose 2 life. \u2022 Hire a Mercenary \u2014 Create a 3/2 colorless Shapeshifter creature token with changeling. You lose 3 life. (It is every creature type.)",
+  "pt": null
+ },
+ "Blasphemous Edict": {
+  "cost": "3BB",
+  "type": "Sorcery",
+  "text": "You may pay {B} rather than pay this spell's mana cost if there are thirteen or more creatures on the battlefield. Each player sacrifices thirteen creatures of their choice.",
+  "pt": null
+ },
+ "Blood Artist": {
+  "cost": "1B",
+  "type": "Creature \u2014 Vampire",
+  "text": "Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Blood Money": {
+  "cost": "5BB",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. For each nontoken creature destroyed this way, you create a tapped Treasure token.",
+  "pt": null
+ },
+ "Boompile": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "{T}: Flip a coin. If you win the flip, destroy all nonland permanents.",
+  "pt": null
+ },
+ "Braids, Arisen Nightmare": {
+  "cost": "1BB",
+  "type": "Legendary Creature \u2014 Nightmare",
+  "text": "At the beginning of your end step, you may sacrifice an artifact, creature, enchantment, land, or planeswalker. If you do, each opponent may sacrifice a permanent of their choice that shares a card type with it. For each opponent who doesn't, that player loses 2 life and you draw a card.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Brotherhood Regalia": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has ward {2}, is an Assassin in addition to its other types, and can't be blocked. Equip legendary creature {1} Equip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Cabal Coffers": {
+  "cost": "",
+  "type": "Land",
+  "text": "{2}, {T}: Add {B} for each Swamp you control.",
+  "pt": null
+ },
+ "Carrion Feeder": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "This creature can't block. Sacrifice a creature: Put a +1/+1 counter on this creature.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Corrupted Conviction": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Draw two cards.",
+  "pt": null
+ },
+ "Cower in Fear": {
+  "cost": "1BB",
+  "type": "Instant",
+  "text": "Creatures your opponents control get -1/-1 until end of turn.",
+  "pt": null
+ },
+ "Crypt Ghast": {
+  "cost": "3B",
+  "type": "Creature \u2014 Spirit",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Whenever you tap a Swamp for mana, add an additional {B}.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Damnation": {
+  "cost": "2BB",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. They can't be regenerated.",
+  "pt": null
+ },
+ "Darksteel Plate": {
+  "cost": "3",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Indestructible Equipped creature has indestructible. Equip {2}",
+  "pt": null
+ },
+ "Deadly Dispute": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact or creature. Draw two cards and create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Diabolic Intent": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Search your library for a card, put that card into your hand, then shuffle.",
+  "pt": null
+ },
+ "Dismember": {
+  "cost": "1(B/P)(B/P)",
+  "type": "Instant",
+  "text": "({B/P} can be paid with either {B} or 2 life.) Target creature gets -5/-5 until end of turn.",
+  "pt": null
+ },
+ "Doom Blade": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Destroy target nonblack creature.",
+  "pt": null
+ },
+ "Drown in Ichor": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Target creature gets -4/-4 until end of turn. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "pt": null
+ },
+ "Exquisite Blood": {
+  "cost": "4B",
+  "type": "Enchantment",
+  "text": "Whenever an opponent loses life, you gain that much life.",
+  "pt": null
+ },
+ "Fanatical Offering": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact or creature. Draw two cards and create a Map token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.\")",
+  "pt": null
+ },
+ "Feed the Swarm": {
+  "cost": "1B",
+  "type": "Sorcery",
+  "text": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+  "pt": null
+ },
+ "Fleshbag Marauder": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Warrior",
+  "text": "When this creature enters, each player sacrifices a creature of their choice.",
+  "pt": [
+   3,
+   1
+  ]
+ },
+ "Genji Glove": {
+  "cost": "5",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has double strike. Whenever equipped creature attacks, if it's the first combat phase of the turn, untap it. After this phase, there is an additional combat phase. Equip {3}",
+  "pt": null
+ },
+ "Go for the Throat": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Destroy target nonartifact creature.",
+  "pt": null
+ },
+ "Gravecrawler": {
+  "cost": "B",
+  "type": "Creature \u2014 Zombie",
+  "text": "This creature can't block. You may cast this card from your graveyard as long as you control a Zombie.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Gray Merchant of Asphodel": {
+  "cost": "3BB",
+  "type": "Creature \u2014 Zombie",
+  "text": "When this creature enters, each opponent loses X life, where X is your devotion to black. You gain life equal to the life lost this way. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)",
+  "pt": [
+   2,
+   4
+  ]
+ },
+ "Hero's Downfall": {
+  "cost": "1BB",
+  "type": "Instant",
+  "text": "Destroy target creature or planeswalker.",
+  "pt": null
+ },
+ "Infernal Grasp": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Destroy target creature. You lose 2 life.",
+  "pt": null
+ },
+ "Insatiable Avarice": {
+  "cost": "B",
+  "type": "Sorcery",
+  "text": "Spree (Choose one or more additional costs.) + {2} \u2014 Search your library for a card, then shuffle and put that card on top. + {B}{B} \u2014 Target player draws three cards and loses 3 life.",
+  "pt": null
+ },
+ "Lightning Greaves": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
+  "pt": null
+ },
+ "Make an Example": {
+  "cost": "3B",
+  "type": "Sorcery",
+  "text": "Each opponent separates the creatures they control into two piles. For each opponent, you choose one of their piles. Each opponent sacrifices the creatures in their chosen pile. (Piles can be empty.)",
+  "pt": null
+ },
+ "Marauding Blight-Priest": {
+  "cost": "2B",
+  "type": "Creature \u2014 Vampire Cleric",
+  "text": "Whenever you gain life, each opponent loses 1 life.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Massacre Wurm": {
+  "cost": "3BBB",
+  "type": "Creature \u2014 Phyrexian Wurm",
+  "text": "When this creature enters, creatures your opponents control get -2/-2 until end of turn. Whenever a creature an opponent controls dies, that player loses 2 life.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Morbid Opportunist": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Rogue",
+  "text": "Whenever one or more other creatures die, draw a card. This ability triggers only once each turn.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Ophiomancer": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "At the beginning of each upkeep, if you control no Snakes, create a 1/1 black Snake creature token with deathtouch.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Pawn of Ulamog": {
+  "cost": "1BB",
+  "type": "Creature \u2014 Vampire Shaman",
+  "text": "Whenever this creature or another nontoken creature you control dies, you may create a 0/1 colorless Eldrazi Spawn creature token. It has \"Sacrifice this token: Add {C}.\"",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Phyrexian Arena": {
+  "cost": "1BB",
+  "type": "Enchantment",
+  "text": "At the beginning of your upkeep, you draw a card and lose 1 life.",
+  "pt": null
+ },
+ "Phyrexian Scriptures": {
+  "cost": "2BB",
+  "type": "Enchantment \u2014 Saga",
+  "text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Put a +1/+1 counter on up to one target creature. That creature becomes an artifact in addition to its other types. II \u2014 Destroy all nonartifact creatures. III \u2014 Exile all opponents' graveyards.",
+  "pt": null
+ },
+ "Pitiless Plunderer": {
+  "cost": "3B",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "Whenever another creature you control dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Plaguecrafter": {
+  "cost": "2B",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "When this creature enters, each player sacrifices a creature or planeswalker of their choice. Each player who can't discards a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Reassembling Skeleton": {
+  "cost": "1B",
+  "type": "Creature \u2014 Skeleton Warrior",
+  "text": "{1}{B}: Return this card from your graveyard to the battlefield tapped.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Revel in Riches": {
+  "cost": "4B",
+  "type": "Enchantment",
+  "text": "Whenever a creature an opponent controls dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\") At the beginning of your upkeep, if you control ten or more Treasures, you win the game.",
+  "pt": null
+ },
+ "Rogue's Passage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {4}, {T}: Target creature can't be blocked this turn.",
+  "pt": null
+ },
+ "Royal Assassin": {
+  "cost": "1BB",
+  "type": "Creature \u2014 Human Assassin",
+  "text": "{T}: Destroy target tapped creature.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Sheoldred's Edict": {
+  "cost": "1B",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Each opponent sacrifices a nontoken creature of their choice. \u2022 Each opponent sacrifices a creature token of their choice. \u2022 Each opponent sacrifices a planeswalker of their choice.",
+  "pt": null
+ },
+ "Sinkhole": {
+  "cost": "BB",
+  "type": "Sorcery",
+  "text": "Destroy target land.",
+  "pt": null
+ },
+ "Skullclamp": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/-1. Whenever equipped creature dies, draw two cards. Equip {1}",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Soul Shatter": {
+  "cost": "2B",
+  "type": "Instant",
+  "text": "Each opponent sacrifices a creature or planeswalker with the greatest mana value among creatures and planeswalkers they control.",
+  "pt": null
+ },
+ "Starscape Cleric": {
+  "cost": "1B",
+  "type": "Creature \u2014 Bat Cleric",
+  "text": "Offspring {2}{B} (You may pay an additional {2}{B} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.) Flying This creature can't block. Whenever you gain life, each opponent loses 1 life.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Super Shredder": {
+  "cost": "1B",
+  "type": "Legendary Creature \u2014 Mutant Ninja Human",
+  "text": "Menace Whenever another permanent leaves the battlefield, put a +1/+1 counter on Super Shredder.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Super State": {
+  "cost": "7",
+  "type": "Legendary Enchantment \u2014 Aura",
+  "text": "Enchant creature you control Enchanted creature has base power and toughness 9/9 and has flying, first strike, trample, and haste. Whenever enchanted creature deals combat damage to an opponent, it deals that much damage to each other opponent.",
+  "pt": null
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land \u2014 Swamp",
+  "text": "({T}: Add {B}.)",
+  "pt": null
+ },
+ "Swiftfoot Boots": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.) Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Thoughtseize": {
+  "cost": "B",
+  "type": "Sorcery",
+  "text": "Target player reveals their hand. You choose a nonland card from it. That player discards that card. You lose 2 life.",
+  "pt": null
+ },
+ "Toxic Deluge": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, pay X life. All creatures get -X/-X until end of turn.",
+  "pt": null
+ },
+ "Tragic Slip": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target creature gets -1/-1 until end of turn. Morbid \u2014 That creature gets -13/-13 until end of turn instead if a creature died this turn.",
+  "pt": null
+ },
+ "Umbral Collar Zealot": {
+  "cost": "1B",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "Sacrifice another creature or artifact: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Village Rites": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Draw two cards.",
+  "pt": null
+ },
+ "Warren Soultrader": {
+  "cost": "2B",
+  "type": "Creature \u2014 Zombie Goblin Wizard",
+  "text": "Pay 1 life, Sacrifice another creature: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Whispersilk Cloak": {
+  "cost": "3",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature can't be blocked and has shroud. (It can't be the target of spells or abilities.) Equip {2}",
+  "pt": null
+ },
+ "Withering Torment": {
+  "cost": "2B",
+  "type": "Instant",
+  "text": "Destroy target creature or enchantment. You lose 2 life.",
+  "pt": null
+ }
+}

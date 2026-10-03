@@ -1,0 +1,77 @@
+Commander
+1 Kodama of the East Tree
+1 Sakashima of a Thousand Faces
+
+Deck
+1 Aesi, Tyrant of Gyre Strait
+1 Altar of the Brood
+1 An Offer You Can't Refuse
+1 Arid Archway
+1 Beast Whisperer
+1 Biovisionary
+1 Bramble Sovereign
+1 Champion of Rhonas
+1 Clever Impersonator
+1 Cloud of Faeries
+1 Cloudstone Curio
+1 Coiling Oracle
+1 Copycrook
+1 Coral Atoll
+1 Counterspell
+1 Crop Rotation
+1 Double Major
+1 Dream Stalker
+1 Elemental Bond
+1 Elvish Mystic
+1 Elvish Visionary
+1 Eternal Witness
+16 Forest
+1 Garruk's Uprising
+1 Gigantoplasm
+1 Guardian Project
+1 Guildless Commons
+1 Gwenna, Eyes of Gaea
+1 Heroic Intervention
+1 Imoti, Celebrant of Bounty
+16 Island
+1 Jungle Basin
+1 Llanowar Elves
+1 Lotus Cobra
+1 Meloku the Clouded Mirror
+1 Mirror Image
+1 Mulldrifter
+1 Naga Fleshcrafter
+1 Narset's Reversal
+1 Naturalize
+1 Negate
+1 Oboro, Palace in the Clouds
+1 Oviya, Automech Artisan
+1 Peregrine Drake
+1 Phyrexian Metamorph
+1 Pongify
+1 Progenitor Mimic
+1 Quandrix, the Proof
+1 Quirion Ranger
+1 Rampaging Baloths
+1 Reality Shift
+1 Reclamation Sage
+1 Relm's Sketching
+1 Sakashima's Protege
+1 Scute Swarm
+1 Shrieking Drake
+1 Simic Growth Chamber
+1 Somberwald Sage
+1 Soul of the Harvest
+1 Spark Double
+1 Sunscorched Desert
+1 Sylvan Scrying
+1 Tatyova, Benthic Druid
+1 Temur Sabertooth
+1 Tireless Provisioner
+1 Tireless Tracker
+1 Topiary Stomper
+1 Vizier of Many Faces
+
+//strategy: you have two ways to win. one: two kodamas and one bounce land. sakashima copies kodama (legend rule doesn't apply to her) and now each kodama triggers off the other's puts forever. play simic growth chamber, guildless commons, or arid archway: it bounces itself back to hand, the other kodama puts it back in, repeat. every loop is a landfall and a permanent entering - altar of the brood mills everyone out, rampaging baloths makes infinite 4/4s, lotus cobra is infinite mana. CAREFUL: tatyova's draw isn't optional, stop the loop before you draw your own deck. two: four biovisionaries at the beginning of any end step. every clone in the deck can be one - mirror image, spark double, vizier, copycrook, naga fleshcrafter, gigantoplasm, clever impersonator, metamorph, even sakashima. double major and relm's sketching make token copies, bramble sovereign doubles every clone that comes in, progenitor mimic makes another one every upkeep, and kodama puts clones in for free. go for whichever line your hand is closer to. find bounce lands with sylvan scrying and crop rotation. declare loops as one shortcut with a count. save counterspells for protecting the turn you go off.
+//personality: figure it out. you'll figure it out, you always do, just might need a bit more cascade...
+//scouting: kodama and sakashima diet-cascade value engine with some flicker loops.

@@ -1,0 +1,76 @@
+// strategy: mono-black reanimator. the christmas turn is sol ring and arcane signet on turn one, then liliana, stitcher's supplier and dark matter manipulator on turn two, mill pathrazer of ulamog and reanimate it, and a nine-nine with annihilator three on turn two ends the game. that is the ceiling, not the plan. the plan is to spam reanimation and run mill value loops: fill your graveyard, keep bringing things back, and let every body you play feed the next one. liliana mills two whenever another creature enters, so every creature you cast is also self-mill, and her exhaust ability brings one thing back on her own. your packages are self mill, a deep stack of reanimation spells, scary monsters worth reanimating, value engines that turn dying creatures into cards and mana, and removal. read the graveyard before you pick a target — bring back the thing that changes the table this turn, not just the biggest card in there — and remember reanimate costs life equal to what it returns, so count before you bring back an eleven-drop. the combo is gravecrawler with another zombie out, a free sacrifice outlet and pitiless plunderer or warren soultrader paying for the recast: that is endless death triggers, and blood artist turns them into a win. the scary monsters will eat the table's removal and that is fine, because you have more reanimation than they have answers. graveyard exile is the thing that actually stops you; when someone wipes your yard, stop feeding it and play the creatures in your hand. mulligan for lands plus a self-mill piece or a reanimation spell — fatties with no way into the graveyard are just expensive cards.
+// scouting: mono-black reanimator; mills itself, brings back eldrazi and other huge creatures early, and runs a sacrifice engine alongside for value and drain.
+// personality: a necromancer who has decided to be better and has not decided to stop. dry, tired, precise, and completely unembarrassed about the method: death is a resource and she talks about it the way a surgeon talks about blood. my mistakes are mine to fix. she owns what she has done without asking anyone to forgive it, and she has no patience for people who want her to feel worse about it than she does. that one's coming back. don't take it personally.
+
+Commander
+1 Liliana the Repentant (FRA) 231
+
+Deck
+1 Animate Dead (EMA) 78
+1 Apprentice Necromancer (PLST) UMA-84
+1 Arcane Signet (FIC) 334
+1 Archon of Cruelty (FRC) 47
+1 Armaggon, Future Shark (TMT) 58
+1 Artisan of Kozilek (PLST) CM2-14
+1 Ashnod's Altar (EMA) 218
+1 Avatar of Woe (CN2) 128
+1 Ayara, First of Locthwain (ELD) 75
+1 Black Market Connections (MSC) 155
+1 Blood Artist (AVR) 86
+1 Bloodghast (SOC) 210
+1 Bojuka Bog (C14) 285
+1 Carrion Feeder (EMA) 84
+1 Charcoal Diamond (CLB) 305
+1 Crypt Ghast (C14) 139
+1 Crypt of Agadeem (TDC) 354
+1 Dark Matter Manipulator (FRA) 52
+1 Dark Ritual (MSC) 793
+1 Deadly Dispute (MSC) 794
+1 Defile (MH1) 86
+1 Dismember (NPH) 57
+1 Doomed Necromancer (J25) 426
+1 Dread Return (CMM) 153
+1 Dreadhound (PLST) MID-97
+1 Emrakul, the Exigent Doom (FRA) 1
+1 Exhume (JMP) 230
+1 Feed the Swarm (TLE) 257
+1 Flayer of Loyalties (CMM) 715
+1 Evin, Waterdeep Opportunist (SLD) 1239
+1 Galactus, Devourer of Worlds (MSC) 8
+1 Go for the Throat (J25) 447
+1 Grave Researcher / Reanimate (SOS) 85
+1 Gravecrawler (DRC) 43
+1 Gray Merchant of Asphodel (PLST) C14-146
+1 Grim Hireling (PLST) AFC-25
+1 Hoarding Broodlord (MOM) 110
+1 K'rrik, Son of Yawgmoth (MH3) 274
+1 Liliana's Elite (JMP) 250
+1 Lim-Dûl the Necromancer (TSP) 114
+1 Living Death (DDE) 31
+1 Millikin (EMA) 226
+1 Mire Triton (SCD) 92
+1 Multiply by Zero (FRA) 58
+1 Necromancy (MKC) 131
+1 Nether Traitor (SOC) 220
+1 Pathrazer of Ulamog (CMM) 4
+1 Peer into the Abyss (PLST) M21-117
+1 Persist (ECC) 83
+1 Pitiless Plunderer (J25) 476
+1 Reanimate (FIC) 282
+1 Rise of the Dark Realms (FIC) 283
+1 Ruthless Technomancer (J25) 484
+1 Sacrifice (30A) 121
+1 Saw in Half (BLC) 113
+1 Sheoldred, Whispering One (JMP) 278
+1 Sol Ring (FIC) 358
+1 Songs of the Damned (UMA) 115
+1 Stitch Together (FIC) 286
+1 Stitcher's Supplier (FIC) 287
+32 Swamp (M15) 259
+1 Tormod, the Desecrator (CMR) 155
+1 Tragic Slip (C14) 167
+1 Twilight Diviner (ECL) 122
+1 Undead Butler (J25) 500
+1 Victimize (MH3) 278
+1 Warren Soultrader (PMH3) 110p
+1 Withering Torment (MSC) 162

@@ -1014,3 +1014,107 @@ def test_copying_something_that_is_neither_is_refused(make_game):
     g = make_game()
     g.apply_effects(0, [{"copy": {"target": "Nonexistent#404", "n": 1}}])
     assert any("neither on the stack nor a permanent" in line for line in g.table)
+
+
+def test_until_end_of_turn_pt_changes_revert_themselves(make_game):
+    """Giant Growth and a -1/-0 cantrip end with the turn; an anthem-style forever change
+    and +1/+1 counters stay. The engine reverts the temporary ones, not the seats."""
+    from conftest import StubAgent
+    from mtgsim.engine import pt_now
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    g.apply_effects(0, [{"create": {"player": "self", "name": "Bear", "pt": [2, 2]}}])
+    bear = g.p[0].battlefield[-1]
+    g.apply_effects(0, [{"set": {"id": bear["id"], "pt_mod": [3, 3], "until": "eot"}}])
+    g.apply_effects(0, [{"set": {"id": bear["id"], "pt_mod": [-1, 0], "until": "eot"}}])
+    g.apply_effects(0, [{"set": {"id": bear["id"], "pt_mod": [1, 1]}}])        # forever
+    g.apply_effects(0, [{"set": {"id": bear["id"], "counters": {"+1/+1": 2}}}])
+    assert pt_now(bear) == (2 + 3 - 1 + 1 + 2, 2 + 3 + 1 + 2)
+    assert "+3/+3 until end of turn" in g.digest(1) or "+3/+3 until end of turn" in g.digest(1, full_board=True)
+    g.turn = 1
+    g.half_turn(1)
+    assert pt_now(bear) == (5, 5)                  # base 2/2 +1/+1 forever +2 counters
+    assert "mods" not in bear
+    assert any("+3/+3, -1/+0 ends" in l for l in g.table)
+
+
+def test_until_next_turn_waits_for_its_seat(make_game):
+    """'until your next turn' survives everyone else's turns and ends when its seat's begins;
+    a temporary base p/t ("becomes a 1/1") works the same way."""
+    from conftest import StubAgent
+    from mtgsim.engine import pt_now
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    g.apply_effects(1, [{"create": {"player": "P1", "name": "Bear", "pt": [2, 2]}}])
+    bear = g.p[0].battlefield[-1]
+    g.apply_effects(1, [{"set": {"id": bear["id"], "pt": [1, 1], "until": "next"}}])
+    assert pt_now(bear) == (1, 1) and bear["pt"] == (2, 2)
+    g.turn = 1
+    for seat in (2, 3, 0):                         # other seats' turns: still a 1/1
+        g.half_turn(seat)
+        assert pt_now(bear) == (1, 1)
+    g.half_turn(1)                                 # P2, who made it, begins a turn
+    assert pt_now(bear) == (2, 2)
+
+
+def test_until_rejects_nonsense_as_forever(make_game):
+    from conftest import StubAgent
+    from mtgsim.engine import pt_now
+
+    g = make_game()
+    g.agents = [StubAgent() for _ in g.p]
+    g.apply_effects(0, [{"create": {"player": "self", "name": "Bear", "pt": [2, 2]}}])
+    bear = g.p[0].battlefield[-1]
+    g.apply_effects(0, [{"set": {"id": bear["id"], "pt_mod": [1, 0], "until": "sometime"}}])
+    assert pt_now(bear) == (3, 2) and bear["pt"] == (3, 2)
+    assert any("isn't eot, next or forever" in l for l in g.table)
+
+
+def test_extra_land_drops_are_the_seats_call(make_game):
+    """Explore plus Rites of Flourishing is three land drops in a turn; the engine plays every
+    one and notes the extras for the table to check."""
+    g = make_game()
+    me = g.p[0]
+    me.hand += ["Forest", "Forest", "Forest"]
+    for _ in range(3):
+        g.do_action(0, {"action": "play_land", "card": "Forest"})
+    assert me.lands_played == 3
+    assert sum("plays land: Forest" in l for l in g.table) == 3
+    assert sum("an extra land drop" in l for l in g.table) == 2
+    assert not any("illegal/ignored" in l for l in g.table)
+
+
+def test_artifact_tokens_are_not_creatures(make_game):
+    """A Treasure made without a pt is a noncreature artifact; a Squirrel still defaults to 1/1,
+    and "pt": null makes any other token noncreature."""
+    g = make_game()
+    me = g.p[0]
+    g.apply_effects(0, [{"create": {"player": "self", "name": "Treasure", "n": 2}},
+                        {"create": {"player": "self", "name": "Squirrel"}},
+                        {"create": {"player": "self", "name": "Clockwork Widget", "pt": None}}])
+    by = {x["name"]: x for x in me.battlefield}
+    assert by["Treasure"]["pt"] is None and not by["Treasure"]["sick"]
+    assert by["Squirrel"]["pt"] == (1, 1)
+    assert by["Clockwork Widget"]["pt"] is None
+    assert not any("crashed" in l for l in g.table)
+
+
+def test_cast_enters_under_another_players_control(make_game):
+    """Captive Audience, donations: the permanent arrives on the chosen player's side, still
+    owned by its caster, so dying or bouncing routes it home."""
+    g = make_game()
+    me, them = g.p[0], g.p[1]
+    g._resolve_spell(0, {"card": "Sol Ring", "control": "P2"}, False)
+    ring = [x for x in them.battlefield if x["name"] == "Sol Ring"]
+    assert len(ring) == 1 and ring[0]["owner"] == me.handle
+    assert not any(x["name"] == "Sol Ring" for x in me.battlefield)
+    assert any("enters under" in l and "owner P1" in l for l in g.table)
+    # an unresolvable seat keeps it with the caster, loudly
+    g._resolve_spell(0, {"card": "Sol Ring", "control": "P9"}, False)
+    assert any(x["name"] == "Sol Ring" for x in me.battlefield)
+    assert any("can't resolve controller" in l for l in g.table)
+    # dying sends it to its owner's graveyard
+    g.apply_effects(1, [{"move": {"id": ring[0]["id"], "to": "graveyard"}}])
+    assert "Sol Ring" in me.graveyard and "Sol Ring" not in them.graveyard

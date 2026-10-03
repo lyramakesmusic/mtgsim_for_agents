@@ -112,7 +112,9 @@ def parse_decklist(text):
         if not line:
             continue
         if line.startswith("//"):        # deckstats-style section: //deck-1, //play-1, //sideboard
-            tag = line.lstrip("/ ").rstrip(":").lower()
+            # a section marker is one word; a memo channel (// strategy: ...) is a
+            # sentence, and only its channel name is read here.
+            tag = line.lstrip("/ ").split(":")[0].strip().rstrip(":").lower()
             if tag.startswith("play") or "commander" in tag or "cmdr" in tag:
                 section = "commander"
             elif tag.startswith(("deck", "main")):

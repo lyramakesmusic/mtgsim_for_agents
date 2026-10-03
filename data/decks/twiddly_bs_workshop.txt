@@ -1,0 +1,77 @@
+Commander
+1 Zirda, the Dawnwaker
+
+Deck
+1 Academy Manufactor
+1 Arcane Encyclopedia
+1 Basalt Monolith
+1 Big Score
+1 Blasphemous Act
+1 Blind Obedience
+1 Brass's Bounty
+1 Captain Lannery Storm
+1 Captivating Crew
+1 Chaos Warp
+1 Chrome Dome
+1 Cityscape Leveler
+1 Clock of Omens
+1 Crackle with Power
+1 Cursed Mirror
+1 Demand Answers
+1 Disenchant
+1 Feldon of the Third Path
+1 Gleaming Splendor
+1 Glory
+1 Glóin, Dwarf Emissary
+1 Goblin Engineer
+1 Goldspan Dragon
+1 Hellkite Tyrant
+1 Idol of Oblivion
+1 Kuldotha Forgemaster
+1 Liquimetal Torque
+1 Mana Tithe
+1 Mangara of Corondor
+1 Mimic Vat
+1 Mind's Eye
+1 Mirage Mirror
+1 Monologue Tax
+1 Moonsilver Key
+1 Mother of Runes
+16 Mountain
+1 Oread of Mountain's Blaze
+1 Oswald Fiddlebender
+1 Palladium Myr
+1 Path to Exile
+16 Plains
+1 Powerbalance
+1 Professional Face-Breaker
+1 Prototype Portal
+1 Pyroblast
+1 Queen Kayla bin-Kroog
+1 Quicksmith Genius
+1 Rain of Riches
+1 Reckless Fireweaver
+1 Retrofitter Foundry
+1 Rings of Brighthearth
+1 Scavenger Grounds
+1 Seize the Spoils
+1 Sensei's Divining Top
+1 Shivan Devastator
+1 Smothering Tithe
+1 Soul Foundry
+1 Staff of Domination
+1 Steel Hellkite
+1 Storm-Kiln Artist
+1 Swords to Plowshares
+1 Tataru Taru
+1 Trading Post
+1 Treasure Vault
+1 Unexpected Windfall
+1 Voltaic Construct
+1 Walking Ballista
+1 Wrath of God
+1 Xorn
+
+//strategy: this is a workshop. the deck is a bunch of piles that feed each other, and the interactions between them are the point - you're not assembling one combo, you're making resources and trading them into whatever the board needs, and the combos fall out of that. you make treasures constantly (smothering tithe, goldspan, xorn, the draw-two-make-treasure spells). you have machines that turn treasures and artifacts into other things - untaps, tutors, tokens, cards (clock of omens, oswald, trading post, prototype portal). you have plenty of ways to draw (mind's eye, encyclopedia), and plenty of mana sinks, so flooding isn't flooding here, there's always a machine to dump mana into. and when all else fails, big stupid robots: hellkite tyrant steals everyone's artifacts and wins at 20. zirda makes every non-mana ability cost 2 less (never below 1), and that's where the piles start looping into each other. combos to notice when they show up: zirda + basalt monolith or rings + monolith for infinite mana, zirda + gleaming splendor + smothering tithe to force draws until they deck (stack the activations in response to each other), liquimetal torque turning oswald into an artifact so voltaic construct can untap him. infinite mana ends with walking ballista or crackle with power. protect zirda. declare loops as one shortcut with a count.
+//personality: a workshop mechanic. grease under the nails, talks shop, has an opinion about every machine on the table, and is always tinkering with something that probably shouldn't work.
+//scouting: artifact value engine with combos

@@ -1,0 +1,81 @@
+{
+ "cantrips": [
+  "Aphotic Wisps",
+  "Cerulean Wisps",
+  "Crimson Wisps",
+  "Fleeting Distraction",
+  "Peek",
+  "Quicken",
+  "Reach Through Mists",
+  "Twitch"
+ ],
+ "counterspells": [
+  "Bone to Ash",
+  "Cancel",
+  "Dark Banishing",
+  "Dismiss",
+  "Essence Scatter",
+  "Lay Bare",
+  "Sip of Hemlock",
+  "Spell Blast"
+ ],
+ "fast mana": [
+  "Charcoal Diamond",
+  "Dreamstone Hedron",
+  "Fire Diamond",
+  "Firemind Vessel",
+  "Hierophant's Chalice",
+  "Letter of Acceptance",
+  "Magnifying Glass",
+  "Mana Geode",
+  "Manalith",
+  "Obelisk of Grixis",
+  "Sisay's Ring",
+  "Sky Diamond",
+  "Ur-Golem's Eye"
+ ],
+ "faster mana": [
+  "Battle Hymn",
+  "Burnt Offering",
+  "Inner Fire",
+  "Mana Geyser",
+  "Sacrifice",
+  "Songs of the Damned"
+ ],
+ "recursion": [
+  "Archaeomancer",
+  "Call to Mind",
+  "Mnemonic Wall",
+  "Relearn"
+ ],
+ "turbo draw": [
+  "Ancient Craving",
+  "Concentrate",
+  "Counsel of the Soratami",
+  "Divination",
+  "Inspiration",
+  "Opportunity",
+  "Painful Lesson",
+  "Tidings"
+ ],
+ "tutors": [
+  "Demonic Collusion",
+  "Diabolic Revelation",
+  "Final Parting",
+  "Increasing Ambition",
+  "Planar Portal",
+  "Razaketh's Rite",
+  "Rhystic Tutor"
+ ],
+ "wincons": [
+  "Empty the Warrens",
+  "Firebrand Archer",
+  "Grapeshot",
+  "Guttersnipe",
+  "Jace, Wielder of Mysteries",
+  "Laboratory Maniac",
+  "Sentinel Tower",
+  "Sphinx-Bone Wand",
+  "Thermo-Alchemist"
+ ]
+}

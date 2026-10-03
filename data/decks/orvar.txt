@@ -29,6 +29,7 @@ Deck
 1 Gale, Waterdeep Prodigy (CLB) 72
 1 Gigadrowse (PLST) GPT-26
 1 Haughty Djinn (TDC) 154
+1 Ghostly Flicker (AVR) 57
 1 Hidden Strings (DGM) 12
 1 High Tide (DMR) 54
 1 Hullbreaker Horror (INR) 68
@@ -39,7 +40,6 @@ Deck
 1 Metamorphic Alteration (M19) 60
 1 Mind Flayer (AFR) 63
 1 Mizzium Skin (RTR) 45
-1 Moonlace (PLST) TSP-68
 1 Negate (TMT) 47
 1 Peregrine Drake (DMR) 65
 1 Pongify (TDC) 160

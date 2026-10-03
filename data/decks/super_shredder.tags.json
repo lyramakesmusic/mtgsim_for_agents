@@ -1,0 +1,92 @@
+{
+ "cast more stuff sooner": [
+  "Arcane Signet",
+  "Cabal Coffers",
+  "Crypt Ghast",
+  "Sol Ring"
+ ],
+ "lifesteal loop": [
+  "Exquisite Blood",
+  "Marauding Blight-Priest",
+  "Starscape Cleric"
+ ],
+ "make everything die": [
+  "Blasphemous Edict",
+  "Blood Money",
+  "Boompile",
+  "Cower in Fear",
+  "Damnation",
+  "Make an Example",
+  "Massacre Wurm",
+  "Ophiomancer",
+  "Phyrexian Scriptures",
+  "Toxic Deluge"
+ ],
+ "make something die": [
+  "Accursed Marauder",
+  "Archfiend of Depravity",
+  "Bitter Triumph",
+  "Braids, Arisen Nightmare",
+  "Dismember",
+  "Doom Blade",
+  "Drown in Ichor",
+  "Feed the Swarm",
+  "Fleshbag Marauder",
+  "Go for the Throat",
+  "Hero's Downfall",
+  "Infernal Grasp",
+  "Ophiomancer",
+  "Plaguecrafter",
+  "Royal Assassin",
+  "Sheoldred's Edict",
+  "Sinkhole",
+  "Soul Shatter",
+  "Tragic Slip",
+  "Withering Torment"
+ ],
+ "make my own stuff die": [
+  "Ashnod's Altar",
+  "Carrion Feeder",
+  "Umbral Collar Zealot",
+  "Warren Soultrader"
+ ],
+ "mono black goodstuff": [
+  "Gray Merchant of Asphodel",
+  "Thoughtseize"
+ ],
+ "normal voltron stuff": [
+  "Access Tunnel",
+  "Brotherhood Regalia",
+  "Darksteel Plate",
+  "Genji Glove",
+  "Lightning Greaves",
+  "Rogue's Passage",
+  "Super State",
+  "Swiftfoot Boots",
+  "Whispersilk Cloak"
+ ],
+ "reanimation loop": [
+  "Gravecrawler",
+  "Reassembling Skeleton"
+ ],
+ "show me more cards": [
+  "Black Market Connections",
+  "Corrupted Conviction",
+  "Deadly Dispute",
+  "Diabolic Intent",
+  "Fanatical Offering",
+  "Insatiable Avarice",
+  "Phyrexian Arena",
+  "Skullclamp",
+  "Village Rites"
+ ],
+ "we like things dying": [
+  "Bastion of Remembrance",
+  "Black Market",
+  "Blood Artist",
+  "Morbid Opportunist",
+  "Pawn of Ulamog",
+  "Pitiless Plunderer",
+  "Revel in Riches"
+ ]
+}

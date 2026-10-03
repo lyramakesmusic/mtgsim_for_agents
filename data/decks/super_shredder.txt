@@ -1,0 +1,78 @@
+Commander
+1 Super Shredder
+
+Deck
+1 Access Tunnel
+1 Accursed Marauder
+1 Arcane Signet
+1 Archfiend of Depravity
+1 Ashnod's Altar
+1 Bastion of Remembrance
+1 Bitter Triumph
+1 Black Market
+1 Black Market Connections
+1 Blasphemous Edict
+1 Blood Artist
+1 Blood Money
+1 Boompile
+1 Braids, Arisen Nightmare
+1 Brotherhood Regalia
+1 Cabal Coffers
+1 Carrion Feeder
+1 Corrupted Conviction
+1 Cower in Fear
+1 Crypt Ghast
+1 Damnation
+1 Darksteel Plate
+1 Deadly Dispute
+1 Diabolic Intent
+1 Dismember
+1 Doom Blade
+1 Drown in Ichor
+1 Exquisite Blood
+1 Fanatical Offering
+1 Feed the Swarm
+1 Fleshbag Marauder
+1 Genji Glove
+1 Go for the Throat
+1 Gravecrawler
+1 Gray Merchant of Asphodel
+1 Hero's Downfall
+1 Infernal Grasp
+1 Insatiable Avarice
+1 Lightning Greaves
+1 Make an Example
+1 Marauding Blight-Priest
+1 Massacre Wurm
+1 Morbid Opportunist
+1 Ophiomancer
+1 Pawn of Ulamog
+1 Phyrexian Arena
+1 Phyrexian Scriptures
+1 Pitiless Plunderer
+1 Plaguecrafter
+1 Reassembling Skeleton
+1 Revel in Riches
+1 Rogue's Passage
+1 Royal Assassin
+1 Sheoldred's Edict
+1 Sinkhole
+1 Skullclamp
+1 Sol Ring
+1 Soul Shatter
+1 Starscape Cleric
+1 Super State
+30 Swamp
+1 Swiftfoot Boots
+1 Thoughtseize
+1 Toxic Deluge
+1 Tragic Slip
+1 Umbral Collar Zealot
+1 Village Rites
+1 Warren Soultrader
+1 Whispersilk Cloak
+1 Withering Torment
+
+//strategy: kill literally everything, make shredder huge, kill more stuff. and then kill even more stuff. and maybe find a lifesteal combo to kill even more stuff. 
+//personality: fuck you and die
+//scouting: removal tribal with voltron

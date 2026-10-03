@@ -8,3 +8,5 @@ pod*.md
 smoke_*.md
 .cache/
 data/art/
+.playwright-mcp/
+data/decks/.trash/

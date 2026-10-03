@@ -1,0 +1,85 @@
+{
+  "reanimate": [
+    "Animate Dead",
+    "Apprentice Necromancer",
+    "Doomed Necromancer",
+    "Dread Return",
+    "Exhume",
+    "Grave Researcher // Reanimate",
+    "Living Death",
+    "Necromancy",
+    "Nether Traitor",
+    "Persist",
+    "Reanimate",
+    "Rise of the Dark Realms",
+    "Stitch Together",
+    "Victimize"
+  ],
+  "self mill": [
+    "Dark Matter Manipulator",
+    "Dreadhound",
+    "Mire Triton",
+    "Stitcher's Supplier",
+    "Undead Butler"
+  ],
+  "scary monster": [
+    "Archon of Cruelty",
+    "Armaggon, Future Shark",
+    "Artisan of Kozilek",
+    "Emrakul, the Exigent Doom",
+    "Flayer of Loyalties",
+    "Galactus, Devourer of Worlds",
+    "Gray Merchant of Asphodel",
+    "Pathrazer of Ulamog",
+    "Sheoldred, Whispering One"
+  ],
+  "graveyard matters": [
+    "Avatar of Woe",
+    "Ayara, First of Locthwain",
+    "Bloodghast",
+    "Liliana's Elite",
+    "Lim-Dûl the Necromancer",
+    "Twilight Diviner"
+  ],
+  "value engines": [
+    "Black Market Connections",
+    "Crypt Ghast",
+    "Deadly Dispute",
+    "Evin, Waterdeep Opportunist",
+    "Grim Hireling",
+    "K'rrik, Son of Yawgmoth",
+    "Millikin",
+    "Ruthless Technomancer",
+    "Tormod, the Desecrator"
+  ],
+  "less janky combo": [
+    "Ashnod's Altar",
+    "Blood Artist",
+    "Carrion Feeder",
+    "Gravecrawler",
+    "Pitiless Plunderer",
+    "Warren Soultrader"
+  ],
+  "janky combo": [
+    "Hoarding Broodlord",
+    "Peer into the Abyss",
+    "Sacrifice",
+    "Saw in Half"
+  ],
+  "fast-ish mana": [
+    "Arcane Signet",
+    "Charcoal Diamond",
+    "Dark Ritual",
+    "Sol Ring",
+    "Songs of the Damned"
+  ],
+  "kill their stuff": [
+    "Defile",
+    "Dismember",
+    "Feed the Swarm",
+    "Go for the Throat",
+    "Multiply by Zero",
+    "Tragic Slip",
+    "Withering Torment"
+  ]
+}

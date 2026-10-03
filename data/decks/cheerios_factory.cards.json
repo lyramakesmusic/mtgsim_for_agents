@@ -1,0 +1,500 @@
+{
+ "Abrade": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Abrade deals 3 damage to target creature. \u2022 Destroy target artifact.",
+  "pt": null
+ },
+ "Accorder's Shield": {
+  "cost": "0",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +0/+3 and has vigilance. (Attacking doesn't cause it to tap.) Equip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Aetherflux Reservoir": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "Whenever you cast a spell, you gain 1 life for each spell you've cast this turn. Pay 50 life: This artifact deals 50 damage to any target.",
+  "pt": null
+ },
+ "Altar of the Brood": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "Whenever another permanent you control enters, each opponent mills a card.",
+  "pt": null
+ },
+ "Artificer's Assistant": {
+  "cost": "U",
+  "type": "Creature \u2014 Bird",
+  "text": "Flying Whenever you cast a historic spell, scry 1. (Artifacts, legendaries, and Sagas are historic. To scry 1, look at the top card of your library, then you may put that card on the bottom.)",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Baral's Expertise": {
+  "cost": "3UU",
+  "type": "Sorcery",
+  "text": "Return up to three target artifacts and/or creatures to their owners' hands. You may cast a spell with mana value 4 or less from your hand without paying its mana cost.",
+  "pt": null
+ },
+ "Bone Saw": {
+  "cost": "0",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/+0. Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Boomerang Basics": {
+  "cost": "U",
+  "type": "Sorcery \u2014 Lesson",
+  "text": "Return target nonland permanent to its owner's hand. If you controlled that permanent, draw a card.",
+  "pt": null
+ },
+ "Cathar's Shield": {
+  "cost": "0",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +0/+3 and has vigilance. Equip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "The owner of target permanent shuffles it into their library, then reveals the top card of their library. If it's a permanent card, they put it onto the battlefield.",
+  "pt": null
+ },
+ "Codex Shredder": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Target player mills a card. (They put the top card of their library into their graveyard.) {5}, {T}, Sacrifice this artifact: Return target card from your graveyard to your hand.",
+  "pt": null
+ },
+ "Colossus Hammer": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +10/+10 and loses flying. Equip {8} ({8}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Command Tower": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Counterspell": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Darksteel Relic": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "Indestructible (Effects that say \"destroy\" don't destroy this artifact.)",
+  "pt": null
+ },
+ "Displacement Wave": {
+  "cost": "XUU",
+  "type": "Sorcery",
+  "text": "Return all nonland permanents with mana value X or less to their owners' hands.",
+  "pt": null
+ },
+ "Echo of Eons": {
+  "cost": "4UU",
+  "type": "Sorcery",
+  "text": "Each player shuffles their hand and graveyard into their library, then draws seven cards. Flashback {2}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Elixir of Immortality": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{2}, {T}: You gain 5 life. Shuffle this artifact and your graveyard into their owner's library.",
+  "pt": null
+ },
+ "Enthusiastic Mechanaut": {
+  "cost": "UR",
+  "type": "Artifact Creature \u2014 Goblin Artificer",
+  "text": "Flying Artifact spells you cast cost {1} less to cast.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Etherium Sculptor": {
+  "cost": "1U",
+  "type": "Artifact Creature \u2014 Vedalken Artificer",
+  "text": "Artifact spells you cast cost {1} less to cast.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Evacuation": {
+  "cost": "3UU",
+  "type": "Instant",
+  "text": "Return all creatures to their owners' hands.",
+  "pt": null
+ },
+ "Everflowing Chalice": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "Multikicker {2} (You may pay an additional {2} any number of times as you cast this spell.) This artifact enters with a charge counter on it for each time it was kicked. {T}: Add {C} for each charge counter on this artifact.",
+  "pt": null
+ },
+ "Fabricate": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Search your library for an artifact card, reveal it, put it into your hand, then shuffle.",
+  "pt": null
+ },
+ "Fading Hope": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Return target creature to its owner's hand. If its mana value was 3 or less, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+  "pt": null
+ },
+ "Familiar's Ruse": {
+  "cost": "UU",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, return a creature you control to its owner's hand. Counter target spell.",
+  "pt": null
+ },
+ "Feldon's Cane": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}, Exile this artifact: Shuffle your graveyard into your library.",
+  "pt": null
+ },
+ "Filter Out": {
+  "cost": "1UU",
+  "type": "Instant",
+  "text": "Return all noncreature, nonland permanents to their owners' hands.",
+  "pt": null
+ },
+ "Flusterstorm": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Counter target instant or sorcery spell unless its controller pays {1}. Storm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+  "pt": null
+ },
+ "Foundry Inspector": {
+  "cost": "3",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "Artifact spells you cast cost {1} less to cast.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Fountain of Youth": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "{2}, {T}: You gain 1 life.",
+  "pt": null
+ },
+ "Grafdigger's Cage": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "Creature cards in graveyards and libraries can't enter the battlefield. Players can't cast spells from graveyards or libraries.",
+  "pt": null
+ },
+ "Grapeshot": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "Grapeshot deals 1 damage to any target. Storm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+  "pt": null
+ },
+ "Herbal Poultice": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "{3}, Sacrifice this artifact: Regenerate target creature.",
+  "pt": null
+ },
+ "Hurkyl's Recall": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Return all artifacts target player owns to their hand.",
+  "pt": null
+ },
+ "Infiltration Lens": {
+  "cost": "1",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Whenever equipped creature becomes blocked by a creature, you may draw two cards. Equip {1}",
+  "pt": null
+ },
+ "Inventors' Fair": {
+  "cost": "",
+  "type": "Legendary Land",
+  "text": "At the beginning of your upkeep, if you control three or more artifacts, you gain 1 life. {T}: Add {C}. {4}, {T}, Sacrifice Inventors' Fair: Search your library for an artifact card, reveal it, put it into your hand, then shuffle. Activate only if you control three or more artifacts.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Jhoira's Familiar": {
+  "cost": "4",
+  "type": "Artifact Creature \u2014 Bird",
+  "text": "Flying Historic spells you cast cost {1} less to cast. (Artifacts, legendaries, and Sagas are historic.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Jhoira, Weatherlight Captain": {
+  "cost": "2UR",
+  "type": "Legendary Creature \u2014 Human Artificer",
+  "text": "Whenever you cast a historic spell, draw a card. (Artifacts, legendaries, and Sagas are historic.)",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Kite Shield": {
+  "cost": "0",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +0/+3. Equip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Memnite": {
+  "cost": "0",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Mishra's Bauble": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "{T}, Sacrifice this artifact: Look at the top card of target player's library. Draw a card at the beginning of the next turn's upkeep.",
+  "pt": null
+ },
+ "Mists of L\u00f3rien": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Replicate {U} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.) Return target nonland permanent and each other nonland permanent with the same mana value as that permanent to their owners' hands.",
+  "pt": null
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Mystic Forge": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "You may look at the top card of your library any time. You may cast artifact spells and colorless spells from the top of your library. {T}, Pay 1 life: Exile the top card of your library.",
+  "pt": null
+ },
+ "Negate": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target noncreature spell.",
+  "pt": null
+ },
+ "Ornithopter": {
+  "cost": "0",
+  "type": "Artifact Creature \u2014 Thopter",
+  "text": "Flying",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Padeem, Consul of Innovation": {
+  "cost": "3U",
+  "type": "Legendary Creature \u2014 Vedalken Artificer",
+  "text": "Artifacts you control have hexproof. (They can't be the targets of spells or abilities your opponents control.) At the beginning of your upkeep, if you control the artifact with the greatest mana value or tied for the greatest mana value, draw a card.",
+  "pt": [
+   1,
+   4
+  ]
+ },
+ "Paradise Mantle": {
+  "cost": "0",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has \"{T}: Add one mana of any color.\" Equip {1}",
+  "pt": null
+ },
+ "Paradoxical Outcome": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Return any number of target nonland, nontoken permanents you control to their owners' hands. Draw a card for each card returned to your hand this way.",
+  "pt": null
+ },
+ "Pongify": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+  "pt": null
+ },
+ "Rapid Hybridization": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "pt": null
+ },
+ "Rebuild": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "Return all artifacts to their owners' hands. Cycling {2} ({2}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Reckless Fireweaver": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Artificer",
+  "text": "Whenever an artifact you control enters, this creature deals 1 damage to each opponent.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Reshape": {
+  "cost": "XUU",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact. Search your library for an artifact card with mana value X or less, put it onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Retract": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Return all artifacts you control to their owner's hand.",
+  "pt": null
+ },
+ "Reverse Engineer": {
+  "cost": "3UU",
+  "type": "Sorcery",
+  "text": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.) Draw three cards.",
+  "pt": null
+ },
+ "Shadowspear": {
+  "cost": "1",
+  "type": "Legendary Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +1/+1 and has trample and lifelink. {1}: Permanents your opponents control lose hexproof and indestructible until end of turn. Equip {2}",
+  "pt": null
+ },
+ "Shivan Reef": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}: Add {U} or {R}. This land deals 1 damage to you.",
+  "pt": null
+ },
+ "Silverbluff Bridge": {
+  "cost": "",
+  "type": "Artifact Land",
+  "text": "This land enters tapped. Indestructible {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Snap": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Return target creature to its owner's hand. Untap up to two lands.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Spellbook": {
+  "cost": "0",
+  "type": "Artifact \u2014 Book",
+  "text": "You have no maximum hand size.",
+  "pt": null
+ },
+ "Spidersilk Net": {
+  "cost": "0",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature gets +0/+2 and has reach. (It can block creatures with flying.) Equip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Stormcarved Coast": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control two or more other lands. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Sulfur Falls": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped unless you control an Island or a Mountain. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Teferi's Ageless Insight": {
+  "cost": "2UU",
+  "type": "Legendary Enchantment",
+  "text": "If you would draw a card except the first one you draw in each of your draw steps, draw two cards instead.",
+  "pt": null
+ },
+ "Temple of Epiphany": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.) {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "The Reality Chip": {
+  "cost": "1U",
+  "type": "Legendary Artifact Creature \u2014 Equipment Jellyfish",
+  "text": "You may look at the top card of your library any time. As long as The Reality Chip is attached to a creature, you may play lands and cast spells from the top of your library. Reconfigure {2}{U} ({2}{U}: Attach to target creature you control; or unattach from a creature. Reconfigure only as a sorcery. While attached, this isn't a creature.)",
+  "pt": [
+   0,
+   4
+  ]
+ },
+ "Tormod's Crypt": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "{T}, Sacrifice this artifact: Exile target player's graveyard.",
+  "pt": null
+ },
+ "Vedalken Archmage": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Vedalken Wizard",
+  "text": "Whenever you cast an artifact spell, draw a card.",
+  "pt": [
+   0,
+   2
+  ]
+ },
+ "Wayfarer's Bauble": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Welding Jar": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "Sacrifice this artifact: Regenerate target artifact.",
+  "pt": null
+ },
+ "Whir of Invention": {
+  "cost": "XUUU",
+  "type": "Instant",
+  "text": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.) Search your library for an artifact card with mana value X or less, put it onto the battlefield, then shuffle.",
+  "pt": null
+ },
+ "Windfall": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Each player discards their hand, then draws cards equal to the greatest number of cards a player discarded this way.",
+  "pt": null
+ },
+ "Witness Protection": {
+  "cost": "U",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature loses all abilities and is a green and white Citizen creature with base power and toughness 1/1 named Legitimate Businessperson. (It loses all other colors, card types, creature types, and names.)",
+  "pt": null
+ },
+ "Zuran Orb": {
+  "cost": "0",
+  "type": "Artifact",
+  "text": "Sacrifice a land: You gain 2 life.",
+  "pt": null
+ }
+}

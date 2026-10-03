@@ -1,0 +1,506 @@
+{
+ "Ancient Craving": {
+  "cost": "3B",
+  "type": "Sorcery",
+  "text": "You draw three cards and you lose 3 life.",
+  "pt": null
+ },
+ "Aphotic Wisps": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Target creature becomes black and gains fear until end of turn. (It can't be blocked except by artifact creatures and/or black creatures.) Draw a card.",
+  "pt": null
+ },
+ "Archaeomancer": {
+  "cost": "2UU",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "When this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Battle Hymn": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "Add {R} for each creature you control.",
+  "pt": null
+ },
+ "Bloodfell Caves": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {B} or {R}.",
+  "pt": null
+ },
+ "Bone to Ash": {
+  "cost": "2UU",
+  "type": "Instant",
+  "text": "Counter target creature spell. Draw a card.",
+  "pt": null
+ },
+ "Burnt Offering": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Add X mana in any combination of {B} and/or {R}, where X is the sacrificed creature's mana value.",
+  "pt": null
+ },
+ "Call to Mind": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Return target instant or sorcery card from your graveyard to your hand.",
+  "pt": null
+ },
+ "Cancel": {
+  "cost": "1UU",
+  "type": "Instant",
+  "text": "Counter target spell.",
+  "pt": null
+ },
+ "Cerulean Wisps": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature becomes blue until end of turn. Untap that creature. Draw a card.",
+  "pt": null
+ },
+ "Charcoal Diamond": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {B}.",
+  "pt": null
+ },
+ "Concentrate": {
+  "cost": "2UU",
+  "type": "Sorcery",
+  "text": "Draw three cards.",
+  "pt": null
+ },
+ "Counsel of the Soratami": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Draw two cards.",
+  "pt": null
+ },
+ "Crimson Wisps": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Target creature becomes red and gains haste until end of turn. (It can attack and {T} this turn.) Draw a card.",
+  "pt": null
+ },
+ "Crumbling Necropolis": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. {T}: Add {U}, {B}, or {R}.",
+  "pt": null
+ },
+ "Dark Banishing": {
+  "cost": "2B",
+  "type": "Instant",
+  "text": "Destroy target nonblack creature. It can't be regenerated.",
+  "pt": null
+ },
+ "Demonic Collusion": {
+  "cost": "3BB",
+  "type": "Sorcery",
+  "text": "Buyback\u2014Discard two cards. (You may discard two cards in addition to any other costs as you cast this spell. If you do, put this card into your hand as it resolves.) Search your library for a card, put that card into your hand, then shuffle.",
+  "pt": null
+ },
+ "Diabolic Revelation": {
+  "cost": "X3BB",
+  "type": "Sorcery",
+  "text": "Search your library for up to X cards, put those cards into your hand, then shuffle.",
+  "pt": null
+ },
+ "Dismal Backwater": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {B}.",
+  "pt": null
+ },
+ "Dismiss": {
+  "cost": "2UU",
+  "type": "Instant",
+  "text": "Counter target spell. Draw a card.",
+  "pt": null
+ },
+ "Divination": {
+  "cost": "2U",
+  "type": "Sorcery",
+  "text": "Draw two cards.",
+  "pt": null
+ },
+ "Dreamstone Hedron": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}{C}. {3}, {T}, Sacrifice this artifact: Draw three cards.",
+  "pt": null
+ },
+ "Empty the Warrens": {
+  "cost": "3R",
+  "type": "Sorcery",
+  "text": "Create two 1/1 red Goblin creature tokens. Storm (When you cast this spell, copy it for each spell cast before it this turn.)",
+  "pt": null
+ },
+ "Essence Scatter": {
+  "cost": "1U",
+  "type": "Instant",
+  "text": "Counter target creature spell.",
+  "pt": null
+ },
+ "Final Parting": {
+  "cost": "3BB",
+  "type": "Sorcery",
+  "text": "Search your library for two cards. Put one into your hand and the other into your graveyard. Then shuffle.",
+  "pt": null
+ },
+ "Fire Diamond": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {R}.",
+  "pt": null
+ },
+ "Firebrand Archer": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Archer",
+  "text": "Whenever you cast a noncreature spell, this creature deals 1 damage to each opponent.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Firemind Vessel": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add two mana of different colors.",
+  "pt": null
+ },
+ "Fleeting Distraction": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Target creature gets -1/-0 until end of turn. Draw a card.",
+  "pt": null
+ },
+ "Gateway Plaza": {
+  "cost": "",
+  "type": "Land \u2014 Gate",
+  "text": "This land enters tapped. When this land enters, sacrifice it unless you pay {1}. {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Grapeshot": {
+  "cost": "1R",
+  "type": "Sorcery",
+  "text": "Grapeshot deals 1 damage to any target. Storm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+  "pt": null
+ },
+ "Grixis Panorama": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {1}, {T}, Sacrifice this land: Search your library for a basic Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Guttersnipe": {
+  "cost": "2R",
+  "type": "Creature \u2014 Goblin Shaman",
+  "text": "Whenever you cast an instant or sorcery spell, this creature deals 2 damage to each opponent.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Hierophant's Chalice": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "When this artifact enters, target opponent loses 1 life and you gain 1 life. {T}: Add {C}.",
+  "pt": null
+ },
+ "Increasing Ambition": {
+  "cost": "4B",
+  "type": "Sorcery",
+  "text": "Search your library for a card and put that card into your hand. If this spell was cast from a graveyard, instead search your library for two cards and put those cards into your hand. Then shuffle. Flashback {7}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "pt": null
+ },
+ "Inner Fire": {
+  "cost": "3R",
+  "type": "Sorcery",
+  "text": "Add {R} for each card in your hand.",
+  "pt": null
+ },
+ "Inspiration": {
+  "cost": "3U",
+  "type": "Instant",
+  "text": "Target player draws two cards.",
+  "pt": null
+ },
+ "Island": {
+  "cost": "",
+  "type": "Basic Land \u2014 Island",
+  "text": "({T}: Add {U}.)",
+  "pt": null
+ },
+ "Jace, Wielder of Mysteries": {
+  "cost": "1UUU",
+  "type": "Legendary Planeswalker \u2014 Jace",
+  "text": "If you would draw a card while your library has no cards in it, you win the game instead. +1: Target player mills two cards. Draw a card. \u22128: Draw seven cards. Then if your library has no cards in it, you win the game. [Loyalty 4 \u2014 track via counters+notes]",
+  "pt": null
+ },
+ "Laboratory Maniac": {
+  "cost": "2U",
+  "type": "Creature \u2014 Human Wizard",
+  "text": "If you would draw a card while your library has no cards in it, you win the game instead.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Lay Bare": {
+  "cost": "2UU",
+  "type": "Instant",
+  "text": "Counter target spell. Look at its controller's hand.",
+  "pt": null
+ },
+ "Letter of Acceptance": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color. {2}, {T}, Sacrifice this artifact: Draw a card.",
+  "pt": null
+ },
+ "Maestros Theater": {
+  "cost": "",
+  "type": "Land",
+  "text": "When this land enters, sacrifice it. When you do, search your library for a basic Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+  "pt": null
+ },
+ "Magnifying Glass": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+  "pt": null
+ },
+ "Mana Geode": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "When this artifact enters, scry 1. {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Mana Geyser": {
+  "cost": "3RR",
+  "type": "Sorcery",
+  "text": "Add {R} for each tapped land your opponents control.",
+  "pt": null
+ },
+ "Manalith": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Mnemonic Wall": {
+  "cost": "4U",
+  "type": "Creature \u2014 Wall",
+  "text": "Defender When this creature enters, you may return target instant or sorcery card from your graveyard to your hand.",
+  "pt": [
+   0,
+   4
+  ]
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Obelisk of Grixis": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{T}: Add {U}, {B}, or {R}.",
+  "pt": null
+ },
+ "Opportunity": {
+  "cost": "4UU",
+  "type": "Instant",
+  "text": "Target player draws four cards.",
+  "pt": null
+ },
+ "Painful Lesson": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Target player draws two cards and loses 2 life.",
+  "pt": null
+ },
+ "Peek": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "Look at target player's hand. Draw a card.",
+  "pt": null
+ },
+ "Planar Portal": {
+  "cost": "6",
+  "type": "Artifact",
+  "text": "{6}, {T}: Search your library for a card, put that card into your hand, then shuffle.",
+  "pt": null
+ },
+ "Quicken": {
+  "cost": "U",
+  "type": "Instant",
+  "text": "The next sorcery spell you cast this turn can be cast as though it had flash. (It can be cast any time you could cast an instant.) Draw a card.",
+  "pt": null
+ },
+ "Razaketh's Rite": {
+  "cost": "3BB",
+  "type": "Sorcery",
+  "text": "Search your library for a card, put that card into your hand, then shuffle. Cycling {B} ({B}, Discard this card: Draw a card.)",
+  "pt": null
+ },
+ "Reach Through Mists": {
+  "cost": "U",
+  "type": "Instant \u2014 Arcane",
+  "text": "Draw a card.",
+  "pt": null
+ },
+ "Relearn": {
+  "cost": "1UU",
+  "type": "Sorcery",
+  "text": "Return target instant or sorcery card from your graveyard to your hand.",
+  "pt": null
+ },
+ "Rhystic Tutor": {
+  "cost": "2B",
+  "type": "Sorcery",
+  "text": "Unless any player pays {2}, search your library for a card, put that card into your hand, then shuffle.",
+  "pt": null
+ },
+ "Rograkh, Son of Rohgahh": {
+  "cost": "0",
+  "type": "Legendary Creature \u2014 Kobold Warrior",
+  "text": "First strike, menace, trample Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   0,
+   1
+  ]
+ },
+ "Rupture Spire": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, sacrifice it unless you pay {1}. {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Sacrifice": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice a creature. Add an amount of {B} equal to the sacrificed creature's mana value.",
+  "pt": null
+ },
+ "Sentinel Tower": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "Whenever an instant or sorcery spell is cast during your turn, this artifact deals damage to any target equal to 1 plus the number of instant and sorcery spells cast before that spell this turn.",
+  "pt": null
+ },
+ "Shimmering Grotto": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {1}, {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Silas Renn, Seeker Adept": {
+  "cost": "1UB",
+  "type": "Legendary Artifact Creature \u2014 Human",
+  "text": "Deathtouch Whenever Silas Renn deals combat damage to a player, choose target artifact card in your graveyard. You may cast that card this turn. Partner (You can have two commanders if both have partner.)",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Sip of Hemlock": {
+  "cost": "4BB",
+  "type": "Sorcery",
+  "text": "Destroy target creature. Its controller loses 2 life.",
+  "pt": null
+ },
+ "Sisay's Ring": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Sky Diamond": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {U}.",
+  "pt": null
+ },
+ "Songs of the Damned": {
+  "cost": "B",
+  "type": "Instant",
+  "text": "Add {B} for each creature card in your graveyard.",
+  "pt": null
+ },
+ "Spell Blast": {
+  "cost": "XU",
+  "type": "Instant",
+  "text": "Counter target spell with mana value X. (For example, if that spell's mana cost is {3}{U}{U}, X is 5.)",
+  "pt": null
+ },
+ "Sphinx-Bone Wand": {
+  "cost": "7",
+  "type": "Artifact",
+  "text": "Whenever you cast an instant or sorcery spell, you may put a charge counter on this artifact. If you do, this artifact deals damage equal to the number of charge counters on it to any target.",
+  "pt": null
+ },
+ "Swamp": {
+  "cost": "",
+  "type": "Basic Land \u2014 Swamp",
+  "text": "({T}: Add {B}.)",
+  "pt": null
+ },
+ "Swiftwater Cliffs": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, you gain 1 life. {T}: Add {U} or {R}.",
+  "pt": null
+ },
+ "Temple of the False God": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}{C}. Activate only if you control five or more lands.",
+  "pt": null
+ },
+ "Thermo-Alchemist": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Shaman",
+  "text": "Defender {T}: This creature deals 1 damage to each opponent. Whenever you cast an instant or sorcery spell, untap this creature.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Tidings": {
+  "cost": "3UU",
+  "type": "Sorcery",
+  "text": "Draw four cards.",
+  "pt": null
+ },
+ "Transguild Promenade": {
+  "cost": "",
+  "type": "Land",
+  "text": "This land enters tapped. When this land enters, sacrifice it unless you pay {1}. {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Twitch": {
+  "cost": "2U",
+  "type": "Instant",
+  "text": "You may tap or untap target artifact, creature, or land. Draw a card.",
+  "pt": null
+ },
+ "Unknown Shores": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {1}, {T}: Add one mana of any color.",
+  "pt": null
+ },
+ "Ur-Golem's Eye": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ }
+}

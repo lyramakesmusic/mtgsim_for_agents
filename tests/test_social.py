@@ -326,7 +326,7 @@ def test_the_turn_has_an_upkeep_phase(make_game):
 def test_a_seat_is_shown_its_own_deck_with_text_and_groups(make_game):
     """A player knows their own 99 and what each card does. Tutoring is the most
     information-hungry action in the game and seats were doing it blind."""
-    g = make_game(decknames=("rats", "orvar", "meren", "stella"))
+    g = make_game(decknames=("rats", "orvar", "meren", "tap_untap"))
     block = g._decklist_block(g.p[0])
 
     assert "[protect the king!!]" in block, "the builder's own grouping"
@@ -340,7 +340,7 @@ def test_a_deck_without_tags_lists_alphabetically(make_game, monkeypatch):
     import mtgsim.engine as engine
 
     monkeypatch.setattr(engine, "deck_tags", lambda name: {})
-    g = make_game(decknames=("rats", "orvar", "meren", "stella"))
+    g = make_game(decknames=("rats", "orvar", "meren", "tap_untap"))
     block = g._decklist_block(g.p[0])
     assert not block.lstrip().startswith("[")
     assert "Rat Colony x32" in block
@@ -410,3 +410,38 @@ def test_a_seat_can_say_someone_else_has_already_won(make_game):
     assert any("HAS ALREADY WON" in line for line in g.table)
     assert seen and "P3(squirrels)" in seen[0], seen[0][:160]
     assert "claims a rules-based win for P3(squirrels)" in seen[0]
+
+
+def test_an_offer_goes_around_the_table(make_game):
+    """Yume offers assist: each other seat answers in turn, the one who accepts taps its own
+    land for it, and the offering seat's turn goes on."""
+    from conftest import StubAgent
+
+    class Buyer(StubAgent):
+        def ask(self, prompt):
+            if "OFFER from" in prompt:
+                return ('{"choice":"I will pay 2 generic","effects":'
+                        '[{"set":{"id":"Island#901","tapped":true}}]}')
+            return '{"action":"pass"}'
+
+    class Shop(StubAgent):
+        def __init__(self):
+            super().__init__()
+            self.offered = False
+        def ask(self, prompt):
+            if "MAIN PHASE" in prompt and not self.offered:
+                self.offered = True
+                return '{"action":"offer","offer":"cover 2 generic on my spell and we both draw"}'
+            return '{"action":"pass"}'
+
+    g = make_game()
+    g.agents = [Shop(), Buyer(), StubAgent(), StubAgent()]
+    g.p[1].battlefield.append({"id": "Island#901", "name": "Island", "tapped": False, "sick": False,
+                               "counters": {}, "token": False, "pt": None, "owner": "P2"})
+    g.turn = 2
+    g.half_turn(0)
+    joined = "\n".join(g.table)
+    assert "offers the table: cover 2 generic" in joined
+    assert "P2(meren) answers: I will pay 2 generic" in joined
+    assert g.p[1].battlefield[-1]["tapped"] is True
+    assert sum("answers:" in l for l in g.table) == 3          # every other seat was asked

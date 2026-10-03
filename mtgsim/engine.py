@@ -34,8 +34,14 @@ Bookkeeping (visible state, applied verbatim):
      named card must actually be in the source zone.
   {"life":{"player":"P3","delta":-6}}          # damage and lifegain alike
   {"create":{"player":"self","name":"Drake","n":2,"pt":[2,2],"tapped":false,"counters":{"+1/+1":1}}}
+     creature tokens default to 1/1; Treasure, Food, Clue and the other artifact tokens have
+     no p/t, and "pt": null makes any other noncreature token
   {"set":{"id":"Scurry Oak#9","tapped":false,"sick":false,"counters":3,"pt":[5,5]}}
      counters is a DELTA; pt overrides base p/t (layers are your problem)
+  {"set":{"id":"Bear#3","pt_mod":[3,3],"until":"eot"}}   # Giant Growth
+     pt_mod adds to p/t; pt and pt_mod both take "until": "eot" (ends with this turn),
+     "next" (ends when your next turn begins) or "forever" (the default). The engine
+     reverts eot/next changes itself, so "until end of turn" effects need no cleanup.
   {"eliminate":{"player":"P3","reason":"Thassa's Oracle"}}
      self-elimination applies instantly; eliminating another seat gives that
      seat an accept/dispute vote (kitchen table, not the Pro Tour)
@@ -60,13 +66,24 @@ Hidden-information services (the engine executes these because agents can't):
    names/types/not_types/max_mv/min_mv; rest defaults to the library bottom in
    random order, "shuffle_rest":false to keep them in order.
 
+Loops are shortcuts, as at a real table: a sequence you can repeat is declared once, with the
+count and the end state ("activate Squirrel Girl 6 more times: 4 → 256 squirrels"), all its
+atoms in that one action. Each other seat gets one response window to the whole loop, and a
+response that breaks it stops the loop at the iteration where it lands, for you to report.
+
 Wins the engine can't see (Thassa's Oracle, Approach, demonstrated loops):
   {"action":"claim_win","how":"..."} → every other seat votes concede/dispute;
   unanimous concession ends the game. Or eliminate the table seat by seat.
   {"action":"claim_draw","how":"...","loop":"..."} → for a compulsory loop nobody
   can break: every other seat votes agree/dispute, unanimous agreement draws.
 
-Actions: play_land, cast, activate, attack, respond, block, claim_win, claim_draw, pass.
+Actions: play_land, cast, activate, attack, respond, block, offer, claim_win, claim_draw, pass.
+  offer: {"action":"offer","offer":"what you're putting to the table","to":["P2","P4"]}
+     opens a window for every other living seat (or just the ones in "to"), in turn order:
+     each answers in its own words and declares any cost it pays as its own atoms (tapping its
+     lands to help cast your spell, life, a card). Answers are public, then your turn goes on
+     knowing who took you up - assist, bids, trades, "who wants to chip in". The same thing is
+     an atom, {"offer":{...}}, for "each opponent may..." while something resolves.
   cast/activate carry "tap":[permanent ids] (mana payment; engine taps them)
   and "effects":[atoms] (all consequences, agent-declared).
   attack: {"attacks":{"P2":[attacker ids],"P4":[...]}, "vigilance":[ids] or true}
@@ -161,6 +178,7 @@ ACTIONS: {"action":"play_land","card":...,"tapped":bool} | {"action":"cast","car
   "from":"exile"|"graveyard"|"library",   # cascade, discover, foretell, flashback, escape,
                                           # impulse draws — omit it and hand/command zone is assumed
   "tapped":bool,"counters":{"+1/+1":N},   # how it ARRIVES: entering tapped, entering with counters
+  "control":"P2",                         # enters under another player's control (Captive Audience, donations)
 "targets":[permanent ids or seat handles],"effects":[...]} |
 {"action":"activate","source":id,"tap_source":bool,"tap":[ids],"effects":[...]} |
 {"action":"attack","attacks":{"P2":[attacker ids],...},"vigilance":[ids]} | {"action":"claim_win","how":"..."} |
@@ -217,6 +235,10 @@ nothing you don't:
  {"life":{"player":P,"delta":±N}}
  {"create":{"player":P,"name":...,"n":N,"pt":[p,t],"tapped":bool}}
  {"set":{"id":perm_id,"tapped":bool,"sick":bool,"counters":±delta,"pt":[p,t],"skip_untaps":N}}
+ {"set":{"id":perm_id,"pt_mod":[±p,±t],"until":"eot"|"next"|"forever"}}
+   pt_mod adds to p/t; "until" also works with "pt" (a creature that becomes a 1/1 until end
+   of turn). eot changes end with the turn, next ones when your next turn begins, and the
+   engine reverts both itself. forever (the default) is permanent.
  {"set":{"player":"self","counters":{"experience":1}}}   # counters the PLAYER has, not a
    permanent: experience, poison, energy. They stay when the permanent that gave
    them leaves — that is what experience counters are for.
@@ -295,6 +317,36 @@ def _counters(perm):
     return dict(c) if isinstance(c, dict) else {"+1/+1": int(c)}
 
 
+NONCREATURE_TOKENS = {"treasure", "food", "clue", "gold", "blood", "map", "powerstone", "incubator",
+                      "junk", "shard", "lander"}
+
+
+def pt_now(perm):
+    """Current (power, toughness): the base, or the latest temporary override, plus
+    +1/+1 and -1/-1 counters, plus temporary pt_mods. None for a noncreature.
+    perm["mods"] = [{"pt": [p,t]} | {"pt_mod": [dp,dt]}, "until": "eot"|"next", "seat": "P1"]"""
+    mods = perm.get("mods") or []
+    base = perm.get("pt")
+    for m in mods:
+        if m.get("pt"):
+            base = m["pt"]
+    if not base:
+        return None
+    plus = plus_counters(perm)
+    dp = sum(m["pt_mod"][0] for m in mods if m.get("pt_mod"))
+    dt = sum(m["pt_mod"][1] for m in mods if m.get("pt_mod"))
+    return (base[0] + plus + dp, base[1] + plus + dt)
+
+
+def mods_note(perm):
+    """' [+3/+3 until eot]' for each temporary p/t change, so every seat sees what will end."""
+    out = ""
+    for m in perm.get("mods") or []:
+        what = f"{m['pt_mod'][0]:+d}/{m['pt_mod'][1]:+d}" if m.get("pt_mod") else f"base {m['pt'][0]}/{m['pt'][1]}"
+        out += f" [{what} until " + ("end of turn" if m["until"] == "eot" else f"{m['seat']}'s next turn") + "]"
+    return out
+
+
 def plus_counters(perm):
     """What the counters named "+1/+1" and "-1/-1" do to printed power. With
     "stun", which spends itself at the untap step, those are the only counter
@@ -334,7 +386,7 @@ class Player:
 
 class Game:
     def __init__(self, db, decks, agents, seed, log_path, max_turns, rng, log_tail=60,
-                 judge_factory=None, console_private="all", max_actions=150):
+                 judge_factory=None, console_private="all", max_actions=150, append=False):
         """db: card-name -> {cost,type,text,pt}.
         decks: [(deckname, decklist, commanders)] for 2..4 seats.
         agents: objects with .ask(prompt)->str, index-aligned with decks."""
@@ -373,9 +425,11 @@ class Game:
         # only for those seats (their own draws), everyone else's stay hidden.
         self.console_private = console_private
         self.judge_agent = None
-        self.logf = open(log_path, "w")
-        self.eventsf = open(f"{log_path}.events.jsonl", "w")
-        self.log(f"# Pod: {', '.join(pl.name for pl in self.p)} — seed {seed} — {datetime.now()}\n")
+        # append: continue an existing game's log (a restart), header already written
+        self.logf = open(log_path, "a" if append else "w")
+        self.eventsf = open(f"{log_path}.events.jsonl", "a" if append else "w")
+        if not append:
+            self.log(f"# Pod: {', '.join(pl.name for pl in self.p)} — seed {seed} — {datetime.now()}\n")
 
     # ---------------- public table log ----------------
     def snapshot(self):
@@ -399,7 +453,7 @@ class Game:
                 "lands_played": pl.lands_played, "drew_this_turn": pl.drew_this_turn,
                 "spells_this_turn": pl.spells_this_turn,
                 "copies_this_turn": pl.copies_this_turn,
-                "command_zone": dict(pl.command_zone),
+                "command_zone": dict(pl.command_zone), "counters": dict(pl.counters),
                 "commanders": list(pl.commanders), "commander_tax": dict(pl.commander_tax),
                 "battlefield": [dict(x) for x in pl.battlefield],
             } for pl in self.p],
@@ -470,7 +524,7 @@ class Game:
                 out.append(f"{pl.name}: eliminated")
                 continue
             bf = "; ".join(
-                f"{x['id']}{'(' + str(x['pt'][0]+plus_counters(x)) + '/' + str(x['pt'][1]+plus_counters(x)) + ')' if x['pt'] else ''}"
+                f"{x['id']}{'(' + str(pt_now(x)[0]) + '/' + str(pt_now(x)[1]) + ')' if pt_now(x) else ''}"
                 f"{'[T]' if x['tapped'] else ''}{'[sick]' if x['sick'] else ''}"
                 for x in pl.battlefield) or "(empty)"
             cz = "; ".join(f"{c} " + (f"in CZ (tax +{pl.commander_tax[c]})"
@@ -936,8 +990,34 @@ class Game:
         if branch:
             self.apply_effects(i, branch)
 
-    ATOMS = ("move", "life", "create", "set", "draw", "copy", "counter", "ask", "standing", "fight",
-             "dig", "search", "shuffle", "look", "reveal", "random", "eliminate", "note")
+    def offer(self, i, o):
+        """Put something to the table; every other living seat (or the ones named in "to")
+        answers in turn order and pays for its own part with its own atoms.
+        o: {"offer": str, "to": [handles]?}  -> [(handle, answer)]"""
+        me = self.p[i]
+        what = str(o.get("offer") or o.get("question") or "?")[:600]
+        to = o.get("to")
+        seats = [pl for pl in self.others(i)
+                 if not to or pl.handle in to or pl.name in to]
+        self.log(f"{me.name} offers the table: {what}")
+        answers = []
+        for pl in seats:
+            j = self.p.index(pl)
+            r = self.ask(j,
+                f"OFFER from {me.name}: {what} — answer in your own words: accept, decline, or "
+                f"counter. If you accept and it costs you something, declare that cost now as your "
+                f"own effect atoms (tap the lands you pay with, lose the life, discard the card). "
+                f'Reply {{"choice":"<your answer>","effects":[...],"table_talk":str?}}.',
+                schema_hint='{"choice":str,"effects":[...],"table_talk":str}')
+            answer = str(r.get("choice", "")).strip() or "(no answer)"
+            self.log(f"  ↳ {pl.name} answers: {answer}")
+            if r.get("effects"):
+                self.apply_effects(j, r.get("effects"))
+            answers.append((pl.handle, answer))
+        return answers
+
+    ATOMS = ("move", "life", "create", "set", "draw", "copy", "counter", "ask", "offer", "standing",
+             "fight", "dig", "search", "shuffle", "look", "reveal", "random", "eliminate", "note")
 
     def apply_effects(self, i, effects, depth=0):
         """Apply agent-declared atoms. Each atom is armored: a malformed one
@@ -979,13 +1059,19 @@ class Game:
         elif "create" in e:
             t = e["create"]
             tgt = self.resolve_player(i, t.get("player", "self")) or me
+            # a creature token defaults to 1/1; the standard artifact tokens have no p/t,
+            # and "pt": null says the same for anything else
+            name = t.get("name", "Token")
+            noncreature = str(name).split()[0].lower() in NONCREATURE_TOKENS
+            pt = t.get("pt", None if noncreature else (1, 1))
             for _ in range(int(t.get("n", 1))):
-                self.perm(tgt, t.get("name", "Token"), token=True,
-                          tapped=bool(t.get("tapped")), pt=tuple(t.get("pt", (1, 1))),
+                self.perm(tgt, name, token=True,
+                          tapped=bool(t.get("tapped")), pt=tuple(pt) if pt else None,
                           counters=t.get("counters"))
             self.log(f"  ↳ {tgt.name} creates {t.get('n',1)}x {t.get('name')} token(s)")
         elif "set" in e:
             s = e["set"]
+            me = self.p[i]
             if "player" in s and "id" not in s:
                 tgt = self.resolve_player(i, s.get("player", "self"))
                 if not tgt:
@@ -1040,18 +1126,37 @@ class Game:
             if "skip_untaps" in s:
                 perm["skip_untaps"] = max(0, int(s["skip_untaps"] or 0))
                 changes.append(f"skip_untaps={perm['skip_untaps']}")
-            if "pt" in s:
+            until = str(s.get("until") or "forever").lower()
+            if until not in ("eot", "next", "forever"):
+                self.log(f"  !! set: until {s.get('until')!r} isn't eot, next or forever; treating it as forever")
+                until = "forever"
+            if "pt" in s and until != "forever" and s["pt"]:
+                perm.setdefault("mods", []).append({"pt": list(s["pt"]), "until": until, "seat": me.handle})
+                changes.append(f"pt={s['pt']} until {until}")
+            elif "pt" in s:
                 # null is how a manland says it went back to being a land
                 perm["pt"] = tuple(s["pt"]) if s["pt"] else None
                 if not perm["pt"]:
                     perm["sick"] = False
                 changes.append(f"pt={s['pt']}")
+            if s.get("pt_mod"):
+                d = [int(v) for v in s["pt_mod"]]
+                if until == "forever":
+                    b = perm.get("pt") or (0, 0)
+                    perm["pt"] = (b[0] + d[0], b[1] + d[1])
+                else:
+                    perm.setdefault("mods", []).append({"pt_mod": d, "until": until, "seat": me.handle})
+                changes.append(f"{d[0]:+d}/{d[1]:+d}" + ("" if until == "forever" else f" until {until}"))
+                now = pt_now(perm)
+                if now:
+                    changes.append(f"now {now[0]}/{now[1]}")
             self.log(f"  ↳ {perm['id']}: {', '.join(changes) or 'no-op'}")
-            if perm["pt"] and perm["pt"][1] + plus_counters(perm) <= 0:
+            now = pt_now(perm)
+            if now and now[1] <= 0:
                 # the engine only knows printed pt plus counters, so it says so
                 # rather than acting — an anthem it hasn't been told about is
                 # the seat's to account for
-                self.log(f"  (note: {perm['id']} is at {perm['pt'][1] + plus_counters(perm)} "
+                self.log(f"  (note: {perm['id']} is at {now[1]} "
                          f"toughness — if nothing is holding it up it belongs in the graveyard)")
         elif "draw" in e:
             d = e["draw"]
@@ -1101,6 +1206,9 @@ class Game:
                 self.log(f"  !! counter: {tid!r} is not on the stack; no effect")
         elif "ask" in e:
             self._atom_ask(i, e["ask"])
+        elif "offer" in e:
+            o = e["offer"]
+            self.offer(i, o if isinstance(o, dict) else {"offer": o})
         elif "standing" in e:
             st = e["standing"]
             src = str(st.get("source") or "")
@@ -1128,7 +1236,7 @@ class Game:
         elif "damage" in e or "fight" in e:
             def hit(perm, n, why):
                 perm["damage"] = perm.get("damage", 0) + int(n)
-                tough = (perm["pt"][1] + plus_counters(perm)) if perm["pt"] else None
+                tough = pt_now(perm)[1] if pt_now(perm) else None
                 self.log(f"  ↳ {perm['id']} takes {n} damage{why}"
                          + (f" ({perm['damage']}/{tough})" if tough is not None else ""))
                 if tough is not None and perm["damage"] >= tough:
@@ -1142,8 +1250,8 @@ class Game:
                 if not a or not b:
                     self.log(f"  !! fight: can't find {f.get('a')!r} and/or {f.get('b')!r}; skipped")
                     return
-                pa = (a["pt"][0] + plus_counters(a)) if a["pt"] else 0
-                pb = (b["pt"][0] + plus_counters(b)) if b["pt"] else 0
+                pa = pt_now(a)[0] if pt_now(a) else 0
+                pb = pt_now(b)[0] if pt_now(b) else 0
                 self.log(f"  ↳ {a['id']} fights {b['id']}")
                 hit(b, pa, f" from {a['id']}")
                 hit(a, pb, f" from {b['id']}")
@@ -1417,9 +1525,15 @@ class Game:
                 self.log(f"  !! {len(gone)} of {c}'s targets gone at resolution "
                          f"({', '.join(gone)}) — caster resolves honestly against what remains")
         typ = self.db.get(c, {}).get("type", "")
+        dest = me
         if any(k in typ for k in ("Creature", "Artifact", "Enchantment", "Land")) \
                 and "Sorcery" not in typ and "Instant" not in typ:
-            self.perm(me, c, tapped=bool(a.get("tapped")), counters=a.get("counters"))
+            dest = self.resolve_player(i, a["control"]) if a.get("control") else me
+            if dest is None:
+                self.log(f"  !! cast: can't resolve controller {a['control']!r}; {c} enters under its caster")
+                dest = me
+            p = self.perm(dest, c, tapped=bool(a.get("tapped")), counters=a.get("counters"))
+            p["owner"] = me.handle
         else:
             me.graveyard.append(c)
         told = self._fresh_narration(a.get("narration"))
@@ -1430,6 +1544,8 @@ class Game:
             cap = self._card_caption(c)
             if cap:
                 self.log_private(cap)
+        if dest is not me:
+            self.log(f"  ↳ {c} enters under {dest.name}'s control (owner {me.handle})")
         self.apply_effects(i, a.get("effects"))
         return c
 
@@ -1519,7 +1635,7 @@ class Game:
             if plan.get("split_second"):
                 self.log(f"  ↳ {name} has split second (agent-declared; the table will check): "
                          f"no responses possible.")
-            elif depth >= 5:
+            elif depth >= self.STACK_DEPTH:
                 self.log(f"  !! stack depth cap reached — {obj['id']} gets no response windows")
             else:
                 responded = self._priority_rounds(obj, depth)
@@ -1570,6 +1686,9 @@ class Game:
             if obj in self.stack:
                 self.stack.remove(obj)
 
+    PRIORITY_ROUNDS = 100      # rotations of responses on one object: a runaway backstop, not a rule
+    STACK_DEPTH = 30           # nested responses that still get windows: a runaway backstop, not a rule
+
     def _priority_rounds(self, obj, depth):
         """Rotate priority until everyone passes on the current stack state.
         Any response recurses; after it fully resolves, the rotation restarts
@@ -1577,7 +1696,7 @@ class Game:
         each rotation — that is what holding priority means."""
         responded = False
         rounds = 0
-        while rounds < 4 and not obj["countered"]:
+        while rounds < self.PRIORITY_ROUNDS and not obj["countered"]:
             rounds += 1
             acted = False
             order = [self.p.index(pl) for pl in self.others(obj["caster"])] + [obj["caster"]]
@@ -1632,8 +1751,9 @@ class Game:
                 break                       # stack changed — restart the rotation
             if not acted:
                 break
-        if rounds >= 4:
-            self.log(f"  !! priority rounds cap on {obj['id']} — resolving")
+        if rounds >= self.PRIORITY_ROUNDS and not obj["countered"]:
+            self.log(f"  !! {self.PRIORITY_ROUNDS} rounds of responses on {obj['id']} — resolving it "
+                     f"(a repeatable loop goes in one action, as a shortcut)")
         return responded
 
     def do_action(self, i, a):
@@ -1648,12 +1768,15 @@ class Game:
         if act == "play_land":
             c = a.get("card")
             held = self.face(c, me.hand)
-            if held and me.lands_played < 2:   # Rites/etc: agent responsible; hard cap 2
+            if held:                            # extra drops (Explore, Rites, Azusa) are the seat's call
                 me.hand.remove(held)
                 me.lands_played += 1
                 tapped = bool(a.get("tapped"))
                 self.perm(me, c, tapped=tapped, counters=a.get("counters"))
                 self.log(f"{me.name} plays land: {c}" + (" (tapped)" if tapped else ""))
+                if me.lands_played > 1:
+                    self.log(f"  (land {me.lands_played} this turn — an extra land drop; the table checks "
+                             f"the effect that allows it)")
                 self.apply_effects(i, a.get("effects"))
             else:
                 self.log(f"  !! illegal/ignored land play by {me.name}: {c}")
@@ -1785,7 +1908,7 @@ class Game:
             out = []
             for x in pl.battlefield:
                 flags = "".join(("T" if x["tapped"] else "", "S" if x["sick"] else ""))
-                pt = f" {x['pt'][0]+plus_counters(x)}/{x['pt'][1]+plus_counters(x)}" if x["pt"] else ""
+                pt = (f" {pt_now(x)[0]}/{pt_now(x)[1]}" if pt_now(x) else "") + mods_note(x)
                 out.append(x["id"] + pt + (f"[{flags}]" if flags else "")
                            + "".join(f"[{k} {v}]" for k, v in _counters(x).items()))
             return ", ".join(out) or "(empty)"
@@ -1993,7 +2116,7 @@ class Game:
         def bf(pl):
             out = []
             for x in pl.battlefield:
-                pt = f" {x['pt'][0]+plus_counters(x)}/{x['pt'][1]+plus_counters(x)}" if x["pt"] else ""
+                pt = (f" {pt_now(x)[0]}/{pt_now(x)[1]}" if pt_now(x) else "") + mods_note(x)
                 flags = []
                 if x["tapped"]: flags.append("tapped")
                 if x["sick"]: flags.append("summoning-sick")
@@ -2103,9 +2226,24 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             pl.drew_this_turn = 0
             pl.spells_this_turn = 0
             pl.copies_this_turn = 0
-        for pl in self.p:                     # damage wears off at end of turn
+        later = []                            # "next" changes end once this turn has begun
+        for pl in self.p:                     # damage and until-end-of-turn changes wear off
             for x in pl.battlefield:
                 x["damage"] = 0
+                mods = x.get("mods") or []
+                gone = [m for m in mods if m["until"] == "eot" or (m["until"] == "next" and m["seat"] == me.handle)]
+                if gone:
+                    x["mods"] = [m for m in mods if m not in gone]
+                    if not x["mods"]:
+                        x.pop("mods")
+                    now = pt_now(x)
+                    what = ", ".join(f"{m['pt_mod'][0]:+d}/{m['pt_mod'][1]:+d}" if m.get("pt_mod") else f"base {m['pt'][0]}/{m['pt'][1]}"
+                                     for m in gone)
+                    line = f"  ({x['id']}: {what} ends" + (f" — now {now[0]}/{now[1]})" if now else ")")
+                    if any(m["until"] == "next" for m in gone):
+                        later.append(line)
+                    else:
+                        self.log(line)
         untapped = 0
         for x in me.battlefield:
             stun = _counters(x).get("stun", 0)
@@ -2131,6 +2269,8 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
         self.narrated.clear()
         self.log(f"\n## Turn {self.turn} — {me.name} — life: " +
                  ", ".join(f"{pl.handle} {pl.life}" for pl in self.p if pl.alive))
+        for line in later:
+            self.log(line)
         upkeep = self.ask(i, "UPKEEP — your turn has begun and you have not drawn yet. Declare "
                              "everything that triggers at the beginning of your upkeep or your draw "
                              "step (Braids, Howling Mine, Font of Mythos, Phyrexian Arena, cumulative "
@@ -2152,7 +2292,7 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
             plan = self.ask(i,
                 "It is your MAIN PHASE (pre- or post-combat as you prefer; the engine doesn't distinguish — "
                 "sequence responsibly). Give one action per protocol: play_land, cast, activate, attack, "
-                "claim_win, or pass (pass ends your turn). For cast/activate: name every permanent you tap "
+                "offer, claim_win, or pass (pass ends your turn). For cast/activate: name every permanent you tap "
                 "for mana in \"tap\" and declare every consequence as effect atoms. "
                 "For attack you may split attackers among players; only untapped, non-sick (or haste-granted, "
                 "justify in narration) creatures; attacking taps them unless vigilance (use set to untap). "
@@ -2211,6 +2351,9 @@ ORACLE TEXT (your hand + graveyard, all battlefields, all commanders):
                 continue
             if act == "attack":
                 self.combat(i, plan)
+                continue
+            if act == "offer":
+                self.offer(i, plan)
                 continue
             if act == "activate":
                 fx = plan.get("effects") or []

@@ -1,0 +1,491 @@
+{
+ "Aerial Extortionist": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Bird Soldier",
+  "text": "Flying Whenever this creature enters or deals combat damage to a player, exile up to one target nonland permanent. For as long as that card remains exiled, its owner may cast it. Whenever another player casts a spell from anywhere other than their hand, draw a card.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Angel of Serenity": {
+  "cost": "4WWW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying When this creature enters, you may exile up to three other target creatures from the battlefield and/or creature cards from graveyards. When this creature leaves the battlefield, return the exiled cards to their owners' hands.",
+  "pt": [
+   5,
+   6
+  ]
+ },
+ "Angel of the Ruins": {
+  "cost": "5WW",
+  "type": "Artifact Creature \u2014 Angel",
+  "text": "Flying When this creature enters, exile up to two target artifacts and/or enchantments. Plainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+  "pt": [
+   5,
+   7
+  ]
+ },
+ "Arcane Signet": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add one mana of any color in your commander's color identity.",
+  "pt": null
+ },
+ "Austere Command": {
+  "cost": "4WW",
+  "type": "Sorcery",
+  "text": "Choose two \u2014 \u2022 Destroy all artifacts. \u2022 Destroy all enchantments. \u2022 Destroy all creatures with mana value 3 or less. \u2022 Destroy all creatures with mana value 4 or greater.",
+  "pt": null
+ },
+ "Benevolent Offering": {
+  "cost": "3W",
+  "type": "Instant",
+  "text": "Choose an opponent. You and that player each create three 1/1 white Spirit creature tokens with flying. Choose an opponent. You gain 2 life for each creature you control and that player gains 2 life for each creature they control.",
+  "pt": null
+ },
+ "Bilbo's Gambit": {
+  "cost": "1W",
+  "type": "Instant",
+  "text": "Gift a Treasure (You may promise an opponent a gift as you cast this spell. If you do, they create a Treasure token before its other effects. It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\") Return target spell to its owner's hand. If the gift was promised, players can't cast spells this turn.",
+  "pt": null
+ },
+ "Canoptek Scarab Swarm": {
+  "cost": "4",
+  "type": "Artifact Creature \u2014 Insect",
+  "text": "Flying Feeder Mandibles \u2014 When this creature enters, exile target player's graveyard. For each artifact or land card exiled this way, create a 1/1 colorless Insect artifact creature token with flying.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Captain Marvel, Shooting Star": {
+  "cost": "5WW",
+  "type": "Legendary Creature \u2014 Human Kree Hero",
+  "text": "Flying Whenever Captain Marvel enters or attacks, exile up to one target creature. That creature's controller gains life equal to its power. Whenever a creature other than Captain Marvel is exiled from the battlefield, you gain life equal to its power.",
+  "pt": [
+   6,
+   6
+  ]
+ },
+ "Cityscape Leveler": {
+  "cost": "8",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "Trample When you cast this spell and whenever this creature attacks, destroy up to one target nonland permanent. Its controller creates a tapped Powerstone token. Unearth {8}",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Cleansing Nova": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Choose one \u2014 \u2022 Destroy all creatures. \u2022 Destroy all artifacts and enchantments.",
+  "pt": null
+ },
+ "Clever Concealment": {
+  "cost": "2WW",
+  "type": "Instant",
+  "text": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.) Any number of target nonland permanents you control phase out. (Treat them and anything attached to them as though they don't exist until your next turn.)",
+  "pt": null
+ },
+ "Curious Colossus": {
+  "cost": "5WW",
+  "type": "Creature \u2014 Giant Warrior",
+  "text": "When this creature enters, each creature target opponent controls loses all abilities, becomes a Coward in addition to its other types, and has base power and toughness 1/1.",
+  "pt": [
+   7,
+   7
+  ]
+ },
+ "Cut a Deal": {
+  "cost": "2W",
+  "type": "Sorcery",
+  "text": "Each opponent draws a card, then you draw a card for each opponent who drew a card this way.",
+  "pt": null
+ },
+ "Darksteel Mutation": {
+  "cost": "1W",
+  "type": "Enchantment \u2014 Aura",
+  "text": "Enchant creature Enchanted creature is an Insect artifact creature with base power and toughness 0/1 and has indestructible, and it loses all other abilities, card types, and creature types.",
+  "pt": null
+ },
+ "Dawn's Truce": {
+  "cost": "1W",
+  "type": "Instant",
+  "text": "Gift a card (You may promise an opponent a gift as you cast this spell. If you do, they draw a card before its other effects.) You and permanents you control gain hexproof until end of turn. If the gift was promised, permanents you control also gain indestructible until end of turn.",
+  "pt": null
+ },
+ "Dismantling Wave": {
+  "cost": "2W",
+  "type": "Sorcery",
+  "text": "For each opponent, destroy up to one target artifact or enchantment that player controls. Cycling {6}{W}{W} ({6}{W}{W}, Discard this card: Draw a card.) When you cycle this card, destroy all artifacts and enchantments.",
+  "pt": null
+ },
+ "Elesh Norn, Grand Cenobite": {
+  "cost": "5WW",
+  "type": "Legendary Creature \u2014 Phyrexian Praetor",
+  "text": "Vigilance Other creatures you control get +2/+2. Creatures your opponents control get -2/-2.",
+  "pt": [
+   4,
+   7
+  ]
+ },
+ "Elspeth Conquers Death": {
+  "cost": "3WW",
+  "type": "Enchantment \u2014 Saga",
+  "text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 Exile target permanent an opponent controls with mana value 3 or greater. II \u2014 Noncreature spells your opponents cast cost {2} more to cast until your next turn. III \u2014 Return target creature or planeswalker card from your graveyard to the battlefield. Put a +1/+1 counter or a loyalty counter on it.",
+  "pt": null
+ },
+ "Emeria Shepherd": {
+  "cost": "5WW",
+  "type": "Creature \u2014 Angel",
+  "text": "Flying Landfall \u2014 Whenever a land you control enters, you may return target nonland permanent card from your graveyard to your hand. If that land is a Plains, you may return that nonland permanent card to the battlefield instead.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Emrakul, the Promised End": {
+  "cost": "(13)",
+  "type": "Legendary Creature \u2014 Eldrazi",
+  "text": "This spell costs {1} less to cast for each card type among cards in your graveyard. When you cast this spell, you gain control of target opponent during that player's next turn. After that turn, that player takes an extra turn. Flying, trample, protection from instants",
+  "pt": [
+   13,
+   13
+  ]
+ },
+ "Erode": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Destroy target creature or planeswalker. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Everybody Lives!": {
+  "cost": "1W",
+  "type": "Instant",
+  "text": "All creatures gain hexproof and indestructible until end of turn. Players gain hexproof until end of turn. Players can't lose life this turn and players can't lose the game or win the game this turn.",
+  "pt": null
+ },
+ "Excavation Technique": {
+  "cost": "3W",
+  "type": "Sorcery",
+  "text": "Demonstrate (When you cast this spell, you may copy it. If you do, choose an opponent to also copy it. Players may choose new targets for their copies.) Destroy target nonland permanent. Its controller creates two Treasure tokens.",
+  "pt": null
+ },
+ "Expel the Interlopers": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Choose a number between 0 and 10. Destroy all creatures with power greater than or equal to the chosen number.",
+  "pt": null
+ },
+ "Fall of the First Civilization": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Saga",
+  "text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.) I \u2014 You and target opponent each draw two cards. II \u2014 Exile target artifact an opponent controls. III \u2014 Each player chooses three nonland permanents they control. Destroy all other nonland permanents.",
+  "pt": null
+ },
+ "Farewell": {
+  "cost": "4WW",
+  "type": "Sorcery",
+  "text": "Choose one or more \u2014 \u2022 Exile all artifacts. \u2022 Exile all creatures. \u2022 Exile all enchantments. \u2022 Exile all graveyards.",
+  "pt": null
+ },
+ "Final Showdown": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Spree (Choose one or more additional costs.) + {1} \u2014 All creatures lose all abilities until end of turn. + {1} \u2014 Choose a creature you control. It gains indestructible until end of turn. + {3}{W}{W} \u2014 Destroy all creatures.",
+  "pt": null
+ },
+ "Firemane Commando": {
+  "cost": "3W",
+  "type": "Creature \u2014 Angel Soldier",
+  "text": "Flying Whenever you attack with two or more creatures, draw a card. Whenever another player attacks with two or more creatures, they draw a card if none of those creatures attacked you.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Generous Gift": {
+  "cost": "2W",
+  "type": "Instant",
+  "text": "Destroy target permanent. Its controller creates a 3/3 green Elephant creature token.",
+  "pt": null
+ },
+ "Gleaming Splendor": {
+  "cost": "1W",
+  "type": "Enchantment",
+  "text": "Whenever an opponent draws their second card each turn, you create a Treasure token. {2}{W}: Two target players each draw a card.",
+  "pt": null
+ },
+ "Heliod's Intervention": {
+  "cost": "XWW",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Destroy X target artifacts and/or enchantments. \u2022 Target player gains twice X life.",
+  "pt": null
+ },
+ "Immortal Obligation": {
+  "cost": "1W",
+  "type": "Instant",
+  "text": "Return target creature card from an opponent's graveyard to the battlefield under their control with a duty counter on it. For as long as that creature has a duty counter on it, it is goaded, can't attack you or a permanent you control, and can't block creatures you control.",
+  "pt": null
+ },
+ "Jailbreak": {
+  "cost": "1W",
+  "type": "Sorcery",
+  "text": "Return target permanent card in an opponent's graveyard to the battlefield under their control. When that permanent enters, return up to one target permanent card with equal or lesser mana value from your graveyard to the battlefield.",
+  "pt": null
+ },
+ "Land Tax": {
+  "cost": "W",
+  "type": "Enchantment",
+  "text": "At the beginning of your upkeep, if an opponent controls more lands than you, you may search your library for up to three basic land cards, reveal them, put them into your hand, then shuffle.",
+  "pt": null
+ },
+ "Lightning Greaves": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.) Equip {0}",
+  "pt": null
+ },
+ "Loran of the Third Path": {
+  "cost": "2W",
+  "type": "Legendary Creature \u2014 Human Artificer",
+  "text": "Vigilance When Loran enters, destroy up to one target artifact or enchantment. {T}: You and target opponent each draw a card.",
+  "pt": [
+   2,
+   1
+  ]
+ },
+ "Love Song of Night and Day": {
+  "cost": "2W",
+  "type": "Enchantment \u2014 Saga",
+  "text": "Read ahead (Choose a chapter and start with that many lore counters. Add one after your draw step. Skipped chapters don't trigger. Sacrifice after III.) I \u2014 You and target opponent each draw two cards. II \u2014 Create a 1/1 white Bird creature token with flying. III \u2014 Put a +1/+1 counter on each of up to two target creatures.",
+  "pt": null
+ },
+ "Meteor Golem": {
+  "cost": "7",
+  "type": "Artifact Creature \u2014 Golem",
+  "text": "When this creature enters, destroy target nonland permanent an opponent controls.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Mother of Runes": {
+  "cost": "W",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "{T}: Target creature you control gains protection from the color of your choice until end of turn.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Ondu Inversion // Ondu Skyruins": {
+  "cost": "6WW",
+  "type": "Sorcery // Land",
+  "text": "Ondu Inversion: Destroy all nonland permanents. // Ondu Skyruins: This land enters tapped. {T}: Add {W}.",
+  "pt": null
+ },
+ "Overwhelming Splendor": {
+  "cost": "6WW",
+  "type": "Enchantment \u2014 Aura Curse",
+  "text": "Enchant player Creatures enchanted player controls lose all abilities and have base power and toughness 1/1. Enchanted player can't activate abilities that aren't mana abilities or loyalty abilities.",
+  "pt": null
+ },
+ "Path to Exile": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Pendant of Prosperity": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "This artifact enters under the control of an opponent of your choice. {2}, {T}: Draw a card, then you may put a land card from your hand onto the battlefield. This artifact's owner draws a card, then that player may put a land card from their hand onto the battlefield.",
+  "pt": null
+ },
+ "Perch Protection": {
+  "cost": "4WW",
+  "type": "Instant",
+  "text": "Gift an extra turn (You may promise an opponent a gift as you cast this spell. If you do, they take an extra turn after this one.) Create four 2/2 blue Bird creature tokens with flying. If the gift was promised, all permanents you control phase out, and until your next turn, your life total can't change and you gain protection from everything. Exile Perch Protection.",
+  "pt": null
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Progenitor's Icon": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "As this artifact enters, choose a creature type. {T}: Add one mana of any color. {T}: The next spell of the chosen type you cast this turn can be cast as though it had flash.",
+  "pt": null
+ },
+ "Reverse the Sands": {
+  "cost": "6WW",
+  "type": "Sorcery",
+  "text": "Redistribute any number of players' life totals. (Each of those players gets one life total back.)",
+  "pt": null
+ },
+ "Rise of the Eldrazi": {
+  "cost": "9CCC",
+  "type": "Sorcery",
+  "text": "This spell can't be countered. Destroy target permanent. Target player draws four cards. Take an extra turn after this one. Exile Rise of the Eldrazi.",
+  "pt": null
+ },
+ "Secret Rendezvous": {
+  "cost": "1WW",
+  "type": "Sorcery",
+  "text": "You and target opponent each draw three cards.",
+  "pt": null
+ },
+ "Sejiri Shelter // Sejiri Glacier": {
+  "cost": "1W",
+  "type": "Instant // Land",
+  "text": "Sejiri Shelter: Target creature you control gains protection from the color of your choice until end of turn. // Sejiri Glacier: This land enters tapped. {T}: Add {W}.",
+  "pt": null
+ },
+ "Sol Ring": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Starfall Invocation": {
+  "cost": "3WW",
+  "type": "Sorcery",
+  "text": "Gift a card (You may promise an opponent a gift as you cast this spell. If you do, they draw a card before its other effects.) Destroy all creatures. If the gift was promised, return a creature card put into your graveyard this way to the battlefield under your control.",
+  "pt": null
+ },
+ "Strip Mine": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {T}, Sacrifice this land: Destroy target land.",
+  "pt": null
+ },
+ "Summon: Bahamut": {
+  "cost": "9",
+  "type": "Enchantment Creature \u2014 Saga Dragon",
+  "text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.) I, II \u2014 Destroy up to one target nonland permanent. III \u2014 Draw two cards. IV \u2014 Mega Flare \u2014 This creature deals damage equal to the total mana value of other permanents you control to each opponent. Flying",
+  "pt": [
+   9,
+   9
+  ]
+ },
+ "Summon: Yojimbo": {
+  "cost": "3W",
+  "type": "Enchantment Creature \u2014 Saga Samurai",
+  "text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.) I \u2014 Exile target artifact, enchantment, or tapped creature an opponent controls. II, III \u2014 Until your next turn, creatures can't attack you unless their controller pays {2} for each of those creatures. IV \u2014 Create X Treasure tokens, where X is the number of opponents who control a creature with power 4 or greater. Vigilance",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Swiftfoot Boots": {
+  "cost": "2",
+  "type": "Artifact \u2014 Equipment",
+  "text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.) Equip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "pt": null
+ },
+ "Swords to Plowshares": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller gains life equal to its power.",
+  "pt": null
+ },
+ "Tataru Taru": {
+  "cost": "1W",
+  "type": "Legendary Creature \u2014 Dwarf Advisor",
+  "text": "When Tataru Taru enters, you draw a card and target opponent may draw a card. Scions' Secretary \u2014 Whenever an opponent draws a card, if it isn't that player's turn, create a tapped Treasure token. This ability triggers only once each turn.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "The Legend of Yangchen // Avatar Yangchen": {
+  "cost": "3WW",
+  "type": "Enchantment \u2014 Saga // Legendary Creature \u2014 Avatar",
+  "text": "The Legend of Yangchen: (As this Saga enters and after your draw step, add a lore counter.) I \u2014 Starting with you, each player chooses up to one permanent with mana value 3 or greater from among permanents your opponents control. Exile those permanents. II \u2014 You may have target opponent draw three cards. If you do, draw three cards. III \u2014 Exile this Saga, then return it to the battlefield transformed under your control. // Avatar Yangchen: Flying Whenever you cast your second spell each turn, airbend up to one other target nonland permanent. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+  "pt": null
+ },
+ "The Sentry, Golden Guardian": {
+  "cost": "3W",
+  "type": "Legendary Creature \u2014 Human Hero",
+  "text": "Flying, vigilance, indestructible When The Sentry enters, target opponent creates The Void, a legendary 5/5 black Horror Villain creature token with flying, indestructible, and \"The Void attacks each combat if able.\"",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Thespian's Stage": {
+  "cost": "",
+  "type": "Land",
+  "text": "{T}: Add {C}. {2}, {T}: This land becomes a copy of target land, except it has this ability.",
+  "pt": null
+ },
+ "Throne of Eldraine": {
+  "cost": "5",
+  "type": "Legendary Artifact",
+  "text": "As Throne of Eldraine enters, choose a color. {T}: Add four mana of the chosen color. Spend this mana only to cast monocolored spells of that color. {3}, {T}: Draw two cards. Spend only mana of the chosen color to activate this ability.",
+  "pt": null
+ },
+ "Unwanted Remake": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Destroy target creature. Its controller manifests dread. (That player looks at the top two cards of their library, then puts one onto the battlefield face down as a 2/2 creature and the other into their graveyard. If it's a creature card, it can be turned face up any time for its mana cost.)",
+  "pt": null
+ },
+ "Vesuva": {
+  "cost": "",
+  "type": "Land",
+  "text": "You may have this land enter tapped as a copy of any land on the battlefield.",
+  "pt": null
+ },
+ "Victory Chimes": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Untap this artifact during each other player's untap step. {T}: A player of your choice adds {C}.",
+  "pt": null
+ },
+ "Wandering Archaic // Explore the Vastlands": {
+  "cost": "5",
+  "type": "Creature \u2014 Avatar // Sorcery",
+  "text": "Wandering Archaic: Whenever an opponent casts an instant or sorcery spell, they may pay {2}. If they don't, you may copy that spell. You may choose new targets for the copy. // Explore the Vastlands: Each player looks at the top five cards of their library and may reveal a land card and/or an instant or sorcery card from among them. Each player puts the cards they revealed this way into their hand and the rest on the bottom of their library in a random order. Each player gains 3 life.",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Wave of Reckoning": {
+  "cost": "4W",
+  "type": "Sorcery",
+  "text": "Each creature deals damage to itself equal to its power.",
+  "pt": null
+ },
+ "Witch Enchanter // Witch-Blessed Meadow": {
+  "cost": "3W",
+  "type": "Creature \u2014 Human Warlock // Land",
+  "text": "Witch Enchanter: When this creature enters, destroy target artifact or enchantment an opponent controls. // Witch-Blessed Meadow: As this land enters, you may pay 3 life. If you don't, it enters tapped. {T}: Add {W}.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Worn Powerstone": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "This artifact enters tapped. {T}: Add {C}{C}.",
+  "pt": null
+ },
+ "Yume, Chronicler of Valor": {
+  "cost": "1W",
+  "type": "Legendary Creature \u2014 Human Druid",
+  "text": "The first spell you cast during each of your turns has assist. When you cast that spell, if another player spent mana to cast it, you and that player each draw a card. (As you cast a spell with assist, you may choose another player. They may pay some or all of the generic mana in the spell's cost.)",
+  "pt": [
+   1,
+   2
+  ]
+ }
+}

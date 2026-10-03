@@ -1,0 +1,87 @@
+Commander
+1 Silas Renn, Seeker Adept
+1 Rograkh, Son of Rohgahh
+
+Deck
+1 Ancient Craving
+1 Aphotic Wisps
+1 Archaeomancer
+1 Battle Hymn
+1 Bloodfell Caves
+1 Bone to Ash
+1 Burnt Offering
+1 Call to Mind
+1 Cancel
+1 Cerulean Wisps
+1 Charcoal Diamond
+1 Concentrate
+1 Counsel of the Soratami
+1 Crimson Wisps
+1 Crumbling Necropolis
+1 Dark Banishing
+1 Demonic Collusion
+1 Diabolic Revelation
+1 Dismal Backwater
+1 Dismiss
+1 Divination
+1 Dreamstone Hedron
+1 Empty the Warrens
+1 Essence Scatter
+1 Final Parting
+1 Fire Diamond
+1 Firebrand Archer
+1 Firemind Vessel
+1 Fleeting Distraction
+1 Gateway Plaza
+1 Grapeshot
+1 Grixis Panorama
+1 Guttersnipe
+1 Hierophant's Chalice
+1 Increasing Ambition
+1 Inner Fire
+1 Inspiration
+10 Island
+1 Jace, Wielder of Mysteries
+1 Laboratory Maniac
+1 Lay Bare
+1 Letter of Acceptance
+1 Maestros Theater
+1 Magnifying Glass
+1 Mana Geode
+1 Mana Geyser
+1 Manalith
+1 Mnemonic Wall
+5 Mountain
+1 Obelisk of Grixis
+1 Opportunity
+1 Painful Lesson
+1 Peek
+1 Planar Portal
+1 Quicken
+1 Razaketh's Rite
+1 Reach Through Mists
+1 Relearn
+1 Rhystic Tutor
+1 Rupture Spire
+1 Sacrifice
+1 Sentinel Tower
+1 Shimmering Grotto
+1 Sip of Hemlock
+1 Sisay's Ring
+1 Sky Diamond
+1 Songs of the Damned
+1 Spell Blast
+1 Sphinx-Bone Wand
+8 Swamp
+1 Swiftwater Cliffs
+1 Temple of the False God
+1 Thermo-Alchemist
+1 Tidings
+1 Transguild Promenade
+1 Twitch
+1 Unknown Shores
+1 Ur-Golem's Eye
+
+//strategy: this is a cedh deck and you are a cedh player. the format is about efficiency, interaction and speed. use your fast mana to accelerate, hold up countermagic, never tap out into an opposing counterspell, and win on the stack if you can. your win is laboratory maniac - tutor for it, draw your deck with your turbo draw package, and win through interaction. protect your combo turn. respect the pod.
+//personality: a cedh grinder. talks in stack jargon, takes every spell deadly seriously, calls out "priority" and "in response", treats cancel like force of will.
+//scouting: cedh. rog/silas.

@@ -1,0 +1,509 @@
+{
+ "Academy Manufactor": {
+  "cost": "3",
+  "type": "Artifact Creature \u2014 Assembly-Worker",
+  "text": "If you would create a Clue, Food, or Treasure token, instead create one of each.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Arcane Encyclopedia": {
+  "cost": "3",
+  "type": "Artifact \u2014 Book",
+  "text": "{3}, {T}: Draw a card.",
+  "pt": null
+ },
+ "Basalt Monolith": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "This artifact doesn't untap during your untap step. {T}: Add {C}{C}{C}. {3}: Untap this artifact.",
+  "pt": null
+ },
+ "Big Score": {
+  "cost": "3R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, discard a card. Draw two cards and create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Blasphemous Act": {
+  "cost": "8R",
+  "type": "Sorcery",
+  "text": "This spell costs {1} less to cast for each creature on the battlefield. Blasphemous Act deals 13 damage to each creature.",
+  "pt": null
+ },
+ "Blind Obedience": {
+  "cost": "1W",
+  "type": "Enchantment",
+  "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.) Artifacts and creatures your opponents control enter tapped.",
+  "pt": null
+ },
+ "Brass's Bounty": {
+  "cost": "6R",
+  "type": "Sorcery",
+  "text": "For each land you control, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Captain Lannery Storm": {
+  "cost": "2R",
+  "type": "Legendary Creature \u2014 Human Pirate",
+  "text": "Haste Whenever Captain Lannery Storm attacks, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\") Whenever you sacrifice a Treasure, Captain Lannery Storm gets +1/+0 until end of turn.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Captivating Crew": {
+  "cost": "3R",
+  "type": "Creature \u2014 Human Pirate",
+  "text": "{3}{R}: Gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn. Activate only as a sorcery.",
+  "pt": [
+   4,
+   3
+  ]
+ },
+ "Chaos Warp": {
+  "cost": "2R",
+  "type": "Instant",
+  "text": "The owner of target permanent shuffles it into their library, then reveals the top card of their library. If it's a permanent card, they put it onto the battlefield.",
+  "pt": null
+ },
+ "Chrome Dome": {
+  "cost": "2",
+  "type": "Artifact Creature \u2014 Robot Ninja",
+  "text": "Other artifact creatures you control get +1/+0. {5}: Create a token that's a copy of another target artifact you control. That token gains haste. Sacrifice it at the beginning of the next end step.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Cityscape Leveler": {
+  "cost": "8",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "Trample When you cast this spell and whenever this creature attacks, destroy up to one target nonland permanent. Its controller creates a tapped Powerstone token. Unearth {8}",
+  "pt": [
+   8,
+   8
+  ]
+ },
+ "Clock of Omens": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "Tap two untapped artifacts you control: Untap target artifact.",
+  "pt": null
+ },
+ "Crackle with Power": {
+  "cost": "XXXRR",
+  "type": "Sorcery",
+  "text": "Crackle with Power deals five times X damage to each of up to X targets.",
+  "pt": null
+ },
+ "Cursed Mirror": {
+  "cost": "2R",
+  "type": "Artifact",
+  "text": "{T}: Add {R}. As this artifact enters, you may have it become a copy of any creature on the battlefield until end of turn, except it has haste.",
+  "pt": null
+ },
+ "Demand Answers": {
+  "cost": "1R",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, sacrifice an artifact or discard a card. Draw two cards.",
+  "pt": null
+ },
+ "Disenchant": {
+  "cost": "1W",
+  "type": "Instant",
+  "text": "Destroy target artifact or enchantment.",
+  "pt": null
+ },
+ "Feldon of the Third Path": {
+  "cost": "1RR",
+  "type": "Legendary Creature \u2014 Human Artificer",
+  "text": "{2}{R}, {T}: Create a token that's a copy of target creature card in your graveyard, except it's an artifact in addition to its other types. It gains haste. Sacrifice it at the beginning of the next end step.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Gleaming Splendor": {
+  "cost": "1W",
+  "type": "Enchantment",
+  "text": "Whenever an opponent draws their second card each turn, you create a Treasure token. {2}{W}: Two target players each draw a card.",
+  "pt": null
+ },
+ "Glory": {
+  "cost": "3WW",
+  "type": "Creature \u2014 Incarnation",
+  "text": "Flying {2}{W}: Choose a color. Creatures you control gain protection from the chosen color until end of turn. Activate only if this card is in your graveyard.",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Gl\u00f3in, Dwarf Emissary": {
+  "cost": "2R",
+  "type": "Legendary Creature \u2014 Dwarf Advisor",
+  "text": "Whenever you cast a historic spell, create a Treasure token. This ability triggers only once each turn. (Artifacts, legendaries, and Sagas are historic.) {T}, Sacrifice a Treasure: Goad target creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+  "pt": [
+   3,
+   3
+  ]
+ },
+ "Goblin Engineer": {
+  "cost": "1R",
+  "type": "Creature \u2014 Goblin Artificer",
+  "text": "When this creature enters, you may search your library for an artifact card, put it into your graveyard, then shuffle. {R}, {T}, Sacrifice an artifact: Return target artifact card with mana value 3 or less from your graveyard to the battlefield.",
+  "pt": [
+   1,
+   2
+  ]
+ },
+ "Goldspan Dragon": {
+  "cost": "3RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying, haste Whenever this creature attacks or becomes the target of a spell, create a Treasure token. Treasures you control have \"{T}, Sacrifice this artifact: Add two mana of any one color.\"",
+  "pt": [
+   4,
+   4
+  ]
+ },
+ "Hellkite Tyrant": {
+  "cost": "4RR",
+  "type": "Creature \u2014 Dragon",
+  "text": "Flying, trample Whenever this creature deals combat damage to a player, gain control of all artifacts that player controls. At the beginning of your upkeep, if you control twenty or more artifacts, you win the game.",
+  "pt": [
+   6,
+   5
+  ]
+ },
+ "Idol of Oblivion": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Draw a card. Activate only if you created a token this turn. {8}, {T}, Sacrifice this artifact: Create a 10/10 colorless Eldrazi creature token.",
+  "pt": null
+ },
+ "Kuldotha Forgemaster": {
+  "cost": "5",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "{T}, Sacrifice three artifacts: Search your library for an artifact card, put it onto the battlefield, then shuffle.",
+  "pt": [
+   3,
+   5
+  ]
+ },
+ "Liquimetal Torque": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{T}: Add {C}. {T}: Target nonland permanent becomes an artifact in addition to its other types until end of turn.",
+  "pt": null
+ },
+ "Mana Tithe": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Counter target spell unless its controller pays {1}.",
+  "pt": null
+ },
+ "Mangara of Corondor": {
+  "cost": "1WW",
+  "type": "Legendary Creature \u2014 Human Wizard",
+  "text": "{T}: Exile Mangara and target permanent.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Mimic Vat": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Imprint \u2014 Whenever a nontoken creature dies, you may exile that card. If you do, return each other card exiled with this artifact to its owner's graveyard. {3}, {T}: Create a token that's a copy of a card exiled with this artifact. It gains haste. Exile it at the beginning of the next end step.",
+  "pt": null
+ },
+ "Mind's Eye": {
+  "cost": "5",
+  "type": "Artifact",
+  "text": "Whenever an opponent draws a card, you may pay {1}. If you do, draw a card.",
+  "pt": null
+ },
+ "Mirage Mirror": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{2}: This artifact becomes a copy of target artifact, creature, enchantment, or land until end of turn.",
+  "pt": null
+ },
+ "Monologue Tax": {
+  "cost": "2W",
+  "type": "Enchantment",
+  "text": "Whenever an opponent casts their second spell each turn, you create a Treasure token.",
+  "pt": null
+ },
+ "Moonsilver Key": {
+  "cost": "2",
+  "type": "Artifact",
+  "text": "{1}, {T}, Sacrifice this artifact: Search your library for an artifact card with a mana ability or a basic land card, reveal it, put it into your hand, then shuffle.",
+  "pt": null
+ },
+ "Mother of Runes": {
+  "cost": "W",
+  "type": "Creature \u2014 Human Cleric",
+  "text": "{T}: Target creature you control gains protection from the color of your choice until end of turn.",
+  "pt": [
+   1,
+   1
+  ]
+ },
+ "Mountain": {
+  "cost": "",
+  "type": "Basic Land \u2014 Mountain",
+  "text": "({T}: Add {R}.)",
+  "pt": null
+ },
+ "Oread of Mountain's Blaze": {
+  "cost": "1R",
+  "type": "Enchantment Creature \u2014 Nymph",
+  "text": "{2}{R}, Discard a card: Draw a card.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Oswald Fiddlebender": {
+  "cost": "1W",
+  "type": "Legendary Creature \u2014 Gnome Artificer",
+  "text": "Magical Tinkering \u2014 {W}, {T}, Sacrifice an artifact: Search your library for an artifact card with mana value equal to 1 plus the sacrificed artifact's mana value, put it onto the battlefield, then shuffle. Activate only as a sorcery.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Palladium Myr": {
+  "cost": "3",
+  "type": "Artifact Creature \u2014 Myr",
+  "text": "{T}: Add {C}{C}.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Path to Exile": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "pt": null
+ },
+ "Plains": {
+  "cost": "",
+  "type": "Basic Land \u2014 Plains",
+  "text": "({T}: Add {W}.)",
+  "pt": null
+ },
+ "Powerbalance": {
+  "cost": "RR",
+  "type": "Enchantment",
+  "text": "Whenever an opponent casts a spell, you may reveal the top card of your library. If you do, you may cast that card without paying its mana cost if the two spells have the same mana value.",
+  "pt": null
+ },
+ "Professional Face-Breaker": {
+  "cost": "2R",
+  "type": "Creature \u2014 Human Warrior",
+  "text": "Menace Whenever one or more creatures you control deal combat damage to a player, create a Treasure token. Sacrifice a Treasure: Exile the top card of your library. You may play that card this turn.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Prototype Portal": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "Imprint \u2014 When this artifact enters, you may exile an artifact card from your hand. {X}, {T}: Create a token that's a copy of the exiled card. X is the mana value of that card.",
+  "pt": null
+ },
+ "Pyroblast": {
+  "cost": "R",
+  "type": "Instant",
+  "text": "Choose one \u2014 \u2022 Counter target spell if it's blue. \u2022 Destroy target permanent if it's blue.",
+  "pt": null
+ },
+ "Queen Kayla bin-Kroog": {
+  "cost": "1RW",
+  "type": "Legendary Creature \u2014 Human Noble",
+  "text": "{4}, {T}: Discard all the cards in your hand, then draw that many cards. You may choose an artifact or creature card with mana value 1 you discarded this way, then do the same for artifact or creature cards with mana values 2 and 3. Return those cards to the battlefield. Activate only as a sorcery.",
+  "pt": [
+   2,
+   3
+  ]
+ },
+ "Quicksmith Genius": {
+  "cost": "2R",
+  "type": "Creature \u2014 Human Artificer",
+  "text": "Whenever an artifact you control enters, you may discard a card. If you do, draw a card.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Rain of Riches": {
+  "cost": "3RR",
+  "type": "Enchantment",
+  "text": "When this enchantment enters, create two Treasure tokens. The first spell you cast each turn that mana from a Treasure was spent to cast has cascade. (When you cast the spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+  "pt": null
+ },
+ "Reckless Fireweaver": {
+  "cost": "1R",
+  "type": "Creature \u2014 Human Artificer",
+  "text": "Whenever an artifact you control enters, this creature deals 1 damage to each opponent.",
+  "pt": [
+   1,
+   3
+  ]
+ },
+ "Retrofitter Foundry": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{3}: Untap this artifact. {2}, {T}: Create a 1/1 colorless Servo artifact creature token. {1}, {T}, Sacrifice a Servo: Create a 1/1 colorless Thopter artifact creature token with flying. {T}, Sacrifice a Thopter: Create a 4/4 colorless Construct artifact creature token.",
+  "pt": null
+ },
+ "Rings of Brighthearth": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "Whenever you activate an ability, if it isn't a mana ability, you may pay {2}. If you do, copy that ability. You may choose new targets for the copy.",
+  "pt": null
+ },
+ "Scavenger Grounds": {
+  "cost": "",
+  "type": "Land \u2014 Desert",
+  "text": "{T}: Add {C}. {2}, {T}, Sacrifice a Desert: Exile all graveyards.",
+  "pt": null
+ },
+ "Seize the Spoils": {
+  "cost": "2R",
+  "type": "Sorcery",
+  "text": "As an additional cost to cast this spell, discard a card. Draw two cards and create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Sensei's Divining Top": {
+  "cost": "1",
+  "type": "Artifact",
+  "text": "{1}: Look at the top three cards of your library, then put them back in any order. {T}: Draw a card, then put this artifact on top of its owner's library.",
+  "pt": null
+ },
+ "Shivan Devastator": {
+  "cost": "XR",
+  "type": "Creature \u2014 Dragon Hydra",
+  "text": "Flying, haste This creature enters with X +1/+1 counters on it.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Smothering Tithe": {
+  "cost": "3W",
+  "type": "Enchantment",
+  "text": "Whenever an opponent draws a card, that player may pay {2}. If the player doesn't, you create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Soul Foundry": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "Imprint \u2014 When this artifact enters, you may exile a creature card from your hand. {X}, {T}: Create a token that's a copy of the exiled card. X is the mana value of that card.",
+  "pt": null
+ },
+ "Staff of Domination": {
+  "cost": "3",
+  "type": "Artifact",
+  "text": "{1}: Untap this artifact. {2}, {T}: You gain 1 life. {3}, {T}: Untap target creature. {4}, {T}: Tap target creature. {5}, {T}: Draw a card.",
+  "pt": null
+ },
+ "Steel Hellkite": {
+  "cost": "6",
+  "type": "Artifact Creature \u2014 Dragon",
+  "text": "Flying {2}: This creature gets +1/+0 until end of turn. {X}: Destroy each nonland permanent with mana value X whose controller was dealt combat damage by this creature this turn. Activate only once each turn.",
+  "pt": [
+   5,
+   5
+  ]
+ },
+ "Storm-Kiln Artist": {
+  "cost": "3R",
+  "type": "Creature \u2014 Dwarf Shaman",
+  "text": "This creature gets +1/+0 for each artifact you control. Magecraft \u2014 Whenever you cast or copy an instant or sorcery spell, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Swords to Plowshares": {
+  "cost": "W",
+  "type": "Instant",
+  "text": "Exile target creature. Its controller gains life equal to its power.",
+  "pt": null
+ },
+ "Tataru Taru": {
+  "cost": "1W",
+  "type": "Legendary Creature \u2014 Dwarf Advisor",
+  "text": "When Tataru Taru enters, you draw a card and target opponent may draw a card. Scions' Secretary \u2014 Whenever an opponent draws a card, if it isn't that player's turn, create a tapped Treasure token. This ability triggers only once each turn.",
+  "pt": [
+   0,
+   3
+  ]
+ },
+ "Trading Post": {
+  "cost": "4",
+  "type": "Artifact",
+  "text": "{1}, {T}, Discard a card: You gain 4 life. {1}, {T}, Pay 1 life: Create a 0/1 white Goat creature token. {1}, {T}, Sacrifice a creature: Return target artifact card from your graveyard to your hand. {1}, {T}, Sacrifice an artifact: Draw a card.",
+  "pt": null
+ },
+ "Treasure Vault": {
+  "cost": "",
+  "type": "Artifact Land",
+  "text": "{T}: Add {C}. {X}{X}, {T}, Sacrifice this land: Create X Treasure tokens.",
+  "pt": null
+ },
+ "Unexpected Windfall": {
+  "cost": "2RR",
+  "type": "Instant",
+  "text": "As an additional cost to cast this spell, discard a card. Draw two cards and create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "pt": null
+ },
+ "Voltaic Construct": {
+  "cost": "4",
+  "type": "Artifact Creature \u2014 Golem Construct",
+  "text": "{2}: Untap target artifact creature.",
+  "pt": [
+   2,
+   2
+  ]
+ },
+ "Walking Ballista": {
+  "cost": "XX",
+  "type": "Artifact Creature \u2014 Construct",
+  "text": "This creature enters with X +1/+1 counters on it. {4}: Put a +1/+1 counter on this creature. Remove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+  "pt": [
+   0,
+   0
+  ]
+ },
+ "Wrath of God": {
+  "cost": "2WW",
+  "type": "Sorcery",
+  "text": "Destroy all creatures. They can't be regenerated.",
+  "pt": null
+ },
+ "Xorn": {
+  "cost": "2R",
+  "type": "Creature \u2014 Elemental",
+  "text": "If you would create one or more Treasure tokens, instead create those tokens plus an additional Treasure token.",
+  "pt": [
+   3,
+   2
+  ]
+ },
+ "Zirda, the Dawnwaker": {
+  "cost": "1(R/W)(R/W)",
+  "type": "Legendary Creature \u2014 Elemental Fox",
+  "text": "Companion \u2014 Each permanent card in your starting deck has an activated ability. (If this card is your chosen companion, you may put it into your hand from outside the game for {3} as a sorcery.) Abilities you activate that aren't mana abilities cost {2} less to activate. This effect can't reduce the mana in that cost to less than one mana. {1}, {T}: Target creature can't block this turn.",
+  "pt": [
+   3,
+   3
+  ]
+ }
+}
