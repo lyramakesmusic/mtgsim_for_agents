@@ -65,6 +65,7 @@ a browser front end for the same games: set up a pod, watch it play out live as 
 - **branch**: from any moment in a replay, restart the game from there with fresh or cloned minds.
 - **decks**: every deck with its record, curve, colors, and your tag groups as a card grid. drop a moxfield / archidekt link into the new deck banner (tags come with the link) or paste a list from the clipboard button, then name it on its page. drop screenshots of your tags on a deck and claude reads them in.
 - **settings**: default agents and models, codex effort and tier, turn caps, and viewer preferences.
+- **sharing**: `uv run web/server.py --public 8766` adds a second port to point a tunnel at (`tailscale funnel --bg 8766`). anyone with the link can watch games, replays, and decks; anything that changes something asks for the password in `.cache/web/auth.json`, once per browser.
 
 ## running a lot of games
 

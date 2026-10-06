@@ -37,8 +37,31 @@ export async function api(path, opts = {}) {
   const r = await fetch("/api/" + path, init);
   const ct = r.headers.get("Content-Type") || "";
   const data = ct.includes("json") ? await r.json() : await r.text();
+  if (r.status === 401 && data && data.auth && !opts.quiet && !opts._retried && await login()) return api(path, { ...opts, _retried: true });
   if (!r.ok) throw new Error((data && data.error) || `${r.status} ${r.statusText}`);
   return data;
+}
+
+// the public port asks once per browser; -> true once the password is accepted
+let loggingIn = null;
+function login() {
+  if (loggingIn) return loggingIn;
+  loggingIn = new Promise((resolve) => {
+    let done = false;
+    const finish = (ok) => { if (!done) { done = true; loggingIn = null; resolve(ok); } };
+    const pw = h("input.login-pw", { type: "password", placeholder: "password", autocomplete: "current-password" });
+    const err = h("div.login-err");
+    const go = async () => {
+      const r = await fetch("/api/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: pw.value }) });
+      if (r.ok) { finish(true); m.close(); return; }
+      err.textContent = "wrong password"; pw.select();
+    };
+    pw.addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
+    const m = modal(h("div.dialog.login", h("h3", "password"), h("div.login-row", pw, h("button.btn", { onclick: go }, "unlock")), err),
+      { onClose: () => finish(false) });
+    setTimeout(() => pw.focus(), 30);
+  });
+  return loggingIn;
 }
 
 export const slug = (name) => String(name).replace(/[^\p{L}\p{N}_]+/gu, "_").replace(/^_+|_+$/g, "").toLowerCase();
@@ -125,9 +148,9 @@ export function markdown(src) {
 }
 
 // modal / drawer host: -> {close}
-export function modal(content, { side = false } = {}) {
+export function modal(content, { side = false, onClose = null } = {}) {
   const back = h("div.modal-back" + (side ? ".side" : ""));
-  const close = () => { back.classList.add("out"); setTimeout(() => back.remove(), 180); document.removeEventListener("keydown", esc); };
+  const close = () => { if (onClose) onClose(); back.classList.add("out"); setTimeout(() => back.remove(), 180); document.removeEventListener("keydown", esc); };
   const esc = (e) => { if (e.key === "Escape") close(); };
   back.addEventListener("pointerdown", (e) => { if (e.target === back) close(); });
   document.addEventListener("keydown", esc);

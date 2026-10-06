@@ -3,12 +3,17 @@
 
   uv run web/server.py              # http://127.0.0.1:8765
   uv run web/server.py --port 9000 --open
+  uv run web/server.py --public 8766   # + a public port (for tailscale funnel): anyone can
+                                       #   watch; changes need the password in .cache/web/auth.json
 
 Games run as `play.py` subprocesses writing games/<id>.md + .events.jsonl, the same
 files the CLI writes; this server tails and compiles them. Stdlib only.
 """
 import argparse
 import gzip
+import hashlib
+import hmac
+import secrets
 import json
 import os
 import re
@@ -750,8 +755,29 @@ def agents_info():
 
 
 # ------------------------------------------------------------------ http
+def password():
+    """The public port's password: .cache/web/auth.json, made on first use."""
+    f = CACHE / "auth.json"
+    if not f.exists():
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(json.dumps({"password": secrets.token_urlsafe(9)}))
+        f.chmod(0o600)
+    return json.loads(f.read_text())["password"]
+
+
+def auth_cookie():
+    return hashlib.sha256(("mtgsim-web:" + password()).encode()).hexdigest()
+
+
 class Handler(BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
+    public = False                  # PublicHandler: reached through the funnel
+
+    def authed(self):
+        if not self.public:
+            return True
+        jar = dict(c.strip().split("=", 1) for c in (self.headers.get("Cookie") or "").split(";") if "=" in c)
+        return hmac.compare_digest(jar.get("mtgsim_auth", ""), auth_cookie())
 
     def log_message(self, fmt, *args):
         if args and str(args[1])[:1] in "45":
@@ -772,8 +798,7 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(body)
 
     def _json_body(self):
-        n = int(self.headers.get("Content-Length") or 0)
-        return json.loads(self.rfile.read(n) or b"{}") if n else {}
+        return json.loads(self._raw or b"{}")
 
     def do_GET(self):
         self._route("GET")
@@ -788,6 +813,9 @@ class Handler(BaseHTTPRequestHandler):
         self._route("DELETE")
 
     def _route(self, method):
+        # the whole body, read up front: a reply that never looks at it (a 401) must not leave
+        # it in a kept-alive connection to be parsed as the next request
+        self._raw = self.rfile.read(int(self.headers.get("Content-Length") or 0))
         url = urllib.parse.urlparse(self.path)
         path = urllib.parse.unquote(url.path)
         q = dict(urllib.parse.parse_qsl(url.query))
@@ -828,8 +856,17 @@ class Handler(BaseHTTPRequestHandler):
 
     def _api(self, method, parts, q):
         head, rest = parts[0], parts[1:]
+        if head == "login" and method == "POST":
+            if not hmac.compare_digest(str(self._json_body().get("password", "")), password()):
+                time.sleep(1)                       # a guess per second, per connection
+                return self._send(403, {"error": "wrong password"})
+            return self._send(200, {"ok": True}, headers={
+                "Set-Cookie": f"mtgsim_auth={auth_cookie()}; Path=/; Max-Age=31536000; HttpOnly; SameSite=Lax"
+                              + ("; Secure" if self.public else "")})
+        if not self.authed() and (method not in ("GET", "HEAD") or head == "usage"):
+            return self._send(401, {"error": "password", "auth": True})
         if head == "boot" and method == "GET":
-            return self._send(200, {"agents": agents_info(), "settings": settings(), "art": sorted(p.stem for p in ART.glob("*.jpg")),
+            return self._send(200, {"agents": agents_info(), "settings": settings(), "authed": self.authed(), "art": sorted(p.stem for p in ART.glob("*.jpg")),
                                     "decks": deck_names(),
                                     "commanders": {n: parse_decklist((DECK_DIR / f"{n}.txt").read_text())[1]
                                                    for n in deck_names()}})
@@ -916,8 +953,7 @@ class Handler(BaseHTTPRequestHandler):
                 if method == "POST":
                     return self._send(200, {"id": start_game(self._json_body())})
             if rest[0] == "import" and method == "POST":
-                n = int(self.headers.get("Content-Length") or 0)
-                raw = self.rfile.read(n)
+                raw = self._raw
                 if raw[:2] == b"\x1f\x8b":
                     raw = gzip.decompress(raw)
                 lines = [json.loads(l) for l in raw.decode().splitlines() if l.strip()]
@@ -1063,8 +1099,15 @@ if __name__ == "__main__":
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--open", action="store_true", help="open the browser")
+    ap.add_argument("--public", type=int, metavar="PORT",
+                    help="also serve on this port for the public (e.g. a tailscale funnel): read-only without the password")
     args = ap.parse_args()
     os.chdir(ROOT)                     # agent subprocesses (Q&A, postmortem) work from the repo root
+    if args.public:
+        pub = ThreadingHTTPServer(("127.0.0.1", args.public), type("PublicHandler", (Handler,), {"public": True}))
+        pub.daemon_threads = True
+        threading.Thread(target=pub.serve_forever, daemon=True).start()
+        print(f"mtgsim web, public: http://127.0.0.1:{args.public}/  password: {password()}")
     srv = ThreadingHTTPServer((args.host, args.port), Handler)
     srv.daemon_threads = True
     url = f"http://{args.host}:{args.port}/"

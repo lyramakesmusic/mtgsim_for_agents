@@ -27,7 +27,7 @@ function render(el) {
 }
 
 async function poll() {
-  try { latest = await api("usage"); } catch { return; }
+  try { latest = await api("usage", { quiet: true }); } catch { return; }   // the public port shows no bars
   for (const el of views) el.isConnected ? render(el) : views.delete(el);
 }
 
